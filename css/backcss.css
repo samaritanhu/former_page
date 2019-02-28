@@ -17,8 +17,8 @@
 	    position: absolute;
 	    top: 0px;
 	    left: 0px;
-	    height: 100vh;
-	    width: 100vw;
+	    height: 50vh;
+	    width: 50vw;
 	    overflow: hidden;
 	}
 	body.homepage > .overlay::before {
