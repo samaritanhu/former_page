@@ -1,0 +1,475 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<link rel="bookmark" type="image/x-icon" href="/img/carrot.ico">
+	<link rel="shortcut icon" href="/img/carrot.ico">
+	
+			    <title>
+    Fuma's gadget
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/css/mic_main.css">
+    <link rel="stylesheet" href="/css/dropdownMenu.css">
+    <meta name="keywords" content="miccall">
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css">
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg2.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css">
+<link rel="stylesheet" href="/css/typo.css">
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">GADGET</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special">
+            <ul class="menu links">
+			<!-- Homepage  主页  --> 
+			<li>
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Finance/">Finance</a></li><li><a class="category-link" href="/categories/Internship/">Internship</a></li><li><a class="category-link" href="/categories/Kaggle/">Kaggle</a></li><li><a class="category-link" href="/categories/Photograph/">Photograph</a>
+	                    </li></ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="友情链接">
+		                友情链接
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/project/" title="项目">
+		                项目
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/samaritanhu" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main">
+            <div class="post_page_title_img" style="height: 25rem;background-image: url(https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1557075135621&amp;di=7ec37b087e993bd061d5eb4a28309538&amp;imgtype=0&amp;src=http%3A%2F%2Fimg3.doubanio.com%2Flpic%2Fs27200196.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;">
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2>Random Forest Classification from the bottom layer</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <p>import packages we need</p>
+<pre><code>import random
+import numpy as np
+import sys
+</code></pre><p>The feature list is an array of the possible feature indicies to use. This prevents splitting on the same feature multiple times and runs a rough C45 algorithm.</p>
+<p>In pseudocode, the general algorithm for building decision trees is:</p>
+<p>1.Check for base cases<br>2.For each attribute a<br>3.Find the normalized information gain ratio from splitting on a<br>4.Let a_best be the attribute with the highest normalized information gain<br>5.Create a decision node that splits on a_best<br>6.Recur on the sublists obtained by splitting on a_best, and add those nodes as children of node</p>
+<pre><code>class TreeNode:
+    &quot;&quot;&quot;docstring for treeNode&quot;&quot;&quot;
+    def __init__(self, dataSet, featureList, parent=None):
+        self.featureNumber = None  #This is the trained index of the feature to split on
+        self.featureList = featureList 
+        self.threshold = None     #This is the trained threshold of the feature to split on
+        self.leftChild = None
+        self.rightChild = None
+        self.dataSet = dataSet
+        self.parent = parent
+
+    def c45Train(self):
+        #Base Cases:
+
+        #All instances in dataSet are the same
+        if(self.dataSet.isPure()):
+            #gets the label of the first data instance and makes a leaf node
+            #classifying it. 
+            label = self.dataSet.getData()[0].getLabel()
+            leaf = LeafNode(label)
+            return leaf
+        #If there are no more features in the feature list
+        if len(self.featureList) == 0:
+            labels = self.dataSet.getLabelStatistics()
+            bestLabel = None
+            mostTimes = 0
+
+            for key in labels:
+                if labels[key] &gt; mostTimes:
+                    bestLabel = key
+                    mostTimes = labels[key]
+            #Make the leaf node with the best label
+            leaf = LeafNode(bestLabel)
+            return leaf
+
+        #Check all of the features for the split with the most 
+        #information gain. Use that split.
+        currentEntropy = self.dataSet.getEntropy()
+        currentLength = self.dataSet.getLength()
+        infoGain = -1 * sys.maxsize
+        bestFeature = 0
+        bestLeft = None
+        bestRight = None
+        bestThreshold = 0
+
+        #Feature Bagging, Random subspace
+        num = int(np.ceil(np.sqrt(len(self.featureList))))
+        featureSubset = random.sample(self.featureList, num)
+
+        for featureIndex in featureSubset:
+            #Calculate the threshold to use for that feature
+            threshold = self.dataSet.betterThreshold(featureIndex)
+
+            (leftSet, rightSet) = self.dataSet.splitOn(featureIndex, threshold)
+
+            leftEntropy = leftSet.getEntropy()
+            rightEntropy = rightSet.getEntropy()
+            #Weighted entropy for this split
+            newEntropy = (leftSet.getLength() / currentLength) * leftEntropy + (rightSet.getLength() / currentLength) * rightEntropy
+            #Calculate the gain for this test
+            newIG = currentEntropy - newEntropy
+
+            if(newIG &gt; infoGain):
+                #Update the best stuff
+                infoGain = newIG
+                bestLeft = leftSet
+                bestRight = rightSet
+                bestFeature = featureIndex
+                bestThreshold = threshold
+
+        newFeatureList = list(self.featureList)
+        newFeatureList.remove(bestFeature)
+
+        #Another base case, if there are no good features to split on
+        if bestLeft.getLength() == 0 or bestRight.getLength() == 0:
+            labels = self.dataSet.getLabelStatistics()
+            bestLabel = None
+            mostTimes = 0
+
+            for key in labels:
+                if labels[key] &gt; mostTimes:
+                    bestLabel = key
+                    mostTimes = labels[key]
+            #Make the leaf node with the best label
+            leaf = LeafNode(bestLabel)
+            return leaf
+
+        self.threshold = bestThreshold
+        self.featureNumber = bestFeature
+
+        leftChild = TreeNode(bestLeft, newFeatureList, self)
+        rightChild = TreeNode(bestRight, newFeatureList, self)
+
+        self.leftChild = leftChild.c45Train()
+        self.rightChild = rightChild.c45Train()
+
+        return self
+
+    def __str__(self):
+        return str(self.featureList)
+
+    def __repr__(self):
+        return self.__str__()
+
+    def classify(self, sample):
+        &apos;&apos;&apos;
+        Recursivly traverse the tree to classify the sample that is passed in. 
+        &apos;&apos;&apos;
+
+        value = sample.getFeatures()[self.featureNumber]
+
+        if(value &lt; self.threshold):
+            #Continue down the left child    
+            return self.leftChild.classify(sample)
+
+        else:
+            #continue down the right child
+            return self.rightChild.classify(sample)
+
+
+class LeafNode:
+    &apos;&apos;&apos;
+    A leaf node is a node that just has a classification 
+    and is used to cap off a tree.
+    &apos;&apos;&apos;
+
+    def __init__(self, classification):
+        self.classification = classification
+
+    def classify(self, sample):
+        #A leaf node simply is a classification, return that
+        #This is the base case of the classify recursive function for TreeNodes
+        return self.classification
+
+
+class C45Tree:
+    &apos;&apos;&apos;
+    A tree contains a root node and from here
+    does the training and classification. Tree objects also
+    are responsible for having the data that they use to train.
+    &apos;&apos;&apos;
+
+    def __init__(self, data):
+        self.rootNode = None
+        self.data = data
+
+    def train(self):
+        &apos;&apos;&apos;
+        Trains a decision tree classifier on data set passed in. 
+        The data set should contain a good mix of each class to be
+        classified.
+        &apos;&apos;&apos;
+        length = self.data.getFeatureLength()
+        featureIndices = range(length)
+        self.rootNode = TreeNode(self.data, featureIndices)
+        self.rootNode.c45Train()
+
+    def classify(self, sample):
+        &apos;&apos;&apos;
+        Classify a sample based off of this trained tree.
+        &apos;&apos;&apos;
+
+        return self.rootNode.classify(sample)
+</code></pre><p>Then we introduce the RandomForest algorithm</p>
+<pre><code>from C45Tree import C45Tree
+
+
+class RandomForest(object):
+    &quot;&quot;&quot;A random forest object with the default of using a C45Tree 
+    for each of the trees in the random forest. To train the forest
+    create an instance of it then call train on a TraingData object&quot;&quot;&quot;
+    def __init__(self, data, numberOfTrees=100):
+        &apos;&apos;&apos;
+        Initialize the random forest. 
+        Each tree has a bag of the data associated with it.
+        &apos;&apos;&apos;
+        self.data = data    #The data that the trees will be trained on
+        self.numberOfTrees = numberOfTrees
+        self.forest = []
+
+        for i in range(numberOfTrees):
+            bag = data.getBag()
+            self.forest.append(C45Tree(bag))
+
+    def train(self):
+        &apos;&apos;&apos;
+        Train the random forest trees.
+        &apos;&apos;&apos;
+        for tree in self.forest:
+            tree.train()
+
+    def classify(self, sample):
+        &apos;&apos;&apos;
+        Classify a data sample by polling the trees.
+        &apos;&apos;&apos;
+
+        #Create an empty dictionary
+        votes = {}
+        #Tally the votes, for each tree classify the sample
+        for tree in self.forest:
+            label = tree.classify(sample)
+            if label in votes:
+                votes[label] += 1
+            else:
+                votes[label] = 1
+
+        bestLabel = None
+        mostTimes = 0
+        #Find the label with the most votes
+        for key in votes:
+            if votes[key] &gt; mostTimes:
+                bestLabel = key
+                mostTimes = votes[key]
+
+        #Return the most popular label
+        return bestLabel      
+</code></pre>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://nobugs.dev/2019/05/05/RandomForest/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://nobugs.dev/2019/05/05/RandomForest/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
