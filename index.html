@@ -181,50 +181,42 @@
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
+        <li class="menu-item menu-item-homepage">
           <a href="/" rel="section">
             
-            首页
+            homepage
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-about">
+        <li class="menu-item menu-item-resume">
           <a href="/about" rel="section">
             
-            关于
+            resume
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-archive">
           <a href="/archives" rel="section">
             
-            归档
+            archive
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-works">
+        <li class="menu-item menu-item-projects">
           <a href="/" rel="section">
             
-            作品集
+            projects
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friends">
+          <a href="/group" rel="section">
+            
+            friends
           </a>
         </li>
       
@@ -322,6 +314,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web-Scrawler/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -346,7 +349,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  562
                 </span>
               
 
@@ -362,7 +365,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -385,7 +388,428 @@
       
         
           
+            <h3 id="Web-Scrawler-is-dangerous"><a href="#Web-Scrawler-is-dangerous" class="headerlink" title="Web Scrawler is dangerous"></a>Web Scrawler is dangerous</h3><p>First and foremost, do not touch web scrawler if you are 100% sure that you wanna do this.</p>
+<h3 id="Beginning"><a href="#Beginning" class="headerlink" title="Beginning"></a>Beginning</h3><p>The target website is enlightent, a third-party data website which have data of my company and component. </p>
+<p>We need to do some background research first. The problems I encountered are listed:</p>
+<ul>
+<li>Need to log in with WeChat account by QR code</li>
+<li>Simulate click (by package selenium)</li>
+<li>It’s a dynamic website, you need to wait for its information loaded (by package time)</li>
+<li>Write into MySQL (by package Pymysql)</li>
+</ul>
+<h3 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h3><h5 id="First-problem-cannot-be-solve-due-to-the-security-of-WeChat"><a href="#First-problem-cannot-be-solve-due-to-the-security-of-WeChat" class="headerlink" title="First problem cannot be solve due to the security of WeChat."></a>First problem cannot be solve due to the security of WeChat.</h5><h5 id="Second-problem"><a href="#Second-problem" class="headerlink" title="Second problem"></a>Second problem</h5><p>Step 1: Find the pattern in html. Using chrome, just ctrl+u or ctrl+shift+i. It needs your patience to find the thing you want. If you mistaken the pattern, you cannot get the information you want</p>
+<p>Step 2: Choose the function: by_path or by_class. The tricky point is that if there is only one class, it’s okay to use by_class, if there are more than two classes, selenium would choose the first class as your output. As a result, I choose by_path</p>
+<p>Step 3: Install chrome driver according to your chrome version. Be sure to download into /anaconda3/lib/site-packages.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选择日榜</span></span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">driver.find_elements_by_id(<span class="string">"rank-date-btn"</span>)[<span class="number">0</span>].click()</span><br><span class="line"><span class="comment"># 选择换年份</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_class_name(<span class="string">"datepicker-switch"</span>).click()</span><br><span class="line"><span class="comment"># 选择目标月份</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># driver.find_element_by_class_name("month").click()</span></span><br><span class="line">month_url = <span class="string">"/html/body/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div/div/div[2]/table/tbody/tr/td/span[%s]"</span> % (l+<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_xpath(month_url).click()</span><br><span class="line"><span class="comment"># 选择目标日期</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># day = driver.find_element_by_class_name("day").click()</span></span><br><span class="line">xpath = <span class="string">"/html/body/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div/div/div/table/tbody/tr[%d]/td[%d]"</span> % ((start_date) // <span class="number">7</span> + <span class="number">1</span>, (start_date) % <span class="number">7</span> + <span class="number">1</span>)</span><br><span class="line">driver.find_element_by_xpath(xpath).click()</span><br><span class="line"><span class="comment"># 点击确定</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_id(<span class="string">"choose-rank"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="Third-Problem-Data-Processing"><a href="#Third-Problem-Data-Processing" class="headerlink" title="Third Problem: Data Processing"></a>Third Problem: Data Processing</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">album_separately = string_list[j][string_list[j].find(<span class="string">'data-name='</span>):string_list[j].find(<span class="string">'data-channeltype="tv"'</span>)]</span><br><span class="line"><span class="keyword">if</span> j != <span class="number">0</span>: </span><br><span class="line">    album.append(album_separately.replace(<span class="string">'data-name='</span>,<span class="string">''</span>).replace(<span class="string">'"'</span>,<span class="string">''</span>))</span><br><span class="line">percentage_separately = string_list[j][string_list[j].find(<span class="string">'&lt;td class="sort rank-playTimesPredicted active" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;'</span>)]</span><br><span class="line">percentage.append(percentage_separately.replace(<span class="string">'&lt;td class="sort rank-playTimesPredicted active" style=""&gt;&lt;span&gt;'</span>,<span class="string">''</span>))</span><br><span class="line">click_separately = string_list[j][string_list[j].find(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;span class="star-playtimes"&gt;'</span>)]</span><br><span class="line"><span class="keyword">if</span> len(click_separately) &gt;= <span class="number">10</span>:</span><br><span class="line">    click_separately = string_list[j][string_list[j].find(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;/td&gt;&lt;td class="rank-average m-change" style=""&gt;'</span>)]</span><br><span class="line">click.append(click_separately.replace(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>,<span class="string">''</span>).replace(<span class="string">'&lt;/span&gt;&lt;span class="star-playtimes"&gt;'</span>,<span class="string">''</span>))</span><br></pre></td></tr></table></figure>
+<h5 id="Fourth-problem-Log-into-your-MySQL-and-use-python-like-MySQL"><a href="#Fourth-problem-Log-into-your-MySQL-and-use-python-like-MySQL" class="headerlink" title="Fourth problem: Log into your MySQL and use python like MySQL!"></a>Fourth problem: Log into your MySQL and use python like MySQL!</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db = DB(<span class="string">'your database'</span>)</span><br><span class="line">db.insert(dataset)</span><br></pre></td></tr></table></figure>
+<h3 id="Take-Care-Be-sure-to-add-time-sleep-when-you-do-it"><a href="#Take-Care-Be-sure-to-add-time-sleep-when-you-do-it" class="headerlink" title="Take Care! Be sure to add time.sleep() when you do it!"></a>Take Care! Be sure to add time.sleep() when you do it!</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/05/05/RandomForest/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fuma's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/05/RandomForest/" itemprop="url">Random Forest Classification from the bottom layer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
             
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T21:36:03+08:00">
+                2019-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kaggle/" itemprop="url" rel="index">
+                    <span itemprop="name">Kaggle</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kaggle/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  936
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>import packages we need</p>
+<pre><code>import random
+import numpy as np
+import sys
+</code></pre><p>The feature list is an array of the possible feature indicies to use. This prevents splitting on the same feature multiple times and runs a rough C45 algorithm.</p>
+<p>In pseudocode, the general algorithm for building decision trees is:</p>
+<p>1.Check for base cases<br>2.For each attribute a<br>3.Find the normalized information gain ratio from splitting on a<br>4.Let a_best be the attribute with the highest normalized information gain<br>5.Create a decision node that splits on a_best<br>6.Recur on the sublists obtained by splitting on a_best, and add those nodes as children of node</p>
+<pre><code>class TreeNode:
+    &quot;&quot;&quot;docstring for treeNode&quot;&quot;&quot;
+    def __init__(self, dataSet, featureList, parent=None):
+        self.featureNumber = None  #This is the trained index of the feature to split on
+        self.featureList = featureList 
+        self.threshold = None     #This is the trained threshold of the feature to split on
+        self.leftChild = None
+        self.rightChild = None
+        self.dataSet = dataSet
+        self.parent = parent
+
+    def c45Train(self):
+        #Base Cases:
+
+        #All instances in dataSet are the same
+        if(self.dataSet.isPure()):
+            #gets the label of the first data instance and makes a leaf node
+            #classifying it. 
+            label = self.dataSet.getData()[0].getLabel()
+            leaf = LeafNode(label)
+            return leaf
+        #If there are no more features in the feature list
+        if len(self.featureList) == 0:
+            labels = self.dataSet.getLabelStatistics()
+            bestLabel = None
+            mostTimes = 0
+
+            for key in labels:
+                if labels[key] &gt; mostTimes:
+                    bestLabel = key
+                    mostTimes = labels[key]
+            #Make the leaf node with the best label
+            leaf = LeafNode(bestLabel)
+            return leaf
+
+        #Check all of the features for the split with the most 
+        #information gain. Use that split.
+        currentEntropy = self.dataSet.getEntropy()
+        currentLength = self.dataSet.getLength()
+        infoGain = -1 * sys.maxsize
+        bestFeature = 0
+        bestLeft = None
+        bestRight = None
+        bestThreshold = 0
+
+        #Feature Bagging, Random subspace
+        num = int(np.ceil(np.sqrt(len(self.featureList))))
+        featureSubset = random.sample(self.featureList, num)
+
+        for featureIndex in featureSubset:
+            #Calculate the threshold to use for that feature
+            threshold = self.dataSet.betterThreshold(featureIndex)
+
+            (leftSet, rightSet) = self.dataSet.splitOn(featureIndex, threshold)
+
+            leftEntropy = leftSet.getEntropy()
+            rightEntropy = rightSet.getEntropy()
+            #Weighted entropy for this split
+            newEntropy = (leftSet.getLength() / currentLength) * leftEntropy + (rightSet.getLength() / currentLength) * rightEntropy
+            #Calculate the gain for this test
+            newIG = currentEntropy - newEntropy
+
+            if(newIG &gt; infoGain):
+                #Update the best stuff
+                infoGain = newIG
+                bestLeft = leftSet
+                bestRight = rightSet
+                bestFeature = featureIndex
+                bestThreshold = threshold
+
+        newFeatureList = list(self.featureList)
+        newFeatureList.remove(bestFeature)
+
+        #Another base case, if there are no good features to split on
+        if bestLeft.getLength() == 0 or bestRight.getLength() == 0:
+            labels = self.dataSet.getLabelStatistics()
+            bestLabel = None
+            mostTimes = 0
+
+            for key in labels:
+                if labels[key] &gt; mostTimes:
+                    bestLabel = key
+                    mostTimes = labels[key]
+            #Make the leaf node with the best label
+            leaf = LeafNode(bestLabel)
+            return leaf
+
+        self.threshold = bestThreshold
+        self.featureNumber = bestFeature
+
+        leftChild = TreeNode(bestLeft, newFeatureList, self)
+        rightChild = TreeNode(bestRight, newFeatureList, self)
+
+        self.leftChild = leftChild.c45Train()
+        self.rightChild = rightChild.c45Train()
+
+        return self
+
+    def __str__(self):
+        return str(self.featureList)
+
+    def __repr__(self):
+        return self.__str__()
+
+    def classify(self, sample):
+        &apos;&apos;&apos;
+        Recursivly traverse the tree to classify the sample that is passed in. 
+        &apos;&apos;&apos;
+
+        value = sample.getFeatures()[self.featureNumber]
+
+        if(value &lt; self.threshold):
+            #Continue down the left child    
+            return self.leftChild.classify(sample)
+
+        else:
+            #continue down the right child
+            return self.rightChild.classify(sample)
+
+
+class LeafNode:
+    &apos;&apos;&apos;
+    A leaf node is a node that just has a classification 
+    and is used to cap off a tree.
+    &apos;&apos;&apos;
+
+    def __init__(self, classification):
+        self.classification = classification
+
+    def classify(self, sample):
+        #A leaf node simply is a classification, return that
+        #This is the base case of the classify recursive function for TreeNodes
+        return self.classification
+
+
+class C45Tree:
+    &apos;&apos;&apos;
+    A tree contains a root node and from here
+    does the training and classification. Tree objects also
+    are responsible for having the data that they use to train.
+    &apos;&apos;&apos;
+
+    def __init__(self, data):
+        self.rootNode = None
+        self.data = data
+
+    def train(self):
+        &apos;&apos;&apos;
+        Trains a decision tree classifier on data set passed in. 
+        The data set should contain a good mix of each class to be
+        classified.
+        &apos;&apos;&apos;
+        length = self.data.getFeatureLength()
+        featureIndices = range(length)
+        self.rootNode = TreeNode(self.data, featureIndices)
+        self.rootNode.c45Train()
+
+    def classify(self, sample):
+        &apos;&apos;&apos;
+        Classify a sample based off of this trained tree.
+        &apos;&apos;&apos;
+
+        return self.rootNode.classify(sample)
+</code></pre><p>Then we introduce the RandomForest algorithm</p>
+<pre><code>from C45Tree import C45Tree
+
+
+class RandomForest(object):
+    &quot;&quot;&quot;A random forest object with the default of using a C45Tree 
+    for each of the trees in the random forest. To train the forest
+    create an instance of it then call train on a TraingData object&quot;&quot;&quot;
+    def __init__(self, data, numberOfTrees=100):
+        &apos;&apos;&apos;
+        Initialize the random forest. 
+        Each tree has a bag of the data associated with it.
+        &apos;&apos;&apos;
+        self.data = data    #The data that the trees will be trained on
+        self.numberOfTrees = numberOfTrees
+        self.forest = []
+
+        for i in range(numberOfTrees):
+            bag = data.getBag()
+            self.forest.append(C45Tree(bag))
+
+    def train(self):
+        &apos;&apos;&apos;
+        Train the random forest trees.
+        &apos;&apos;&apos;
+        for tree in self.forest:
+            tree.train()
+
+    def classify(self, sample):
+        &apos;&apos;&apos;
+        Classify a data sample by polling the trees.
+        &apos;&apos;&apos;
+
+        #Create an empty dictionary
+        votes = {}
+        #Tally the votes, for each tree classify the sample
+        for tree in self.forest:
+            label = tree.classify(sample)
+            if label in votes:
+                votes[label] += 1
+            else:
+                votes[label] = 1
+
+        bestLabel = None
+        mostTimes = 0
+        #Find the label with the most votes
+        for key in votes:
+            if votes[key] &gt; mostTimes:
+                bestLabel = key
+                mostTimes = votes[key]
+
+        #Return the most popular label
+        return bestLabel      
+</code></pre>
           
         
       
@@ -638,7 +1062,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/04/12/🌸樱花季/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/04/16/kaggle数据集从入门到放弃/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi HU">
@@ -657,7 +1081,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/12/🌸樱花季/" itemprop="url">🌸樱花季</a></h1>
+                <a class="post-title-link" href="/2019/04/16/kaggle数据集从入门到放弃/" itemprop="url">kaggle数据集从入门到放弃</a></h1>
         
 
         <div class="post-meta">
@@ -669,8 +1093,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-12T22:40:41+08:00">
-                2019-04-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T08:10:23+08:00">
+                2019-04-16
               </time>
             
 
@@ -692,8 +1116,19 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Photograph/" itemprop="url" rel="index">
-                    <span itemprop="name">Photograph</span>
+                  <a href="/categories/Kaggle/" itemprop="url" rel="index">
+                    <span itemprop="name">Kaggle</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kaggle/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -723,7 +1158,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  154
+                  1.5k
                 </span>
               
 
@@ -739,7 +1174,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  9
                 </span>
               
             </div>
@@ -762,17 +1197,143 @@
       
         
           
-            <p>好久没有碰自己大二第二学期省吃俭用买的1.8g的定焦镜头了，近期正好是樱花期，可惜樱花一吹就掉，抓拍了一些校园的景色=。=</p>
-<p>时间：4/3 下午</p>
-<h3 id="赏樱教室"><a href="#赏樱教室" class="headerlink" title="赏樱教室"></a>赏樱教室</h3><p><img src="https://wx4.sinaimg.cn/mw690/60278ba8ly1g22enexmkfj24n4334hdv.jpg" alt="3"></p>
-<h3 id="落樱"><a href="#落樱" class="headerlink" title="落樱"></a>落樱</h3><p><img src="https://wx4.sinaimg.cn/mw690/60278ba8ly1g22er39068j23cw334qv6.jpg" alt="11"></p>
-<h3 id="第二教学楼"><a href="#第二教学楼" class="headerlink" title="第二教学楼"></a>第二教学楼</h3><p><img src="https://ws3.sinaimg.cn/mw690/60278ba8ly1g22epzw0duj24n4334u0z.jpg" alt="2"></p>
-<h3 id="满地樱花"><a href="#满地樱花" class="headerlink" title="满地樱花"></a>满地樱花</h3><p><img src="https://wx2.sinaimg.cn/mw690/60278ba8ly1g22ep90u67j24n4334npf.jpg" alt="1"></p>
-<h3 id="摄影师本人"><a href="#摄影师本人" class="headerlink" title="摄影师本人"></a>摄影师本人</h3><p><img src="https://ws1.sinaimg.cn/mw690/60278ba8ly1g22eqezfu2j24n43344qq.jpg" alt="5"></p>
-<p>时间：4/12 下午</p>
-<h3 id="和袋袋爸爸的愉快约拍"><a href="#和袋袋爸爸的愉快约拍" class="headerlink" title="和袋袋爸爸的愉快约拍"></a>和袋袋爸爸的愉快约拍</h3><p>袋袋爸爸简直是仙女本人了！真的超级会摆pose，一点都不费心，我真的爱了!<br><img src="https://wx3.sinaimg.cn/mw690/60278ba8ly1g22f1bu41kj24n43341l5.jpg" alt="1"></p>
-<p>看看这个侧颜！我的天哪！（只可惜我对焦没对上，我错了）<br><img src="https://wx1.sinaimg.cn/mw690/60278ba8ly1g22f2xsyv9j24n4334b2a.jpg" alt="3"></p>
-<p>看看这个手模qwq<br><img src="https://ws3.sinaimg.cn/mw690/60278ba8ly1g22f3gyjh7j24n4334b2a.jpg" alt="2"></p>
+            <p><a href="https://www.kaggle.com/ronitf/heart-disease-uci" target="_blank" rel="noopener">click here to kaggle official website for this dataset</a></p>
+<h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><p>This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. In particular, the Cleveland database is the only one that has been used by ML researchers to this date. The “goal” field refers to the presence of heart disease in the patient. It is integer valued from 0 (no presence) to 4.</p>
+<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="Attribute-Information"><a href="#Attribute-Information" class="headerlink" title="Attribute Information:"></a>Attribute Information:</h3><blockquote>
+<ol>
+<li>age </li>
+<li>sex </li>
+<li>chest pain type (4 values) </li>
+<li>resting blood pressure </li>
+<li>serum cholestoral in mg/dl </li>
+<li>fasting blood sugar &gt; 120 mg/dl</li>
+<li>resting electrocardiographic results (values 0,1,2)</li>
+<li>maximum heart rate achieved </li>
+<li>exercise induced angina </li>
+<li>oldpeak = ST depression induced by exercise relative to rest </li>
+<li>the slope of the peak exercise ST segment </li>
+<li>number of major vessels (0-3) colored by flourosopy </li>
+<li>thal: 3 = normal; 6 = fixed defect; 7 = reversable defect<br>The names and social security numbers of the patients were recently removed from the database, replaced with dummy values. One file has been “processed”, that one containing the Cleveland database. All four unprocessed files also exist in this directory.</li>
+</ol>
+</blockquote>
+<p>To see Test Costs (donated by Peter Turney), please see the folder “Costs”</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>To solve this problem, here we introduce jupyter notebook by python, implementing random forest to give us a brief scope of this dataset.<br>Firstly, we import the packages needed.</p>
+<pre><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns #for plotting
+from sklearn.ensemble import RandomForestClassifier #for the model
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import export_graphviz #plot tree
+from sklearn.metrics import roc_curve, auc #for model evaluation
+from sklearn.metrics import classification_report #for model evaluation
+from sklearn.metrics import confusion_matrix #for model evaluation
+from sklearn.model_selection import train_test_split #for data splitting
+import eli5 #for purmutation importance
+from eli5.sklearn import PermutationImportance
+import shap #for SHAP values
+from pdpbox import pdp, info_plots #for partial plots
+np.random.seed(123) #ensure reproducibility
+pd.options.mode.chained_assignment = None  #hide any pandas warnings
+</code></pre><h1 id="The-data"><a href="#The-data" class="headerlink" title="The data"></a>The data</h1><p>Next, we load the data.</p>
+<pre><code>dt = pd.read_csv(&quot;../input/heart.csv&quot;)
+</code></pre><p>It’s a clean, easy to understand set of data. However, the meaning of some of the column headers are not obvious. Here’s what they mean,</p>
+<p><strong>age</strong>: The person’s age in years<br><strong>sex</strong>: The person’s sex (1 = male, 0 = female)<br><strong>cp</strong>: The chest pain experienced (Value 1: typical angina, Value 2: atypical angina, Value 3: non-anginal pain, Value 4: asymptomatic)<br><strong>trestbps</strong>: The person’s resting blood pressure (mm Hg on admission to the hospital)<br><strong>chol</strong>: The person’s cholesterol measurement in mg/dl<br><strong>fbs</strong>: The person’s fasting blood sugar (&gt; 120 mg/dl, 1 = true; 0 = false)<br><strong>restecg</strong>: Resting electrocardiographic measurement (0 = normal, 1 = having ST-T wave abnormality, 2 = showing probable or definite left ventricular hypertrophy by Estes’ criteria)<br><strong>thalach</strong>: The person’s maximum heart rate achieved<br><strong>exang</strong>: Exercise induced angina (1 = yes; 0 = no)<br><strong>oldpeak</strong>: ST depression induced by exercise relative to rest (‘ST’ relates to positions on the ECG plot. See more here)<br><strong>slope</strong>: the slope of the peak exercise ST segment (Value 1: upsloping, Value 2: flat, Value 3: downsloping)<br><strong>ca</strong>: The number of major vessels (0-3)<br><strong>thal</strong>: A blood disorder called thalassemia (3 = normal; 6 = fixed defect; 7 = reversable defect)<br><strong>target</strong>: Heart disease (0 = no, 1 = yes)</p>
+<p><strong>Diagnosis</strong>: The diagnosis of heart disease is done on a combination of clinical signs and test results. The types of tests run will be chosen on the basis of what the physician thinks is going on 1, ranging from electrocardiograms and cardiac computerized tomography (CT) scans, to blood tests and exercise stress tests 2.</p>
+<p>Looking at information of heart disease risk factors led me to the following: high cholesterol, high blood pressure, diabetes, weight, family history and smoking 3. According to another source 4, the major factors that can’t be changed are: increasing age, male gender and heredity. Note that thalassemia, one of the variables in this dataset, is heredity. Major factors that can be modified are: Smoking, high cholesterol, high blood pressure, physical inactivity, and being overweight and having diabetes. Other factors include stress, alcohol and poor diet/nutrition.</p>
+<p>I can see no reference to the ‘number of major vessels’, but given that the definition of heart disease is “…what happens when your heart’s blood supply is blocked or interrupted by a build-up of fatty substances in the coronary arteries”, it seems logical the more major vessels is a good thing, and therefore will reduce the probability of heart disease.</p>
+<p>Given the above, I would hypothesis that, if the model has some predictive ability, we’ll see these factors standing out as the most important.</p>
+<p>Declare some of the columns to make the indication clear</p>
+<pre><code>dt.columns = [&apos;age&apos;, &apos;sex&apos;, &apos;chest_pain_type&apos;, &apos;resting_blood_pressure&apos;, &apos;cholesterol&apos;, &apos;fasting_blood_sugar&apos;, &apos;rest_ecg&apos;, &apos;max_heart_rate_achieved&apos;,
+   &apos;exercise_induced_angina&apos;, &apos;st_depression&apos;, &apos;st_slope&apos;, &apos;num_major_vessels&apos;, &apos;thalassemia&apos;, &apos;target&apos;]
+
+
+dt[&apos;sex&apos;][dt[&apos;sex&apos;] == 0] = &apos;female&apos;
+dt[&apos;sex&apos;][dt[&apos;sex&apos;] == 1] = &apos;male&apos;
+
+dt[&apos;chest_pain_type&apos;][dt[&apos;chest_pain_type&apos;] == 1] = &apos;typical angina&apos;
+dt[&apos;chest_pain_type&apos;][dt[&apos;chest_pain_type&apos;] == 2] = &apos;atypical angina&apos;
+dt[&apos;chest_pain_type&apos;][dt[&apos;chest_pain_type&apos;] == 3] = &apos;non-anginal pain&apos;
+dt[&apos;chest_pain_type&apos;][dt[&apos;chest_pain_type&apos;] == 4] = &apos;asymptomatic&apos;
+
+dt[&apos;fasting_blood_sugar&apos;][dt[&apos;fasting_blood_sugar&apos;] == 0] = &apos;lower than 120mg/ml&apos;
+dt[&apos;fasting_blood_sugar&apos;][dt[&apos;fasting_blood_sugar&apos;] == 1] = &apos;greater than 120mg/ml&apos;
+
+dt[&apos;rest_ecg&apos;][dt[&apos;rest_ecg&apos;] == 0] = &apos;normal&apos;
+dt[&apos;rest_ecg&apos;][dt[&apos;rest_ecg&apos;] == 1] = &apos;ST-T wave abnormality&apos;
+dt[&apos;rest_ecg&apos;][dt[&apos;rest_ecg&apos;] == 2] = &apos;left ventricular hypertrophy&apos;
+
+dt[&apos;exercise_induced_angina&apos;][dt[&apos;exercise_induced_angina&apos;] == 0] = &apos;no&apos;
+dt[&apos;exercise_induced_angina&apos;][dt[&apos;exercise_induced_angina&apos;] == 1] = &apos;yes&apos;
+
+dt[&apos;st_slope&apos;][dt[&apos;st_slope&apos;] == 1] = &apos;upsloping&apos;
+dt[&apos;st_slope&apos;][dt[&apos;st_slope&apos;] == 2] = &apos;flat&apos;
+dt[&apos;st_slope&apos;][dt[&apos;st_slope&apos;] == 3] = &apos;downsloping&apos;
+
+dt[&apos;thalassemia&apos;][dt[&apos;thalassemia&apos;] == 1] = &apos;normal&apos;
+dt[&apos;thalassemia&apos;][dt[&apos;thalassemia&apos;] == 2] = &apos;fixed defect&apos;
+dt[&apos;thalassemia&apos;][dt[&apos;thalassemia&apos;] == 3] = &apos;reversable defect&apos;
+</code></pre><h1 id="The-Model"><a href="#The-Model" class="headerlink" title="The Model"></a>The Model</h1><p>Depending on package sklearn, we split the data - test data 70%, training data 30%</p>
+<pre><code>X_train, X_test, y_train, y_test = train_test_split(dt.drop(&apos;target&apos;, 1), dt[&apos;target&apos;], test_size = .2, random_state=10) #split the data
+</code></pre><p>Using random forest methodology</p>
+<pre><code>model = RandomForestClassifier(max_depth=5)
+model.fit(X_train, y_train)
+</code></pre><p>plot the result of random forest</p>
+<pre><code>estimator = model.estimators_[1]
+feature_names = [i for i in X_train.columns]
+
+y_train_str = y_train.astype(&apos;str&apos;)
+y_train_str[y_train_str == &apos;0&apos;] = &apos;no disease&apos;
+y_train_str[y_train_str == &apos;1&apos;] = &apos;disease&apos;
+y_train_str = y_train_str.values
+</code></pre><p>code from <a href="https://towardsdatascience.com/how-to-visualize-a-decision-tree-from-a-random-forest-in-python-using-scikit-learn-38ad2d75f21c" target="_blank" rel="noopener">https://towardsdatascience.com/how-to-visualize-a-decision-tree-from-a-random-forest-in-python-using-scikit-learn-38ad2d75f21c</a></p>
+<pre><code>export_graphviz(estimator, out_file=&apos;tree.dot&apos;, 
+                feature_names = feature_names,
+                class_names = y_train_str,
+                rounded = True, proportion = True, 
+                label=&apos;root&apos;,
+                precision = 2, filled = True)
+
+from subprocess import call
+call([&apos;dot&apos;, &apos;-Tpng&apos;, &apos;tree.dot&apos;, &apos;-o&apos;, &apos;tree.png&apos;, &apos;-Gdpi=600&apos;])
+
+from IPython.display import Image
+Image(filename = &apos;tree.png&apos;)
+</code></pre><p>Evaluate the model</p>
+<pre><code>y_predict = model.predict(X_test)
+y_pred_quant = model.predict_proba(X_test)[:, 1]
+y_pred_bin = model.predict(X_test)
+</code></pre><p>Fit with Cnfusion model</p>
+<pre><code>confusion_matrix = confusion_matrix(y_test, y_pred_bin)
+</code></pre><p>Here we propose the sensitvity and specificity<br>$$sensitivity = \frac{TF}{TP+FN}$$<br>$$specificity = \frac{TN}{TN+FP}$$</p>
+<pre><code>total=sum(sum(confusion_matrix))
+
+sensitivity = confusion_matrix[0,0]/(confusion_matrix[0,0]+confusion_matrix[1,0])
+print(&apos;Sensitivity : &apos;, sensitivity )
+
+specificity = confusion_matrix[1,1]/(confusion_matrix[1,1]+confusion_matrix[0,1])
+print(&apos;Specificity : &apos;, specificity)
+</code></pre><p>Next, we check ROC curve.</p>
+<pre><code>fpr, tpr, thresholds = roc_curve(y_test, y_pred_quant)
+
+fig, ax = plt.subplots()
+ax.plot(fpr, tpr)
+ax.plot([0, 1], [0, 1], transform=ax.transAxes, ls=&quot;--&quot;, c=&quot;.3&quot;)
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.0])
+plt.rcParams[&apos;font.size&apos;] = 12
+plt.title(&apos;ROC curve for diabetes classifier&apos;)
+plt.xlabel(&apos;False Positive Rate (1 - Specificity)&apos;)
+plt.ylabel(&apos;True Positive Rate (Sensitivity)&apos;)
+plt.grid(True)
+</code></pre><p>Another common metric is the Area Under the Curve, or AUC.</p>
+<pre><code>auc(fpr, tpr)
+</code></pre><h1 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h1><p>Here we implement the shap value to explain our model.</p>
+<pre><code>explainer = shap.TreeExplainer(model)
+shap_values = explainer.shap_values(X_test)
+
+shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
+</code></pre><p><a href="https://www.kaggle.com/tentotheminus9/what-causes-heart-disease-explaining-the-model" target="_blank" rel="noopener">for more</a></p>
 
           
         
@@ -856,7 +1417,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -867,7 +1428,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -878,7 +1439,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -888,6 +1449,22 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/samaritanhu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:samaritanhu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -1125,6 +1702,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
