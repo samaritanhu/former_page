@@ -1,336 +1,1135 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
 
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
-	<link rel="bookmark" type="image/x-icon" href="/img/carrot.ico">
-	<link rel="shortcut icon" href="/img/carrot.ico">
-	
-			    <title>
-    Fuma's gadget
-    </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="/css/mic_main.css">
-    <link rel="stylesheet" href="/css/dropdownMenu.css">
-    <meta name="keywords" content="miccall">
-    
-    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	 
-    <noscript>
-        <link rel="stylesheet" href="/css/noscript.css">
-    </noscript>
-    <style type="text/css">
-        body:before {
-          content: ' ';
-          position: fixed;
-          top: 0;
-          background: url('/img/bg2.jpg') center 0 no-repeat;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background-size: cover; 
-        }
-    </style>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
-			    
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fuma&#39;s gadget">
+<meta property="og:url" content="http://nobugs.dev/index.html">
+<meta property="og:site_name" content="Fuma&#39;s gadget">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fuma&#39;s gadget">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nobugs.dev/">
+
+
+
+
+
+  <title>Fuma's gadget</title>
   
 
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.scrollex.min.js"></script>
-    <script src="/js/jquery.scrolly.min.js"></script>
-    <script src="/js/skel.min.js"></script>
-    <script src="/js/util.js"></script>
-    <script src="/js/main.js"></script>
-	
+
+
+
+
+
+
 </head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
     
-		<body class="is-loading">
-    <!-- Wrapper 外包 s-->
-    <div id="wrapper" class="fade-in overlay">
-        <!-- Intro 头部显示 s -->
-                <div id="intro">
-            <h1>This is<br>
-                        FUMA's GADGET </h1>
-            <p> Whatever is worth doing is worth doing well <br> I'll think of you every step of the way
-            </p>
-            <ul class="actions">
-                <li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
-            </ul>
-        </div>
-        <!-- Intro 头部显示 e -->
-        <!-- Header 头部logo start -->
-        <header id="header">
-    <a href="/" class="logo">GADGET</a>
-</header>
-        <!-- Header 头部logo end -->
-        <!-- Nav 导航条 start -->
-        <nav id="nav" class="special">
-            <ul class="menu links">
-			<!-- Homepage  主页  --> 
-			<li>
-	            <a href="/" rel="nofollow">主页</a>
-	        </li>
-			<!-- categories_name  分类   --> 
-	        
-	        <li class="active">
-	            <a href="#s1">分类</a>
-	                    <ul class="submenu">
-	                        <li>
-	                        <a class="category-link" href="/categories/Finance/">Finance</a></li><li><a class="category-link" href="/categories/Kaggle/">Kaggle</a>
-	                    </li></ul>
-	        </li>
-	        
-	        <!-- archives  归档   --> 
-	        
-	        
-		        <!-- Pages 自定义   -->
-		        
-		        <li>
-		            <a href="/about/" title="简历">
-		                简历
-		            </a>
-		        </li>
-		        
-		        <li>
-		            <a href="/group/" title="友情链接">
-		                友情链接
-		            </a>
-		        </li>
-		        
-		        <li>
-		            <a href="/project/" title="项目">
-		                项目
-		            </a>
-		        </li>
-		        
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
 
 
-            </ul>
-            <!-- icons 图标   -->
-			<ul class="icons">
-                    
-                    <li>
-                        <a title="github" href="https://github.com/samaritanhu" target="_blank" rel="noopener">
-                            <i class="icon fa fa-github"></i>
-                        </a>
-                    </li>
-                    
-			</ul>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fuma's gadget</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/" rel="section">
+            
+            作品集
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
-        <!-- Nav 导航条 end -->
-        <!-- Main 主要部分 start -->
-        
-        <!-- Main-first -->
-                    <div id="main">
-            <!-- Main first s-->
-            <article id="me" class="panel">
-                <header style="color: #000000">
-                    <h1>fuma</h1>
-                    <p>Amateur photographer</p>
-                </header>
-                <a href="" class="jumplink pic">
-                    <span class="arrow icon fa-chevron-right"><span></span></span>
-                    <img src="/images/header.jpg" alt="">
-                </a>
-            </article>
-            <!-- Main first e-->
-        </div>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/07/14/page/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fuma's gadget">
+    </span>
+
+    
+      <header class="post-header">
 
         
-        <!-- 文章列表   s -->
-        <div id="main" style="background-color: transparent; padding:0;">
-        <section class="link_container" style="margin-top: 0; background-color: transparent; ">
-            <div class="link_row">
-                <!-- 文章sample  s-->
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/14/page/" itemprop="url">Discovery towards Web Scrawler</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-14T09:33:40+08:00">
+                2019-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web-Scrawler/" itemprop="url" rel="index">
+                    <span itemprop="name">Web Scrawler</span>
+                  </a>
+                </span>
 
                 
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2019/07/14/page/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> page </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2019-07-14</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" href="http://localhost:4000/categories/Algorithm/">
-                                </a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
+                
+              
+            </span>
+          
+
+          
             
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2019/05/05/RandomForest/">
-                        <div class="page_title" style="background-image: url(https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1557075135621&amp;di=7ec37b087e993bd061d5eb4a28309538&amp;imgtype=0&amp;src=http%3A%2F%2Fimg3.doubanio.com%2Flpic%2Fs27200196.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> Random Forest Classification from the bottom layer </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2019-05-05</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/Kaggle/">Kaggle</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2019/04/19/management/">
-                        <div class="page_title" style="background-image: url(https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1556291089&amp;di=1c615d0bef00ca5392dc0f6605e7e496&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fwww.86ps.com%2FUpLoadFiles%2Fjpg%2F2012-7%2F2012070816471926580.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> 国际金融期中复习 </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2019-04-19</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/Finance/">Finance</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2019/04/18/investments/">
-                        <div class="page_title" style="background-image: url(https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1555609598274&amp;di=e6e95bf5904ef982b37a6bd80679c390&amp;imgtype=0&amp;src=http%3A%2F%2Fpic.downcc.com%2Fupload%2F2017-6%2F2017621165955764860.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> 投资学期中复习 </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2019-04-18</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/Finance/">Finance</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2019/04/16/kaggle数据集从入门到放弃/">
-                        <div class="page_title" style="background-image: url(https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3724879646,3173072281&amp;fm=26&amp;gp=0.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> kaggle数据集从入门到放弃 </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2019-04-16</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/Kaggle/">Kaggle</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
             </div>
-        </section>
-        </div>
-        <!-- 文章列表   end -->
-        <!-- Main 主要部分 end -->
-        <!-- footer  页码 start-->
-        <footer style="text-align: center; padding-top: 2em;">
-  
-</footer>
+          
 
-        <!-- footer  页码 end-->
-        <!-- Copyright 版权 start -->
-                <div id="copyright">
-            <ul>
-                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
-                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
-            </ul>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
             
-                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-			
-        </div>
-        <!-- Copyright 版权 end -->
+          
+        
+      
     </div>
-    <!-- Wrapper 外包 e-->
-    <!-- Scripts -->
-</body>
+    
+    
+    
 
- 	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/04/19/management/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fuma's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/19/management/" itemprop="url">国际金融半期复习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T22:51:41+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Finance/" itemprop="url" rel="index">
+                    <span itemprop="name">Finance</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>因为下周五就要国际金融的小测了，特此做一下期中考试前的突击=。=<br>【结果是我考了90/100，最高分95】</p>
+<p><strong>专业</strong>：上海交通大学安泰经济与管理学院 金融学<br><strong>课程名</strong>：国际金融<br><strong>教材</strong>：International Financial Management by Cheol Eun</p>
+<p><strong>课程安排</strong>：<br>Lecture1 汇率制度与国际货币体系, 教材第2章<br>Le2  国际收支与国际资本流动，教材第3章<br>Le3  国家投资分析<br>Le4  国际固定收益市场，教材第5,11,12章<br>Le5 国际股票市场，教材第13,15章<br>Le6 汇率平价公式，教材第6章<br>Le7 经济政策及汇率预测（Krugman第12版，及教材第6章）<br>Le8 Currency Derivatives ，教材第7章<br>Le9 Direct Foreign Investment ：定性与定量分析，阅读教材第16，17，18章<br>Le10 国际证券组合理论，教材第15章[高盛Country Analysis]<br>Le11 企业的外汇交易风险 ，教材第8章<br>Le12 企业的外汇经营与折算风险 ，教材第9-10章<br>Le13 利率互换与货币互换，教材第14章</p>
+<p><strong>重要网站与APPs</strong></p>
+<h4 id="国际股票市场投资"><a href="#国际股票市场投资" class="headerlink" title="国际股票市场投资"></a>国际股票市场投资</h4><p><a href="http://i.finance.sina.com.cn/zixuan,usstock" target="_blank" rel="noopener">新浪美股或者新浪财经客户端</a><br>登陆账号：<a href="mailto:fi401@126.com" target="_blank" rel="noopener">fi401@126.com</a>, 111119 【含货币，债券、股票ETF】<br><a href="finance.yahoo.com">全球股价与组合投资信息</a>,雅虎财经可下载excel格式数据<br><a href="http://www.sywg.com/sywg/portal/portal_softdown.html" target="_blank" rel="noopener">国际股票ETF： 通过下载有港股信息的客户端，比如同花顺、通达信授权的券商（申万证券）</a><br>雪球财经</p>
+<h4 id="货币及外汇市场投资"><a href="#货币及外汇市场投资" class="headerlink" title="货币及外汇市场投资"></a>货币及外汇市场投资</h4><p><a href="www.forex.com">GMAC嘉盛集团保证金杠杆交易</a><br><a href="http://finance.yahoo.com/currency-investing/asia-pacific" target="_blank" rel="noopener">下载外汇数据</a> 或者<a href="http://fx.sauder.ubc.ca/data.html" target="_blank" rel="noopener">点击</a><br>同花顺、通达信授权的券商股票分析软件的拓展市场行情也加入了外汇数据</p>
+<h4 id="国际债券市场投资"><a href="#国际债券市场投资" class="headerlink" title="国际债券市场投资"></a>国际债券市场投资</h4><p><a href="bing.com">Ishares bond</a><br><a href="http://www.worldgovernmentbonds.com/" target="_blank" rel="noopener">全球收益率曲线</a><br>Yahoo Bond Screener<br><a href="http://finance.yahoo.com/bonds" target="_blank" rel="noopener">全球债券</a> 交易所上市的债券投资组合 Bing 搜 Bond ETF</p>
+<h4 id="全球大宗商品市场、衍生产品"><a href="#全球大宗商品市场、衍生产品" class="headerlink" title="全球大宗商品市场、衍生产品"></a>全球大宗商品市场、衍生产品</h4><p><a href="http://finance.sina.com.cn/futuremarket/" target="_blank" rel="noopener">期货数据(黄金石油大宗商品) 通达信</a>、<a href="http://www.sge.sh/publish/sge/xqzx/xqyb/index.html" target="_blank" rel="noopener">同花顺</a><br><a href="http://www.barchart.com/futures/Currencies" target="_blank" rel="noopener">期货（外汇）</a>； </p>
+<h4 id="分国家投资与行业投资"><a href="#分国家投资与行业投资" class="headerlink" title="分国家投资与行业投资"></a>分国家投资与行业投资</h4><p>各种国家投资ETF，搜索 ishares； 分行业投资SPDRs.com推出的 ETF<br><a href="trefis.com">全球行业分析</a>  CGTN 非洲时间 &amp;America Now</p>
+<h4 id="国家投资基本信息"><a href="#国家投资基本信息" class="headerlink" title="国家投资基本信息"></a>国家投资基本信息</h4><p><a href="http://www.gfmag.com/global-data/country-data/" target="_blank" rel="noopener">各国经济与金融：国际金融杂志数据</a><br><a href="https://www.cia.gov/library/publications/the-world-factbook/rankorder/2187rank.html" target="_blank" rel="noopener">各国社会统计</a><br>国际经济热点网站Podcast Itunes Rss<br>订阅  bbc world service/business daily； business matters, world business report, tech tent<br>边走边听国际金融与经济新闻<br>IheartRadio应用上收听 bloomberg 华尔街新闻；FM收音机应用有：R Sputnik俄罗斯；SAFM 南非； </p>
+<h2 id="Lecture-1-汇率制度与国际货币体系"><a href="#Lecture-1-汇率制度与国际货币体系" class="headerlink" title="Lecture 1: 汇率制度与国际货币体系"></a>Lecture 1: 汇率制度与国际货币体系</h2><h3 id="8种汇率制度简介"><a href="#8种汇率制度简介" class="headerlink" title="8种汇率制度简介"></a>8种汇率制度简介</h3><p><strong>国际货币体系三步曲</strong>：<br>1876~1913, 金本位。银行券自由兑换黄金，各国汇率取决于货币的黄金相对含量<br>如果英镑、美元货币的黄金含量分别为1和0.5盎司,则1英镑的汇率为2美元<br>1944 Bretton Woods Agreement （布雷顿协议），双挂钩（每盎司黄金=35美元）<br>1973年牙买加协议。西方国家主要货币汇率浮动工资与金融风险传播的开始，并推动外汇交易市场发展<br><strong>汇率制度分类</strong>：IMF，1999. 按浮动程度由小到大排列:<br>无独立法定货币（美元化）：本国货币被美元替代，或无法定货币， 厄瓜多尔<br>货币局制度：本国货币与某一主要货币保持在一固定比率， HK<br>固定（传统）钉住制：与某一浮动货币保持固定比率，但政府可以对这一比率宣布调节<br>水平带内的钉住<br>爬行钉住<br>爬行带内的汇率安排<br>管理浮动：无限制+干预<br>单独浮动：汇率由市场因素决定</p>
+<h3 id="政府直接干预外汇的两种形式"><a href="#政府直接干预外汇的两种形式" class="headerlink" title="政府直接干预外汇的两种形式"></a>政府直接干预外汇的两种形式</h3><p><strong>政策的四大目标</strong>：GDP增长，就业充分，物价稳定，国际收支平衡<br><strong>两大政策</strong>：货币政策（三大法宝：利率、准备率、公开市场业务），财政政策：税收、政府购买、转移支付<br><strong>政府干预动机</strong>：外汇干预应围绕经济政策的四大目标，短期目标（减少波动，设定上下限，减少意外事件冲击）<br><strong>干预方法</strong>：<br>直接干预（消极干预，干预外汇时不调整本币投放；积极干预，抛售本币时，还抛售一些债券，以保持货币供给平衡）<br>间接干预（通过调节影响汇率的变量，来影响汇率，如利率；外汇管制）<br><em>宏观经济三元悖论：固定汇率、资本开放与独立货币政策，只能取其二</em></p>
+<h3 id="人民币汇率制度演变"><a href="#人民币汇率制度演变" class="headerlink" title="人民币汇率制度演变"></a>人民币汇率制度演变</h3><p>改革开放前<br>1,建国初期．由于国内物价猛涨而国外物价稳定甚至下跌，1950年3月调至42 000旧人民币／美元，,1951年5月调至22 380旧人民币／美元<br>2,社会主义建设初期至1971年11月，人民币汇率在近16年时间里保持2.4618．<br>3,西方货币实行浮动汇率后，人民币（1973—1978) 钉住一篮子货币<br>改革开放后<br>爬行带内汇率安排</p>
+<h3 id="人民币汇率对中国经济影响"><a href="#人民币汇率对中国经济影响" class="headerlink" title="人民币汇率对中国经济影响"></a>人民币汇率对中国经济影响</h3><p><strong>正面影响：</strong><br>1,国外产品价格下降，提高国人的生活水平和产业水平<br>2.使用进口原材料比率较高的厂商的生产成本会下降<br>3.企业的国外投资能力将增强<br>4.人民币升值，使已在华投资的外资企业利润增加.<br>5.在非制造业方面，人民币升值有利于人才出国学习.<br>6.未偿还外债还本付息所需本币的数量相应减少.<br>7.合理估值中国资产:房地产价格高估，卖出1间房送子女国外读书; 大量民企转投海外地产、酒店<br>8.有利于中国GDP在国际经济中地位<br><strong>负面影响：</strong><br>1,对出口存在干扰<br>2,升值进一步预期，可能导致投机盛行。由于以美元表示的国民财富迅速增加，股市和房地产达到高潮<br>3,升值后，可能使国内投资环境恶化，新增的海外投资则会减少，因为这种投资变得相对昂贵<br>4,升值后，目前出口的产品大部分是技术含量较低的劳动密集型产品，出口受阻会增加就业压力</p>
+<h3 id="汇率与人民币国际化"><a href="#汇率与人民币国际化" class="headerlink" title="汇率与人民币国际化"></a>汇率与人民币国际化</h3><p>汇率市场化将推动国际化<br>国际化的三个阶段：资本项目可自由兑换，成为结算货币，成为储备货币</p>
+<h2 id="Lecture-2-国际收支平衡表"><a href="#Lecture-2-国际收支平衡表" class="headerlink" title="Lecture 2: 国际收支平衡表"></a>Lecture 2: 国际收支平衡表</h2><p><strong>prerequisite</strong><br>由支出法核算得到的GDP与收入法得到的社会总收入Y相等<br>GDP ≡ C+I+G+X-M，支出法核算,得到社会总需求AD<br>C(Y) : consumption spending,取决于国民收入Y<br>I : capital Investment spending<br>G :  Government spending<br>X : eXports of goods and services<br>M :  iMports of goods and services<br>Y ≡ C+S+T，收入法核算，形成社会生产总供给AS.<br>S : Saving<br>T : Tax<br>市场均衡时Market equilibrium: GDP≡C(Y)+I+G+X-M=Y<br>次字Deficit: 对外赤字X-M&lt;0; 对内赤字T-G&lt;0</p>
+<h3 id="BOP"><a href="#BOP" class="headerlink" title="BOP"></a>BOP</h3><p><strong>国际收支平衡表（Balance of Payments）的定义</strong>：一定时期本国与外国居民间的所有交易</p>
+<h4 id="3大国际收支项目：经常、资本与金融、平衡项目"><a href="#3大国际收支项目：经常、资本与金融、平衡项目" class="headerlink" title="3大国际收支项目：经常、资本与金融、平衡项目"></a>3大国际收支项目：经常、资本与金融、平衡项目</h4><p>导致资金流入的一般记贷方(credit)，用正号表示,例如：出口，融资;反之，进口或者对外投资时资金流出，记借方(debit)，用负号表示</p>
+<h4 id="中美BOP分析"><a href="#中美BOP分析" class="headerlink" title="中美BOP分析"></a>中美BOP分析</h4><p>逆差集中在<br>三级账户a：大宗商品\高科技产品<br>三级账户b：服务业<br>二级账户B：投资产生的收益</p>
+<h3 id="影响经常账户、FDI的因素"><a href="#影响经常账户、FDI的因素" class="headerlink" title="影响经常账户、FDI的因素"></a>影响经常账户、FDI的因素</h3><p>Inflation, National Income, Government Restrictions and exchange rates(3 different opinions)</p>
+<h4 id="马歇尔-勒纳条件Marshall-lerner-condition、J-curve-effect"><a href="#马歇尔-勒纳条件Marshall-lerner-condition、J-curve-effect" class="headerlink" title="马歇尔-勒纳条件Marshall-lerner condition、J-curve effect"></a>马歇尔-勒纳条件Marshall-lerner condition、J-curve effect</h4><p>$\displaystyle \eta_{Xe}+|\eta_{Me}|&gt;1$ 进出口需求对价格的弹性大于1</p>
+<h3 id="3个重要BOP项目与3大国际机构间关系"><a href="#3个重要BOP项目与3大国际机构间关系" class="headerlink" title="3个重要BOP项目与3大国际机构间关系"></a>3个重要BOP项目与3大国际机构间关系</h3><p>Changes in Restrictions, Potential Economic Growth, Tax Rates, Exchange Rates</p>
+<h2 id="Lecture-3-国家投资分析"><a href="#Lecture-3-国家投资分析" class="headerlink" title="Lecture 3: 国家投资分析"></a>Lecture 3: 国家投资分析</h2><h3 id="国家投资动机与投资方法分类"><a href="#国家投资动机与投资方法分类" class="headerlink" title="国家投资动机与投资方法分类"></a>国家投资动机与投资方法分类</h3><p>国家金融投资(Portfolio Investment)分析两种哲学思路：主动投资分析与被动投资。<br>国家直接投资(Foreign Direct Investment)以主动分析为主<br>国家被动投资<br>1.理论基石：有效市场假说(Eugen Fama). 市场难以战胜,价格就是正确的。<br>2.尤其在海外投资时，超额收益难以匹配信息成本、语言障碍、交易时间等带来的高额成本<br>3.指数基金采用买入并持有策略，交易成本最低，收取客户的费用也最低<br>国家主动投资：从上到下进行主动分析，从国家到行业，再到公司选择。</p>
+<h3 id="国家分析的道格拉斯生产函数与Solow平衡增长理论"><a href="#国家分析的道格拉斯生产函数与Solow平衡增长理论" class="headerlink" title="国家分析的道格拉斯生产函数与Solow平衡增长理论"></a>国家分析的道格拉斯生产函数与Solow平衡增长理论</h3><p>在道格拉斯函数$Y=AKaL(1-a)$中，假设人口(劳动力)$L$增长速度$n$, 技术$A$增长速度$g$, 资本的折旧速度$\delta$。当经济增长处于稳定状态时，人均资本$k(t)$变动满足下面公式<br>$$k’(t)=sf(k(t))-(n+g+\delta)k(t)$$<br>投资比例$s^*$人均产出$f(k(t))$表示投资，人均投资高于$(n+g+\delta)k(t)$时，社会资本变动$k(t)$为正。<br>重要观点:<br>GDP增速为$n+g$, 劳动力增速$n$扮演重要角色：放开生育带来GDP增长</p>
+<h3 id="国家宏观分析模板：以印度为例"><a href="#国家宏观分析模板：以印度为例" class="headerlink" title="国家宏观分析模板：以印度为例"></a>国家宏观分析模板：以印度为例</h3><p>根据道格拉斯生产函数$Y=AKaL(1-a)$, 经济Y增长取决于资本K、劳动力L的增长和技术A进步<br>关于K和L.生产函数中，“金砖四国”“Brics have K and L resources respectively.印度的人口与巴西的资源优势</p>
+<h3 id="国家卖方分析法-评估机构概览"><a href="#国家卖方分析法-评估机构概览" class="headerlink" title="国家卖方分析法(评估机构概览)"></a>国家卖方分析法(评估机构概览)</h3><p>宏观经济两种政策： 货币与财政<br>3驾马车：GDP增长率，经济增长动因，进出口</p>
+<h2 id="Lecture-4-国家固定收益市场"><a href="#Lecture-4-国家固定收益市场" class="headerlink" title="Lecture 4: 国家固定收益市场"></a>Lecture 4: 国家固定收益市场</h2><h3 id="外汇市场"><a href="#外汇市场" class="headerlink" title="外汇市场"></a>外汇市场</h3><h4 id="外汇市场参与投机与对冲的效用分析-汇率换算"><a href="#外汇市场参与投机与对冲的效用分析-汇率换算" class="headerlink" title="外汇市场参与投机与对冲的效用分析;汇率换算"></a>外汇市场参与投机与对冲的效用分析;汇率换算</h4><p>国际金融市场划分：固定收益、股权、衍生产品、另类投资<br>国际固定收益分类：外汇市场，货币与信贷市场，债券市场<br>投资国际固定收益市场动机：外币升值收益、国际分散化、对冲汇率风险</p>
+<h4 id="外汇报价"><a href="#外汇报价" class="headerlink" title="外汇报价"></a>外汇报价</h4><p>The following attributes of banks are important<br>competitiveness of quote（价差小）<br>speed of execution交易执行速度<br>Trading time(交行周六5：00，中行2：00）<br>advice about current market conditions提供外汇信息<br>forecasting advice预测市场</p>
+<h3 id="欧洲货币市场与信贷市场"><a href="#欧洲货币市场与信贷市场" class="headerlink" title="欧洲货币市场与信贷市场"></a>欧洲货币市场与信贷市场</h3><h4 id="Libor与浮动利率贷款"><a href="#Libor与浮动利率贷款" class="headerlink" title="Libor与浮动利率贷款"></a>Libor与浮动利率贷款</h4><p>欧洲美元：境外美元.  U.S. dollar deposits placed in banks in Europe and other continents are called Eurodollars.<br>美元为规避美国银行业管制，将美元存放境外，<br>欧洲货币：在发行国以外市场交易的货币。当前货币在发行国外流通统称欧洲货币<br>欧洲银行：专门经营境外货币的银行也称欧洲银行，并不一定在欧洲</p>
+<h3 id="国际债券市场"><a href="#国际债券市场" class="headerlink" title="国际债券市场"></a>国际债券市场</h3><h4 id="外国债券与欧洲债券"><a href="#外国债券与欧洲债券" class="headerlink" title="外国债券与欧洲债券"></a>外国债券与欧洲债券</h4><p>外国债券：债券发行人为外国人，例如中国在美国发行美元债券<br>欧洲债券：债券面值为外国货币，例如中国在欧洲发行美元债券</p>
+<h4 id="债券的到期收益率"><a href="#债券的到期收益率" class="headerlink" title="债券的到期收益率"></a>债券的到期收益率</h4><h4 id="隐含汇率"><a href="#隐含汇率" class="headerlink" title="隐含汇率"></a>隐含汇率</h4><h2 id="Lecture-5-国际股票市场：基本分析"><a href="#Lecture-5-国际股票市场：基本分析" class="headerlink" title="Lecture 5: 国际股票市场：基本分析"></a>Lecture 5: 国际股票市场：基本分析</h2><h3 id="全球股票市场"><a href="#全球股票市场" class="headerlink" title="全球股票市场"></a>全球股票市场</h3><h4 id="投资动机与概览"><a href="#投资动机与概览" class="headerlink" title="投资动机与概览"></a>投资动机与概览</h4><p>投资机会集:全球21世纪00-09投资市场概览<br>风险：股票间的相关系数低，可降低投资风险<br>Solnik研究发现：1）分散投资降低风险；2）股票分散到25个左右，难以继续分散；3）国际投资可进一步降低风险</p>
+<h4 id="全球市场相关性的主要实证结果"><a href="#全球市场相关性的主要实证结果" class="headerlink" title="全球市场相关性的主要实证结果"></a>全球市场相关性的主要实证结果</h4><p>分行业分国家</p>
+<h3 id="美国股票市场"><a href="#美国股票市场" class="headerlink" title="美国股票市场"></a>美国股票市场</h3><h4 id="多层次融资体系概况与ADR分类"><a href="#多层次融资体系概况与ADR分类" class="headerlink" title="多层次融资体系概况与ADR分类"></a>多层次融资体系概况与ADR分类</h4><p>公司从种子到初创（私募股权）、迅速成长(Nasdaq)、大公司(NYSE)、衰退濒临死亡(OTCBB)都有交易市场<br>外国公司在美国可直接上市，或者托管在母国，但在美国发行American Deposit Receipt，花旗担任了阿里巴巴的Depository Bank<br>美国聚集全球最大的跨国公司，反应全球经济的基本面，特别是各国的最大互联网公司聚集美股，反应了新经济前景</p>
+<h3 id="国家基本分析与股票分析的联系与区别"><a href="#国家基本分析与股票分析的联系与区别" class="headerlink" title="国家基本分析与股票分析的联系与区别"></a>国家基本分析与股票分析的联系与区别</h3><h3 id="相对与绝对股票估值模型及汇率对估值定价的影响"><a href="#相对与绝对股票估值模型及汇率对估值定价的影响" class="headerlink" title="相对与绝对股票估值模型及汇率对估值定价的影响"></a>相对与绝对股票估值模型及汇率对估值定价的影响</h3><h4 id="以海外上市的中国互联网企业估值为例"><a href="#以海外上市的中国互联网企业估值为例" class="headerlink" title="以海外上市的中国互联网企业估值为例"></a>以海外上市的中国互联网企业估值为例</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/04/12/🌸樱花季/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fuma's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/12/🌸樱花季/" itemprop="url">🌸樱花季</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-12T22:40:41+08:00">
+                2019-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Photograph/" itemprop="url" rel="index">
+                    <span itemprop="name">Photograph</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  154
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>好久没有碰自己大二第二学期省吃俭用买的1.8g的定焦镜头了，近期正好是樱花期，可惜樱花一吹就掉，抓拍了一些校园的景色=。=</p>
+<p>时间：4/3 下午</p>
+<h3 id="赏樱教室"><a href="#赏樱教室" class="headerlink" title="赏樱教室"></a>赏樱教室</h3><p><img src="https://wx4.sinaimg.cn/mw690/60278ba8ly1g22enexmkfj24n4334hdv.jpg" alt="3"></p>
+<h3 id="落樱"><a href="#落樱" class="headerlink" title="落樱"></a>落樱</h3><p><img src="https://wx4.sinaimg.cn/mw690/60278ba8ly1g22er39068j23cw334qv6.jpg" alt="11"></p>
+<h3 id="第二教学楼"><a href="#第二教学楼" class="headerlink" title="第二教学楼"></a>第二教学楼</h3><p><img src="https://ws3.sinaimg.cn/mw690/60278ba8ly1g22epzw0duj24n4334u0z.jpg" alt="2"></p>
+<h3 id="满地樱花"><a href="#满地樱花" class="headerlink" title="满地樱花"></a>满地樱花</h3><p><img src="https://wx2.sinaimg.cn/mw690/60278ba8ly1g22ep90u67j24n4334npf.jpg" alt="1"></p>
+<h3 id="摄影师本人"><a href="#摄影师本人" class="headerlink" title="摄影师本人"></a>摄影师本人</h3><p><img src="https://ws1.sinaimg.cn/mw690/60278ba8ly1g22eqezfu2j24n43344qq.jpg" alt="5"></p>
+<p>时间：4/12 下午</p>
+<h3 id="和袋袋爸爸的愉快约拍"><a href="#和袋袋爸爸的愉快约拍" class="headerlink" title="和袋袋爸爸的愉快约拍"></a>和袋袋爸爸的愉快约拍</h3><p>袋袋爸爸简直是仙女本人了！真的超级会摆pose，一点都不费心，我真的爱了!<br><img src="https://wx3.sinaimg.cn/mw690/60278ba8ly1g22f1bu41kj24n43341l5.jpg" alt="1"></p>
+<p>看看这个侧颜！我的天哪！（只可惜我对焦没对上，我错了）<br><img src="https://wx1.sinaimg.cn/mw690/60278ba8ly1g22f2xsyv9j24n4334b2a.jpg" alt="3"></p>
+<p>看看这个手模qwq<br><img src="https://ws3.sinaimg.cn/mw690/60278ba8ly1g22f3gyjh7j24n4334b2a.jpg" alt="2"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/image.jpg" alt="Xinyi HU">
+            
+              <p class="site-author-name" itemprop="name">Xinyi HU</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinyi HU</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+-->
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+ 
+
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
 </html>
