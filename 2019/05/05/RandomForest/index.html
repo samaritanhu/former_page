@@ -499,9 +499,9 @@ import sys
         return self.__str__()
 
     def classify(self, sample):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Recursivly traverse the tree to classify the sample that is passed in. 
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
 
         value = sample.getFeatures()[self.featureNumber]
 
@@ -515,10 +515,10 @@ import sys
 
 
 class LeafNode:
-    &apos;&apos;&apos;
+    &#39;&#39;&#39;
     A leaf node is a node that just has a classification 
     and is used to cap off a tree.
-    &apos;&apos;&apos;
+    &#39;&#39;&#39;
 
     def __init__(self, classification):
         self.classification = classification
@@ -530,31 +530,31 @@ class LeafNode:
 
 
 class C45Tree:
-    &apos;&apos;&apos;
+    &#39;&#39;&#39;
     A tree contains a root node and from here
     does the training and classification. Tree objects also
     are responsible for having the data that they use to train.
-    &apos;&apos;&apos;
+    &#39;&#39;&#39;
 
     def __init__(self, data):
         self.rootNode = None
         self.data = data
 
     def train(self):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Trains a decision tree classifier on data set passed in. 
         The data set should contain a good mix of each class to be
         classified.
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         length = self.data.getFeatureLength()
         featureIndices = range(length)
         self.rootNode = TreeNode(self.data, featureIndices)
         self.rootNode.c45Train()
 
     def classify(self, sample):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Classify a sample based off of this trained tree.
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
 
         return self.rootNode.classify(sample)
 </code></pre><p>Then we introduce the RandomForest algorithm</p>
@@ -566,10 +566,10 @@ class RandomForest(object):
     for each of the trees in the random forest. To train the forest
     create an instance of it then call train on a TraingData object&quot;&quot;&quot;
     def __init__(self, data, numberOfTrees=100):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Initialize the random forest. 
         Each tree has a bag of the data associated with it.
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         self.data = data    #The data that the trees will be trained on
         self.numberOfTrees = numberOfTrees
         self.forest = []
@@ -579,16 +579,16 @@ class RandomForest(object):
             self.forest.append(C45Tree(bag))
 
     def train(self):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Train the random forest trees.
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         for tree in self.forest:
             tree.train()
 
     def classify(self, sample):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Classify a data sample by polling the trees.
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
 
         #Create an empty dictionary
         votes = {}

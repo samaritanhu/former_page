@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  417
+                  426
                 </span>
               
 
@@ -382,11 +382,16 @@
 <li>Yang, Y., Sun, J., Li, H., &amp; Xu, Z. (2016). Deep ADMM-Net for compressive sensing MRI</li>
 <li>Yang, Y., Sun, J., Li, H., &amp; Xu, Z. (2017). ADMM-Net: A Deep Learning Approach for Compressive Sensing MRI</li>
 </ul>
-<h2 id="A-deep-dive-into-Deep-ADMM-Net"><a href="#A-deep-dive-into-Deep-ADMM-Net" class="headerlink" title="A deep dive into Deep ADMM Net"></a>A deep dive into Deep ADMM Net</h2><p><em>General CS-MRI Model problem</em><br>$$\hat{x}=\underset{x}{\arg \min }\left{\frac{1}{2}|A x-y|<em>{2}^{2}+\sum</em>{l=1}^{L} \lambda_{l} g\left(D_{l} x\right)\right}$$<br>where $A=P F \in \mathbb{R}^{N^{\prime} \times N}$ is a  measurement matrix, $P \in \mathbb{R}^{N^{\prime} \times N}$ is a under-sampling matrix and $F$ is a Fourier transform.</p>
-<p><em>ADMM solver</em><br>By introducing $z=\left{z_{1}, z_{2}, \cdots, z_{L}\right}$,<br>the problem equals to<br>$$\min <em>{x, z} \frac{1}{2}|A x-y|</em>{2}^{2}+\sum_{l=1}^{L} \lambda_{l} g\left(z_{l}\right) \quad \text { s.t. } z_{l}=D_{l} x, \quad \forall l \in[1,2, \cdots, L]$$<br>and its augmented Lagrangian function is<br>$$\mathfrak{L}<em>{\rho}(x, z, \alpha)=\frac{1}{2}|A x-y|</em>{2}^{2}+\sum_{l=1}^{L} \lambda_{l} g\left(z_{l}\right)-\sum_{l=1}^{L}\left\langle\alpha_{l}, z_{l}-D_{l} x\right\rangle+\sum_{l=1}^{L} \frac{\rho_{l}}{2}\left|z_{l}-D_{l} x\right|_{2}^{2}$$</p>
-<p>where $α = {α_l}$ are Lagrangian multipliers and $ρ = {ρ_l}$ are penalty parameters. ADMM alternatively optimizes ${x, z, α}$ by solving the following three subproblems:</p>
-<p>$$\left{\begin{array}{l}{x^{(n+1)}=\arg \min <em>{x} \frac{1}{2}|A x-y|</em>{2}^{2}-\sum_{l=1}^{L}\left\langle\alpha_{l}^{(n)}, z_{l}^{(n)}-D_{l} x\right\rangle+\sum_{l=1}^{L} \frac{\rho_{l}}{2}\left|z_{l}^{(n)}-D_{l} x\right|_{2}^{2}} \ {z^{(n+1)}=\arg \min <em>{z} \sum</em>{l=1}^{L} \lambda_{l} g\left(z_{l}\right)-\sum_{l=1}^{L}\left\langle\alpha_{l}^{(n)}, z_{l}-D_{l} x^{(n+1)}\right\rangle+\sum_{l=1}^{L} \frac{\rho_{l}}{2}\left|z_{l}-D_{l} x^{(n+1)}\right|<em>{2}^{2}} \ {\alpha^{(n+1)}=\underset{\alpha}{\arg \min } \sum</em>{l=1}^{L}\left\langle\alpha_{l}, D_{l} x^{(n+1)}-z_{l}^{(n+1)}\right\rangle}\end{array}\right.$$</p>
-
+<h2 id="A-deep-dive-into-Deep-ADMM-Net"><a href="#A-deep-dive-into-Deep-ADMM-Net" class="headerlink" title="A deep dive into Deep ADMM Net"></a>A deep dive into Deep ADMM Net</h2><p><em>General CS-MRI Model problem</em></p>
+<script type="math/tex; mode=display">
+\hat{x}=\underset{x}{\arg \min }\left\{\frac{1}{2}\|A x-y\|_{2}^{2}+\sum_{l=1}^{L} \lambda_{l} g\left(D_{l} x\right)\right\}</script><p>where $A=P F \in \mathbb{R}^{N^{\prime} \times N}$ is a  measurement matrix, $P \in \mathbb{R}^{N^{\prime} \times N}$ is a under-sampling matrix and $F$ is a Fourier transform.</p>
+<p><em>ADMM solver</em><br>By introducing $ z=\left\{z_{1}, z_{2}, \cdots, z_{L}\right\} $,<br>the problem equals to </p>
+<script type="math/tex; mode=display">
+\min _{x, z} \frac{1}{2}\|A x-y\|_{2}^{2}+\sum_{l=1}^{L} \lambda_{l} g\left(z_{l}\right) \quad \text { s.t. } z_{l}=D_{l} x, \quad \forall l \in[1,2, \cdots, L]</script><p>and its augmented Lagrangian function is</p>
+<script type="math/tex; mode=display">
+\mathfrak{L}_{\rho}(x, z, \alpha)=\frac{1}{2}\|A x-y\|_{2}^{2}+\sum_{l=1}^{L} \lambda_{l} g\left(z_{l}\right)-\sum_{l=1}^{L}\left\langle\alpha_{l}, z_{l}-D_{l} x\right\rangle+\sum_{l=1}^{L} \frac{\rho_{l}}{2}\left\|z_{l}-D_{l} x\right\|_{2}^{2}</script><p>where $α = {α_l}$ are Lagrangian multipliers and $ρ = {ρ_l}$ are penalty parameters. ADMM alternatively optimizes ${x, z, α}$ by solving the following three subproblems:</p>
+<script type="math/tex; mode=display">
+\left\{\begin{array}{l}{x^{(n+1)}=\arg \min _{x} \frac{1}{2}\|A x-y\|_{2}^{2}-\sum_{l=1}^{L}\left\langle\alpha_{l}^{(n)}, z_{l}^{(n)}-D_{l} x\right\rangle+\sum_{l=1}^{L} \frac{\rho_{l}}{2}\left\|z_{l}^{(n)}-D_{l} x\right\|_{2}^{2}} \\ {z^{(n+1)}=\arg \min _{z} \sum_{l=1}^{L} \lambda_{l} g\left(z_{l}\right)-\sum_{l=1}^{L}\left\langle\alpha_{l}^{(n)}, z_{l}-D_{l} x^{(n+1)}\right\rangle+\sum_{l=1}^{L} \frac{\rho_{l}}{2}\left\|z_{l}-D_{l} x^{(n+1)}\right\|_{2}^{2}} \\ {\alpha^{(n+1)}=\underset{\alpha}{\arg \min } \sum_{l=1}^{L}\left\langle\alpha_{l}, D_{l} x^{(n+1)}-z_{l}^{(n+1)}\right\rangle}\end{array}\right.</script>
           
         
       
@@ -879,9 +884,9 @@ import sys
         return self.__str__()
 
     def classify(self, sample):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Recursivly traverse the tree to classify the sample that is passed in. 
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
 
         value = sample.getFeatures()[self.featureNumber]
 
@@ -895,10 +900,10 @@ import sys
 
 
 class LeafNode:
-    &apos;&apos;&apos;
+    &#39;&#39;&#39;
     A leaf node is a node that just has a classification 
     and is used to cap off a tree.
-    &apos;&apos;&apos;
+    &#39;&#39;&#39;
 
     def __init__(self, classification):
         self.classification = classification
@@ -910,31 +915,31 @@ class LeafNode:
 
 
 class C45Tree:
-    &apos;&apos;&apos;
+    &#39;&#39;&#39;
     A tree contains a root node and from here
     does the training and classification. Tree objects also
     are responsible for having the data that they use to train.
-    &apos;&apos;&apos;
+    &#39;&#39;&#39;
 
     def __init__(self, data):
         self.rootNode = None
         self.data = data
 
     def train(self):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Trains a decision tree classifier on data set passed in. 
         The data set should contain a good mix of each class to be
         classified.
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         length = self.data.getFeatureLength()
         featureIndices = range(length)
         self.rootNode = TreeNode(self.data, featureIndices)
         self.rootNode.c45Train()
 
     def classify(self, sample):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Classify a sample based off of this trained tree.
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
 
         return self.rootNode.classify(sample)
 </code></pre><p>Then we introduce the RandomForest algorithm</p>
@@ -946,10 +951,10 @@ class RandomForest(object):
     for each of the trees in the random forest. To train the forest
     create an instance of it then call train on a TraingData object&quot;&quot;&quot;
     def __init__(self, data, numberOfTrees=100):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Initialize the random forest. 
         Each tree has a bag of the data associated with it.
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         self.data = data    #The data that the trees will be trained on
         self.numberOfTrees = numberOfTrees
         self.forest = []
@@ -959,16 +964,16 @@ class RandomForest(object):
             self.forest.append(C45Tree(bag))
 
     def train(self):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Train the random forest trees.
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         for tree in self.forest:
             tree.train()
 
     def classify(self, sample):
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
         Classify a data sample by polling the trees.
-        &apos;&apos;&apos;
+        &#39;&#39;&#39;
 
         #Create an empty dictionary
         votes = {}
@@ -1166,7 +1171,7 @@ class RandomForest(object):
 <p><strong>专业</strong>：上海交通大学安泰经济与管理学院 金融学<br><strong>课程名</strong>：国际金融<br><strong>教材</strong>：International Financial Management by Cheol Eun</p>
 <p><strong>课程安排</strong>：<br>Lecture1 汇率制度与国际货币体系, 教材第2章<br>Le2  国际收支与国际资本流动，教材第3章<br>Le3  国家投资分析<br>Le4  国际固定收益市场，教材第5,11,12章<br>Le5 国际股票市场，教材第13,15章<br>Le6 汇率平价公式，教材第6章<br>Le7 经济政策及汇率预测（Krugman第12版，及教材第6章）<br>Le8 Currency Derivatives ，教材第7章<br>Le9 Direct Foreign Investment ：定性与定量分析，阅读教材第16，17，18章<br>Le10 国际证券组合理论，教材第15章[高盛Country Analysis]<br>Le11 企业的外汇交易风险 ，教材第8章<br>Le12 企业的外汇经营与折算风险 ，教材第9-10章<br>Le13 利率互换与货币互换，教材第14章</p>
 <p><strong>重要网站与APPs</strong></p>
-<h4 id="国际股票市场投资"><a href="#国际股票市场投资" class="headerlink" title="国际股票市场投资"></a>国际股票市场投资</h4><p><a href="http://i.finance.sina.com.cn/zixuan,usstock" target="_blank" rel="noopener">新浪美股或者新浪财经客户端</a><br>登陆账号：<a href="mailto:fi401@126.com" target="_blank" rel="noopener">fi401@126.com</a>, 111119 【含货币，债券、股票ETF】<br><a href="finance.yahoo.com">全球股价与组合投资信息</a>,雅虎财经可下载excel格式数据<br><a href="http://www.sywg.com/sywg/portal/portal_softdown.html" target="_blank" rel="noopener">国际股票ETF： 通过下载有港股信息的客户端，比如同花顺、通达信授权的券商（申万证券）</a><br>雪球财经</p>
+<h4 id="国际股票市场投资"><a href="#国际股票市场投资" class="headerlink" title="国际股票市场投资"></a>国际股票市场投资</h4><p><a href="http://i.finance.sina.com.cn/zixuan,usstock" target="_blank" rel="noopener">新浪美股或者新浪财经客户端</a><br>登陆账号：fi401@126.com, 111119 【含货币，债券、股票ETF】<br><a href="finance.yahoo.com">全球股价与组合投资信息</a>,雅虎财经可下载excel格式数据<br><a href="http://www.sywg.com/sywg/portal/portal_softdown.html" target="_blank" rel="noopener">国际股票ETF： 通过下载有港股信息的客户端，比如同花顺、通达信授权的券商（申万证券）</a><br>雪球财经</p>
 <h4 id="货币及外汇市场投资"><a href="#货币及外汇市场投资" class="headerlink" title="货币及外汇市场投资"></a>货币及外汇市场投资</h4><p><a href="www.forex.com">GMAC嘉盛集团保证金杠杆交易</a><br><a href="http://finance.yahoo.com/currency-investing/asia-pacific" target="_blank" rel="noopener">下载外汇数据</a> 或者<a href="http://fx.sauder.ubc.ca/data.html" target="_blank" rel="noopener">点击</a><br>同花顺、通达信授权的券商股票分析软件的拓展市场行情也加入了外汇数据</p>
 <h4 id="国际债券市场投资"><a href="#国际债券市场投资" class="headerlink" title="国际债券市场投资"></a>国际债券市场投资</h4><p><a href="bing.com">Ishares bond</a><br><a href="http://www.worldgovernmentbonds.com/" target="_blank" rel="noopener">全球收益率曲线</a><br>Yahoo Bond Screener<br><a href="http://finance.yahoo.com/bonds" target="_blank" rel="noopener">全球债券</a> 交易所上市的债券投资组合 Bing 搜 Bond ETF</p>
 <h4 id="全球大宗商品市场、衍生产品"><a href="#全球大宗商品市场、衍生产品" class="headerlink" title="全球大宗商品市场、衍生产品"></a>全球大宗商品市场、衍生产品</h4><p><a href="http://finance.sina.com.cn/futuremarket/" target="_blank" rel="noopener">期货数据(黄金石油大宗商品) 通达信</a>、<a href="http://www.sge.sh/publish/sge/xqzx/xqyb/index.html" target="_blank" rel="noopener">同花顺</a><br><a href="http://www.barchart.com/futures/Currencies" target="_blank" rel="noopener">期货（外汇）</a>； </p>
@@ -1185,7 +1190,8 @@ class RandomForest(object):
 <h4 id="马歇尔-勒纳条件Marshall-lerner-condition、J-curve-effect"><a href="#马歇尔-勒纳条件Marshall-lerner-condition、J-curve-effect" class="headerlink" title="马歇尔-勒纳条件Marshall-lerner condition、J-curve effect"></a>马歇尔-勒纳条件Marshall-lerner condition、J-curve effect</h4><p>$\displaystyle \eta_{Xe}+|\eta_{Me}|&gt;1$ 进出口需求对价格的弹性大于1</p>
 <h3 id="3个重要BOP项目与3大国际机构间关系"><a href="#3个重要BOP项目与3大国际机构间关系" class="headerlink" title="3个重要BOP项目与3大国际机构间关系"></a>3个重要BOP项目与3大国际机构间关系</h3><p>Changes in Restrictions, Potential Economic Growth, Tax Rates, Exchange Rates</p>
 <h2 id="Lecture-3-国家投资分析"><a href="#Lecture-3-国家投资分析" class="headerlink" title="Lecture 3: 国家投资分析"></a>Lecture 3: 国家投资分析</h2><h3 id="国家投资动机与投资方法分类"><a href="#国家投资动机与投资方法分类" class="headerlink" title="国家投资动机与投资方法分类"></a>国家投资动机与投资方法分类</h3><p>国家金融投资(Portfolio Investment)分析两种哲学思路：主动投资分析与被动投资。<br>国家直接投资(Foreign Direct Investment)以主动分析为主<br>国家被动投资<br>1.理论基石：有效市场假说(Eugen Fama). 市场难以战胜,价格就是正确的。<br>2.尤其在海外投资时，超额收益难以匹配信息成本、语言障碍、交易时间等带来的高额成本<br>3.指数基金采用买入并持有策略，交易成本最低，收取客户的费用也最低<br>国家主动投资：从上到下进行主动分析，从国家到行业，再到公司选择。</p>
-<h3 id="国家分析的道格拉斯生产函数与Solow平衡增长理论"><a href="#国家分析的道格拉斯生产函数与Solow平衡增长理论" class="headerlink" title="国家分析的道格拉斯生产函数与Solow平衡增长理论"></a>国家分析的道格拉斯生产函数与Solow平衡增长理论</h3><p>在道格拉斯函数$Y=AKaL(1-a)$中，假设人口(劳动力)$L$增长速度$n$, 技术$A$增长速度$g$, 资本的折旧速度$\delta$。当经济增长处于稳定状态时，人均资本$k(t)$变动满足下面公式<br>$$k’(t)=sf(k(t))-(n+g+\delta)k(t)$$<br>投资比例$s^*$人均产出$f(k(t))$表示投资，人均投资高于$(n+g+\delta)k(t)$时，社会资本变动$k(t)$为正。<br>重要观点:<br>GDP增速为$n+g$, 劳动力增速$n$扮演重要角色：放开生育带来GDP增长</p>
+<h3 id="国家分析的道格拉斯生产函数与Solow平衡增长理论"><a href="#国家分析的道格拉斯生产函数与Solow平衡增长理论" class="headerlink" title="国家分析的道格拉斯生产函数与Solow平衡增长理论"></a>国家分析的道格拉斯生产函数与Solow平衡增长理论</h3><p>在道格拉斯函数$Y=AKaL(1-a)$中，假设人口(劳动力)$L$增长速度$n$, 技术$A$增长速度$g$, 资本的折旧速度$\delta$。当经济增长处于稳定状态时，人均资本$k(t)$变动满足下面公式</p>
+<script type="math/tex; mode=display">k'(t)=sf(k(t))-(n+g+\delta)k(t)</script><p>投资比例$s^*$人均产出$f(k(t))$表示投资，人均投资高于$(n+g+\delta)k(t)$时，社会资本变动$k(t)$为正。<br>重要观点:<br>GDP增速为$n+g$, 劳动力增速$n$扮演重要角色：放开生育带来GDP增长</p>
 <h3 id="国家宏观分析模板：以印度为例"><a href="#国家宏观分析模板：以印度为例" class="headerlink" title="国家宏观分析模板：以印度为例"></a>国家宏观分析模板：以印度为例</h3><p>根据道格拉斯生产函数$Y=AKaL(1-a)$, 经济Y增长取决于资本K、劳动力L的增长和技术A进步<br>关于K和L.生产函数中，“金砖四国”“Brics have K and L resources respectively.印度的人口与巴西的资源优势</p>
 <h3 id="国家卖方分析法-评估机构概览"><a href="#国家卖方分析法-评估机构概览" class="headerlink" title="国家卖方分析法(评估机构概览)"></a>国家卖方分析法(评估机构概览)</h3><p>宏观经济两种政策： 货币与财政<br>3驾马车：GDP增长率，经济增长动因，进出口</p>
 <h2 id="Lecture-4-国家固定收益市场"><a href="#Lecture-4-国家固定收益市场" class="headerlink" title="Lecture 4: 国家固定收益市场"></a>Lecture 4: 国家固定收益市场</h2><h3 id="外汇市场"><a href="#外汇市场" class="headerlink" title="外汇市场"></a>外汇市场</h3><h4 id="外汇市场参与投机与对冲的效用分析-汇率换算"><a href="#外汇市场参与投机与对冲的效用分析-汇率换算" class="headerlink" title="外汇市场参与投机与对冲的效用分析;汇率换算"></a>外汇市场参与投机与对冲的效用分析;汇率换算</h4><p>国际金融市场划分：固定收益、股权、衍生产品、另类投资<br>国际固定收益分类：外汇市场，货币与信贷市场，债券市场<br>投资国际固定收益市场动机：外币升值收益、国际分散化、对冲汇率风险</p>
@@ -1425,37 +1431,37 @@ pd.options.mode.chained_assignment = None  #hide any pandas warnings
 <p>I can see no reference to the ‘number of major vessels’, but given that the definition of heart disease is “…what happens when your heart’s blood supply is blocked or interrupted by a build-up of fatty substances in the coronary arteries”, it seems logical the more major vessels is a good thing, and therefore will reduce the probability of heart disease.</p>
 <p>Given the above, I would hypothesis that, if the model has some predictive ability, we’ll see these factors standing out as the most important.</p>
 <p>Declare some of the columns to make the indication clear</p>
-<pre><code>dt.columns = [&apos;age&apos;, &apos;sex&apos;, &apos;chest_pain_type&apos;, &apos;resting_blood_pressure&apos;, &apos;cholesterol&apos;, &apos;fasting_blood_sugar&apos;, &apos;rest_ecg&apos;, &apos;max_heart_rate_achieved&apos;,
-   &apos;exercise_induced_angina&apos;, &apos;st_depression&apos;, &apos;st_slope&apos;, &apos;num_major_vessels&apos;, &apos;thalassemia&apos;, &apos;target&apos;]
+<pre><code>dt.columns = [&#39;age&#39;, &#39;sex&#39;, &#39;chest_pain_type&#39;, &#39;resting_blood_pressure&#39;, &#39;cholesterol&#39;, &#39;fasting_blood_sugar&#39;, &#39;rest_ecg&#39;, &#39;max_heart_rate_achieved&#39;,
+   &#39;exercise_induced_angina&#39;, &#39;st_depression&#39;, &#39;st_slope&#39;, &#39;num_major_vessels&#39;, &#39;thalassemia&#39;, &#39;target&#39;]
 
 
-dt[&apos;sex&apos;][dt[&apos;sex&apos;] == 0] = &apos;female&apos;
-dt[&apos;sex&apos;][dt[&apos;sex&apos;] == 1] = &apos;male&apos;
+dt[&#39;sex&#39;][dt[&#39;sex&#39;] == 0] = &#39;female&#39;
+dt[&#39;sex&#39;][dt[&#39;sex&#39;] == 1] = &#39;male&#39;
 
-dt[&apos;chest_pain_type&apos;][dt[&apos;chest_pain_type&apos;] == 1] = &apos;typical angina&apos;
-dt[&apos;chest_pain_type&apos;][dt[&apos;chest_pain_type&apos;] == 2] = &apos;atypical angina&apos;
-dt[&apos;chest_pain_type&apos;][dt[&apos;chest_pain_type&apos;] == 3] = &apos;non-anginal pain&apos;
-dt[&apos;chest_pain_type&apos;][dt[&apos;chest_pain_type&apos;] == 4] = &apos;asymptomatic&apos;
+dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 1] = &#39;typical angina&#39;
+dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 2] = &#39;atypical angina&#39;
+dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 3] = &#39;non-anginal pain&#39;
+dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 4] = &#39;asymptomatic&#39;
 
-dt[&apos;fasting_blood_sugar&apos;][dt[&apos;fasting_blood_sugar&apos;] == 0] = &apos;lower than 120mg/ml&apos;
-dt[&apos;fasting_blood_sugar&apos;][dt[&apos;fasting_blood_sugar&apos;] == 1] = &apos;greater than 120mg/ml&apos;
+dt[&#39;fasting_blood_sugar&#39;][dt[&#39;fasting_blood_sugar&#39;] == 0] = &#39;lower than 120mg/ml&#39;
+dt[&#39;fasting_blood_sugar&#39;][dt[&#39;fasting_blood_sugar&#39;] == 1] = &#39;greater than 120mg/ml&#39;
 
-dt[&apos;rest_ecg&apos;][dt[&apos;rest_ecg&apos;] == 0] = &apos;normal&apos;
-dt[&apos;rest_ecg&apos;][dt[&apos;rest_ecg&apos;] == 1] = &apos;ST-T wave abnormality&apos;
-dt[&apos;rest_ecg&apos;][dt[&apos;rest_ecg&apos;] == 2] = &apos;left ventricular hypertrophy&apos;
+dt[&#39;rest_ecg&#39;][dt[&#39;rest_ecg&#39;] == 0] = &#39;normal&#39;
+dt[&#39;rest_ecg&#39;][dt[&#39;rest_ecg&#39;] == 1] = &#39;ST-T wave abnormality&#39;
+dt[&#39;rest_ecg&#39;][dt[&#39;rest_ecg&#39;] == 2] = &#39;left ventricular hypertrophy&#39;
 
-dt[&apos;exercise_induced_angina&apos;][dt[&apos;exercise_induced_angina&apos;] == 0] = &apos;no&apos;
-dt[&apos;exercise_induced_angina&apos;][dt[&apos;exercise_induced_angina&apos;] == 1] = &apos;yes&apos;
+dt[&#39;exercise_induced_angina&#39;][dt[&#39;exercise_induced_angina&#39;] == 0] = &#39;no&#39;
+dt[&#39;exercise_induced_angina&#39;][dt[&#39;exercise_induced_angina&#39;] == 1] = &#39;yes&#39;
 
-dt[&apos;st_slope&apos;][dt[&apos;st_slope&apos;] == 1] = &apos;upsloping&apos;
-dt[&apos;st_slope&apos;][dt[&apos;st_slope&apos;] == 2] = &apos;flat&apos;
-dt[&apos;st_slope&apos;][dt[&apos;st_slope&apos;] == 3] = &apos;downsloping&apos;
+dt[&#39;st_slope&#39;][dt[&#39;st_slope&#39;] == 1] = &#39;upsloping&#39;
+dt[&#39;st_slope&#39;][dt[&#39;st_slope&#39;] == 2] = &#39;flat&#39;
+dt[&#39;st_slope&#39;][dt[&#39;st_slope&#39;] == 3] = &#39;downsloping&#39;
 
-dt[&apos;thalassemia&apos;][dt[&apos;thalassemia&apos;] == 1] = &apos;normal&apos;
-dt[&apos;thalassemia&apos;][dt[&apos;thalassemia&apos;] == 2] = &apos;fixed defect&apos;
-dt[&apos;thalassemia&apos;][dt[&apos;thalassemia&apos;] == 3] = &apos;reversable defect&apos;
+dt[&#39;thalassemia&#39;][dt[&#39;thalassemia&#39;] == 1] = &#39;normal&#39;
+dt[&#39;thalassemia&#39;][dt[&#39;thalassemia&#39;] == 2] = &#39;fixed defect&#39;
+dt[&#39;thalassemia&#39;][dt[&#39;thalassemia&#39;] == 3] = &#39;reversable defect&#39;
 </code></pre><h1 id="The-Model"><a href="#The-Model" class="headerlink" title="The Model"></a>The Model</h1><p>Depending on package sklearn, we split the data - test data 70%, training data 30%</p>
-<pre><code>X_train, X_test, y_train, y_test = train_test_split(dt.drop(&apos;target&apos;, 1), dt[&apos;target&apos;], test_size = .2, random_state=10) #split the data
+<pre><code>X_train, X_test, y_train, y_test = train_test_split(dt.drop(&#39;target&#39;, 1), dt[&#39;target&#39;], test_size = .2, random_state=10) #split the data
 </code></pre><p>Using random forest methodology</p>
 <pre><code>model = RandomForestClassifier(max_depth=5)
 model.fit(X_train, y_train)
@@ -1463,37 +1469,37 @@ model.fit(X_train, y_train)
 <pre><code>estimator = model.estimators_[1]
 feature_names = [i for i in X_train.columns]
 
-y_train_str = y_train.astype(&apos;str&apos;)
-y_train_str[y_train_str == &apos;0&apos;] = &apos;no disease&apos;
-y_train_str[y_train_str == &apos;1&apos;] = &apos;disease&apos;
+y_train_str = y_train.astype(&#39;str&#39;)
+y_train_str[y_train_str == &#39;0&#39;] = &#39;no disease&#39;
+y_train_str[y_train_str == &#39;1&#39;] = &#39;disease&#39;
 y_train_str = y_train_str.values
 </code></pre><p>code from <a href="https://towardsdatascience.com/how-to-visualize-a-decision-tree-from-a-random-forest-in-python-using-scikit-learn-38ad2d75f21c" target="_blank" rel="noopener">https://towardsdatascience.com/how-to-visualize-a-decision-tree-from-a-random-forest-in-python-using-scikit-learn-38ad2d75f21c</a></p>
-<pre><code>export_graphviz(estimator, out_file=&apos;tree.dot&apos;, 
+<pre><code>export_graphviz(estimator, out_file=&#39;tree.dot&#39;, 
                 feature_names = feature_names,
                 class_names = y_train_str,
                 rounded = True, proportion = True, 
-                label=&apos;root&apos;,
+                label=&#39;root&#39;,
                 precision = 2, filled = True)
 
 from subprocess import call
-call([&apos;dot&apos;, &apos;-Tpng&apos;, &apos;tree.dot&apos;, &apos;-o&apos;, &apos;tree.png&apos;, &apos;-Gdpi=600&apos;])
+call([&#39;dot&#39;, &#39;-Tpng&#39;, &#39;tree.dot&#39;, &#39;-o&#39;, &#39;tree.png&#39;, &#39;-Gdpi=600&#39;])
 
 from IPython.display import Image
-Image(filename = &apos;tree.png&apos;)
+Image(filename = &#39;tree.png&#39;)
 </code></pre><p>Evaluate the model</p>
 <pre><code>y_predict = model.predict(X_test)
 y_pred_quant = model.predict_proba(X_test)[:, 1]
 y_pred_bin = model.predict(X_test)
 </code></pre><p>Fit with Cnfusion model</p>
 <pre><code>confusion_matrix = confusion_matrix(y_test, y_pred_bin)
-</code></pre><p>Here we propose the sensitvity and specificity<br>$$sensitivity = \frac{TF}{TP+FN}$$<br>$$specificity = \frac{TN}{TN+FP}$$</p>
-<pre><code>total=sum(sum(confusion_matrix))
+</code></pre><p>Here we propose the sensitvity and specificity</p>
+<script type="math/tex; mode=display">sensitivity = \frac{TF}{TP+FN}</script><script type="math/tex; mode=display">specificity = \frac{TN}{TN+FP}</script><pre><code>total=sum(sum(confusion_matrix))
 
 sensitivity = confusion_matrix[0,0]/(confusion_matrix[0,0]+confusion_matrix[1,0])
-print(&apos;Sensitivity : &apos;, sensitivity )
+print(&#39;Sensitivity : &#39;, sensitivity )
 
 specificity = confusion_matrix[1,1]/(confusion_matrix[1,1]+confusion_matrix[0,1])
-print(&apos;Specificity : &apos;, specificity)
+print(&#39;Specificity : &#39;, specificity)
 </code></pre><p>Next, we check ROC curve.</p>
 <pre><code>fpr, tpr, thresholds = roc_curve(y_test, y_pred_quant)
 
@@ -1502,10 +1508,10 @@ ax.plot(fpr, tpr)
 ax.plot([0, 1], [0, 1], transform=ax.transAxes, ls=&quot;--&quot;, c=&quot;.3&quot;)
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.0])
-plt.rcParams[&apos;font.size&apos;] = 12
-plt.title(&apos;ROC curve for diabetes classifier&apos;)
-plt.xlabel(&apos;False Positive Rate (1 - Specificity)&apos;)
-plt.ylabel(&apos;True Positive Rate (Sensitivity)&apos;)
+plt.rcParams[&#39;font.size&#39;] = 12
+plt.title(&#39;ROC curve for diabetes classifier&#39;)
+plt.xlabel(&#39;False Positive Rate (1 - Specificity)&#39;)
+plt.ylabel(&#39;True Positive Rate (Sensitivity)&#39;)
 plt.grid(True)
 </code></pre><p>Another common metric is the Area Under the Curve, or AUC.</p>
 <pre><code>auc(fpr, tpr)
