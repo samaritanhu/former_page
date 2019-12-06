@@ -83,10 +83,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Random Forest Classification from the bottom layer">
 <meta property="og:url" content="http://nobugs.dev/2019/05/05/RandomForest/index.html">
-<meta property="og:site_name" content="Fuma&#39;s gadget">
+<meta property="og:site_name" content="Xinyi&#39;s gadget">
 <meta property="og:description" content="import packages we need import random import numpy as np import sys The feature list is an array of the possible feature indicies to use. This prevents splitting on the same feature multiple times and">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-09T04:20:56.237Z">
+<meta property="og:updated_time" content="2019-12-06T05:57:12.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Random Forest Classification from the bottom layer">
 <meta name="twitter:description" content="import packages we need import random import numpy as np import sys The feature list is an array of the possible feature indicies to use. This prevents splitting on the same feature multiple times and">
@@ -125,7 +125,7 @@
 
 
 
-  <title>Random Forest Classification from the bottom layer | Fuma's gadget</title>
+  <title>Random Forest Classification from the bottom layer | Xinyi's gadget</title>
   
 
 
@@ -159,7 +159,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Fuma's gadget</span>
+        <span class="site-title">Xinyi's gadget</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -265,7 +265,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fuma's gadget">
+      <meta itemprop="name" content="Xinyi's gadget">
     </span>
 
     
@@ -308,8 +308,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kaggle/" itemprop="url" rel="index">
-                    <span itemprop="name">Kaggle</span>
+                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -339,7 +339,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  936
+                  918
                 </span>
               
 
@@ -384,7 +384,6 @@ import sys
 <p>In pseudocode, the general algorithm for building decision trees is:</p>
 <p>1.Check for base cases<br>2.For each attribute a<br>3.Find the normalized information gain ratio from splitting on a<br>4.Let a_best be the attribute with the highest normalized information gain<br>5.Create a decision node that splits on a_best<br>6.Recur on the sublists obtained by splitting on a_best, and add those nodes as children of node</p>
 <pre><code>class TreeNode:
-    &quot;&quot;&quot;docstring for treeNode&quot;&quot;&quot;
     def __init__(self, dataSet, featureList, parent=None):
         self.featureNumber = None  #This is the trained index of the feature to split on
         self.featureList = featureList 
@@ -395,9 +394,6 @@ import sys
         self.parent = parent
 
     def c45Train(self):
-        #Base Cases:
-
-        #All instances in dataSet are the same
         if(self.dataSet.isPure()):
             #gets the label of the first data instance and makes a leaf node
             #classifying it. 
@@ -623,8 +619,8 @@ class RandomForest(object):
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/19/management/" rel="next" title="国际金融半期复习">
-                <i class="fa fa-chevron-left"></i> 国际金融半期复习
+              <a href="/2019/04/16/kaggle数据集从入门到放弃/" rel="next" title="Deep dive into KAGGLE">
+                <i class="fa fa-chevron-left"></i> Deep dive into KAGGLE
               </a>
             
           </div>
@@ -705,7 +701,7 @@ class RandomForest(object):
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -722,15 +718,6 @@ class RandomForest(object):
               </div>
             
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">标签</span>
-                
-              </div>
             
 
           </nav>
