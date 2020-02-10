@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/CS224n Classnotes course6 to/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/weibo hottopics crawler/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi HU">
@@ -272,7 +272,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/10/CS224n Classnotes course6 to/" itemprop="url">Stanford CS224n Natural Language Processing Course6</a></h1>
+                <a class="post-title-link" href="/2020/02/10/weibo hottopics crawler/" itemprop="url">Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China</a></h1>
         
 
         <div class="post-meta">
@@ -284,7 +284,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T21:57:23+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T15:30:40+08:00">
                 2020-02-10
               </time>
             
@@ -307,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
+                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  187
+                  369
                 </span>
               
 
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -377,17 +377,11 @@
       
         
           
-            <p><a href="http://web.stanford.edu/class/cs224n/index.html#schedule" target="_blank" rel="noopener"><strong>Course Link(including Slides and Materials)</strong></a></p>
-<p><a href="http://onlinehub.stanford.edu/cs224" target="_blank" rel="noopener"><strong>Online Video Link</strong></a></p>
-<p>[<strong>Online Video Link in Chinese</strong>](</p>
-<h1 id="Course-6-Language-Models-and-RNNs"><a href="#Course-6-Language-Models-and-RNNs" class="headerlink" title="Course 6 - Language Models and RNNs"></a>Course 6 - Language Models and RNNs</h1><h2 id="Language-Modeling"><a href="#Language-Modeling" class="headerlink" title="Language Modeling"></a>Language Modeling</h2><p>is the task of predicting what word comes next. </p>
-<script type="math/tex; mode=display">
-P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)</script><p>also, <strong>assigns probability to a piece of text</strong></p>
-<script type="math/tex; mode=display">
-\begin{aligned} P\left(\boldsymbol{x}^{(1)}, \ldots, \boldsymbol{x}^{(T)}\right) &=P\left(\boldsymbol{x}^{(1)}\right) \times P\left(\boldsymbol{x}^{(2)} | \boldsymbol{x}^{(1)}\right) \times \cdots \times P\left(\boldsymbol{x}^{(T)} | \boldsymbol{x}^{(T-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \\ &=\prod_{t=1}^{T} P\left(\boldsymbol{x}^{(t)} | \boldsymbol{x}^{(t-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \end{aligned}</script><h3 id="n-gram-Language-Models"><a href="#n-gram-Language-Models" class="headerlink" title="n-gram Language Models"></a>n-gram Language Models</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>A <strong>n-gram</strong> is a chunk of n consecutive words</p>
-<h4 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h4><p>Collect statistics about how frequent different n-grams are, and use these to predict next word.</p>
-<h4 id="Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><a href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data" class="headerlink" title="Sparity Problem 1: what if “students opened their w“ never occurred in data"></a>Sparity Problem 1: what if “students opened their <em>w</em>“ never occurred in data</h4><p>Solution-Smoothing: Add small delta to the count for every <em>w</em> </p>
-<h4 id="Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><a href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data" class="headerlink" title="Sparity Problem2: what if “students opened their” never occurred in data?"></a>Sparity Problem2: what if “students opened their” never occurred in data?</h4><p>Solution-backoff: Just condition on “opened their” instead</p>
+            <h3 id="Web-Scrawler-is-dangerous"><a href="#Web-Scrawler-is-dangerous" class="headerlink" title="Web Scrawler is dangerous"></a>Web Scrawler is dangerous</h3><p>First and foremost, do not touch web scrawler if you are 100% sure that you wanna do this.</p>
+<h3 id="Similar-topic"><a href="#Similar-topic" class="headerlink" title="Similar topic:"></a>Similar topic:</h3><p><a href="https://nobugs.dev/2019/07/14/webscrawler/">https://nobugs.dev/2019/07/14/webscrawler/</a></p>
+<p>website: enlightent</p>
+<h3 id="This-time"><a href="#This-time" class="headerlink" title="This time"></a>This time</h3><p>We choose to use the package of <code>requests</code> and package <code>json</code> to get the result of hot topics  in weibo, similar website to twitter which has real-time hot topics, a great way to monitor the public sentiment in China.</p>
+<h3 id="Code-Implementation"><a href="#Code-Implementation" class="headerlink" title="Code Implementation"></a>Code Implementation</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'charset'</span>: <span class="string">"utf-8"</span>,</span><br><span class="line">    <span class="string">'Accept-Encoding'</span>: <span class="string">"gzip"</span>,</span><br><span class="line">    <span class="string">'referer'</span>: <span class="string">"https://servicewechat.com/wx90ae92bbd13ec629/11/page-frame.html"</span>,</span><br><span class="line">    <span class="string">'content-type'</span>: <span class="string">"application/x-www-form-urlencoded"</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">"Mozilla/5.0 (Linux; Android 9; Redmi Note 7 Build/PKQ1.180904.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.91 Mobile Safari/537.36 MicroMessenger/7.0.3.1400(0x2700033B) Process/appbrand0 NetType/WIFI Language/zh_CN"</span>,</span><br><span class="line">    <span class="string">'Host'</span>: <span class="string">"www.eecso.com"</span>,</span><br><span class="line">    <span class="string">'Connection'</span>: <span class="string">"keep-alive"</span>,</span><br><span class="line">    <span class="string">'cache-control'</span>: <span class="string">"no-cache"</span>,</span><br><span class="line">    <span class="string">'Origin'</span>: <span class="string">'https://www.weibotop.cn'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'微博热搜.csv'</span>, <span class="string">'w'</span>, encoding=<span class="string">'gbk'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">'时间,排名,热搜内容,上榜时间,最后时间\n'</span>)</span><br><span class="line"></span><br><span class="line">timeid = <span class="number">77594</span></span><br><span class="line">dateUrl = <span class="string">"https://www.eecso.com/test/weibo/apis/getlatest.php?timeid=&#123;&#125;"</span></span><br><span class="line">contentUrl = <span class="string">"https://www.eecso.com/test/weibo/apis/currentitems.php?timeid=&#123;&#125;"</span></span><br><span class="line">n = <span class="number">1</span></span><br><span class="line">days = <span class="number">42</span> <span class="comment">#需获取2.10往前多少天的数据</span></span><br><span class="line">interval = <span class="number">720</span> <span class="comment">#改为1则是爬所有数据（该网站2分钟记录一次） 24*30 = 720</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    dateResponse = requests.request(<span class="string">"GET"</span>, dateUrl.format(timeid), headers=headers,verify=<span class="keyword">False</span>)</span><br><span class="line">    contentResponse = requests.request(<span class="string">"GET"</span>, contentUrl.format(timeid), headers=headers,verify=<span class="keyword">False</span>)</span><br><span class="line">    timeid = <span class="number">77594</span>-interval*n <span class="comment">#77594为2020/2/10 12:00的timeid，720为一天timeid的间隔</span></span><br><span class="line">    print(timeid)</span><br><span class="line">    n += <span class="number">1</span></span><br><span class="line">    dateJson = json.loads(dateResponse.text)</span><br><span class="line">    json_obj = json.loads(contentResponse.text)</span><br><span class="line">    <span class="comment">#print(dateJson)</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> index,item <span class="keyword">in</span> enumerate(json_obj):</span><br><span class="line">        date = dateJson[<span class="number">1</span>]</span><br><span class="line">        rank = str(index+<span class="number">1</span>)</span><br><span class="line">        hotTopic = item[<span class="number">0</span>]</span><br><span class="line">        onTime = item[<span class="number">1</span>]</span><br><span class="line">        lastTime = item[<span class="number">2</span>]</span><br><span class="line">        save_res = date+<span class="string">","</span>+rank+<span class="string">","</span>+hotTopic+<span class="string">','</span>+onTime+<span class="string">','</span>+lastTime+<span class="string">'\n'</span></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'微博热搜.csv'</span>,<span class="string">'a'</span>,encoding=<span class="string">'gbk'</span>,errors=<span class="string">'ignore'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(save_res)</span><br><span class="line">    <span class="keyword">if</span> n &gt; days:</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -455,7 +449,7 @@ P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/10/Functional Analysis brief theorems/" itemprop="url">Walter Rudin, Functional Analysis brief theorems(Chapter General Theory)</a></h1>
+                <a class="post-title-link" href="/2020/02/10/Functional Analysis brief theorems/" itemprop="url">Walter Rudin, Functional Analysis brief theorems(Chapter General Theory) - ongoing</a></h1>
         
 
         <div class="post-meta">
@@ -613,7 +607,7 @@ B_r(x) = \{y:d(x,y)<r\}</script>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/Untitled/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/09/CS224n Classnotes Course6/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi HU">
@@ -632,7 +626,7 @@ B_r(x) = \{y:d(x,y)<r\}</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/10/Untitled/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2020/02/09/CS224n Classnotes Course6/" itemprop="url">Stanford CS224n Natural Language Processing Course6 - ongoing</a></h1>
         
 
         <div class="post-meta">
@@ -644,158 +638,8 @@ B_r(x) = \{y:d(x,y)<r\}</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T15:04:09+08:00">
-                2020-02-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <script type="math/tex; mode=display">test</script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/01/31/CS224n Classnotes course 1 to 5/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/31/CS224n Classnotes course 1 to 5/" itemprop="url">Stanford CS224n Natural Language Processing Course1 to 5</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-31T21:57:23+08:00">
-                2020-01-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-09T21:57:23+08:00">
+                2020-02-09
               </time>
             
 
@@ -848,7 +692,7 @@ B_r(x) = \{y:d(x,y)<r\}</script>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k
+                  173
                 </span>
               
 
@@ -864,7 +708,7 @@ B_r(x) = \{y:d(x,y)<r\}</script>
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12
+                  1
                 </span>
               
             </div>
@@ -887,79 +731,823 @@ B_r(x) = \{y:d(x,y)<r\}</script>
       
         
           
-            <p><a href="http://web.stanford.edu/class/cs224n/index.html#schedule" target="_blank" rel="noopener"><strong>Course Link(including Slides and Materials)</strong></a></p>
-<p><a href="http://onlinehub.stanford.edu/cs224" target="_blank" rel="noopener"><strong>Online Video Link</strong></a></p>
-<p><a href="https://www.bilibili.com/video/av46216519" target="_blank" rel="noopener"><strong>Online Video Link in Chinese</strong></a></p>
-<h1 id="Course-1-Introduction-and-Word-Vectors"><a href="#Course-1-Introduction-and-Word-Vectors" class="headerlink" title="Course 1 - Introduction and Word Vectors"></a>Course 1 - Introduction and Word Vectors</h1><p>Language isn’t a formal system. Language is glorious chaos. <em>by Chris Manning</em></p>
-<p><strong>Target</strong></p>
-<ul>
-<li>Modern methods: Recurrent networks, attentions</li>
-<li>Big Picture</li>
-<li>Build system in PyTorch: Word meaning, dependency parsing, machine translation, question answering.</li>
-</ul>
-<h2 id="1-how-do-we-represent-the-meaning-of-a-word"><a href="#1-how-do-we-represent-the-meaning-of-a-word" class="headerlink" title="1. how do we represent the meaning of a word?"></a>1. how do we represent the meaning of a word?</h2><p>signifier(symbol) &lt;=&gt; signified(idea or thing) = denotational semantics</p>
-<h2 id="2-how-do-we-have-usable-meaning-in-a-computer"><a href="#2-how-do-we-have-usable-meaning-in-a-computer" class="headerlink" title="2. how do we have usable meaning in a computer?"></a>2. how do we have usable meaning in a computer?</h2><p><strong>Common Solution</strong> Use e.g. WordNet containing lists of <strong>synonym sets</strong> and <strong>hypernyms</strong></p>
-<p><strong>Problems</strong> </p>
-<ul>
-<li>missing nuance: proficient = good in some contexts</li>
-<li>new meanings of words: wicked, badass, ninja</li>
-<li>Subjective</li>
-<li>Requires human labor to create and adapt</li>
-<li>Can’t compute accurate and word similarity</li>
-</ul>
-<h3 id="Representing-words-as-discrete-symbols"><a href="#Representing-words-as-discrete-symbols" class="headerlink" title="Representing words as discrete symbols"></a>Representing words as discrete symbols</h3><p><strong>one-hot vectors</strong> =&gt; <strong>encode similarity in the vector themselves</strong></p>
-<p><strong>Distributional semantics</strong>: A word’s meaning is given by the words that frequently appear close-by.</p>
-<p><strong>Word Vectors</strong>: a dense vector for each word, chosen so that it is similar to vectors of words that appear in similar contexts.</p>
-<p>Note: Word Vectors = Word Embeddings = Word Representations. All distributed representation</p>
+            <h1 id="Course-6-Language-Models-and-RNNs"><a href="#Course-6-Language-Models-and-RNNs" class="headerlink" title="Course 6 - Language Models and RNNs"></a>Course 6 - Language Models and RNNs</h1><h2 id="Language-Modeling"><a href="#Language-Modeling" class="headerlink" title="Language Modeling"></a>Language Modeling</h2><p>is the task of predicting what word comes next. </p>
 <script type="math/tex; mode=display">
-banking = \left[
- \begin{matrix}
-   0.286 \\
-   0.792  \\
-   -0.177 \\
-   -0.107 \\
-   0.109 \\
-   -0.542\\
-   0.349\\
-   0.271\\
-   0.487
-  \end{matrix}
-  \right] \tag{1}</script><h2 id="3-Word2Vec-Overview"><a href="#3-Word2Vec-Overview" class="headerlink" title="3. Word2Vec: Overview"></a>3. Word2Vec: Overview</h2><p>Idea:</p>
+P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)</script><p>also, <strong>assigns probability to a piece of text</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned} P\left(\boldsymbol{x}^{(1)}, \ldots, \boldsymbol{x}^{(T)}\right) &=P\left(\boldsymbol{x}^{(1)}\right) \times P\left(\boldsymbol{x}^{(2)} | \boldsymbol{x}^{(1)}\right) \times \cdots \times P\left(\boldsymbol{x}^{(T)} | \boldsymbol{x}^{(T-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \\ &=\prod_{t=1}^{T} P\left(\boldsymbol{x}^{(t)} | \boldsymbol{x}^{(t-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \end{aligned}</script><h3 id="n-gram-Language-Models"><a href="#n-gram-Language-Models" class="headerlink" title="n-gram Language Models"></a>n-gram Language Models</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>A <strong>n-gram</strong> is a chunk of n consecutive words</p>
+<h4 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h4><p>Collect statistics about how frequent different n-grams are, and use these to predict next word.</p>
+<h4 id="Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><a href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data" class="headerlink" title="Sparity Problem 1: what if “students opened their w“ never occurred in data"></a>Sparity Problem 1: what if “students opened their <em>w</em>“ never occurred in data</h4><p>Solution-Smoothing: Add small delta to the count for every <em>w</em> </p>
+<h4 id="Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><a href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data" class="headerlink" title="Sparity Problem2: what if “students opened their” never occurred in data?"></a>Sparity Problem2: what if “students opened their” never occurred in data?</h4><p>Solution-backoff: Just condition on “opened their” instead</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/04/CS224n Classnotes Course5/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/04/CS224n Classnotes Course5/" itemprop="url">Stanford CS224n Natural Language Processing Course5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-04T21:57:23+08:00">
+                2020-02-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  307
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-5-Dependency-Parsing"><a href="#Course-5-Dependency-Parsing" class="headerlink" title="Course 5 - Dependency Parsing"></a>Course 5 - Dependency Parsing</h1><h2 id="Syntactic-Structure-Consistency-and-Dependency"><a href="#Syntactic-Structure-Consistency-and-Dependency" class="headerlink" title="Syntactic Structure: Consistency and Dependency"></a>Syntactic Structure: Consistency and Dependency</h2><h3 id="1-Two-views-of-linguistic-structure-Constituency-phrase-stucture-grammar-context-free-grammars-CFGs"><a href="#1-Two-views-of-linguistic-structure-Constituency-phrase-stucture-grammar-context-free-grammars-CFGs" class="headerlink" title="1. Two views of linguistic structure: Constituency  = phrase stucture grammar = context-free grammars (CFGs)"></a>1. Two views of linguistic structure: Constituency  = phrase stucture grammar = context-free grammars (CFGs)</h3><p><strong>Phrase structure</strong> organizes words into nested constituents</p>
+<h2 id="Dependency-Grammar-and-Treebanks"><a href="#Dependency-Grammar-and-Treebanks" class="headerlink" title="Dependency Grammar and Treebanks"></a>Dependency Grammar and Treebanks</h2><p>Dependency structure shows which words depend on which other words.</p>
+<p>Dependency syntax postulates that syntactic structure consists of relations between lexical items, normally binary asymmetric relations(“arrows”) called <strong>dependencies</strong></p>
+<p>The arrows are commonly <strong>typed</strong> with the name of grammatical relations(subject, prepositional object, apposition, etc.)</p>
+<p>Usually, dependencies form a tree(connected, acyclic, single-head)</p>
+<h2 id="Transition-based-dependency-parsing"><a href="#Transition-based-dependency-parsing" class="headerlink" title="Transition-based dependency parsing"></a>Transition-based dependency parsing</h2><p>A simple form of greedy discriminative dependency parser.</p>
+<script type="math/tex; mode=display">
+Start: \sigma=[\mathrm{ROOT}], \beta=w_{1}, \ldots, w_{n}, A=\emptyset\\
+1. Shift\qquad \sigma, w_{i}|\beta, A \rightarrow \sigma| w_{i}, \beta, A\\
+2. Left-Arc_r\qquad \sigma\left|w_{i}\right| w_{j}, \beta, A \rightarrow
+\sigma | w_{j}, \beta, \operatorname{A}\mathop{\cup} \left\{r\left(w_{j}, w_{i}\right)\right\}
+\\
+3. Right-Arc_r \qquad \sigma\left[w_{i} | w_{j}, \beta, A \rightarrow\right.
+
+\sigma | w_{i}, \beta, \operatorname{A}\mathop{\cup}\left\{r\left(w_{i}, w_{j}\right)\right\}
+\\
+Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><a href="#2005-MaltParser-Nivre-and-Hall-2005" class="headerlink" title="2005 MaltParser, Nivre and Hall 2005"></a>2005 MaltParser, Nivre and Hall 2005</h3><p>Each action is predicted by a discriminative classifier over each legal move(like softmax classifier)</p>
 <ul>
-<li>a large corpus of text</li>
-<li>every word in a fixed vocabulary is represented by a <strong>vector</strong></li>
-<li>go through each position <em>t</em> in the text, which has a center word <em>c</em> and context words <em>o</em></li>
-<li>Use the <strong>similarity of the word vectors</strong> for <em>c</em> and <em>o</em> to <strong>calculate the probability</strong> of <em>o</em> given <em>c</em></li>
-<li><strong>Keep Adjusting the word vectors</strong> to maximize this probability</li>
+<li>Max of 3 untyped choices, max of |R| * 2 + 1 when typed</li>
+<li>Features: top of stack word, POS; first in the buffer word, POS</li>
 </ul>
-<script type="math/tex; mode=display">
-likelihood = L(\theta) = \prod_{t=1}^{T} \prod_{-m \leq j \leq m \atop j \neq 0} P\left(w_{t+j} | w_{t} ; \theta\right)</script><p>Note: theta is all variables to be optimized</p>
-<h3 id="Objective-function-J"><a href="#Objective-function-J" class="headerlink" title="Objective function J"></a>Objective function J</h3><p>sometimes called <strong>cost / loss function</strong></p>
-<script type="math/tex; mode=display">
-J(\theta)=-\frac{1}{T} \log L(\theta)=-\frac{1}{T} \sum_{t=1}^{T} \sum_{-m \leq j \leq m} \log P\left(w_{t+j} | w_{t} ; \theta\right)</script><p><strong>Minimizing objective function &lt;=&gt; Maximizing predictive accuracy</strong></p>
-<p><em>Question: How to calculate P?</em></p>
-<p><em>Answer: We use two vectors per word w</em></p>
+<p>It provides very <strong>fast linear time parsing</strong> with fractionally lower accuracy</p>
+<h3 id="Evaluation-of-Dependency-Parsing-labeled-dependency-accuracy"><a href="#Evaluation-of-Dependency-Parsing-labeled-dependency-accuracy" class="headerlink" title="Evaluation of Dependency Parsing: (labeled) dependency accuracy"></a>Evaluation of Dependency Parsing: (labeled) dependency accuracy</h3><p><img src="/2020/02/04/CS224n Classnotes Course5/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200205111717409.png" alt="image-20200205111717409"></p>
+<h2 id="Neural-dependency-parsing"><a href="#Neural-dependency-parsing" class="headerlink" title="Neural dependency parsing"></a>Neural dependency parsing</h2><h3 id="Why-train-a-neural-dependency-parsing"><a href="#Why-train-a-neural-dependency-parsing" class="headerlink" title="Why train a neural dependency parsing?"></a>Why train a neural dependency parsing?</h3><p>Problem #1: sparse</p>
+<p>Problem #2: incomplete</p>
+<p>Problem #3: expensive computation(95%+ of parsing time is consumed by feature computation)</p>
+<h3 id="2014-chen-and-manning"><a href="#2014-chen-and-manning" class="headerlink" title="2014, chen and manning"></a>2014, chen and manning</h3><p>English parsing to Stanford Dependencies:</p>
 <ul>
-<li><code>v_w</code> when <em>w</em> is a center word</li>
-<li><code>u_w</code> when <em>w</em> is a context word</li>
+<li>Unlabeled attachment score = head</li>
+<li>Labeled attachment score = head and label</li>
 </ul>
-<p>Then for a center word <em>c</em> and a context word <em>o</em>:</p>
-<h3 id="Prediction-function"><a href="#Prediction-function" class="headerlink" title="Prediction function"></a>Prediction function</h3><script type="math/tex; mode=display">
-P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w}^{T} v_{c}\right)}</script><h3 id="To-train-the-model-Compute-all-vector-gradients"><a href="#To-train-the-model-Compute-all-vector-gradients" class="headerlink" title="To train the model: Compute all vector gradients"></a>To train the model: Compute all vector gradients</h3><ul>
-<li><p>Recall: theta represents <strong>all</strong> model parameters, in one long vector</p>
+<h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>bigger, deeper networks + beam search + CRF-style inference</p>
+<h3 id="Graph-based-neural-dependency-parsing"><a href="#Graph-based-neural-dependency-parsing" class="headerlink" title="Graph-based neural dependency parsing"></a>Graph-based neural dependency parsing</h3><p>over 95%</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/03/CS224n Classnotes Course4/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/03/CS224n Classnotes Course4/" itemprop="url">Stanford CS224n Natural Language Processing Course4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-03T21:57:23+08:00">
+                2020-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  270
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-4-Backpropagation-and-computation-graphs"><a href="#Course-4-Backpropagation-and-computation-graphs" class="headerlink" title="Course 4 - Backpropagation and computation graphs"></a>Course 4 - Backpropagation and computation graphs</h1><h2 id="Matrix-gradients-for-our-simple-neural-net-and-some-tips"><a href="#Matrix-gradients-for-our-simple-neural-net-and-some-tips" class="headerlink" title="Matrix gradients for our simple neural net and some tips"></a>Matrix gradients for our simple neural net and some tips</h2><p>Chain rule:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\boldsymbol{s}=&\boldsymbol{u}^{T} \boldsymbol{h} \\
+\boldsymbol{h}=& f(\boldsymbol{z}) \\ \boldsymbol{z}=& W \boldsymbol{x}+\boldsymbol{b} \end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned} 
+\frac{\partial s}{\partial \boldsymbol{W}}=&\frac{\partial s}{\partial \boldsymbol{h}} \frac{\partial \boldsymbol{h}}{\partial \boldsymbol{z}} \frac{\partial \boldsymbol{z}}{\partial \boldsymbol{W}} \\
+=& \delta\frac{\partial z}{\partial W}\\
+=& \delta \frac{\partial}{\partial W} Wx + b \\
+=& \delta^{T}x+b
+\end{aligned}</script><p><strong>Question</strong> Should I use available “pre-trained” word vectors?</p>
+<p><strong>Answer</strong> almost always</p>
+<p><strong>Question</strong> Should I update(“fine tune”) my own word vectors?</p>
+<p><strong>Answer</strong> </p>
+<ul>
+<li>If you only have a <strong>small</strong> training data set, <strong>don’t</strong> train the word vectors</li>
+<li>If you have a <strong>large</strong> dataset, it probably will work better to <strong>train = update = fine-tune</strong> word vectors to the task</li>
+</ul>
+<h2 id="Computation-graphs-and-backpropagation"><a href="#Computation-graphs-and-backpropagation" class="headerlink" title="Computation graphs and backpropagation"></a>Computation graphs and backpropagation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiplyGate</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(x,y)</span>:</span></span><br><span class="line">        z = x*y</span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">        <span class="keyword">return</span> z</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(dz)</span>:</span></span><br><span class="line">        dx = self.y * dz</span><br><span class="line">        dy = self.x * dz</span><br><span class="line">        <span class="keyword">return</span> [dx,dy]</span><br></pre></td></tr></table></figure>
+<h2 id="Stuff-you-should-know"><a href="#Stuff-you-should-know" class="headerlink" title="Stuff you should know"></a>Stuff you should know</h2><h3 id="Regularization-to-prevent-overfitting"><a href="#Regularization-to-prevent-overfitting" class="headerlink" title="Regularization to prevent overfitting"></a>Regularization to prevent overfitting</h3><script type="math/tex; mode=display">
+J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^{C} e^{f_{c}}}\right)\left[+\lambda \sum_{k} \theta_{k}^{2}\right]</script><p>Prevents <strong>overfitting</strong> when we have a lot of features</p>
+<h3 id="Vectorization"><a href="#Vectorization" class="headerlink" title="Vectorization"></a>Vectorization</h3><h3 id="Nonlinearities"><a href="#Nonlinearities" class="headerlink" title="Nonlinearities"></a>Nonlinearities</h3><p>logistic(“sigmoid”)</p>
+<script type="math/tex; mode=display">
+f(z)=\frac{1}{1+\exp (-z)}</script><p>tanh</p>
+<script type="math/tex; mode=display">
+f(z)=\tanh (z)=\frac{e^{z}-e^{-z}}{e^{z}+e^{-z}} \\
+\tanh (z) = 2\operatorname{logistic}(2z) - 1</script><p>hard tanh</p>
+<script type="math/tex; mode=display">
+\operatorname{HardTanh} (x)=\left\{\begin{array}{cl}{-1} & {\text { if } x<-1} \\ {x} & {\text { if }-1<=x<=1} \\ {1} & {\text { if } x>1}\end{array}\right.</script><p>ReLU: </p>
+<script type="math/tex; mode=display">
+rect(z) = \max(z,0)</script><p>Leaky ReLU/Parametric ReLU</p>
+<h3 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h3><p>Xavier initialzation has variance inversely proportional to fan-in n_in and fan-out n_out:</p>
+<script type="math/tex; mode=display">
+\operatorname{Var}\left(W_{i}\right)=\frac{2}{n_{\mathrm{in}}+n_{\mathrm{out}}}</script><h3 id="Optimizers"><a href="#Optimizers" class="headerlink" title="Optimizers"></a>Optimizers</h3><p>SGD/Adagrad/RMSprop/Adak/SparseAdam</p>
+<h3 id="Learning-rates"><a href="#Learning-rates" class="headerlink" title="Learning rates"></a>Learning rates</h3><ul>
+<li><p>You can just use a constant learning rate</p>
 </li>
-<li><p>In our cases</p>
+<li><p>Better results can generally be obtained by allowing learning rates to decrease as you train</p>
+<ul>
+<li><p>by hand: halve the learning rate every k epochs</p>
 </li>
+<li><p>By a formula, for epoch t</p>
+</li>
+<li><script type="math/tex; mode=display">
+lr = lr_0 e^{-kt}</script></li>
+<li><p>Fancier method like cyclic learning rates(q.v.)</p>
+</li>
+</ul>
+</li>
+<li><p>Fancier optimizers still use a learning rate but it may be an initial rate that the optimizer shrinks - so may be able to start high</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/02/CS224n Classnotes Course3/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/02/CS224n Classnotes Course3/" itemprop="url">Stanford CS224n Natural Language Processing Course3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-02T21:57:23+08:00">
+                2020-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  364
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-3-Neural-Networks"><a href="#Course-3-Neural-Networks" class="headerlink" title="Course 3 - Neural Networks"></a>Course 3 - Neural Networks</h1><h2 id="Classification-review-introduction"><a href="#Classification-review-introduction" class="headerlink" title="Classification review/introduction"></a>Classification review/introduction</h2><p>Generally we have a <strong>training dataset</strong> consisting of <strong>samples</strong></p>
+<script type="math/tex; mode=display">
+\left\{x_{\mathrm{i}}, y_{\mathrm{i}}\right\}_{\mathrm{i}=1}^{\mathrm{N}}</script><p>x_i are inputs, eg words, sentences, documents, etc</p>
+<p>y_j are labels we try to predict. </p>
+<ul>
+<li>classes: sentiment, named entities, buy/sell decision</li>
+<li>other words</li>
+<li>later: multi-word sequences</li>
+</ul>
+<p>Traditional ML/Stats approach: assume x_i are fixed, train softmax/logistic regression weights <em>W in R(C,d)</em> to determine a decision boundary as in the picture. </p>
+<h3 id="Method-Training-with-softmax-and-cross-entropy-loss"><a href="#Method-Training-with-softmax-and-cross-entropy-loss" class="headerlink" title="Method: Training with softmax and cross-entropy loss"></a>Method: Training with softmax and cross-entropy loss</h3><p>For each <em>x</em>, predict:</p>
+<script type="math/tex; mode=display">
+p(y | x)=\frac{\exp \left(W_{y} \cdot x\right)}{\sum_{c=1}^{C} \exp \left(W_{c} \cdot x\right)}</script><p>For each training example (x,y), to <strong>maximize the probability of the correct class</strong> <em>y</em>, or <strong>minimize the negative log probability</strong></p>
+<script type="math/tex; mode=display">
+-\log p(y | x)=-\log \left(\frac{\exp \left(f_{y}\right)}{\sum_{c=1}^{C} \exp \left(f_{c}\right)}\right)</script><p>FYI: Cross entropy in the full dataset is </p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^{C} e^{f_{c}}}\right)</script><h2 id="Neural-networks-introduction"><a href="#Neural-networks-introduction" class="headerlink" title="Neural networks introduction"></a>Neural networks introduction</h2><p>Commonly in NLP deep learning:</p>
+<ul>
+<li>We learn <strong>both</strong> W <strong>and</strong> word vectors X</li>
+<li>We learn <strong>both</strong> conventional parameters <strong>and</strong> representations</li>
 </ul>
 <script type="math/tex; mode=display">
-\theta=\left[\begin{array}{l}{v_{\text {aardvark}}} \\ {v_{a}} \\ {\vdots} \\ {v_{z e b r a}} \\ {u_{\text {aardvark}}} \\ {u_{a}} \\ {\vdots} \\ {u_{z e b r a}}\end{array}\right] \in \mathbb{R}^{2 d V}</script><ul>
-<li><p>Remember: every word has two vectors</p>
-</li>
-<li><p>We optimize these parameters by walking down the gradient</p>
-</li>
+\nabla_{\theta} J(\theta)=\left[\begin{array}{c}{\nabla_{W_{1}}} \\ {\vdots} \\ {\nabla_{W_{d}}} \\ {\nabla_{x_{a a r d v a r k}}} \\ {\vdots} \\ {\nabla_{x_{z e b r a}}}\end{array}\right] \in \mathbb{R}^{C d+V d}</script><h2 id="Named-Entity-Recognition"><a href="#Named-Entity-Recognition" class="headerlink" title="Named Entity Recognition"></a>Named Entity Recognition</h2><p>The task: <strong>find</strong> and <strong>classify</strong> name in text.</p>
+<h3 id="NER-on-word-sequences"><a href="#NER-on-word-sequences" class="headerlink" title="NER on word sequences"></a>NER on word sequences</h3><p>We predict entities by classifying words in context and then extracting entities as word subsequences.</p>
+<p>BIAO encoding </p>
+<h3 id="Why-might-NER-be-hard"><a href="#Why-might-NER-be-hard" class="headerlink" title="Why might NER be hard?"></a>Why might NER be hard?</h3><ul>
+<li>hard to work out boundaries of entity</li>
+<li>hard to know if something is an entity</li>
+<li>hard to know class of unknown/novel entity</li>
+<li>entity class is ambiguous and depends on context</li>
 </ul>
-<h1 id="Course-2-Word-Vectors-and-Word-Senses"><a href="#Course-2-Word-Vectors-and-Word-Senses" class="headerlink" title="Course 2 - Word Vectors and Word Senses"></a>Course 2 - Word Vectors and Word Senses</h1><p>Firstly, some analogy by calculating the linear space similarity by word vectors.</p>
-<p><img src="/2020/01/31/CS224n Classnotes course 1 to 5/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200201062227420.png" alt="Vector Composilion"></p>
+<h2 id="Binary-true-vs-corrupted-word-window-classification"><a href="#Binary-true-vs-corrupted-word-window-classification" class="headerlink" title="Binary true vs. corrupted word window classification"></a>Binary true vs. corrupted word window classification</h2><h3 id="Binary-word-window-classification"><a href="#Binary-word-window-classification" class="headerlink" title="Binary word window classification"></a>Binary word window classification</h3><p>Problem: ambiguity</p>
+<p>Idea: <strong>classify a word in its context window</strong> of neighboring words.</p>
+<p>Solution: train softmax classifer to classify a center word by taking <strong>concatenation of word vectors surrounding it</strong> in a window</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/01/CS224n Classnotes Course2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/01/CS224n Classnotes Course2/" itemprop="url">Stanford CS224n Natural Language Processing Course2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-01T21:57:23+08:00">
+                2020-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  899
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-2-Word-Vectors-and-Word-Senses"><a href="#Course-2-Word-Vectors-and-Word-Senses" class="headerlink" title="Course 2 - Word Vectors and Word Senses"></a>Course 2 - Word Vectors and Word Senses</h1><p>Firstly, some analogy by calculating the linear space similarity by word vectors.</p>
+<p><img src="/2020/02/01/CS224n Classnotes Course2/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200201062227420.png" alt="Vector Composilion"></p>
 <p>Definition of Code:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">analogy</span><span class="params">(x1, x2, y1)</span>:</span></span><br><span class="line">    result = model.most_similar(positive=[y1,x2], negative=[x1])</span><br><span class="line">    <span class="keyword">return</span> result[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 <p>Some Implementations:</p>
@@ -1055,125 +1643,249 @@ J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\ti
 </ul>
 <p>Example: NER</p>
 <h2 id="Word-senses"><a href="#Word-senses" class="headerlink" title="Word senses"></a>Word senses</h2><h4 id="Word-senses-and-word-sense-ambiguity"><a href="#Word-senses-and-word-sense-ambiguity" class="headerlink" title="Word senses and word sense ambiguity"></a>Word senses and word sense ambiguity</h4><p>Most words have lots of meanings, especially common words. </p>
-<h1 id="Course-3-Neural-Networks"><a href="#Course-3-Neural-Networks" class="headerlink" title="Course 3 - Neural Networks"></a>Course 3 - Neural Networks</h1><h2 id="Classification-review-introduction"><a href="#Classification-review-introduction" class="headerlink" title="Classification review/introduction"></a>Classification review/introduction</h2><p>Generally we have a <strong>training dataset</strong> consisting of <strong>samples</strong></p>
-<script type="math/tex; mode=display">
-\left\{x_{\mathrm{i}}, y_{\mathrm{i}}\right\}_{\mathrm{i}=1}^{\mathrm{N}}</script><p>x_i are inputs, eg words, sentences, documents, etc</p>
-<p>y_j are labels we try to predict. </p>
-<ul>
-<li>classes: sentiment, named entities, buy/sell decision</li>
-<li>other words</li>
-<li>later: multi-word sequences</li>
-</ul>
-<p>Traditional ML/Stats approach: assume x_i are fixed, train softmax/logistic regression weights <em>W in R(C,d)</em> to determine a decision boundary as in the picture. </p>
-<h3 id="Method-Training-with-softmax-and-cross-entropy-loss"><a href="#Method-Training-with-softmax-and-cross-entropy-loss" class="headerlink" title="Method: Training with softmax and cross-entropy loss"></a>Method: Training with softmax and cross-entropy loss</h3><p>For each <em>x</em>, predict:</p>
-<script type="math/tex; mode=display">
-p(y | x)=\frac{\exp \left(W_{y} \cdot x\right)}{\sum_{c=1}^{C} \exp \left(W_{c} \cdot x\right)}</script><p>For each training example (x,y), to <strong>maximize the probability of the correct class</strong> <em>y</em>, or <strong>minimize the negative log probability</strong></p>
-<script type="math/tex; mode=display">
--\log p(y | x)=-\log \left(\frac{\exp \left(f_{y}\right)}{\sum_{c=1}^{C} \exp \left(f_{c}\right)}\right)</script><p>FYI: Cross entropy in the full dataset is </p>
-<script type="math/tex; mode=display">
-J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^{C} e^{f_{c}}}\right)</script><h2 id="Neural-networks-introduction"><a href="#Neural-networks-introduction" class="headerlink" title="Neural networks introduction"></a>Neural networks introduction</h2><p>Commonly in NLP deep learning:</p>
-<ul>
-<li>We learn <strong>both</strong> W <strong>and</strong> word vectors X</li>
-<li>We learn <strong>both</strong> conventional parameters <strong>and</strong> representations</li>
-</ul>
-<script type="math/tex; mode=display">
-\nabla_{\theta} J(\theta)=\left[\begin{array}{c}{\nabla_{W_{1}}} \\ {\vdots} \\ {\nabla_{W_{d}}} \\ {\nabla_{x_{a a r d v a r k}}} \\ {\vdots} \\ {\nabla_{x_{z e b r a}}}\end{array}\right] \in \mathbb{R}^{C d+V d}</script><h2 id="Named-Entity-Recognition"><a href="#Named-Entity-Recognition" class="headerlink" title="Named Entity Recognition"></a>Named Entity Recognition</h2><p>The task: <strong>find</strong> and <strong>classify</strong> name in text.</p>
-<h3 id="NER-on-word-sequences"><a href="#NER-on-word-sequences" class="headerlink" title="NER on word sequences"></a>NER on word sequences</h3><p>We predict entities by classifying words in context and then extracting entities as word subsequences.</p>
-<p>BIAO encoding </p>
-<h3 id="Why-might-NER-be-hard"><a href="#Why-might-NER-be-hard" class="headerlink" title="Why might NER be hard?"></a>Why might NER be hard?</h3><ul>
-<li>hard to work out boundaries of entity</li>
-<li>hard to know if something is an entity</li>
-<li>hard to know class of unknown/novel entity</li>
-<li>entity class is ambiguous and depends on context</li>
-</ul>
-<h2 id="Binary-true-vs-corrupted-word-window-classification"><a href="#Binary-true-vs-corrupted-word-window-classification" class="headerlink" title="Binary true vs. corrupted word window classification"></a>Binary true vs. corrupted word window classification</h2><h3 id="Binary-word-window-classification"><a href="#Binary-word-window-classification" class="headerlink" title="Binary word window classification"></a>Binary word window classification</h3><p>Problem: ambiguity</p>
-<p>Idea: <strong>classify a word in its context window</strong> of neighboring words.</p>
-<p>Solution: train softmax classifer to classify a center word by taking <strong>concatenation of word vectors surrounding it</strong> in a window</p>
-<h1 id="Course-4-Backpropagation-and-computation-graphs"><a href="#Course-4-Backpropagation-and-computation-graphs" class="headerlink" title="Course 4 - Backpropagation and computation graphs"></a>Course 4 - Backpropagation and computation graphs</h1><h2 id="Matrix-gradients-for-our-simple-neural-net-and-some-tips"><a href="#Matrix-gradients-for-our-simple-neural-net-and-some-tips" class="headerlink" title="Matrix gradients for our simple neural net and some tips"></a>Matrix gradients for our simple neural net and some tips</h2><p>Chain rule:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\boldsymbol{s}=&\boldsymbol{u}^{T} \boldsymbol{h} \\
-\boldsymbol{h}=& f(\boldsymbol{z}) \\ \boldsymbol{z}=& W \boldsymbol{x}+\boldsymbol{b} \end{aligned}</script><script type="math/tex; mode=display">
-\begin{aligned} 
-\frac{\partial s}{\partial \boldsymbol{W}}=&\frac{\partial s}{\partial \boldsymbol{h}} \frac{\partial \boldsymbol{h}}{\partial \boldsymbol{z}} \frac{\partial \boldsymbol{z}}{\partial \boldsymbol{W}} \\
-=& \delta\frac{\partial z}{\partial W}\\
-=& \delta \frac{\partial}{\partial W} Wx + b \\
-=& \delta^{T}x+b
-\end{aligned}</script><p><strong>Question</strong> Should I use available “pre-trained” word vectors?</p>
-<p><strong>Answer</strong> almost always</p>
-<p><strong>Question</strong> Should I update(“fine tune”) my own word vectors?</p>
-<p><strong>Answer</strong> </p>
-<ul>
-<li>If you only have a <strong>small</strong> training data set, <strong>don’t</strong> train the word vectors</li>
-<li>If you have a <strong>large</strong> dataset, it probably will work better to <strong>train = update = fine-tune</strong> word vectors to the task</li>
-</ul>
-<h2 id="Computation-graphs-and-backpropagation"><a href="#Computation-graphs-and-backpropagation" class="headerlink" title="Computation graphs and backpropagation"></a>Computation graphs and backpropagation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiplyGate</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(x,y)</span>:</span></span><br><span class="line">        z = x*y</span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">        <span class="keyword">return</span> z</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(dz)</span>:</span></span><br><span class="line">        dx = self.y * dz</span><br><span class="line">        dy = self.x * dz</span><br><span class="line">        <span class="keyword">return</span> [dx,dy]</span><br></pre></td></tr></table></figure>
-<h2 id="Stuff-you-should-know"><a href="#Stuff-you-should-know" class="headerlink" title="Stuff you should know"></a>Stuff you should know</h2><h3 id="Regularization-to-prevent-overfitting"><a href="#Regularization-to-prevent-overfitting" class="headerlink" title="Regularization to prevent overfitting"></a>Regularization to prevent overfitting</h3><script type="math/tex; mode=display">
-J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^{C} e^{f_{c}}}\right)\left[+\lambda \sum_{k} \theta_{k}^{2}\right]</script><p>Prevents <strong>overfitting</strong> when we have a lot of features</p>
-<h3 id="Vectorization"><a href="#Vectorization" class="headerlink" title="Vectorization"></a>Vectorization</h3><h3 id="Nonlinearities"><a href="#Nonlinearities" class="headerlink" title="Nonlinearities"></a>Nonlinearities</h3><p>logistic(“sigmoid”)</p>
-<script type="math/tex; mode=display">
-f(z)=\frac{1}{1+\exp (-z)}</script><p>tanh</p>
-<script type="math/tex; mode=display">
-f(z)=\tanh (z)=\frac{e^{z}-e^{-z}}{e^{z}+e^{-z}} \\
-\tanh (z) = 2\operatorname{logistic}(2z) - 1</script><p>hard tanh</p>
-<script type="math/tex; mode=display">
-\operatorname{HardTanh} (x)=\left\{\begin{array}{cl}{-1} & {\text { if } x<-1} \\ {x} & {\text { if }-1<=x<=1} \\ {1} & {\text { if } x>1}\end{array}\right.</script><p>ReLU: </p>
-<script type="math/tex; mode=display">
-rect(z) = \max(z,0)</script><p>Leaky ReLU/Parametric ReLU</p>
-<h3 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h3><p>Xavier initialzation has variance inversely proportional to fan-in n_in and fan-out n_out:</p>
-<script type="math/tex; mode=display">
-\operatorname{Var}\left(W_{i}\right)=\frac{2}{n_{\mathrm{in}}+n_{\mathrm{out}}}</script><h3 id="Optimizers"><a href="#Optimizers" class="headerlink" title="Optimizers"></a>Optimizers</h3><p>SGD/Adagrad/RMSprop/Adak/SparseAdam</p>
-<h3 id="Learning-rates"><a href="#Learning-rates" class="headerlink" title="Learning rates"></a>Learning rates</h3><ul>
-<li><p>You can just use a constant learning rate</p>
-</li>
-<li><p>Better results can generally be obtained by allowing learning rates to decrease as you train</p>
-<ul>
-<li><p>by hand: halve the learning rate every k epochs</p>
-</li>
-<li><p>By a formula, for epoch t</p>
-</li>
-<li><script type="math/tex; mode=display">
-lr = lr_0 e^{-kt}</script></li>
-<li><p>Fancier method like cyclic learning rates(q.v.)</p>
-</li>
-</ul>
-</li>
-<li><p>Fancier optimizers still use a learning rate but it may be an initial rate that the optimizer shrinks - so may be able to start high</p>
-</li>
-</ul>
-<h1 id="Course-5-Dependency-Parsing"><a href="#Course-5-Dependency-Parsing" class="headerlink" title="Course 5 - Dependency Parsing"></a>Course 5 - Dependency Parsing</h1><h2 id="Syntactic-Structure-Consistency-and-Dependency"><a href="#Syntactic-Structure-Consistency-and-Dependency" class="headerlink" title="Syntactic Structure: Consistency and Dependency"></a>Syntactic Structure: Consistency and Dependency</h2><h3 id="1-Two-views-of-linguistic-structure-Constituency-phrase-stucture-grammar-context-free-grammars-CFGs"><a href="#1-Two-views-of-linguistic-structure-Constituency-phrase-stucture-grammar-context-free-grammars-CFGs" class="headerlink" title="1. Two views of linguistic structure: Constituency  = phrase stucture grammar = context-free grammars (CFGs)"></a>1. Two views of linguistic structure: Constituency  = phrase stucture grammar = context-free grammars (CFGs)</h3><p><strong>Phrase structure</strong> organizes words into nested constituents</p>
-<h2 id="Dependency-Grammar-and-Treebanks"><a href="#Dependency-Grammar-and-Treebanks" class="headerlink" title="Dependency Grammar and Treebanks"></a>Dependency Grammar and Treebanks</h2><p>Dependency structure shows which words depend on which other words.</p>
-<p>Dependency syntax postulates that syntactic structure consists of relations between lexical items, normally binary asymmetric relations(“arrows”) called <strong>dependencies</strong></p>
-<p>The arrows are commonly <strong>typed</strong> with the name of grammatical relations(subject, prepositional object, apposition, etc.)</p>
-<p>Usually, dependencies form a tree(connected, acyclic, single-head)</p>
-<h2 id="Transition-based-dependency-parsing"><a href="#Transition-based-dependency-parsing" class="headerlink" title="Transition-based dependency parsing"></a>Transition-based dependency parsing</h2><p>A simple form of greedy discriminative dependency parser.</p>
-<script type="math/tex; mode=display">
-Start: \sigma=[\mathrm{ROOT}], \beta=w_{1}, \ldots, w_{n}, A=\emptyset\\
-1. Shift\qquad \sigma, w_{i}|\beta, A \rightarrow \sigma| w_{i}, \beta, A\\
-2. Left-Arc_r\qquad \sigma\left|w_{i}\right| w_{j}, \beta, A \rightarrow
-\sigma | w_{j}, \beta, \operatorname{A}\mathop{\cup} \left\{r\left(w_{j}, w_{i}\right)\right\}
-\\
-3. Right-Arc_r \qquad \sigma\left[w_{i} | w_{j}, \beta, A \rightarrow\right.
 
-\sigma | w_{i}, \beta, \operatorname{A}\mathop{\cup}\left\{r\left(w_{i}, w_{j}\right)\right\}
-\\
-Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><a href="#2005-MaltParser-Nivre-and-Hall-2005" class="headerlink" title="2005 MaltParser, Nivre and Hall 2005"></a>2005 MaltParser, Nivre and Hall 2005</h3><p>Each action is predicted by a discriminative classifier over each legal move(like softmax classifier)</p>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/01/31/CS224n Classnotes Course1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/31/CS224n Classnotes Course1/" itemprop="url">Stanford CS224n Natural Language Processing Course1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-31T21:57:23+08:00">
+                2020-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  498
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://web.stanford.edu/class/cs224n/index.html#schedule" target="_blank" rel="noopener"><strong>Course Link(including Slides and Materials)</strong></a></p>
+<p><a href="http://onlinehub.stanford.edu/cs224" target="_blank" rel="noopener"><strong>Online Video Link</strong></a></p>
+<p><a href="https://www.bilibili.com/video/av46216519" target="_blank" rel="noopener"><strong>Online Video Link in Chinese</strong></a></p>
+<h1 id="Course-1-Introduction-and-Word-Vectors"><a href="#Course-1-Introduction-and-Word-Vectors" class="headerlink" title="Course 1 - Introduction and Word Vectors"></a>Course 1 - Introduction and Word Vectors</h1><p>Language isn’t a formal system. Language is glorious chaos. <em>by Chris Manning</em></p>
+<p><strong>Target</strong></p>
 <ul>
-<li>Max of 3 untyped choices, max of |R| * 2 + 1 when typed</li>
-<li>Features: top of stack word, POS; first in the buffer word, POS</li>
+<li>Modern methods: Recurrent networks, attentions</li>
+<li>Big Picture</li>
+<li>Build system in PyTorch: Word meaning, dependency parsing, machine translation, question answering.</li>
 </ul>
-<p>It provides very <strong>fast linear time parsing</strong> with fractionally lower accuracy</p>
-<h3 id="Evaluation-of-Dependency-Parsing-labeled-dependency-accuracy"><a href="#Evaluation-of-Dependency-Parsing-labeled-dependency-accuracy" class="headerlink" title="Evaluation of Dependency Parsing: (labeled) dependency accuracy"></a>Evaluation of Dependency Parsing: (labeled) dependency accuracy</h3><p><img src="/2020/01/31/CS224n Classnotes course 1 to 5/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200205111717409.png" alt="image-20200205111717409"></p>
-<h2 id="Neural-dependency-parsing"><a href="#Neural-dependency-parsing" class="headerlink" title="Neural dependency parsing"></a>Neural dependency parsing</h2><h3 id="Why-train-a-neural-dependency-parsing"><a href="#Why-train-a-neural-dependency-parsing" class="headerlink" title="Why train a neural dependency parsing?"></a>Why train a neural dependency parsing?</h3><p>Problem #1: sparse</p>
-<p>Problem #2: incomplete</p>
-<p>Problem #3: expensive computation(95%+ of parsing time is consumed by feature computation)</p>
-<h3 id="2014-chen-and-manning"><a href="#2014-chen-and-manning" class="headerlink" title="2014, chen and manning"></a>2014, chen and manning</h3><p>English parsing to Stanford Dependencies:</p>
+<h2 id="1-how-do-we-represent-the-meaning-of-a-word"><a href="#1-how-do-we-represent-the-meaning-of-a-word" class="headerlink" title="1. how do we represent the meaning of a word?"></a>1. how do we represent the meaning of a word?</h2><p>signifier(symbol) &lt;=&gt; signified(idea or thing) = denotational semantics</p>
+<h2 id="2-how-do-we-have-usable-meaning-in-a-computer"><a href="#2-how-do-we-have-usable-meaning-in-a-computer" class="headerlink" title="2. how do we have usable meaning in a computer?"></a>2. how do we have usable meaning in a computer?</h2><p><strong>Common Solution</strong> Use e.g. WordNet containing lists of <strong>synonym sets</strong> and <strong>hypernyms</strong></p>
+<p><strong>Problems</strong> </p>
 <ul>
-<li>Unlabeled attachment score = head</li>
-<li>Labeled attachment score = head and label</li>
+<li>missing nuance: proficient = good in some contexts</li>
+<li>new meanings of words: wicked, badass, ninja</li>
+<li>Subjective</li>
+<li>Requires human labor to create and adapt</li>
+<li>Can’t compute accurate and word similarity</li>
 </ul>
-<h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>bigger, deeper networks + beam search + CRF-style inference</p>
-<h3 id="Graph-based-neural-dependency-parsing"><a href="#Graph-based-neural-dependency-parsing" class="headerlink" title="Graph-based neural dependency parsing"></a>Graph-based neural dependency parsing</h3><p>over 95%</p>
+<h3 id="Representing-words-as-discrete-symbols"><a href="#Representing-words-as-discrete-symbols" class="headerlink" title="Representing words as discrete symbols"></a>Representing words as discrete symbols</h3><p><strong>one-hot vectors</strong> =&gt; <strong>encode similarity in the vector themselves</strong></p>
+<p><strong>Distributional semantics</strong>: A word’s meaning is given by the words that frequently appear close-by.</p>
+<p><strong>Word Vectors</strong>: a dense vector for each word, chosen so that it is similar to vectors of words that appear in similar contexts.</p>
+<p>Note: Word Vectors = Word Embeddings = Word Representations. All distributed representation</p>
+<script type="math/tex; mode=display">
+banking = \left[
+ \begin{matrix}
+   0.286 \\
+   0.792  \\
+   -0.177 \\
+   -0.107 \\
+   0.109 \\
+   -0.542\\
+   0.349\\
+   0.271\\
+   0.487
+  \end{matrix}
+  \right] \tag{1}</script><h2 id="3-Word2Vec-Overview"><a href="#3-Word2Vec-Overview" class="headerlink" title="3. Word2Vec: Overview"></a>3. Word2Vec: Overview</h2><p>Idea:</p>
+<ul>
+<li>a large corpus of text</li>
+<li>every word in a fixed vocabulary is represented by a <strong>vector</strong></li>
+<li>go through each position <em>t</em> in the text, which has a center word <em>c</em> and context words <em>o</em></li>
+<li>Use the <strong>similarity of the word vectors</strong> for <em>c</em> and <em>o</em> to <strong>calculate the probability</strong> of <em>o</em> given <em>c</em></li>
+<li><strong>Keep Adjusting the word vectors</strong> to maximize this probability</li>
+</ul>
+<script type="math/tex; mode=display">
+likelihood = L(\theta) = \prod_{t=1}^{T} \prod_{-m \leq j \leq m \atop j \neq 0} P\left(w_{t+j} | w_{t} ; \theta\right)</script><p>Note: theta is all variables to be optimized</p>
+<h3 id="Objective-function-J"><a href="#Objective-function-J" class="headerlink" title="Objective function J"></a>Objective function J</h3><p>sometimes called <strong>cost / loss function</strong></p>
+<script type="math/tex; mode=display">
+J(\theta)=-\frac{1}{T} \log L(\theta)=-\frac{1}{T} \sum_{t=1}^{T} \sum_{-m \leq j \leq m} \log P\left(w_{t+j} | w_{t} ; \theta\right)</script><p><strong>Minimizing objective function &lt;=&gt; Maximizing predictive accuracy</strong></p>
+<p><em>Question: How to calculate P?</em></p>
+<p><em>Answer: We use two vectors per word w</em></p>
+<ul>
+<li><code>v_w</code> when <em>w</em> is a center word</li>
+<li><code>u_w</code> when <em>w</em> is a context word</li>
+</ul>
+<p>Then for a center word <em>c</em> and a context word <em>o</em>:</p>
+<h3 id="Prediction-function"><a href="#Prediction-function" class="headerlink" title="Prediction function"></a>Prediction function</h3><script type="math/tex; mode=display">
+P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w}^{T} v_{c}\right)}</script><h3 id="To-train-the-model-Compute-all-vector-gradients"><a href="#To-train-the-model-Compute-all-vector-gradients" class="headerlink" title="To train the model: Compute all vector gradients"></a>To train the model: Compute all vector gradients</h3><ul>
+<li><p>Recall: theta represents <strong>all</strong> model parameters, in one long vector</p>
+</li>
+<li><p>In our cases</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\theta=\left[\begin{array}{l}{v_{\text {aardvark}}} \\ {v_{a}} \\ {\vdots} \\ {v_{z e b r a}} \\ {u_{\text {aardvark}}} \\ {u_{a}} \\ {\vdots} \\ {u_{z e b r a}}\end{array}\right] \in \mathbb{R}^{2 d V}</script><ul>
+<li><p>Remember: every word has two vectors</p>
+</li>
+<li><p>We optimize these parameters by walking down the gradient</p>
+</li>
+</ul>
 
           
         
@@ -1614,1086 +2326,13 @@ E(\Theta)=\frac{1}{|\Gamma|} \sum_{\left(y, x^{g t}\right) \in \Gamma} \frac{\sq
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/08/29/SQL-cheetsheet/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/29/SQL-cheetsheet/" itemprop="url">SQL cheetsheet</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T20:56:01+08:00">
-                2019-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
-                    <span itemprop="name">Computer Science</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  171
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="SQL-Cheetsheet"><a href="#SQL-Cheetsheet" class="headerlink" title="SQL Cheetsheet"></a>SQL Cheetsheet</h2><p>It’s more convenient to store the data in your MySQL instead of Hive to improve the efficiency and facilitate retrieval of the data if the amount of data is not that large. Here are some tips about SQL, according to <a href="https://www.coursera.org/learn/sql-data-science/" target="_blank" rel="noopener">IBM Databases and SQL for Data Science</a></p>
-<hr>
-<h3 id="String-Patterns-Ranges-Sorting-and-Grouping"><a href="#String-Patterns-Ranges-Sorting-and-Grouping" class="headerlink" title="String Patterns, Ranges, Sorting and Grouping"></a>String Patterns, Ranges, Sorting and Grouping</h3><p><strong>using string pattern</strong>: like ‘%%’</p>
-<p><strong>using a range</strong>: between … and …</p>
-<p><strong>using a set of values</strong>: in (‘’, ‘’)</p>
-<p><strong>Sorting</strong>: order by … / order by … desc / order by 2(column number)</p>
-<p><strong>Eliminating Duplicates</strong>: distinct </p>
-<p>It seems like you don’t need to write distinct(), distinct also works.</p>
-<p><strong>Group by clause</strong></p>
-<p><strong>Restricting the result set - Having clause</strong>: Having </p>
-<p>works only with the GROUP BY clause.</p>
-<hr>
-<h3 id="Functions-Sub-Queries-Multiple-Tables"><a href="#Functions-Sub-Queries-Multiple-Tables" class="headerlink" title="Functions, Sub-Queries, Multiple Tables"></a>Functions, Sub-Queries, Multiple Tables</h3><p><strong>Aggregate Functions</strong>: sum(), min(), max(), avg()</p>
-<p><strong>Scaler and String functions</strong>: round(), length(), ucase, lcase</p>
-<p><strong>Date and Time functions</strong>: year(), month(), day(), dayofmonth(), dayofweek(), dayofyear(), week(), hour(), minute(), second()</p>
-<p><strong>Date or time arithmetic</strong>: + 1 Days, CURRENT_DATE, CURRENT_TIME</p>
-<p><strong>Accessing multiple tables with with Implicit join</strong>: </p>
-<p>select * from employees E, departments D where E.DEP_ID = D.DEPT_ID_DEP;</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/07/14/webscrawler/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/14/webscrawler/" itemprop="url">Discovery towards Web Scrawler</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-14T09:33:40+08:00">
-                2019-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
-                    <span itemprop="name">Computer Science</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  544
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Web-Scrawler-is-dangerous"><a href="#Web-Scrawler-is-dangerous" class="headerlink" title="Web Scrawler is dangerous"></a>Web Scrawler is dangerous</h3><p>First and foremost, do not touch web scrawler if you are 100% sure that you wanna do this.</p>
-<h3 id="Beginning"><a href="#Beginning" class="headerlink" title="Beginning"></a>Beginning</h3><p>The target website is enlightent, a third-party data website which have data of my company and component. </p>
-<p>We need to do some background research first. The problems I encountered are listed:</p>
-<ul>
-<li>Need to log in with WeChat account by QR code</li>
-<li>Simulate click (by package selenium)</li>
-<li>It’s a dynamic website, you need to wait for its information loaded (by package time)</li>
-<li>Write into MySQL (by package Pymysql)</li>
-</ul>
-<h3 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h3><h5 id="First-problem-cannot-be-solve-due-to-the-security-of-WeChat"><a href="#First-problem-cannot-be-solve-due-to-the-security-of-WeChat" class="headerlink" title="First problem cannot be solve due to the security of WeChat."></a>First problem cannot be solve due to the security of WeChat.</h5><h5 id="Second-problem"><a href="#Second-problem" class="headerlink" title="Second problem"></a>Second problem</h5><p>Step 1: Find the pattern in html. Using chrome, just ctrl+u or ctrl+shift+i. It needs your patience to find the thing you want. If you mistaken the pattern, you cannot get the information you want</p>
-<p>Step 2: Choose the function: by_path or by_class. The tricky point is that if there is only one class, it’s okay to use by_class, if there are more than two classes, selenium would choose the first class as your output. As a result, I choose by_path</p>
-<p>Step 3: Install chrome driver according to your chrome version. Be sure to download into /anaconda3/lib/site-packages.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Choose daily</span></span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">driver.find_elements_by_id(<span class="string">"rank-date-btn"</span>)[<span class="number">0</span>].click()</span><br><span class="line"><span class="comment"># Choose year</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_class_name(<span class="string">"datepicker-switch"</span>).click()</span><br><span class="line"><span class="comment"># Choose target month</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># driver.find_element_by_class_name("month").click()</span></span><br><span class="line">month_url = <span class="string">"/html/body/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div/div/div[2]/table/tbody/tr/td/span[%s]"</span> % (l+<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_xpath(month_url).click()</span><br><span class="line"><span class="comment"># Choose target Date</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># day = driver.find_element_by_class_name("day").click()</span></span><br><span class="line">xpath = <span class="string">"/html/body/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div/div/div/table/tbody/tr[%d]/td[%d]"</span> % ((start_date) // <span class="number">7</span> + <span class="number">1</span>, (start_date) % <span class="number">7</span> + <span class="number">1</span>)</span><br><span class="line">driver.find_element_by_xpath(xpath).click()</span><br><span class="line"><span class="comment"># Press enter</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_id(<span class="string">"choose-rank"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h5 id="Third-Problem-Data-Processing"><a href="#Third-Problem-Data-Processing" class="headerlink" title="Third Problem: Data Processing"></a>Third Problem: Data Processing</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">album_separately = string_list[j][string_list[j].find(<span class="string">'data-name='</span>):string_list[j].find(<span class="string">'data-channeltype="tv"'</span>)]</span><br><span class="line"><span class="keyword">if</span> j != <span class="number">0</span>: </span><br><span class="line">    album.append(album_separately.replace(<span class="string">'data-name='</span>,<span class="string">''</span>).replace(<span class="string">'"'</span>,<span class="string">''</span>))</span><br><span class="line">percentage_separately = string_list[j][string_list[j].find(<span class="string">'&lt;td class="sort rank-playTimesPredicted active" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;'</span>)]</span><br><span class="line">percentage.append(percentage_separately.replace(<span class="string">'&lt;td class="sort rank-playTimesPredicted active" style=""&gt;&lt;span&gt;'</span>,<span class="string">''</span>))</span><br><span class="line">click_separately = string_list[j][string_list[j].find(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;span class="star-playtimes"&gt;'</span>)]</span><br><span class="line"><span class="keyword">if</span> len(click_separately) &gt;= <span class="number">10</span>:</span><br><span class="line">    click_separately = string_list[j][string_list[j].find(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;/td&gt;&lt;td class="rank-average m-change" style=""&gt;'</span>)]</span><br><span class="line">click.append(click_separately.replace(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>,<span class="string">''</span>).replace(<span class="string">'&lt;/span&gt;&lt;span class="star-playtimes"&gt;'</span>,<span class="string">''</span>))</span><br></pre></td></tr></table></figure>
-<h5 id="Fourth-problem-Log-into-your-MySQL-and-use-python-like-MySQL"><a href="#Fourth-problem-Log-into-your-MySQL-and-use-python-like-MySQL" class="headerlink" title="Fourth problem: Log into your MySQL and use python like MySQL!"></a>Fourth problem: Log into your MySQL and use python like MySQL!</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db = DB(<span class="string">'your database'</span>)</span><br><span class="line">db.insert(dataset)</span><br></pre></td></tr></table></figure>
-<h3 id="Take-Care-Be-sure-to-add-time-sleep-when-you-do-it"><a href="#Take-Care-Be-sure-to-add-time-sleep-when-you-do-it" class="headerlink" title="Take Care! Be sure to add time.sleep() when you do it!"></a>Take Care! Be sure to add time.sleep() when you do it!</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/05/05/RandomForest/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/05/RandomForest/" itemprop="url">Random Forest Classification from the bottom layer</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T21:36:03+08:00">
-                2019-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
-                    <span itemprop="name">Computer Science</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  918
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>import packages we need</p>
-<pre><code>import random
-import numpy as np
-import sys
-</code></pre><p>The feature list is an array of the possible feature indicies to use. This prevents splitting on the same feature multiple times and runs a rough C45 algorithm.</p>
-<p>In pseudocode, the general algorithm for building decision trees is:</p>
-<p>1.Check for base cases<br>2.For each attribute a<br>3.Find the normalized information gain ratio from splitting on a<br>4.Let a_best be the attribute with the highest normalized information gain<br>5.Create a decision node that splits on a_best<br>6.Recur on the sublists obtained by splitting on a_best, and add those nodes as children of node</p>
-<pre><code>class TreeNode:
-    def __init__(self, dataSet, featureList, parent=None):
-        self.featureNumber = None  #This is the trained index of the feature to split on
-        self.featureList = featureList 
-        self.threshold = None     #This is the trained threshold of the feature to split on
-        self.leftChild = None
-        self.rightChild = None
-        self.dataSet = dataSet
-        self.parent = parent
-
-    def c45Train(self):
-        if(self.dataSet.isPure()):
-            #gets the label of the first data instance and makes a leaf node
-            #classifying it. 
-            label = self.dataSet.getData()[0].getLabel()
-            leaf = LeafNode(label)
-            return leaf
-        #If there are no more features in the feature list
-        if len(self.featureList) == 0:
-            labels = self.dataSet.getLabelStatistics()
-            bestLabel = None
-            mostTimes = 0
-
-            for key in labels:
-                if labels[key] &gt; mostTimes:
-                    bestLabel = key
-                    mostTimes = labels[key]
-            #Make the leaf node with the best label
-            leaf = LeafNode(bestLabel)
-            return leaf
-
-        #Check all of the features for the split with the most 
-        #information gain. Use that split.
-        currentEntropy = self.dataSet.getEntropy()
-        currentLength = self.dataSet.getLength()
-        infoGain = -1 * sys.maxsize
-        bestFeature = 0
-        bestLeft = None
-        bestRight = None
-        bestThreshold = 0
-
-        #Feature Bagging, Random subspace
-        num = int(np.ceil(np.sqrt(len(self.featureList))))
-        featureSubset = random.sample(self.featureList, num)
-
-        for featureIndex in featureSubset:
-            #Calculate the threshold to use for that feature
-            threshold = self.dataSet.betterThreshold(featureIndex)
-
-            (leftSet, rightSet) = self.dataSet.splitOn(featureIndex, threshold)
-
-            leftEntropy = leftSet.getEntropy()
-            rightEntropy = rightSet.getEntropy()
-            #Weighted entropy for this split
-            newEntropy = (leftSet.getLength() / currentLength) * leftEntropy + (rightSet.getLength() / currentLength) * rightEntropy
-            #Calculate the gain for this test
-            newIG = currentEntropy - newEntropy
-
-            if(newIG &gt; infoGain):
-                #Update the best stuff
-                infoGain = newIG
-                bestLeft = leftSet
-                bestRight = rightSet
-                bestFeature = featureIndex
-                bestThreshold = threshold
-
-        newFeatureList = list(self.featureList)
-        newFeatureList.remove(bestFeature)
-
-        #Another base case, if there are no good features to split on
-        if bestLeft.getLength() == 0 or bestRight.getLength() == 0:
-            labels = self.dataSet.getLabelStatistics()
-            bestLabel = None
-            mostTimes = 0
-
-            for key in labels:
-                if labels[key] &gt; mostTimes:
-                    bestLabel = key
-                    mostTimes = labels[key]
-            #Make the leaf node with the best label
-            leaf = LeafNode(bestLabel)
-            return leaf
-
-        self.threshold = bestThreshold
-        self.featureNumber = bestFeature
-
-        leftChild = TreeNode(bestLeft, newFeatureList, self)
-        rightChild = TreeNode(bestRight, newFeatureList, self)
-
-        self.leftChild = leftChild.c45Train()
-        self.rightChild = rightChild.c45Train()
-
-        return self
-
-    def __str__(self):
-        return str(self.featureList)
-
-    def __repr__(self):
-        return self.__str__()
-
-    def classify(self, sample):
-        &#39;&#39;&#39;
-        Recursivly traverse the tree to classify the sample that is passed in. 
-        &#39;&#39;&#39;
-
-        value = sample.getFeatures()[self.featureNumber]
-
-        if(value &lt; self.threshold):
-            #Continue down the left child    
-            return self.leftChild.classify(sample)
-
-        else:
-            #continue down the right child
-            return self.rightChild.classify(sample)
-
-
-class LeafNode:
-    &#39;&#39;&#39;
-    A leaf node is a node that just has a classification 
-    and is used to cap off a tree.
-    &#39;&#39;&#39;
-
-    def __init__(self, classification):
-        self.classification = classification
-
-    def classify(self, sample):
-        #A leaf node simply is a classification, return that
-        #This is the base case of the classify recursive function for TreeNodes
-        return self.classification
-
-
-class C45Tree:
-    &#39;&#39;&#39;
-    A tree contains a root node and from here
-    does the training and classification. Tree objects also
-    are responsible for having the data that they use to train.
-    &#39;&#39;&#39;
-
-    def __init__(self, data):
-        self.rootNode = None
-        self.data = data
-
-    def train(self):
-        &#39;&#39;&#39;
-        Trains a decision tree classifier on data set passed in. 
-        The data set should contain a good mix of each class to be
-        classified.
-        &#39;&#39;&#39;
-        length = self.data.getFeatureLength()
-        featureIndices = range(length)
-        self.rootNode = TreeNode(self.data, featureIndices)
-        self.rootNode.c45Train()
-
-    def classify(self, sample):
-        &#39;&#39;&#39;
-        Classify a sample based off of this trained tree.
-        &#39;&#39;&#39;
-
-        return self.rootNode.classify(sample)
-</code></pre><p>Then we introduce the RandomForest algorithm</p>
-<pre><code>from C45Tree import C45Tree
-
-
-class RandomForest(object):
-    &quot;&quot;&quot;A random forest object with the default of using a C45Tree 
-    for each of the trees in the random forest. To train the forest
-    create an instance of it then call train on a TraingData object&quot;&quot;&quot;
-    def __init__(self, data, numberOfTrees=100):
-        &#39;&#39;&#39;
-        Initialize the random forest. 
-        Each tree has a bag of the data associated with it.
-        &#39;&#39;&#39;
-        self.data = data    #The data that the trees will be trained on
-        self.numberOfTrees = numberOfTrees
-        self.forest = []
-
-        for i in range(numberOfTrees):
-            bag = data.getBag()
-            self.forest.append(C45Tree(bag))
-
-    def train(self):
-        &#39;&#39;&#39;
-        Train the random forest trees.
-        &#39;&#39;&#39;
-        for tree in self.forest:
-            tree.train()
-
-    def classify(self, sample):
-        &#39;&#39;&#39;
-        Classify a data sample by polling the trees.
-        &#39;&#39;&#39;
-
-        #Create an empty dictionary
-        votes = {}
-        #Tally the votes, for each tree classify the sample
-        for tree in self.forest:
-            label = tree.classify(sample)
-            if label in votes:
-                votes[label] += 1
-            else:
-                votes[label] = 1
-
-        bestLabel = None
-        mostTimes = 0
-        #Find the label with the most votes
-        for key in votes:
-            if votes[key] &gt; mostTimes:
-                bestLabel = key
-                mostTimes = votes[key]
-
-        #Return the most popular label
-        return bestLabel      
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/04/16/kaggle数据集从入门到放弃/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/kaggle数据集从入门到放弃/" itemprop="url">Deep dive into KAGGLE</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T08:10:23+08:00">
-                2019-04-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kaggle/" itemprop="url" rel="index">
-                    <span itemprop="name">Kaggle</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.5k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  9
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.kaggle.com/ronitf/heart-disease-uci" target="_blank" rel="noopener">click here to kaggle official website for this dataset</a></p>
-<h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><p>This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. In particular, the Cleveland database is the only one that has been used by ML researchers to this date. The “goal” field refers to the presence of heart disease in the patient. It is integer valued from 0 (no presence) to 4.</p>
-<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="Attribute-Information"><a href="#Attribute-Information" class="headerlink" title="Attribute Information:"></a>Attribute Information:</h3><blockquote>
-<ol>
-<li>age </li>
-<li>sex </li>
-<li>chest pain type (4 values) </li>
-<li>resting blood pressure </li>
-<li>serum cholestoral in mg/dl </li>
-<li>fasting blood sugar &gt; 120 mg/dl</li>
-<li>resting electrocardiographic results (values 0,1,2)</li>
-<li>maximum heart rate achieved </li>
-<li>exercise induced angina </li>
-<li>oldpeak = ST depression induced by exercise relative to rest </li>
-<li>the slope of the peak exercise ST segment </li>
-<li>number of major vessels (0-3) colored by flourosopy </li>
-<li>thal: 3 = normal; 6 = fixed defect; 7 = reversable defect<br>The names and social security numbers of the patients were recently removed from the database, replaced with dummy values. One file has been “processed”, that one containing the Cleveland database. All four unprocessed files also exist in this directory.</li>
-</ol>
-</blockquote>
-<p>To see Test Costs (donated by Peter Turney), please see the folder “Costs”</p>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>To solve this problem, here we introduce jupyter notebook by python, implementing random forest to give us a brief scope of this dataset.<br>Firstly, we import the packages needed.</p>
-<pre><code>import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns #for plotting
-from sklearn.ensemble import RandomForestClassifier #for the model
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.tree import export_graphviz #plot tree
-from sklearn.metrics import roc_curve, auc #for model evaluation
-from sklearn.metrics import classification_report #for model evaluation
-from sklearn.metrics import confusion_matrix #for model evaluation
-from sklearn.model_selection import train_test_split #for data splitting
-import eli5 #for purmutation importance
-from eli5.sklearn import PermutationImportance
-import shap #for SHAP values
-from pdpbox import pdp, info_plots #for partial plots
-np.random.seed(123) #ensure reproducibility
-pd.options.mode.chained_assignment = None  #hide any pandas warnings
-</code></pre><h1 id="The-data"><a href="#The-data" class="headerlink" title="The data"></a>The data</h1><p>Next, we load the data.</p>
-<pre><code>dt = pd.read_csv(&quot;../input/heart.csv&quot;)
-</code></pre><p>It’s a clean, easy to understand set of data. However, the meaning of some of the column headers are not obvious. Here’s what they mean,</p>
-<p><strong>age</strong>: The person’s age in years<br><strong>sex</strong>: The person’s sex (1 = male, 0 = female)<br><strong>cp</strong>: The chest pain experienced (Value 1: typical angina, Value 2: atypical angina, Value 3: non-anginal pain, Value 4: asymptomatic)<br><strong>trestbps</strong>: The person’s resting blood pressure (mm Hg on admission to the hospital)<br><strong>chol</strong>: The person’s cholesterol measurement in mg/dl<br><strong>fbs</strong>: The person’s fasting blood sugar (&gt; 120 mg/dl, 1 = true; 0 = false)<br><strong>restecg</strong>: Resting electrocardiographic measurement (0 = normal, 1 = having ST-T wave abnormality, 2 = showing probable or definite left ventricular hypertrophy by Estes’ criteria)<br><strong>thalach</strong>: The person’s maximum heart rate achieved<br><strong>exang</strong>: Exercise induced angina (1 = yes; 0 = no)<br><strong>oldpeak</strong>: ST depression induced by exercise relative to rest (‘ST’ relates to positions on the ECG plot. See more here)<br><strong>slope</strong>: the slope of the peak exercise ST segment (Value 1: upsloping, Value 2: flat, Value 3: downsloping)<br><strong>ca</strong>: The number of major vessels (0-3)<br><strong>thal</strong>: A blood disorder called thalassemia (3 = normal; 6 = fixed defect; 7 = reversable defect)<br><strong>target</strong>: Heart disease (0 = no, 1 = yes)</p>
-<p><strong>Diagnosis</strong>: The diagnosis of heart disease is done on a combination of clinical signs and test results. The types of tests run will be chosen on the basis of what the physician thinks is going on 1, ranging from electrocardiograms and cardiac computerized tomography (CT) scans, to blood tests and exercise stress tests 2.</p>
-<p>Looking at information of heart disease risk factors led me to the following: high cholesterol, high blood pressure, diabetes, weight, family history and smoking 3. According to another source 4, the major factors that can’t be changed are: increasing age, male gender and heredity. Note that thalassemia, one of the variables in this dataset, is heredity. Major factors that can be modified are: Smoking, high cholesterol, high blood pressure, physical inactivity, and being overweight and having diabetes. Other factors include stress, alcohol and poor diet/nutrition.</p>
-<p>I can see no reference to the ‘number of major vessels’, but given that the definition of heart disease is “…what happens when your heart’s blood supply is blocked or interrupted by a build-up of fatty substances in the coronary arteries”, it seems logical the more major vessels is a good thing, and therefore will reduce the probability of heart disease.</p>
-<p>Given the above, I would hypothesis that, if the model has some predictive ability, we’ll see these factors standing out as the most important.</p>
-<p>Declare some of the columns to make the indication clear</p>
-<pre><code>dt.columns = [&#39;age&#39;, &#39;sex&#39;, &#39;chest_pain_type&#39;, &#39;resting_blood_pressure&#39;, &#39;cholesterol&#39;, &#39;fasting_blood_sugar&#39;, &#39;rest_ecg&#39;, &#39;max_heart_rate_achieved&#39;,
-   &#39;exercise_induced_angina&#39;, &#39;st_depression&#39;, &#39;st_slope&#39;, &#39;num_major_vessels&#39;, &#39;thalassemia&#39;, &#39;target&#39;]
-
-
-dt[&#39;sex&#39;][dt[&#39;sex&#39;] == 0] = &#39;female&#39;
-dt[&#39;sex&#39;][dt[&#39;sex&#39;] == 1] = &#39;male&#39;
-
-dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 1] = &#39;typical angina&#39;
-dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 2] = &#39;atypical angina&#39;
-dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 3] = &#39;non-anginal pain&#39;
-dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 4] = &#39;asymptomatic&#39;
-
-dt[&#39;fasting_blood_sugar&#39;][dt[&#39;fasting_blood_sugar&#39;] == 0] = &#39;lower than 120mg/ml&#39;
-dt[&#39;fasting_blood_sugar&#39;][dt[&#39;fasting_blood_sugar&#39;] == 1] = &#39;greater than 120mg/ml&#39;
-
-dt[&#39;rest_ecg&#39;][dt[&#39;rest_ecg&#39;] == 0] = &#39;normal&#39;
-dt[&#39;rest_ecg&#39;][dt[&#39;rest_ecg&#39;] == 1] = &#39;ST-T wave abnormality&#39;
-dt[&#39;rest_ecg&#39;][dt[&#39;rest_ecg&#39;] == 2] = &#39;left ventricular hypertrophy&#39;
-
-dt[&#39;exercise_induced_angina&#39;][dt[&#39;exercise_induced_angina&#39;] == 0] = &#39;no&#39;
-dt[&#39;exercise_induced_angina&#39;][dt[&#39;exercise_induced_angina&#39;] == 1] = &#39;yes&#39;
-
-dt[&#39;st_slope&#39;][dt[&#39;st_slope&#39;] == 1] = &#39;upsloping&#39;
-dt[&#39;st_slope&#39;][dt[&#39;st_slope&#39;] == 2] = &#39;flat&#39;
-dt[&#39;st_slope&#39;][dt[&#39;st_slope&#39;] == 3] = &#39;downsloping&#39;
-
-dt[&#39;thalassemia&#39;][dt[&#39;thalassemia&#39;] == 1] = &#39;normal&#39;
-dt[&#39;thalassemia&#39;][dt[&#39;thalassemia&#39;] == 2] = &#39;fixed defect&#39;
-dt[&#39;thalassemia&#39;][dt[&#39;thalassemia&#39;] == 3] = &#39;reversable defect&#39;
-</code></pre><h1 id="The-Model"><a href="#The-Model" class="headerlink" title="The Model"></a>The Model</h1><p>Depending on package sklearn, we split the data - test data 70%, training data 30%</p>
-<pre><code>X_train, X_test, y_train, y_test = train_test_split(dt.drop(&#39;target&#39;, 1), dt[&#39;target&#39;], test_size = .2, random_state=10) #split the data
-</code></pre><p>Using random forest methodology</p>
-<pre><code>model = RandomForestClassifier(max_depth=5)
-model.fit(X_train, y_train)
-</code></pre><p>plot the result of random forest</p>
-<pre><code>estimator = model.estimators_[1]
-feature_names = [i for i in X_train.columns]
-
-y_train_str = y_train.astype(&#39;str&#39;)
-y_train_str[y_train_str == &#39;0&#39;] = &#39;no disease&#39;
-y_train_str[y_train_str == &#39;1&#39;] = &#39;disease&#39;
-y_train_str = y_train_str.values
-</code></pre><p>code from <a href="https://towardsdatascience.com/how-to-visualize-a-decision-tree-from-a-random-forest-in-python-using-scikit-learn-38ad2d75f21c" target="_blank" rel="noopener">https://towardsdatascience.com/how-to-visualize-a-decision-tree-from-a-random-forest-in-python-using-scikit-learn-38ad2d75f21c</a></p>
-<pre><code>export_graphviz(estimator, out_file=&#39;tree.dot&#39;, 
-                feature_names = feature_names,
-                class_names = y_train_str,
-                rounded = True, proportion = True, 
-                label=&#39;root&#39;,
-                precision = 2, filled = True)
-
-from subprocess import call
-call([&#39;dot&#39;, &#39;-Tpng&#39;, &#39;tree.dot&#39;, &#39;-o&#39;, &#39;tree.png&#39;, &#39;-Gdpi=600&#39;])
-
-from IPython.display import Image
-Image(filename = &#39;tree.png&#39;)
-</code></pre><p>Evaluate the model</p>
-<pre><code>y_predict = model.predict(X_test)
-y_pred_quant = model.predict_proba(X_test)[:, 1]
-y_pred_bin = model.predict(X_test)
-</code></pre><p>Fit with Cnfusion model</p>
-<pre><code>confusion_matrix = confusion_matrix(y_test, y_pred_bin)
-</code></pre><p>Here we propose the sensitvity and specificity</p>
-<script type="math/tex; mode=display">sensitivity = \frac{TF}{TP+FN}</script><script type="math/tex; mode=display">specificity = \frac{TN}{TN+FP}</script><pre><code>total=sum(sum(confusion_matrix))
-
-sensitivity = confusion_matrix[0,0]/(confusion_matrix[0,0]+confusion_matrix[1,0])
-print(&#39;Sensitivity : &#39;, sensitivity )
-
-specificity = confusion_matrix[1,1]/(confusion_matrix[1,1]+confusion_matrix[0,1])
-print(&#39;Specificity : &#39;, specificity)
-</code></pre><p>Next, we check ROC curve.</p>
-<pre><code>fpr, tpr, thresholds = roc_curve(y_test, y_pred_quant)
-
-fig, ax = plt.subplots()
-ax.plot(fpr, tpr)
-ax.plot([0, 1], [0, 1], transform=ax.transAxes, ls=&quot;--&quot;, c=&quot;.3&quot;)
-plt.xlim([0.0, 1.0])
-plt.ylim([0.0, 1.0])
-plt.rcParams[&#39;font.size&#39;] = 12
-plt.title(&#39;ROC curve for diabetes classifier&#39;)
-plt.xlabel(&#39;False Positive Rate (1 - Specificity)&#39;)
-plt.ylabel(&#39;True Positive Rate (Sensitivity)&#39;)
-plt.grid(True)
-</code></pre><p>Another common metric is the Area Under the Curve, or AUC.</p>
-<pre><code>auc(fpr, tpr)
-</code></pre><h1 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h1><p>Here we implement the shap value to explain our model.</p>
-<pre><code>explainer = shap.TreeExplainer(model)
-shap_values = explainer.shap_values(X_test)
-
-shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
-</code></pre><p><a href="https://www.kaggle.com/tentotheminus9/what-causes-heart-disease-explaining-the-model" target="_blank" rel="noopener">for more</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2739,7 +2378,7 @@ shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
