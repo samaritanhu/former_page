@@ -253,6 +253,1179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/CS224n Classnotes course6 to/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/10/CS224n Classnotes course6 to/" itemprop="url">Stanford CS224n Natural Language Processing Course6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T21:57:23+08:00">
+                2020-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  187
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://web.stanford.edu/class/cs224n/index.html#schedule" target="_blank" rel="noopener"><strong>Course Link(including Slides and Materials)</strong></a></p>
+<p><a href="http://onlinehub.stanford.edu/cs224" target="_blank" rel="noopener"><strong>Online Video Link</strong></a></p>
+<p>[<strong>Online Video Link in Chinese</strong>](</p>
+<h1 id="Course-6-Language-Models-and-RNNs"><a href="#Course-6-Language-Models-and-RNNs" class="headerlink" title="Course 6 - Language Models and RNNs"></a>Course 6 - Language Models and RNNs</h1><h2 id="Language-Modeling"><a href="#Language-Modeling" class="headerlink" title="Language Modeling"></a>Language Modeling</h2><p>is the task of predicting what word comes next. </p>
+<script type="math/tex; mode=display">
+P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)</script><p>also, <strong>assigns probability to a piece of text</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned} P\left(\boldsymbol{x}^{(1)}, \ldots, \boldsymbol{x}^{(T)}\right) &=P\left(\boldsymbol{x}^{(1)}\right) \times P\left(\boldsymbol{x}^{(2)} | \boldsymbol{x}^{(1)}\right) \times \cdots \times P\left(\boldsymbol{x}^{(T)} | \boldsymbol{x}^{(T-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \\ &=\prod_{t=1}^{T} P\left(\boldsymbol{x}^{(t)} | \boldsymbol{x}^{(t-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \end{aligned}</script><h3 id="n-gram-Language-Models"><a href="#n-gram-Language-Models" class="headerlink" title="n-gram Language Models"></a>n-gram Language Models</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>A <strong>n-gram</strong> is a chunk of n consecutive words</p>
+<h4 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h4><p>Collect statistics about how frequent different n-grams are, and use these to predict next word.</p>
+<h4 id="Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><a href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data" class="headerlink" title="Sparity Problem 1: what if “students opened their w“ never occurred in data"></a>Sparity Problem 1: what if “students opened their <em>w</em>“ never occurred in data</h4><p>Solution-Smoothing: Add small delta to the count for every <em>w</em> </p>
+<h4 id="Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><a href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data" class="headerlink" title="Sparity Problem2: what if “students opened their” never occurred in data?"></a>Sparity Problem2: what if “students opened their” never occurred in data?</h4><p>Solution-backoff: Just condition on “opened their” instead</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/Functional Analysis brief theorems/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/10/Functional Analysis brief theorems/" itemprop="url">Walter Rudin, Functional Analysis brief theorems(Chapter General Theory)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T15:07:23+08:00">
+                2020-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/mathematics/" itemprop="url" rel="index">
+                    <span itemprop="name">mathematics</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  108
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://59clc.files.wordpress.com/2012/08/functional-analysis-_-rudin-2th.pdf" target="_blank" rel="noopener">Booklink</a></p>
+<h1 id="Part-I-General-Theory"><a href="#Part-I-General-Theory" class="headerlink" title="Part I - General Theory"></a>Part I - General Theory</h1><h2 id="Chapter-1-Topological-Vector-Spaces"><a href="#Chapter-1-Topological-Vector-Spaces" class="headerlink" title="Chapter 1 -  Topological Vector Spaces"></a>Chapter 1 -  Topological Vector Spaces</h2><p><strong>1.2 Normed spaces</strong> A vector space X is said to be a normed space if to every x in X there is associated a nonnegative real number llxll, called the norm of x, in such a way that </p>
+<p>(a) $\quad|x+y| \leq|x|+|y|$ for all $x$ and $y$ in $X$<br>(b) $\quad|\alpha x|=|\alpha||x|$ if $x \in X$ and $\alpha$ is a scalar,<br>(c) $\quad|x|&gt;0$ if $x \neq 0$</p>
+<p>In any metric space, the open ball with center at x and radius r is the set </p>
+<script type="math/tex; mode=display">
+B_r(x) = \{y:d(x,y)<r\}</script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/Untitled/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/10/Untitled/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T15:04:09+08:00">
+                2020-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <script type="math/tex; mode=display">test</script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/01/31/CS224n Classnotes course 1 to 5/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/31/CS224n Classnotes course 1 to 5/" itemprop="url">Stanford CS224n Natural Language Processing Course1 to 5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-31T21:57:23+08:00">
+                2020-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://web.stanford.edu/class/cs224n/index.html#schedule" target="_blank" rel="noopener"><strong>Course Link(including Slides and Materials)</strong></a></p>
+<p><a href="http://onlinehub.stanford.edu/cs224" target="_blank" rel="noopener"><strong>Online Video Link</strong></a></p>
+<p><a href="https://www.bilibili.com/video/av46216519" target="_blank" rel="noopener"><strong>Online Video Link in Chinese</strong></a></p>
+<h1 id="Course-1-Introduction-and-Word-Vectors"><a href="#Course-1-Introduction-and-Word-Vectors" class="headerlink" title="Course 1 - Introduction and Word Vectors"></a>Course 1 - Introduction and Word Vectors</h1><p>Language isn’t a formal system. Language is glorious chaos. <em>by Chris Manning</em></p>
+<p><strong>Target</strong></p>
+<ul>
+<li>Modern methods: Recurrent networks, attentions</li>
+<li>Big Picture</li>
+<li>Build system in PyTorch: Word meaning, dependency parsing, machine translation, question answering.</li>
+</ul>
+<h2 id="1-how-do-we-represent-the-meaning-of-a-word"><a href="#1-how-do-we-represent-the-meaning-of-a-word" class="headerlink" title="1. how do we represent the meaning of a word?"></a>1. how do we represent the meaning of a word?</h2><p>signifier(symbol) &lt;=&gt; signified(idea or thing) = denotational semantics</p>
+<h2 id="2-how-do-we-have-usable-meaning-in-a-computer"><a href="#2-how-do-we-have-usable-meaning-in-a-computer" class="headerlink" title="2. how do we have usable meaning in a computer?"></a>2. how do we have usable meaning in a computer?</h2><p><strong>Common Solution</strong> Use e.g. WordNet containing lists of <strong>synonym sets</strong> and <strong>hypernyms</strong></p>
+<p><strong>Problems</strong> </p>
+<ul>
+<li>missing nuance: proficient = good in some contexts</li>
+<li>new meanings of words: wicked, badass, ninja</li>
+<li>Subjective</li>
+<li>Requires human labor to create and adapt</li>
+<li>Can’t compute accurate and word similarity</li>
+</ul>
+<h3 id="Representing-words-as-discrete-symbols"><a href="#Representing-words-as-discrete-symbols" class="headerlink" title="Representing words as discrete symbols"></a>Representing words as discrete symbols</h3><p><strong>one-hot vectors</strong> =&gt; <strong>encode similarity in the vector themselves</strong></p>
+<p><strong>Distributional semantics</strong>: A word’s meaning is given by the words that frequently appear close-by.</p>
+<p><strong>Word Vectors</strong>: a dense vector for each word, chosen so that it is similar to vectors of words that appear in similar contexts.</p>
+<p>Note: Word Vectors = Word Embeddings = Word Representations. All distributed representation</p>
+<script type="math/tex; mode=display">
+banking = \left[
+ \begin{matrix}
+   0.286 \\
+   0.792  \\
+   -0.177 \\
+   -0.107 \\
+   0.109 \\
+   -0.542\\
+   0.349\\
+   0.271\\
+   0.487
+  \end{matrix}
+  \right] \tag{1}</script><h2 id="3-Word2Vec-Overview"><a href="#3-Word2Vec-Overview" class="headerlink" title="3. Word2Vec: Overview"></a>3. Word2Vec: Overview</h2><p>Idea:</p>
+<ul>
+<li>a large corpus of text</li>
+<li>every word in a fixed vocabulary is represented by a <strong>vector</strong></li>
+<li>go through each position <em>t</em> in the text, which has a center word <em>c</em> and context words <em>o</em></li>
+<li>Use the <strong>similarity of the word vectors</strong> for <em>c</em> and <em>o</em> to <strong>calculate the probability</strong> of <em>o</em> given <em>c</em></li>
+<li><strong>Keep Adjusting the word vectors</strong> to maximize this probability</li>
+</ul>
+<script type="math/tex; mode=display">
+likelihood = L(\theta) = \prod_{t=1}^{T} \prod_{-m \leq j \leq m \atop j \neq 0} P\left(w_{t+j} | w_{t} ; \theta\right)</script><p>Note: theta is all variables to be optimized</p>
+<h3 id="Objective-function-J"><a href="#Objective-function-J" class="headerlink" title="Objective function J"></a>Objective function J</h3><p>sometimes called <strong>cost / loss function</strong></p>
+<script type="math/tex; mode=display">
+J(\theta)=-\frac{1}{T} \log L(\theta)=-\frac{1}{T} \sum_{t=1}^{T} \sum_{-m \leq j \leq m} \log P\left(w_{t+j} | w_{t} ; \theta\right)</script><p><strong>Minimizing objective function &lt;=&gt; Maximizing predictive accuracy</strong></p>
+<p><em>Question: How to calculate P?</em></p>
+<p><em>Answer: We use two vectors per word w</em></p>
+<ul>
+<li><code>v_w</code> when <em>w</em> is a center word</li>
+<li><code>u_w</code> when <em>w</em> is a context word</li>
+</ul>
+<p>Then for a center word <em>c</em> and a context word <em>o</em>:</p>
+<h3 id="Prediction-function"><a href="#Prediction-function" class="headerlink" title="Prediction function"></a>Prediction function</h3><script type="math/tex; mode=display">
+P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w}^{T} v_{c}\right)}</script><h3 id="To-train-the-model-Compute-all-vector-gradients"><a href="#To-train-the-model-Compute-all-vector-gradients" class="headerlink" title="To train the model: Compute all vector gradients"></a>To train the model: Compute all vector gradients</h3><ul>
+<li><p>Recall: theta represents <strong>all</strong> model parameters, in one long vector</p>
+</li>
+<li><p>In our cases</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\theta=\left[\begin{array}{l}{v_{\text {aardvark}}} \\ {v_{a}} \\ {\vdots} \\ {v_{z e b r a}} \\ {u_{\text {aardvark}}} \\ {u_{a}} \\ {\vdots} \\ {u_{z e b r a}}\end{array}\right] \in \mathbb{R}^{2 d V}</script><ul>
+<li><p>Remember: every word has two vectors</p>
+</li>
+<li><p>We optimize these parameters by walking down the gradient</p>
+</li>
+</ul>
+<h1 id="Course-2-Word-Vectors-and-Word-Senses"><a href="#Course-2-Word-Vectors-and-Word-Senses" class="headerlink" title="Course 2 - Word Vectors and Word Senses"></a>Course 2 - Word Vectors and Word Senses</h1><p>Firstly, some analogy by calculating the linear space similarity by word vectors.</p>
+<p><img src="/2020/01/31/CS224n Classnotes course 1 to 5/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200201062227420.png" alt="Vector Composilion"></p>
+<p>Definition of Code:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">analogy</span><span class="params">(x1, x2, y1)</span>:</span></span><br><span class="line">    result = model.most_similar(positive=[y1,x2], negative=[x1])</span><br><span class="line">    <span class="keyword">return</span> result[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p>Some Implementations:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">analogy(<span class="string">'japan'</span>,<span class="string">'japanese'</span>,<span class="string">'australia'</span>) <span class="comment"># australian</span></span><br><span class="line">analogy(<span class="string">'man'</span>,<span class="string">'king'</span>,<span class="string">'woman'</span>) <span class="comment"># queen</span></span><br><span class="line">analogy(<span class="string">'australia'</span>,<span class="string">'beer'</span>,<span class="string">'france'</span>) <span class="comment"># champagne</span></span><br></pre></td></tr></table></figure>
+<p>Next thing: <strong>PCA Scatterplot</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">display_pca_scatterplot</span><span class="params">(model, words=None, sample=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> words == <span class="keyword">None</span>:</span><br><span class="line">        <span class="keyword">if</span> sample &gt; <span class="number">0</span>:</span><br><span class="line">            words = np.random.choice(list(model.vocab.keys()), sample)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            words = [ word <span class="keyword">for</span> word <span class="keyword">in</span> model.vocab ]</span><br><span class="line">        </span><br><span class="line">        word_vectors = np.array([model[w] <span class="keyword">for</span> w <span class="keyword">in</span> words])</span><br><span class="line">        </span><br><span class="line">        twodim = PCA().fit_transform(word_vectors)[:,:<span class="number">2</span>]</span><br><span class="line">        </span><br><span class="line">        plt.figure(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">        plt.scatter(twodim[:,<span class="number">0</span>], twodim[:,<span class="number">1</span>], edgecolors=<span class="string">'k'</span>, c=<span class="string">'r'</span>)</span><br><span class="line">        <span class="keyword">for</span> word, (x,y) <span class="keyword">in</span> zip(words, twodim):</span><br><span class="line">            plt.text(x+<span class="number">0.05</span>, y+<span class="number">0.05</span>, word)</span><br></pre></td></tr></table></figure>
+<h2 id="Word-Vectors-and-word2vec"><a href="#Word-Vectors-and-word2vec" class="headerlink" title="Word Vectors and word2vec"></a>Word Vectors and word2vec</h2><h3 id="1-Review-Main-idea-of-word2vec"><a href="#1-Review-Main-idea-of-word2vec" class="headerlink" title="1. Review: Main idea of word2vec"></a>1. Review: Main idea of word2vec</h3><ul>
+<li>Iterate through each word of the whole corpus</li>
+<li>Predict surrounding words using word vectors</li>
+</ul>
+<script type="math/tex; mode=display">
+P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w}^{T} v_{c}\right)}</script><h2 id="Optimization-Basics-Gradient-Descent-cs229-Optimization"><a href="#Optimization-Basics-Gradient-Descent-cs229-Optimization" class="headerlink" title="Optimization Basics: Gradient Descent(cs229 Optimization)"></a>Optimization Basics: Gradient Descent(cs229 Optimization)</h2><p>Idea: for current value of theta, calculate gradient of J(theta), then take <strong>small step in the direction of negative gradient</strong>. </p>
+<p><strong>Update equation</strong>(in matrix notation)</p>
+<script type="math/tex; mode=display">
+\theta^{n e w}=\theta^{o l d}-\alpha \nabla_{\theta} J(\theta)</script><p><strong>Update equation</strong>(in a single parameter)</p>
+<script type="math/tex; mode=display">
+\theta_{j}^{n e w}=\theta_{j}^{o l d}-\alpha \frac{\partial}{\partial \theta_{j}^{o l d}} J(\theta)</script><p>Algorithm:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    theta_grad = evaluate_gradient(J, corpus, theta)</span><br><span class="line">    theta = theta - alpha * theta_grad</span><br></pre></td></tr></table></figure>
+<h3 id="Stochastic-Gradient-Descent-SGD"><a href="#Stochastic-Gradient-Descent-SGD" class="headerlink" title="Stochastic Gradient Descent(SGD)"></a>Stochastic Gradient Descent(SGD)</h3><p>Solution: Repeatedly sample windows, and update after each one</p>
+<p>Algorithm</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    window = sample_window(corpus)</span><br><span class="line">    theta_grad = evaluate_gradient(J, window, theta)</span><br><span class="line">    theta = theta - alpha * theta_grad</span><br></pre></td></tr></table></figure>
+<h3 id="Stochastic-Gradient-with-word-vectors"><a href="#Stochastic-Gradient-with-word-vectors" class="headerlink" title="Stochastic Gradient with word vectors:"></a>Stochastic Gradient with word vectors:</h3><p>Iteratively take gradients at each such window for SGD</p>
+<p>But in each window, we only have at most <em>2m+1</em> words, so it’s very sparse!</p>
+<script type="math/tex; mode=display">
+\nabla_{\theta} J_{t}(\theta)=\left[\begin{array}{c}{0} \\ {\vdots} \\ {\nabla_{v_{v i k e}}} \\ {\vdots} \\ {0} \\ {\vdots} \\ {\nabla_{u_{\text {learning}}}} \\ {\vdots}\end{array}\right] \in \mathbb{R}^{2 d V}</script><p>Solution: </p>
+<ul>
+<li>need sparse matrix update operations to only update certain rows of full embedding matrices <em>U</em> and <em>V</em></li>
+<li>need to keep around a hash for word vectors</li>
+</ul>
+<h3 id="Word2Vec-More-details"><a href="#Word2Vec-More-details" class="headerlink" title="Word2Vec: More details"></a>Word2Vec: More details</h3><p>Two model variants:</p>
+<ul>
+<li>Skip-grams(SG): Predict context words given center word</li>
+<li>Continuous Bag of Words(CBOW): Predict center word from context words</li>
+</ul>
+<p>=&gt; <strong>Skip-gram model</strong></p>
+<p>Additional efficiency in training: </p>
+<ul>
+<li>Negative sampling</li>
+</ul>
+<p>Paper: “Distributed Representations of Words and Phrases and their Compositionality”(Mikolov et al.2013)</p>
+<p><strong>Overall objective function</strong>(maximize):</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J_{t}(\theta)\\
+J_{t}(\theta)=\log \sigma\left(u_{o}^{T} v_{c}\right)+\sum_{i=1}^{k} \mathbb{E}_{j \sim P(w)}\left[\log \sigma\left(-u_{j}^{T} v_{c}\right)\right]</script><p>The sigmoid function:</p>
+<script type="math/tex; mode=display">
+\sigma(x)=\frac{1}{1+e^{-x}}</script><p>So we maximize the probability of two words co-occurring in the first log</p>
+<script type="math/tex; mode=display">
+J_{n e g-s a m p l e}\left(\boldsymbol{o}, \boldsymbol{v}_{c}, \boldsymbol{U}\right)=-\log \left(\sigma\left(\boldsymbol{u}_{o}^{\top} \boldsymbol{v}_{c}\right)\right)-\sum_{k=1}^{K} \log \left(\sigma\left(-\boldsymbol{u}_{k}^{\top} \boldsymbol{v}_{c}\right)\right)</script><p>Maximize probability that real outside word appears, minimize prob. that random word appear around center word.</p>
+<p>The unigram distribution U(w)</p>
+<script type="math/tex; mode=display">
+P(w)=U(w)^{3 / 4} / Z</script><p>raised to the 3/4 power, which makes less frequent words be sampled more often.</p>
+<h2 id="Can-we-capture-this-essence-more-effectively-by-counting"><a href="#Can-we-capture-this-essence-more-effectively-by-counting" class="headerlink" title="Can we capture this essence more effectively by counting?"></a>Can we capture this essence more effectively by counting?</h2><p>With a co-occurrence matrix <em>X</em></p>
+<ul>
+<li>2 options: windows vs. full document</li>
+<li>Window: Similar to word2vec, use window around each word -&gt; captures both syntactic(POS) and semantic information</li>
+<li>Word-document co-occurrence matrix will give general topic leading to <em>Latent Semantic Analysis</em></li>
+</ul>
+<p>Models are less robust due to increase in size with vocabulary.</p>
+<p>Solution: Low dimensional vectors</p>
+<p>Idea: store most information in a fixed, small number of dimensions</p>
+<h3 id="Singular-Value-Decomposition-of-co-occurrence-matrix-X-SVD"><a href="#Singular-Value-Decomposition-of-co-occurrence-matrix-X-SVD" class="headerlink" title="Singular Value Decomposition of co-occurrence matrix X - SVD"></a>Singular Value Decomposition of co-occurrence matrix <em>X</em> - SVD</h3><script type="math/tex; mode=display">
+X = U \Sigma V^{\top}</script><h3 id="Hacks-to-X-several-used-in-Rohde-et-al-2005"><a href="#Hacks-to-X-several-used-in-Rohde-et-al-2005" class="headerlink" title="Hacks to X (several used in Rohde et al. 2005)"></a>Hacks to X (several used in Rohde et al. 2005)</h3><p>Problem: function words(<em>the, he, has</em>) are too frequent -&gt; syntax has too much impact</p>
+<p>Solution</p>
+<ul>
+<li>min(X,t) t~= 100, Ignore them all</li>
+<li>Use Pearson correlations instead of counts, then set negative values to 0</li>
+</ul>
+<h2 id="The-GloVe-model-of-word-vectors"><a href="#The-GloVe-model-of-word-vectors" class="headerlink" title="The GloVe model of word vectors"></a>The GloVe model of word vectors</h2><h3 id="Crucial-insight"><a href="#Crucial-insight" class="headerlink" title="Crucial insight"></a>Crucial insight</h3><p>Ratios of co-occurrence probabilities can encode meaning components</p>
+<script type="math/tex; mode=display">
+w_{i} \cdot w_{j}=\log P(i | j)\\
+J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\tilde{b}_{j}-\log X_{i j}\right)^{2}</script><p><strong>Merits</strong></p>
+<ul>
+<li>Fast training</li>
+<li>Scalable to hug corpora</li>
+<li>Good performance even with small corpus and small vectors</li>
+</ul>
+<h2 id="Evaluating-word-vectors"><a href="#Evaluating-word-vectors" class="headerlink" title="Evaluating word vectors"></a>Evaluating word vectors</h2><h3 id="Intrinsic"><a href="#Intrinsic" class="headerlink" title="Intrinsic"></a>Intrinsic</h3><ul>
+<li>Evaluation on a specific/intermediate subtask</li>
+<li>Fast to compute</li>
+<li>Helps to understand that system</li>
+<li>Not clear if helpful</li>
+</ul>
+<p>Methods: </p>
+<ol>
+<li>Cosine distance of word vectors</li>
+<li>Word vector distances and their correlation with human judgments</li>
+</ol>
+<h3 id="Extrinsic"><a href="#Extrinsic" class="headerlink" title="Extrinsic"></a>Extrinsic</h3><ul>
+<li>Evaluation on a real task</li>
+<li>Can take a long time to compute accuracy</li>
+<li>Unclear if subsystem is the problem or its interaction</li>
+<li>If replacing exactly one subsystem with another improves accuracy</li>
+</ul>
+<p>Example: NER</p>
+<h2 id="Word-senses"><a href="#Word-senses" class="headerlink" title="Word senses"></a>Word senses</h2><h4 id="Word-senses-and-word-sense-ambiguity"><a href="#Word-senses-and-word-sense-ambiguity" class="headerlink" title="Word senses and word sense ambiguity"></a>Word senses and word sense ambiguity</h4><p>Most words have lots of meanings, especially common words. </p>
+<h1 id="Course-3-Neural-Networks"><a href="#Course-3-Neural-Networks" class="headerlink" title="Course 3 - Neural Networks"></a>Course 3 - Neural Networks</h1><h2 id="Classification-review-introduction"><a href="#Classification-review-introduction" class="headerlink" title="Classification review/introduction"></a>Classification review/introduction</h2><p>Generally we have a <strong>training dataset</strong> consisting of <strong>samples</strong></p>
+<script type="math/tex; mode=display">
+\left\{x_{\mathrm{i}}, y_{\mathrm{i}}\right\}_{\mathrm{i}=1}^{\mathrm{N}}</script><p>x_i are inputs, eg words, sentences, documents, etc</p>
+<p>y_j are labels we try to predict. </p>
+<ul>
+<li>classes: sentiment, named entities, buy/sell decision</li>
+<li>other words</li>
+<li>later: multi-word sequences</li>
+</ul>
+<p>Traditional ML/Stats approach: assume x_i are fixed, train softmax/logistic regression weights <em>W in R(C,d)</em> to determine a decision boundary as in the picture. </p>
+<h3 id="Method-Training-with-softmax-and-cross-entropy-loss"><a href="#Method-Training-with-softmax-and-cross-entropy-loss" class="headerlink" title="Method: Training with softmax and cross-entropy loss"></a>Method: Training with softmax and cross-entropy loss</h3><p>For each <em>x</em>, predict:</p>
+<script type="math/tex; mode=display">
+p(y | x)=\frac{\exp \left(W_{y} \cdot x\right)}{\sum_{c=1}^{C} \exp \left(W_{c} \cdot x\right)}</script><p>For each training example (x,y), to <strong>maximize the probability of the correct class</strong> <em>y</em>, or <strong>minimize the negative log probability</strong></p>
+<script type="math/tex; mode=display">
+-\log p(y | x)=-\log \left(\frac{\exp \left(f_{y}\right)}{\sum_{c=1}^{C} \exp \left(f_{c}\right)}\right)</script><p>FYI: Cross entropy in the full dataset is </p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^{C} e^{f_{c}}}\right)</script><h2 id="Neural-networks-introduction"><a href="#Neural-networks-introduction" class="headerlink" title="Neural networks introduction"></a>Neural networks introduction</h2><p>Commonly in NLP deep learning:</p>
+<ul>
+<li>We learn <strong>both</strong> W <strong>and</strong> word vectors X</li>
+<li>We learn <strong>both</strong> conventional parameters <strong>and</strong> representations</li>
+</ul>
+<script type="math/tex; mode=display">
+\nabla_{\theta} J(\theta)=\left[\begin{array}{c}{\nabla_{W_{1}}} \\ {\vdots} \\ {\nabla_{W_{d}}} \\ {\nabla_{x_{a a r d v a r k}}} \\ {\vdots} \\ {\nabla_{x_{z e b r a}}}\end{array}\right] \in \mathbb{R}^{C d+V d}</script><h2 id="Named-Entity-Recognition"><a href="#Named-Entity-Recognition" class="headerlink" title="Named Entity Recognition"></a>Named Entity Recognition</h2><p>The task: <strong>find</strong> and <strong>classify</strong> name in text.</p>
+<h3 id="NER-on-word-sequences"><a href="#NER-on-word-sequences" class="headerlink" title="NER on word sequences"></a>NER on word sequences</h3><p>We predict entities by classifying words in context and then extracting entities as word subsequences.</p>
+<p>BIAO encoding </p>
+<h3 id="Why-might-NER-be-hard"><a href="#Why-might-NER-be-hard" class="headerlink" title="Why might NER be hard?"></a>Why might NER be hard?</h3><ul>
+<li>hard to work out boundaries of entity</li>
+<li>hard to know if something is an entity</li>
+<li>hard to know class of unknown/novel entity</li>
+<li>entity class is ambiguous and depends on context</li>
+</ul>
+<h2 id="Binary-true-vs-corrupted-word-window-classification"><a href="#Binary-true-vs-corrupted-word-window-classification" class="headerlink" title="Binary true vs. corrupted word window classification"></a>Binary true vs. corrupted word window classification</h2><h3 id="Binary-word-window-classification"><a href="#Binary-word-window-classification" class="headerlink" title="Binary word window classification"></a>Binary word window classification</h3><p>Problem: ambiguity</p>
+<p>Idea: <strong>classify a word in its context window</strong> of neighboring words.</p>
+<p>Solution: train softmax classifer to classify a center word by taking <strong>concatenation of word vectors surrounding it</strong> in a window</p>
+<h1 id="Course-4-Backpropagation-and-computation-graphs"><a href="#Course-4-Backpropagation-and-computation-graphs" class="headerlink" title="Course 4 - Backpropagation and computation graphs"></a>Course 4 - Backpropagation and computation graphs</h1><h2 id="Matrix-gradients-for-our-simple-neural-net-and-some-tips"><a href="#Matrix-gradients-for-our-simple-neural-net-and-some-tips" class="headerlink" title="Matrix gradients for our simple neural net and some tips"></a>Matrix gradients for our simple neural net and some tips</h2><p>Chain rule:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\boldsymbol{s}=&\boldsymbol{u}^{T} \boldsymbol{h} \\
+\boldsymbol{h}=& f(\boldsymbol{z}) \\ \boldsymbol{z}=& W \boldsymbol{x}+\boldsymbol{b} \end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned} 
+\frac{\partial s}{\partial \boldsymbol{W}}=&\frac{\partial s}{\partial \boldsymbol{h}} \frac{\partial \boldsymbol{h}}{\partial \boldsymbol{z}} \frac{\partial \boldsymbol{z}}{\partial \boldsymbol{W}} \\
+=& \delta\frac{\partial z}{\partial W}\\
+=& \delta \frac{\partial}{\partial W} Wx + b \\
+=& \delta^{T}x+b
+\end{aligned}</script><p><strong>Question</strong> Should I use available “pre-trained” word vectors?</p>
+<p><strong>Answer</strong> almost always</p>
+<p><strong>Question</strong> Should I update(“fine tune”) my own word vectors?</p>
+<p><strong>Answer</strong> </p>
+<ul>
+<li>If you only have a <strong>small</strong> training data set, <strong>don’t</strong> train the word vectors</li>
+<li>If you have a <strong>large</strong> dataset, it probably will work better to <strong>train = update = fine-tune</strong> word vectors to the task</li>
+</ul>
+<h2 id="Computation-graphs-and-backpropagation"><a href="#Computation-graphs-and-backpropagation" class="headerlink" title="Computation graphs and backpropagation"></a>Computation graphs and backpropagation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiplyGate</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(x,y)</span>:</span></span><br><span class="line">        z = x*y</span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">        <span class="keyword">return</span> z</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(dz)</span>:</span></span><br><span class="line">        dx = self.y * dz</span><br><span class="line">        dy = self.x * dz</span><br><span class="line">        <span class="keyword">return</span> [dx,dy]</span><br></pre></td></tr></table></figure>
+<h2 id="Stuff-you-should-know"><a href="#Stuff-you-should-know" class="headerlink" title="Stuff you should know"></a>Stuff you should know</h2><h3 id="Regularization-to-prevent-overfitting"><a href="#Regularization-to-prevent-overfitting" class="headerlink" title="Regularization to prevent overfitting"></a>Regularization to prevent overfitting</h3><script type="math/tex; mode=display">
+J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^{C} e^{f_{c}}}\right)\left[+\lambda \sum_{k} \theta_{k}^{2}\right]</script><p>Prevents <strong>overfitting</strong> when we have a lot of features</p>
+<h3 id="Vectorization"><a href="#Vectorization" class="headerlink" title="Vectorization"></a>Vectorization</h3><h3 id="Nonlinearities"><a href="#Nonlinearities" class="headerlink" title="Nonlinearities"></a>Nonlinearities</h3><p>logistic(“sigmoid”)</p>
+<script type="math/tex; mode=display">
+f(z)=\frac{1}{1+\exp (-z)}</script><p>tanh</p>
+<script type="math/tex; mode=display">
+f(z)=\tanh (z)=\frac{e^{z}-e^{-z}}{e^{z}+e^{-z}} \\
+\tanh (z) = 2\operatorname{logistic}(2z) - 1</script><p>hard tanh</p>
+<script type="math/tex; mode=display">
+\operatorname{HardTanh} (x)=\left\{\begin{array}{cl}{-1} & {\text { if } x<-1} \\ {x} & {\text { if }-1<=x<=1} \\ {1} & {\text { if } x>1}\end{array}\right.</script><p>ReLU: </p>
+<script type="math/tex; mode=display">
+rect(z) = \max(z,0)</script><p>Leaky ReLU/Parametric ReLU</p>
+<h3 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h3><p>Xavier initialzation has variance inversely proportional to fan-in n_in and fan-out n_out:</p>
+<script type="math/tex; mode=display">
+\operatorname{Var}\left(W_{i}\right)=\frac{2}{n_{\mathrm{in}}+n_{\mathrm{out}}}</script><h3 id="Optimizers"><a href="#Optimizers" class="headerlink" title="Optimizers"></a>Optimizers</h3><p>SGD/Adagrad/RMSprop/Adak/SparseAdam</p>
+<h3 id="Learning-rates"><a href="#Learning-rates" class="headerlink" title="Learning rates"></a>Learning rates</h3><ul>
+<li><p>You can just use a constant learning rate</p>
+</li>
+<li><p>Better results can generally be obtained by allowing learning rates to decrease as you train</p>
+<ul>
+<li><p>by hand: halve the learning rate every k epochs</p>
+</li>
+<li><p>By a formula, for epoch t</p>
+</li>
+<li><script type="math/tex; mode=display">
+lr = lr_0 e^{-kt}</script></li>
+<li><p>Fancier method like cyclic learning rates(q.v.)</p>
+</li>
+</ul>
+</li>
+<li><p>Fancier optimizers still use a learning rate but it may be an initial rate that the optimizer shrinks - so may be able to start high</p>
+</li>
+</ul>
+<h1 id="Course-5-Dependency-Parsing"><a href="#Course-5-Dependency-Parsing" class="headerlink" title="Course 5 - Dependency Parsing"></a>Course 5 - Dependency Parsing</h1><h2 id="Syntactic-Structure-Consistency-and-Dependency"><a href="#Syntactic-Structure-Consistency-and-Dependency" class="headerlink" title="Syntactic Structure: Consistency and Dependency"></a>Syntactic Structure: Consistency and Dependency</h2><h3 id="1-Two-views-of-linguistic-structure-Constituency-phrase-stucture-grammar-context-free-grammars-CFGs"><a href="#1-Two-views-of-linguistic-structure-Constituency-phrase-stucture-grammar-context-free-grammars-CFGs" class="headerlink" title="1. Two views of linguistic structure: Constituency  = phrase stucture grammar = context-free grammars (CFGs)"></a>1. Two views of linguistic structure: Constituency  = phrase stucture grammar = context-free grammars (CFGs)</h3><p><strong>Phrase structure</strong> organizes words into nested constituents</p>
+<h2 id="Dependency-Grammar-and-Treebanks"><a href="#Dependency-Grammar-and-Treebanks" class="headerlink" title="Dependency Grammar and Treebanks"></a>Dependency Grammar and Treebanks</h2><p>Dependency structure shows which words depend on which other words.</p>
+<p>Dependency syntax postulates that syntactic structure consists of relations between lexical items, normally binary asymmetric relations(“arrows”) called <strong>dependencies</strong></p>
+<p>The arrows are commonly <strong>typed</strong> with the name of grammatical relations(subject, prepositional object, apposition, etc.)</p>
+<p>Usually, dependencies form a tree(connected, acyclic, single-head)</p>
+<h2 id="Transition-based-dependency-parsing"><a href="#Transition-based-dependency-parsing" class="headerlink" title="Transition-based dependency parsing"></a>Transition-based dependency parsing</h2><p>A simple form of greedy discriminative dependency parser.</p>
+<script type="math/tex; mode=display">
+Start: \sigma=[\mathrm{ROOT}], \beta=w_{1}, \ldots, w_{n}, A=\emptyset\\
+1. Shift\qquad \sigma, w_{i}|\beta, A \rightarrow \sigma| w_{i}, \beta, A\\
+2. Left-Arc_r\qquad \sigma\left|w_{i}\right| w_{j}, \beta, A \rightarrow
+\sigma | w_{j}, \beta, \operatorname{A}\mathop{\cup} \left\{r\left(w_{j}, w_{i}\right)\right\}
+\\
+3. Right-Arc_r \qquad \sigma\left[w_{i} | w_{j}, \beta, A \rightarrow\right.
+
+\sigma | w_{i}, \beta, \operatorname{A}\mathop{\cup}\left\{r\left(w_{i}, w_{j}\right)\right\}
+\\
+Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><a href="#2005-MaltParser-Nivre-and-Hall-2005" class="headerlink" title="2005 MaltParser, Nivre and Hall 2005"></a>2005 MaltParser, Nivre and Hall 2005</h3><p>Each action is predicted by a discriminative classifier over each legal move(like softmax classifier)</p>
+<ul>
+<li>Max of 3 untyped choices, max of |R| * 2 + 1 when typed</li>
+<li>Features: top of stack word, POS; first in the buffer word, POS</li>
+</ul>
+<p>It provides very <strong>fast linear time parsing</strong> with fractionally lower accuracy</p>
+<h3 id="Evaluation-of-Dependency-Parsing-labeled-dependency-accuracy"><a href="#Evaluation-of-Dependency-Parsing-labeled-dependency-accuracy" class="headerlink" title="Evaluation of Dependency Parsing: (labeled) dependency accuracy"></a>Evaluation of Dependency Parsing: (labeled) dependency accuracy</h3><p><img src="/2020/01/31/CS224n Classnotes course 1 to 5/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200205111717409.png" alt="image-20200205111717409"></p>
+<h2 id="Neural-dependency-parsing"><a href="#Neural-dependency-parsing" class="headerlink" title="Neural dependency parsing"></a>Neural dependency parsing</h2><h3 id="Why-train-a-neural-dependency-parsing"><a href="#Why-train-a-neural-dependency-parsing" class="headerlink" title="Why train a neural dependency parsing?"></a>Why train a neural dependency parsing?</h3><p>Problem #1: sparse</p>
+<p>Problem #2: incomplete</p>
+<p>Problem #3: expensive computation(95%+ of parsing time is consumed by feature computation)</p>
+<h3 id="2014-chen-and-manning"><a href="#2014-chen-and-manning" class="headerlink" title="2014, chen and manning"></a>2014, chen and manning</h3><p>English parsing to Stanford Dependencies:</p>
+<ul>
+<li>Unlabeled attachment score = head</li>
+<li>Labeled attachment score = head and label</li>
+</ul>
+<h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>bigger, deeper networks + beam search + CRF-style inference</p>
+<h3 id="Graph-based-neural-dependency-parsing"><a href="#Graph-based-neural-dependency-parsing" class="headerlink" title="Graph-based neural dependency parsing"></a>Graph-based neural dependency parsing</h3><p>over 95%</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/01/30/MYSQL_Leetcode/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/30/MYSQL_Leetcode/" itemprop="url">Leetcode MySQL cases</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-30T17:03:23+08:00">
+                2020-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  483
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-175-Combine-Two-Tables"><a href="#Problem-175-Combine-Two-Tables" class="headerlink" title="Problem 175 - Combine Two Tables"></a>Problem 175 - Combine Two Tables</h2><h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>Table: <code>Person</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+-------------+---------+</span><br><span class="line">| Column Name | Type    |</span><br><span class="line">+-------------+---------+</span><br><span class="line">| PersonId    | int     |</span><br><span class="line">| FirstName   | varchar |</span><br><span class="line">| LastName    | varchar |</span><br><span class="line">+-------------+---------+</span><br><span class="line">PersonId is the primary key column for this table.</span><br></pre></td></tr></table></figure>
+<p>Table: <code>Address</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+-------------+---------+</span><br><span class="line">| Column Name | Type    |</span><br><span class="line">+-------------+---------+</span><br><span class="line">| AddressId   | int     |</span><br><span class="line">| PersonId    | int     |</span><br><span class="line">| City        | varchar |</span><br><span class="line">| State       | varchar |</span><br><span class="line">+-------------+---------+</span><br><span class="line">AddressId is the primary key column for this table.</span><br></pre></td></tr></table></figure>
+<p>Write a SQL query for a report that provides the following information for each person in the Person table, regardless if there is an address for each of those people:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FirstName, LastName, City, State</span><br></pre></td></tr></table></figure>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>This is a easy question that interferes with <strong>LEFT JOIN</strong> technique, FYI, please notice the word <strong>ON</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT FirstName, LastName, City, State</span><br><span class="line">FROM </span><br><span class="line">Person a</span><br><span class="line">LEFT JOIN</span><br><span class="line">Address b</span><br><span class="line">ON a.PersonId = b.PersonId;</span><br></pre></td></tr></table></figure>
+<h2 id="Problem-176-Second-Highest-Salary"><a href="#Problem-176-Second-Highest-Salary" class="headerlink" title="Problem 176 - Second Highest Salary"></a>Problem 176 - Second Highest Salary</h2><h3 id="Question-1"><a href="#Question-1" class="headerlink" title="Question:"></a>Question:</h3><p>Write a SQL query to get the second highest salary from the <code>Employee</code> table.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+----+--------+</span><br><span class="line">| Id | Salary |</span><br><span class="line">+----+--------+</span><br><span class="line">| 1  | 100    |</span><br><span class="line">| 2  | 200    |</span><br><span class="line">| 3  | 300    |</span><br><span class="line">+----+--------+</span><br></pre></td></tr></table></figure>
+<p>For example, given the above Employee table, the query should return <code>200</code> as the second highest salary. If there is no second highest salary, then the query should return <code>null</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+---------------------+</span><br><span class="line">| SecondHighestSalary |</span><br><span class="line">+---------------------+</span><br><span class="line">| 200                 |</span><br><span class="line">+---------------------+</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution:"></a>Solution:</h3><p>recommended way.</p>
+<p>Runtime: faster than 92%</p>
+<p>Memory: Less than 100%</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT MAX(salary) AS SecondHighestSalary</span><br><span class="line">FROM Employee</span><br><span class="line">WHERE salary &lt; (SELECT MAX(salary) FROM Employee);</span><br></pre></td></tr></table></figure>
+<p>other solution which might be slower for using the <strong>DISTINCT</strong> </p>
+<p>Runtime: faster than 39%</p>
+<p>Memory: Less than 100%</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">CASE WHEN COUNT(a.SecondHighestSalary) &gt; 0 THEN a.SecondHighestSalary ELSE null END AS SecondHighestSalary</span><br><span class="line">FROM</span><br><span class="line">(SELECT </span><br><span class="line">DISTINCT Salary AS SecondHighestSalary </span><br><span class="line">FROM</span><br><span class="line">Employee ORDER BY Salary DESC LIMIT 1,1) a;</span><br></pre></td></tr></table></figure>
+<h2 id="Problem-178-Rank-Scores"><a href="#Problem-178-Rank-Scores" class="headerlink" title="Problem 178 - Rank Scores"></a>Problem 178 - Rank Scores</h2><h3 id="Question-2"><a href="#Question-2" class="headerlink" title="Question:"></a>Question:</h3><p>Write a SQL query to rank scores. If there is a tie between two scores, both should have the same ranking. Note that after a tie, the next ranking number should be the next consecutive integer value. In other words, there should be no “holes” between ranks.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+----+-------+</span><br><span class="line">| Id | Score |</span><br><span class="line">+----+-------+</span><br><span class="line">| 1  | 3.50  |</span><br><span class="line">| 2  | 3.65  |</span><br><span class="line">| 3  | 4.00  |</span><br><span class="line">| 4  | 3.85  |</span><br><span class="line">| 5  | 4.00  |</span><br><span class="line">| 6  | 3.65  |</span><br><span class="line">+----+-------+</span><br></pre></td></tr></table></figure>
+<p>For example, given the above <code>Scores</code> table, your query should generate the following report (order by highest score):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+-------+------+</span><br><span class="line">| Score | Rank |</span><br><span class="line">+-------+------+</span><br><span class="line">| 4.00  | 1    |</span><br><span class="line">| 4.00  | 1    |</span><br><span class="line">| 3.85  | 2    |</span><br><span class="line">| 3.65  | 3    |</span><br><span class="line">| 3.65  | 3    |</span><br><span class="line">| 3.50  | 4    |</span><br><span class="line">+-------+------+</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Problem-181-Employees-Earning-More-Than-Their-Managers"><a href="#Problem-181-Employees-Earning-More-Than-Their-Managers" class="headerlink" title="Problem 181 - Employees Earning More Than Their Managers"></a>Problem 181 - Employees Earning More Than Their Managers</h2><h3 id="Question-3"><a href="#Question-3" class="headerlink" title="Question:"></a>Question:</h3><p>The <code>Employee</code> table holds all employees including their managers. Every employee has an Id, and there is also a column for the manager Id.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+----+-------+--------+-----------+</span><br><span class="line">| Id | Name  | Salary | ManagerId |</span><br><span class="line">+----+-------+--------+-----------+</span><br><span class="line">| 1  | Joe   | 70000  | 3         |</span><br><span class="line">| 2  | Henry | 80000  | 4         |</span><br><span class="line">| 3  | Sam   | 60000  | NULL      |</span><br><span class="line">| 4  | Max   | 90000  | NULL      |</span><br><span class="line">+----+-------+--------+-----------+</span><br></pre></td></tr></table></figure>
+<p>Given the <code>Employee</code> table, write a SQL query that finds out employees who earn more than their managers. For the above table, Joe is the only employee who earns more than his manager.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+----------+</span><br><span class="line">| Employee |</span><br><span class="line">+----------+</span><br><span class="line">| Joe      |</span><br><span class="line">+----------+</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution:"></a>Solution:</h3><p>Runtime: faster than 93.96%</p>
+<p>Memory: Less than 100%</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.Name AS Employee</span><br><span class="line">FROM</span><br><span class="line">(SELECT * FROM Employee WHERE ManagerId IS NOT NULL) a</span><br><span class="line">LEFT JOIN</span><br><span class="line">Employee b</span><br><span class="line">ON a.ManagerId = b.Id</span><br><span class="line">WHERE a.Salary &gt; b.Salary;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/09/23/Deep-ADMM-Net/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1566,7 +2739,7 @@ shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1577,7 +2750,7 @@ shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -1638,7 +2811,7 @@ shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-snowflake-o"></i>
   </span>
