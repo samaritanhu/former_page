@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -82,14 +82,16 @@
 <meta name="description" content="Course 6 - Language Models and RNNsLanguage Modelingis the task of predicting what word comes next.   P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)also, ass">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stanford CS224n Natural Language Processing Course6 - ongoing">
-<meta property="og:url" content="http://nobugs.dev/2020/02/09/CS224n Classnotes Course6/index.html">
+<meta property="og:url" content="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
 <meta property="og:description" content="Course 6 - Language Models and RNNsLanguage Modelingis the task of predicting what word comes next.   P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)also, ass">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-10T07:32:07.993Z">
+<meta property="og:image" content="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20200210211740128.png">
+<meta property="og:image" content="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20200210220449695.png">
+<meta property="article:published_time" content="2020-02-10T15:57:23.000Z">
+<meta property="article:modified_time" content="2020-02-11T03:52:57.046Z">
+<meta property="article:author" content="Xinyi HU">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Stanford CS224n Natural Language Processing Course6 - ongoing">
-<meta name="twitter:description" content="Course 6 - Language Models and RNNsLanguage Modelingis the task of predicting what word comes next.   P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)also, ass">
+<meta name="twitter:image" content="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20200210211740128.png">
 
 
 
@@ -119,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://nobugs.dev/2020/02/09/CS224n Classnotes Course6/">
+  <link rel="canonical" href="http://nobugs.dev/2020/02/10/CS224n Classnotes Course6/"/>
 
 
 
@@ -135,29 +137,29 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
 <!-- ҳ����С���� -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
 
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Xinyi's gadget</span>
         <span class="logo-line-after"><i></i></span>
@@ -251,20 +253,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/09/CS224n Classnotes Course6/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi HU">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyi's gadget">
     </span>
 
@@ -285,8 +287,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-09T21:57:23+08:00">
-                2020-02-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T23:57:23+08:00">
+                2020-02-10
               </time>
             
 
@@ -296,7 +298,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -307,7 +309,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/NLP/" itemprop="url" rel="index">
                     <span itemprop="name">NLP</span>
                   </a>
@@ -339,7 +341,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  173
+                  434
                 </span>
               
 
@@ -355,7 +357,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -384,7 +386,40 @@ P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1
 <h4 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h4><p>Collect statistics about how frequent different n-grams are, and use these to predict next word.</p>
 <h4 id="Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><a href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data" class="headerlink" title="Sparity Problem 1: what if “students opened their w“ never occurred in data"></a>Sparity Problem 1: what if “students opened their <em>w</em>“ never occurred in data</h4><p>Solution-Smoothing: Add small delta to the count for every <em>w</em> </p>
 <h4 id="Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><a href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data" class="headerlink" title="Sparity Problem2: what if “students opened their” never occurred in data?"></a>Sparity Problem2: what if “students opened their” never occurred in data?</h4><p>Solution-backoff: Just condition on “opened their” instead</p>
-
+<h2 id="How-to-build-a-neural-Language-Model"><a href="#How-to-build-a-neural-Language-Model" class="headerlink" title="How to build a neural Language Model"></a>How to build a <em>neural</em> Language Model</h2><h3 id="A-fixed-window-neural-Language-Model"><a href="#A-fixed-window-neural-Language-Model" class="headerlink" title="A fixed-window neural Language Model"></a>A fixed-window neural Language Model</h3><h3 id="Recurrent-Neural-Networks-RNN"><a href="#Recurrent-Neural-Networks-RNN" class="headerlink" title="Recurrent Neural Networks(RNN)"></a>Recurrent Neural Networks(RNN)</h3><p><img src="/2020/02/10/CS224n%20Classnotes%20Course6/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200210211740128.png" alt="image-20200210211740128"></p>
+<p><strong>Core idea</strong>: Apply the same weight W repeatedly. </p>
+<p><img src="/2020/02/10/CS224n%20Classnotes%20Course6/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200210220449695.png" alt="image-20200210220449695"></p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Can process any length input</li>
+<li>use information from many steps back in theory</li>
+<li>Model size doesn’t increase for longer input</li>
+<li>Same weights applied on every steps. </li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>slow computation</li>
+<li>difficult to access information from many steps back practically </li>
+</ul>
+<h4 id="Training-a-RNN-Language-Model"><a href="#Training-a-RNN-Language-Model" class="headerlink" title="Training a RNN Language Model"></a>Training a RNN Language Model</h4><ul>
+<li><p>Get a <strong>big corpus of text</strong> which is a sequence of word $x^{1}, \cdots, x^{T}$</p>
+</li>
+<li><p>Feed into RNN-LM</p>
+</li>
+<li><p>Loss function on step t is <strong>cross-entropy</strong></p>
+<script type="math/tex; mode=display">
+J^{(t)}(\theta)=C E\left(\boldsymbol{y}^{(t)}, \hat{\boldsymbol{y}}^{(t)}\right)=-\sum_{w \in V} \boldsymbol{y}_{w}^{(t)} \log \hat{\boldsymbol{y}}_{w}^{(t)}=-\log \hat{\boldsymbol{y}}_{\boldsymbol{x}_{t+1}}^{(t)}</script></li>
+<li><p>Average this to get <strong>overall loss </strong>for entire training set</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-\log \hat{y}_{x_{t+1}}^{(t)}</script></li>
+<li><p>However, computing loss and gradients across <strong>entire corpus</strong> is too expensive. In practice, consider $x^{1}, \cdots, x^{T}$ as a <strong>sentence</strong> (or a <strong>document</strong>)</p>
+</li>
+<li>Instead, using <strong>SGD</strong> to compute loss $J(\theta)$ for a sentence, compute gradients and update weights. Repeat.</li>
+</ul>
+<h4 id="Backpropagation-for-RNNs"><a href="#Backpropagation-for-RNNs" class="headerlink" title="Backpropagation for RNNs"></a>Backpropagation for RNNs</h4><p>Questions: derivative of $J^{(t)}(\theta)$ w.r.t the <strong>repeated</strong> weight matrix </p>
+<p>Answer:</p>
+<script type="math/tex; mode=display">
+\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script>
       
     </div>
     
@@ -408,8 +443,8 @@ P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/04/CS224n Classnotes Course5/" rel="next" title="Stanford CS224n Natural Language Processing Course5">
-                <i class="fa fa-chevron-left"></i> Stanford CS224n Natural Language Processing Course5
+              <a href="/2020/02/10/weibo%20hottopics%20crawler/" rel="next" title="Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China">
+                <i class="fa fa-chevron-left"></i> Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China
               </a>
             
           </div>
@@ -418,8 +453,8 @@ P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/02/10/Functional Analysis brief theorems/" rel="prev" title="Walter Rudin, Functional Analysis brief theorems(Chapter General Theory) - ongoing">
-                Walter Rudin, Functional Analysis brief theorems(Chapter General Theory) - ongoing <i class="fa fa-chevron-right"></i>
+              <a href="/2020/02/11/weibo_delete_all/" rel="prev" title="Weibo - Delete all your followings and posts">
+                Weibo - Delete all your followings and posts <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -484,9 +519,11 @@ P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Xinyi HU">
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Xinyi HU" />
             
               <p class="site-author-name" itemprop="name">Xinyi HU</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -510,7 +547,7 @@ P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -567,7 +604,7 @@ P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-6-Language-Models-and-RNNs"><span class="nav-number">1.</span> <span class="nav-text">Course 6 - Language Models and RNNs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Modeling"><span class="nav-number">1.1.</span> <span class="nav-text">Language Modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#n-gram-Language-Models"><span class="nav-number">1.1.1.</span> <span class="nav-text">n-gram Language Models</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">Sparity Problem 1: what if “students opened their w“ never occurred in data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">Sparity Problem2: what if “students opened their” never occurred in data?</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-6-Language-Models-and-RNNs"><span class="nav-number">1.</span> <span class="nav-text">Course 6 - Language Models and RNNs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Modeling"><span class="nav-number">1.1.</span> <span class="nav-text">Language Modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#n-gram-Language-Models"><span class="nav-number">1.1.1.</span> <span class="nav-text">n-gram Language Models</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">Sparity Problem 1: what if “students opened their w“ never occurred in data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">Sparity Problem2: what if “students opened their” never occurred in data?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-build-a-neural-Language-Model"><span class="nav-number">1.2.</span> <span class="nav-text">How to build a neural Language Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-fixed-window-neural-Language-Model"><span class="nav-number">1.2.1.</span> <span class="nav-text">A fixed-window neural Language Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recurrent-Neural-Networks-RNN"><span class="nav-number">1.2.2.</span> <span class="nav-text">Recurrent Neural Networks(RNN)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Training-a-RNN-Language-Model"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Training a RNN Language Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Backpropagation-for-RNNs"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Backpropagation for RNNs</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -794,6 +831,43 @@ P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,17 +79,16 @@
 
 
 
-<meta name="description" content="Course 4 - Backpropagation and computation graphsMatrix gradients for our simple neural net and some tipsChain rule:  \begin{aligned} \boldsymbol{s}=&amp;\boldsymbol{u}^{T} \boldsymbol{h} \\ \boldsymbol{h">
+<meta name="description" content="Course 4 - Backpropagation and computation graphsMatrix gradients for our simple neural net and some tipsChain rule:  \begin{aligned} \boldsymbol{s}&#x3D;&amp;\boldsymbol{u}^{T} \boldsymbol{h} \\ \boldsymbol{h">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stanford CS224n Natural Language Processing Course4">
-<meta property="og:url" content="http://nobugs.dev/2020/02/03/CS224n Classnotes Course4/index.html">
+<meta property="og:url" content="http://nobugs.dev/2020/02/03/CS224n%20Classnotes%20Course4/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
-<meta property="og:description" content="Course 4 - Backpropagation and computation graphsMatrix gradients for our simple neural net and some tipsChain rule:  \begin{aligned} \boldsymbol{s}=&amp;\boldsymbol{u}^{T} \boldsymbol{h} \\ \boldsymbol{h">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-10T07:15:25.335Z">
+<meta property="og:description" content="Course 4 - Backpropagation and computation graphsMatrix gradients for our simple neural net and some tipsChain rule:  \begin{aligned} \boldsymbol{s}&#x3D;&amp;\boldsymbol{u}^{T} \boldsymbol{h} \\ \boldsymbol{h">
+<meta property="article:published_time" content="2020-02-03T13:57:23.000Z">
+<meta property="article:modified_time" content="2020-02-11T03:52:51.123Z">
+<meta property="article:author" content="Xinyi HU">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Stanford CS224n Natural Language Processing Course4">
-<meta name="twitter:description" content="Course 4 - Backpropagation and computation graphsMatrix gradients for our simple neural net and some tipsChain rule:  \begin{aligned} \boldsymbol{s}=&amp;\boldsymbol{u}^{T} \boldsymbol{h} \\ \boldsymbol{h">
 
 
 
@@ -119,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://nobugs.dev/2020/02/03/CS224n Classnotes Course4/">
+  <link rel="canonical" href="http://nobugs.dev/2020/02/03/CS224n Classnotes Course4/"/>
 
 
 
@@ -135,29 +134,29 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
 <!-- ҳ����С���� -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
 
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Xinyi's gadget</span>
         <span class="logo-line-after"><i></i></span>
@@ -251,20 +250,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/03/CS224n Classnotes Course4/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/03/CS224n%20Classnotes%20Course4/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi HU">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyi's gadget">
     </span>
 
@@ -296,7 +295,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -307,7 +306,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/NLP/" itemprop="url" rel="index">
                     <span itemprop="name">NLP</span>
                   </a>
@@ -452,7 +451,7 @@ lr = lr_0 e^{-kt}</script></li>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/02/CS224n Classnotes Course3/" rel="next" title="Stanford CS224n Natural Language Processing Course3">
+              <a href="/2020/02/02/CS224n%20Classnotes%20Course3/" rel="next" title="Stanford CS224n Natural Language Processing Course3">
                 <i class="fa fa-chevron-left"></i> Stanford CS224n Natural Language Processing Course3
               </a>
             
@@ -462,7 +461,7 @@ lr = lr_0 e^{-kt}</script></li>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/02/04/CS224n Classnotes Course5/" rel="prev" title="Stanford CS224n Natural Language Processing Course5">
+              <a href="/2020/02/04/CS224n%20Classnotes%20Course5/" rel="prev" title="Stanford CS224n Natural Language Processing Course5">
                 Stanford CS224n Natural Language Processing Course5 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -528,9 +527,11 @@ lr = lr_0 e^{-kt}</script></li>
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Xinyi HU">
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Xinyi HU" />
             
               <p class="site-author-name" itemprop="name">Xinyi HU</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -554,7 +555,7 @@ lr = lr_0 e^{-kt}</script></li>
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -838,6 +839,43 @@ lr = lr_0 e^{-kt}</script></li>
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

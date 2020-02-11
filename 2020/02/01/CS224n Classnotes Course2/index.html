@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="Course 2 - Word Vectors and Word SensesFirstly, some analogy by calculating the linear space similarity by word vectors.  Definition of Code: 123def analogy(x1, x2, y1):    result = model.most_similar">
+<meta name="description" content="Course 2 - Word Vectors and Word SensesFirstly, some analogy by calculating the linear space similarity by word vectors.  Definition of Code: 123def analogy(x1, x2, y1):    result &#x3D; model.most_similar">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stanford CS224n Natural Language Processing Course2">
-<meta property="og:url" content="http://nobugs.dev/2020/02/01/CS224n Classnotes Course2/index.html">
+<meta property="og:url" content="http://nobugs.dev/2020/02/01/CS224n%20Classnotes%20Course2/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
-<meta property="og:description" content="Course 2 - Word Vectors and Word SensesFirstly, some analogy by calculating the linear space similarity by word vectors.  Definition of Code: 123def analogy(x1, x2, y1):    result = model.most_similar">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:description" content="Course 2 - Word Vectors and Word SensesFirstly, some analogy by calculating the linear space similarity by word vectors.  Definition of Code: 123def analogy(x1, x2, y1):    result &#x3D; model.most_similar">
 <meta property="og:image" content="http://nobugs.dev/2020/02/01/CS224n%20Classnotes%20Course2/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20200201062227420.png">
-<meta property="og:updated_time" content="2020-02-10T07:14:08.092Z">
+<meta property="article:published_time" content="2020-02-01T13:57:23.000Z">
+<meta property="article:modified_time" content="2020-02-11T03:52:46.658Z">
+<meta property="article:author" content="Xinyi HU">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Stanford CS224n Natural Language Processing Course2">
-<meta name="twitter:description" content="Course 2 - Word Vectors and Word SensesFirstly, some analogy by calculating the linear space similarity by word vectors.  Definition of Code: 123def analogy(x1, x2, y1):    result = model.most_similar">
 <meta name="twitter:image" content="http://nobugs.dev/2020/02/01/CS224n%20Classnotes%20Course2/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20200201062227420.png">
 
 
@@ -121,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://nobugs.dev/2020/02/01/CS224n Classnotes Course2/">
+  <link rel="canonical" href="http://nobugs.dev/2020/02/01/CS224n Classnotes Course2/"/>
 
 
 
@@ -137,29 +136,29 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
 <!-- ҳ����С���� -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
 
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Xinyi's gadget</span>
         <span class="logo-line-after"><i></i></span>
@@ -253,20 +252,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/01/CS224n Classnotes Course2/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/01/CS224n%20Classnotes%20Course2/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi HU">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyi's gadget">
     </span>
 
@@ -298,7 +297,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -309,7 +308,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/NLP/" itemprop="url" rel="index">
                     <span itemprop="name">NLP</span>
                   </a>
@@ -379,7 +378,7 @@
 
       
         <h1 id="Course-2-Word-Vectors-and-Word-Senses"><a href="#Course-2-Word-Vectors-and-Word-Senses" class="headerlink" title="Course 2 - Word Vectors and Word Senses"></a>Course 2 - Word Vectors and Word Senses</h1><p>Firstly, some analogy by calculating the linear space similarity by word vectors.</p>
-<p><img src="/2020/02/01/CS224n Classnotes Course2/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200201062227420.png" alt="Vector Composilion"></p>
+<p><img src="/2020/02/01/CS224n%20Classnotes%20Course2/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200201062227420.png" alt="Vector Composilion"></p>
 <p>Definition of Code:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">analogy</span><span class="params">(x1, x2, y1)</span>:</span></span><br><span class="line">    result = model.most_similar(positive=[y1,x2], negative=[x1])</span><br><span class="line">    <span class="keyword">return</span> result[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 <p>Some Implementations:</p>
@@ -499,7 +498,7 @@ J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\ti
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/31/CS224n Classnotes Course1/" rel="next" title="Stanford CS224n Natural Language Processing Course1">
+              <a href="/2020/01/31/CS224n%20Classnotes%20Course1/" rel="next" title="Stanford CS224n Natural Language Processing Course1">
                 <i class="fa fa-chevron-left"></i> Stanford CS224n Natural Language Processing Course1
               </a>
             
@@ -509,7 +508,7 @@ J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\ti
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/02/02/CS224n Classnotes Course3/" rel="prev" title="Stanford CS224n Natural Language Processing Course3">
+              <a href="/2020/02/02/CS224n%20Classnotes%20Course3/" rel="prev" title="Stanford CS224n Natural Language Processing Course3">
                 Stanford CS224n Natural Language Processing Course3 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -575,9 +574,11 @@ J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\ti
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Xinyi HU">
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Xinyi HU" />
             
               <p class="site-author-name" itemprop="name">Xinyi HU</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -601,7 +602,7 @@ J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\ti
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -658,7 +659,7 @@ J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\ti
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-2-Word-Vectors-and-Word-Senses"><span class="nav-number">1.</span> <span class="nav-text">Course 2 - Word Vectors and Word Senses</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Vectors-and-word2vec"><span class="nav-number">1.1.</span> <span class="nav-text">Word Vectors and word2vec</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Review-Main-idea-of-word2vec"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. Review: Main idea of word2vec</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimization-Basics-Gradient-Descent-cs229-Optimization"><span class="nav-number">1.2.</span> <span class="nav-text">Optimization Basics: Gradient Descent(cs229 Optimization)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic-Gradient-Descent-SGD"><span class="nav-number">1.2.1.</span> <span class="nav-text">Stochastic Gradient Descent(SGD)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic-Gradient-with-word-vectors"><span class="nav-number">1.2.2.</span> <span class="nav-text">Stochastic Gradient with word vectors:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2Vec-More-details"><span class="nav-number">1.2.3.</span> <span class="nav-text">Word2Vec: More details</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Can-we-capture-this-essence-more-effectively-by-counting"><span class="nav-number">1.3.</span> <span class="nav-text">Can we capture this essence more effectively by counting?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Singular-Value-Decomposition-of-co-occurrence-matrix-X-SVD"><span class="nav-number">1.3.1.</span> <span class="nav-text">Singular Value Decomposition of co-occurrence matrix X - SVD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hacks-to-X-several-used-in-Rohde-et-al-2005"><span class="nav-number">1.3.2.</span> <span class="nav-text">Hacks to X (several used in Rohde et al. 2005)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-GloVe-model-of-word-vectors"><span class="nav-number">1.4.</span> <span class="nav-text">The GloVe model of word vectors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Crucial-insight"><span class="nav-number">1.4.1.</span> <span class="nav-text">Crucial insight</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluating-word-vectors"><span class="nav-number">1.5.</span> <span class="nav-text">Evaluating word vectors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intrinsic"><span class="nav-number">1.5.1.</span> <span class="nav-text">Intrinsic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extrinsic"><span class="nav-number">1.5.2.</span> <span class="nav-text">Extrinsic</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-senses"><span class="nav-number">1.6.</span> <span class="nav-text">Word senses</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Word-senses-and-word-sense-ambiguity"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">Word senses and word sense ambiguity</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-2-Word-Vectors-and-Word-Senses"><span class="nav-number">1.</span> <span class="nav-text">Course 2 - Word Vectors and Word Senses</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Vectors-and-word2vec"><span class="nav-number">1.1.</span> <span class="nav-text">Word Vectors and word2vec</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Review-Main-idea-of-word2vec"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. Review: Main idea of word2vec</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimization-Basics-Gradient-Descent-cs229-Optimization"><span class="nav-number">1.2.</span> <span class="nav-text">Optimization Basics: Gradient Descent(cs229 Optimization)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic-Gradient-Descent-SGD"><span class="nav-number">1.2.1.</span> <span class="nav-text">Stochastic Gradient Descent(SGD)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic-Gradient-with-word-vectors"><span class="nav-number">1.2.2.</span> <span class="nav-text">Stochastic Gradient with word vectors:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2Vec-More-details"><span class="nav-number">1.2.3.</span> <span class="nav-text">Word2Vec: More details</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Can-we-capture-this-essence-more-effectively-by-counting"><span class="nav-number">1.3.</span> <span class="nav-text">Can we capture this essence more effectively by counting?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Singular-Value-Decomposition-of-co-occurrence-matrix-X-SVD"><span class="nav-number">1.3.1.</span> <span class="nav-text">Singular Value Decomposition of co-occurrence matrix X - SVD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hacks-to-X-several-used-in-Rohde-et-al-2005"><span class="nav-number">1.3.2.</span> <span class="nav-text">Hacks to X (several used in Rohde et al. 2005)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-GloVe-model-of-word-vectors"><span class="nav-number">1.4.</span> <span class="nav-text">The GloVe model of word vectors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Crucial-insight"><span class="nav-number">1.4.1.</span> <span class="nav-text">Crucial insight</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluating-word-vectors"><span class="nav-number">1.5.</span> <span class="nav-text">Evaluating word vectors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intrinsic"><span class="nav-number">1.5.1.</span> <span class="nav-text">Intrinsic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extrinsic"><span class="nav-number">1.5.2.</span> <span class="nav-text">Extrinsic</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-senses"><span class="nav-number">1.6.</span> <span class="nav-text">Word senses</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Word-senses-and-word-sense-ambiguity"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">Word senses and word sense ambiguity</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -885,6 +886,43 @@ J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\ti
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
