@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/02/GNN-survey/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi HU">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/" itemprop="url">ubuntu18.04+nvidia driver+cuda+cudnn爬坑全记录</a></h1>
+                <a class="post-title-link" href="/2020/03/02/GNN-survey/" itemprop="url">GNN survey</a></h1>
         
 
         <div class="post-meta">
@@ -283,212 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-29T22:48:34+08:00">
-                2020-02-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  387
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Ubuntu18-04-install-https-blog-csdn-net-silver1225-article-details-100393719"><a href="#Ubuntu18-04-install-https-blog-csdn-net-silver1225-article-details-100393719" class="headerlink" title="[Ubuntu18.04 install][https://blog.csdn.net/silver1225/article/details/100393719]"></a>[Ubuntu18.04 install][<a href="https://blog.csdn.net/silver1225/article/details/100393719" target="_blank" rel="noopener">https://blog.csdn.net/silver1225/article/details/100393719</a>]</h1><h1 id="install-nvidia-driver"><a href="#install-nvidia-driver" class="headerlink" title="install nvidia driver"></a>install nvidia driver</h1><h2 id="First-disable-original-nvidia-driver-nouveau"><a href="#First-disable-original-nvidia-driver-nouveau" class="headerlink" title="First, disable original nvidia driver, nouveau"></a>First, disable original nvidia driver, nouveau</h2><ol>
-<li>delete the original nvidia driver</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove nvidia-*</span><br></pre></td></tr></table></figure>
-<ol>
-<li>forbid nouveau</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;modprobe.d&#x2F;blacklist.conf</span><br></pre></td></tr></table></figure>
-<p>and add this in the bottom</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau</span><br><span class="line">options nouveau modeset&#x3D;0</span><br></pre></td></tr></table></figure>
-<ol>
-<li>execute</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-initramfs -u</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<ol>
-<li>see the version of nouveau, if nothing returns, you succeed.</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep nouveau</span><br></pre></td></tr></table></figure>
-<h2 id="Second-install-your-nvidia-driver"><a href="#Second-install-your-nvidia-driver" class="headerlink" title="Second, install your nvidia driver."></a>Second, install your nvidia driver.</h2><ol>
-<li><p>search your nvidia driver according to your version at <a href="https://www.nvidia.cn/Download/index.aspx?lang=cn" target="_blank" rel="noopener">https://www.nvidia.cn/Download/index.aspx?lang=cn</a></p>
-</li>
-<li><p>update all</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-<ol>
-<li>install gcc</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential</span><br></pre></td></tr></table></figure>
-<ol>
-<li>show the version of your nvidia</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lshw -numeric -C display</span><br></pre></td></tr></table></figure>
-<ol>
-<li>install</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x NVIDIA-Linux-x86_64-418.43.run</span><br><span class="line">sudo .&#x2F;NVIDIA-Linux-x86_64-418.43.run --no-opengl-files --no-x-check --no-nouveau-check</span><br></pre></td></tr></table></figure>
-<ol>
-<li>check whether you succeed or not</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
-<h2 id="Third-download-cuda"><a href="#Third-download-cuda" class="headerlink" title="Third, download cuda"></a>Third, download cuda</h2><p>download cuda at <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh cuda_10.0.130_410.48_linux.run</span><br></pre></td></tr></table></figure>
-<p>and select </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 accept #同意安装</span><br><span class="line">2 n #不安装Driver，因为已安装最新驱动</span><br><span class="line">3 y #安装CUDA Toolkit</span><br><span class="line">4 &lt;Enter&gt; #安装到默认目录</span><br><span class="line">5 y #创建安装目录的软链接</span><br><span class="line">6 y #复制Samples一份到家目录</span><br></pre></td></tr></table></figure>
-<p>Then</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~&#x2F;.bashrc</span><br></pre></td></tr></table></figure>
-<p>Add this to the file</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;bin$&#123;PATH:+:$PATH&#125;&#125; </span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;lib64$&#123;LD_LIBRARY_PATH:+:$&#123;LD_LIBRARY_PATH&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>Go back to command line</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bashrc</span><br><span class="line">sudo vim &#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;bin:$PATH</span><br><span class="line">sudo vim &#x2F;etc&#x2F;ld.so.conf.d&#x2F;cuda.conf</span><br></pre></td></tr></table></figure>
-<p>Add this to the file</p>
-<h1 id="Last"><a href="#Last" class="headerlink" title="Last"></a>Last</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">from torch.autograd import Variable, grad</span><br><span class="line"></span><br><span class="line">SIZE&#x3D;[1, 1, 171*21, 171*21]</span><br><span class="line">input &#x3D; Variable(torch.cuda.FloatTensor(*SIZE).uniform_(), requires_grad&#x3D;True)</span><br><span class="line">conv1 &#x3D; nn.Conv2d(1, 1, kernel_size&#x3D;3, stride&#x3D;1, dilation&#x3D;1, padding&#x3D;1,bias&#x3D;False).cuda()</span><br><span class="line">output &#x3D; conv1(input)</span><br><span class="line">loss &#x3D; output.sum()</span><br><span class="line">loss.backward()</span><br></pre></td></tr></table></figure>
-<p>run this, if no error, you SUCCEED!</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/29/GNN-survey/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/29/GNN-survey/" itemprop="url">GNN survey</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-29T12:56:21+08:00">
-                2020-02-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T12:56:21+08:00">
+                2020-03-02
               </time>
             
 
@@ -629,6 +425,211 @@ h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</s
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/" itemprop="url">ubuntu18.04+nvidia driver+cuda+cudnn install</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-29T22:48:34+08:00">
+                2020-02-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  390
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Install-Ubuntu18-04"><a href="#Install-Ubuntu18-04" class="headerlink" title="Install Ubuntu18.04"></a>Install Ubuntu18.04</h1><p>according to this blog: <a href="https://blog.csdn.net/silver1225/article/details/100393719" target="_blank" rel="noopener">https://blog.csdn.net/silver1225/article/details/100393719</a></p>
+<h1 id="install-nvidia-driver"><a href="#install-nvidia-driver" class="headerlink" title="install nvidia driver"></a>install nvidia driver</h1><h2 id="First-disable-original-nvidia-driver-nouveau"><a href="#First-disable-original-nvidia-driver-nouveau" class="headerlink" title="First, disable original nvidia driver, nouveau"></a>First, disable original nvidia driver, nouveau</h2><ol>
+<li>delete the original nvidia driver</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove nvidia-*</span><br></pre></td></tr></table></figure>
+<ol>
+<li>forbid nouveau</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;modprobe.d&#x2F;blacklist.conf</span><br></pre></td></tr></table></figure>
+<p>and add this in the bottom</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau</span><br><span class="line">options nouveau modeset&#x3D;0</span><br></pre></td></tr></table></figure>
+<ol>
+<li>execute</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-initramfs -u</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<ol>
+<li>see the version of nouveau, if nothing returns, you succeed.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep nouveau</span><br></pre></td></tr></table></figure>
+<h2 id="Second-install-your-nvidia-driver"><a href="#Second-install-your-nvidia-driver" class="headerlink" title="Second, install your nvidia driver."></a>Second, install your nvidia driver.</h2><ol>
+<li><p>search your nvidia driver according to your version at <a href="https://www.nvidia.cn/Download/index.aspx?lang=cn" target="_blank" rel="noopener">https://www.nvidia.cn/Download/index.aspx?lang=cn</a></p>
+</li>
+<li><p>update all</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<ol>
+<li>install gcc</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential</span><br></pre></td></tr></table></figure>
+<ol>
+<li>show the version of your nvidia</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lshw -numeric -C display</span><br></pre></td></tr></table></figure>
+<ol>
+<li>install</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x NVIDIA-Linux-x86_64-418.43.run</span><br><span class="line">sudo .&#x2F;NVIDIA-Linux-x86_64-418.43.run --no-opengl-files --no-x-check --no-nouveau-check</span><br></pre></td></tr></table></figure>
+<ol>
+<li>check whether you succeed or not</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
+<h2 id="Third-download-cuda"><a href="#Third-download-cuda" class="headerlink" title="Third, download cuda"></a>Third, download cuda</h2><p>download cuda at <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh cuda_10.0.130_410.48_linux.run</span><br></pre></td></tr></table></figure>
+<p>and select </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 accept #同意安装</span><br><span class="line">2 n #不安装Driver，因为已安装最新驱动</span><br><span class="line">3 y #安装CUDA Toolkit</span><br><span class="line">4 &lt;Enter&gt; #安装到默认目录</span><br><span class="line">5 y #创建安装目录的软链接</span><br><span class="line">6 y #复制Samples一份到家目录</span><br></pre></td></tr></table></figure>
+<p>Then</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~&#x2F;.bashrc</span><br></pre></td></tr></table></figure>
+<p>Add this to the file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;bin$&#123;PATH:+:$PATH&#125;&#125; </span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;lib64$&#123;LD_LIBRARY_PATH:+:$&#123;LD_LIBRARY_PATH&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>Go back to command line</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bashrc</span><br><span class="line">sudo vim &#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;bin:$PATH</span><br><span class="line">sudo vim &#x2F;etc&#x2F;ld.so.conf.d&#x2F;cuda.conf</span><br></pre></td></tr></table></figure>
+<p>Add this to the file.</p>
+<h1 id="Last"><a href="#Last" class="headerlink" title="Last"></a>Last</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">from torch.autograd import Variable, grad</span><br><span class="line"></span><br><span class="line">SIZE&#x3D;[1, 1, 171*21, 171*21]</span><br><span class="line">input &#x3D; Variable(torch.cuda.FloatTensor(*SIZE).uniform_(), requires_grad&#x3D;True)</span><br><span class="line">conv1 &#x3D; nn.Conv2d(1, 1, kernel_size&#x3D;3, stride&#x3D;1, dilation&#x3D;1, padding&#x3D;1,bias&#x3D;False).cuda()</span><br><span class="line">output &#x3D; conv1(input)</span><br><span class="line">loss &#x3D; output.sum()</span><br><span class="line">loss.backward()</span><br></pre></td></tr></table></figure>
+<p>run this, if no error, you SUCCEED!</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/12/CS224n%20Classnotes%20Course7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -714,7 +715,7 @@ h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</s
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  7
+                  6
                 </span>
               
 
@@ -753,7 +754,7 @@ h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</s
       
         
           
-            <h1 id="Course-7-Vanishing-Gradients-Fancy-RNN（ongoing）"><a href="#Course-7-Vanishing-Gradients-Fancy-RNN（ongoing）" class="headerlink" title="Course 7 - Vanishing Gradients, Fancy RNN（ongoing）"></a>Course 7 - Vanishing Gradients, Fancy RNN（ongoing）</h1>
+            <h1 id="Course-7-Vanishing-Gradients-Fancy-RNN"><a href="#Course-7-Vanishing-Gradients-Fancy-RNN" class="headerlink" title="Course 7 - Vanishing Gradients, Fancy RNN"></a>Course 7 - Vanishing Gradients, Fancy RNN</h1>
           
         
       
