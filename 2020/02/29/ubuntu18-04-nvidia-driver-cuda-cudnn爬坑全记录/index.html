@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Ubuntu18.04," />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="Course 5 - Dependency ParsingSyntactic Structure: Consistency and Dependency1. Two views of linguistic structure: Constituency  &#x3D; phrase stucture grammar &#x3D; context-free grammars (CFGs)Phrase structure">
+<meta name="description" content="[Ubuntu18.04 install][https:&#x2F;&#x2F;blog.csdn.net&#x2F;silver1225&#x2F;article&#x2F;details&#x2F;100393719]install nvidia driverFirst, disable original nvidia driver, nouveau delete the original nvidia driver  1sudo apt-get re">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Stanford CS224n Natural Language Processing Course5">
-<meta property="og:url" content="http://nobugs.dev/2020/02/04/CS224n%20Classnotes%20Course5/index.html">
+<meta property="og:title" content="ubuntu18.04+nvidia driver+cuda+cudnn爬坑全记录">
+<meta property="og:url" content="http://nobugs.dev/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
-<meta property="og:description" content="Course 5 - Dependency ParsingSyntactic Structure: Consistency and Dependency1. Two views of linguistic structure: Constituency  &#x3D; phrase stucture grammar &#x3D; context-free grammars (CFGs)Phrase structure">
-<meta property="og:image" content="http://nobugs.dev/2020/02/04/CS224n%20Classnotes%20Course5/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20200205111717409.png">
-<meta property="article:published_time" content="2020-02-04T13:57:23.000Z">
-<meta property="article:modified_time" content="2020-02-11T03:52:53.710Z">
+<meta property="og:description" content="[Ubuntu18.04 install][https:&#x2F;&#x2F;blog.csdn.net&#x2F;silver1225&#x2F;article&#x2F;details&#x2F;100393719]install nvidia driverFirst, disable original nvidia driver, nouveau delete the original nvidia driver  1sudo apt-get re">
+<meta property="article:published_time" content="2020-02-29T14:48:34.000Z">
+<meta property="article:modified_time" content="2020-03-01T08:59:14.871Z">
 <meta property="article:author" content="Xinyi HU">
+<meta property="article:tag" content="Ubuntu18.04">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://nobugs.dev/2020/02/04/CS224n%20Classnotes%20Course5/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20200205111717409.png">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://nobugs.dev/2020/02/04/CS224n Classnotes Course5/"/>
+  <link rel="canonical" href="http://nobugs.dev/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn爬坑全记录/"/>
 
 
 
 
 
-  <title>Stanford CS224n Natural Language Processing Course5 | Xinyi's gadget</title>
+  <title>ubuntu18.04+nvidia driver+cuda+cudnn爬坑全记录 | Xinyi's gadget</title>
   
 
 
@@ -257,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/04/CS224n%20Classnotes%20Course5/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi HU">
@@ -274,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Stanford CS224n Natural Language Processing Course5</h1>
+          <h1 class="post-title" itemprop="name headline">ubuntu18.04+nvidia driver+cuda+cudnn爬坑全记录</h1>
         
 
         <div class="post-meta">
@@ -286,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-04T21:57:23+08:00">
-                2020-02-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-29T22:48:34+08:00">
+                2020-02-29
               </time>
             
 
@@ -296,28 +295,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -340,7 +317,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  307
+                  387
                 </span>
               
 
@@ -356,7 +333,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -377,39 +354,60 @@
       
 
       
-        <h1 id="Course-5-Dependency-Parsing"><a href="#Course-5-Dependency-Parsing" class="headerlink" title="Course 5 - Dependency Parsing"></a>Course 5 - Dependency Parsing</h1><h2 id="Syntactic-Structure-Consistency-and-Dependency"><a href="#Syntactic-Structure-Consistency-and-Dependency" class="headerlink" title="Syntactic Structure: Consistency and Dependency"></a>Syntactic Structure: Consistency and Dependency</h2><h3 id="1-Two-views-of-linguistic-structure-Constituency-phrase-stucture-grammar-context-free-grammars-CFGs"><a href="#1-Two-views-of-linguistic-structure-Constituency-phrase-stucture-grammar-context-free-grammars-CFGs" class="headerlink" title="1. Two views of linguistic structure: Constituency  = phrase stucture grammar = context-free grammars (CFGs)"></a>1. Two views of linguistic structure: Constituency  = phrase stucture grammar = context-free grammars (CFGs)</h3><p><strong>Phrase structure</strong> organizes words into nested constituents</p>
-<h2 id="Dependency-Grammar-and-Treebanks"><a href="#Dependency-Grammar-and-Treebanks" class="headerlink" title="Dependency Grammar and Treebanks"></a>Dependency Grammar and Treebanks</h2><p>Dependency structure shows which words depend on which other words.</p>
-<p>Dependency syntax postulates that syntactic structure consists of relations between lexical items, normally binary asymmetric relations(“arrows”) called <strong>dependencies</strong></p>
-<p>The arrows are commonly <strong>typed</strong> with the name of grammatical relations(subject, prepositional object, apposition, etc.)</p>
-<p>Usually, dependencies form a tree(connected, acyclic, single-head)</p>
-<h2 id="Transition-based-dependency-parsing"><a href="#Transition-based-dependency-parsing" class="headerlink" title="Transition-based dependency parsing"></a>Transition-based dependency parsing</h2><p>A simple form of greedy discriminative dependency parser.</p>
-<script type="math/tex; mode=display">
-Start: \sigma=[\mathrm{ROOT}], \beta=w_{1}, \ldots, w_{n}, A=\emptyset\\
-1. Shift\qquad \sigma, w_{i}|\beta, A \rightarrow \sigma| w_{i}, \beta, A\\
-2. Left-Arc_r\qquad \sigma\left|w_{i}\right| w_{j}, \beta, A \rightarrow
-\sigma | w_{j}, \beta, \operatorname{A}\mathop{\cup} \left\{r\left(w_{j}, w_{i}\right)\right\}
-\\
-3. Right-Arc_r \qquad \sigma\left[w_{i} | w_{j}, \beta, A \rightarrow\right.
-
-\sigma | w_{i}, \beta, \operatorname{A}\mathop{\cup}\left\{r\left(w_{i}, w_{j}\right)\right\}
-\\
-Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><a href="#2005-MaltParser-Nivre-and-Hall-2005" class="headerlink" title="2005 MaltParser, Nivre and Hall 2005"></a>2005 MaltParser, Nivre and Hall 2005</h3><p>Each action is predicted by a discriminative classifier over each legal move(like softmax classifier)</p>
-<ul>
-<li>Max of 3 untyped choices, max of |R| * 2 + 1 when typed</li>
-<li>Features: top of stack word, POS; first in the buffer word, POS</li>
-</ul>
-<p>It provides very <strong>fast linear time parsing</strong> with fractionally lower accuracy</p>
-<h3 id="Evaluation-of-Dependency-Parsing-labeled-dependency-accuracy"><a href="#Evaluation-of-Dependency-Parsing-labeled-dependency-accuracy" class="headerlink" title="Evaluation of Dependency Parsing: (labeled) dependency accuracy"></a>Evaluation of Dependency Parsing: (labeled) dependency accuracy</h3><p><img src="/2020/02/04/CS224n%20Classnotes%20Course5/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200205111717409.png" alt="image-20200205111717409"></p>
-<h2 id="Neural-dependency-parsing"><a href="#Neural-dependency-parsing" class="headerlink" title="Neural dependency parsing"></a>Neural dependency parsing</h2><h3 id="Why-train-a-neural-dependency-parsing"><a href="#Why-train-a-neural-dependency-parsing" class="headerlink" title="Why train a neural dependency parsing?"></a>Why train a neural dependency parsing?</h3><p>Problem #1: sparse</p>
-<p>Problem #2: incomplete</p>
-<p>Problem #3: expensive computation(95%+ of parsing time is consumed by feature computation)</p>
-<h3 id="2014-chen-and-manning"><a href="#2014-chen-and-manning" class="headerlink" title="2014, chen and manning"></a>2014, chen and manning</h3><p>English parsing to Stanford Dependencies:</p>
-<ul>
-<li>Unlabeled attachment score = head</li>
-<li>Labeled attachment score = head and label</li>
-</ul>
-<h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>bigger, deeper networks + beam search + CRF-style inference</p>
-<h3 id="Graph-based-neural-dependency-parsing"><a href="#Graph-based-neural-dependency-parsing" class="headerlink" title="Graph-based neural dependency parsing"></a>Graph-based neural dependency parsing</h3><p>over 95%</p>
+        <h1 id="Ubuntu18-04-install-https-blog-csdn-net-silver1225-article-details-100393719"><a href="#Ubuntu18-04-install-https-blog-csdn-net-silver1225-article-details-100393719" class="headerlink" title="[Ubuntu18.04 install][https://blog.csdn.net/silver1225/article/details/100393719]"></a>[Ubuntu18.04 install][<a href="https://blog.csdn.net/silver1225/article/details/100393719" target="_blank" rel="noopener">https://blog.csdn.net/silver1225/article/details/100393719</a>]</h1><h1 id="install-nvidia-driver"><a href="#install-nvidia-driver" class="headerlink" title="install nvidia driver"></a>install nvidia driver</h1><h2 id="First-disable-original-nvidia-driver-nouveau"><a href="#First-disable-original-nvidia-driver-nouveau" class="headerlink" title="First, disable original nvidia driver, nouveau"></a>First, disable original nvidia driver, nouveau</h2><ol>
+<li>delete the original nvidia driver</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove nvidia-*</span><br></pre></td></tr></table></figure>
+<ol>
+<li>forbid nouveau</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;modprobe.d&#x2F;blacklist.conf</span><br></pre></td></tr></table></figure>
+<p>and add this in the bottom</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau</span><br><span class="line">options nouveau modeset&#x3D;0</span><br></pre></td></tr></table></figure>
+<ol>
+<li>execute</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-initramfs -u</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<ol>
+<li>see the version of nouveau, if nothing returns, you succeed.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep nouveau</span><br></pre></td></tr></table></figure>
+<h2 id="Second-install-your-nvidia-driver"><a href="#Second-install-your-nvidia-driver" class="headerlink" title="Second, install your nvidia driver."></a>Second, install your nvidia driver.</h2><ol>
+<li><p>search your nvidia driver according to your version at <a href="https://www.nvidia.cn/Download/index.aspx?lang=cn" target="_blank" rel="noopener">https://www.nvidia.cn/Download/index.aspx?lang=cn</a></p>
+</li>
+<li><p>update all</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<ol>
+<li>install gcc</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential</span><br></pre></td></tr></table></figure>
+<ol>
+<li>show the version of your nvidia</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lshw -numeric -C display</span><br></pre></td></tr></table></figure>
+<ol>
+<li>install</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x NVIDIA-Linux-x86_64-418.43.run</span><br><span class="line">sudo .&#x2F;NVIDIA-Linux-x86_64-418.43.run --no-opengl-files --no-x-check --no-nouveau-check</span><br></pre></td></tr></table></figure>
+<ol>
+<li>check whether you succeed or not</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
+<h2 id="Third-download-cuda"><a href="#Third-download-cuda" class="headerlink" title="Third, download cuda"></a>Third, download cuda</h2><p>download cuda at <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh cuda_10.0.130_410.48_linux.run</span><br></pre></td></tr></table></figure>
+<p>and select </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 accept #同意安装</span><br><span class="line">2 n #不安装Driver，因为已安装最新驱动</span><br><span class="line">3 y #安装CUDA Toolkit</span><br><span class="line">4 &lt;Enter&gt; #安装到默认目录</span><br><span class="line">5 y #创建安装目录的软链接</span><br><span class="line">6 y #复制Samples一份到家目录</span><br></pre></td></tr></table></figure>
+<p>Then</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~&#x2F;.bashrc</span><br></pre></td></tr></table></figure>
+<p>Add this to the file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;bin$&#123;PATH:+:$PATH&#125;&#125; </span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;lib64$&#123;LD_LIBRARY_PATH:+:$&#123;LD_LIBRARY_PATH&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>Go back to command line</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bashrc</span><br><span class="line">sudo vim &#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;bin:$PATH</span><br><span class="line">sudo vim &#x2F;etc&#x2F;ld.so.conf.d&#x2F;cuda.conf</span><br></pre></td></tr></table></figure>
+<p>Add this to the file</p>
+<h1 id="Last"><a href="#Last" class="headerlink" title="Last"></a>Last</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">from torch.autograd import Variable, grad</span><br><span class="line"></span><br><span class="line">SIZE&#x3D;[1, 1, 171*21, 171*21]</span><br><span class="line">input &#x3D; Variable(torch.cuda.FloatTensor(*SIZE).uniform_(), requires_grad&#x3D;True)</span><br><span class="line">conv1 &#x3D; nn.Conv2d(1, 1, kernel_size&#x3D;3, stride&#x3D;1, dilation&#x3D;1, padding&#x3D;1,bias&#x3D;False).cuda()</span><br><span class="line">output &#x3D; conv1(input)</span><br><span class="line">loss &#x3D; output.sum()</span><br><span class="line">loss.backward()</span><br></pre></td></tr></table></figure>
+<p>run this, if no error, you SUCCEED!</p>
 
       
     </div>
@@ -425,6 +423,12 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Ubuntu18-04/" rel="tag"># Ubuntu18.04</a>
+          
+        </div>
+      
 
       
       
@@ -434,8 +438,8 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/03/CS224n%20Classnotes%20Course4/" rel="next" title="Stanford CS224n Natural Language Processing Course4">
-                <i class="fa fa-chevron-left"></i> Stanford CS224n Natural Language Processing Course4
+              <a href="/2020/02/29/GNN-survey/" rel="next" title="GNN survey">
+                <i class="fa fa-chevron-left"></i> GNN survey
               </a>
             
           </div>
@@ -443,10 +447,6 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/10/Functional%20Analysis%20brief%20theorems/" rel="prev" title="Walter Rudin, Functional Analysis brief theorems(Chapter General Theory) - ongoing">
-                Walter Rudin, Functional Analysis brief theorems(Chapter General Theory) - ongoing <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -604,7 +604,7 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-5-Dependency-Parsing"><span class="nav-number">1.</span> <span class="nav-text">Course 5 - Dependency Parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Syntactic-Structure-Consistency-and-Dependency"><span class="nav-number">1.1.</span> <span class="nav-text">Syntactic Structure: Consistency and Dependency</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Two-views-of-linguistic-structure-Constituency-phrase-stucture-grammar-context-free-grammars-CFGs"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. Two views of linguistic structure: Constituency  &#x3D; phrase stucture grammar &#x3D; context-free grammars (CFGs)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependency-Grammar-and-Treebanks"><span class="nav-number">1.2.</span> <span class="nav-text">Dependency Grammar and Treebanks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transition-based-dependency-parsing"><span class="nav-number">1.3.</span> <span class="nav-text">Transition-based dependency parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2005-MaltParser-Nivre-and-Hall-2005"><span class="nav-number">1.3.1.</span> <span class="nav-text">2005 MaltParser, Nivre and Hall 2005</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Evaluation-of-Dependency-Parsing-labeled-dependency-accuracy"><span class="nav-number">1.3.2.</span> <span class="nav-text">Evaluation of Dependency Parsing: (labeled) dependency accuracy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-dependency-parsing"><span class="nav-number">1.4.</span> <span class="nav-text">Neural dependency parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-train-a-neural-dependency-parsing"><span class="nav-number">1.4.1.</span> <span class="nav-text">Why train a neural dependency parsing?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2014-chen-and-manning"><span class="nav-number">1.4.2.</span> <span class="nav-text">2014, chen and manning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google"><span class="nav-number">1.4.3.</span> <span class="nav-text">Google</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph-based-neural-dependency-parsing"><span class="nav-number">1.4.4.</span> <span class="nav-text">Graph-based neural dependency parsing</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu18-04-install-https-blog-csdn-net-silver1225-article-details-100393719"><span class="nav-number">1.</span> <span class="nav-text">[Ubuntu18.04 install][https:&#x2F;&#x2F;blog.csdn.net&#x2F;silver1225&#x2F;article&#x2F;details&#x2F;100393719]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#install-nvidia-driver"><span class="nav-number">2.</span> <span class="nav-text">install nvidia driver</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#First-disable-original-nvidia-driver-nouveau"><span class="nav-number">2.1.</span> <span class="nav-text">First, disable original nvidia driver, nouveau</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Second-install-your-nvidia-driver"><span class="nav-number">2.2.</span> <span class="nav-text">Second, install your nvidia driver.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Third-download-cuda"><span class="nav-number">2.3.</span> <span class="nav-text">Third, download cuda</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Last"><span class="nav-number">3.</span> <span class="nav-text">Last</span></a></li></ol></div>
             
 
           </div>
@@ -778,7 +778,24 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
@@ -831,43 +848,6 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
   
 
 

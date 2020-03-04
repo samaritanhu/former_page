@@ -81,17 +81,17 @@
 
 <meta name="description" content="Course 6 - Language Models and RNNsLanguage Modelingis the task of predicting what word comes next.   P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)also, ass">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Stanford CS224n Natural Language Processing Course6 - ongoing">
+<meta property="og:title" content="Stanford CS224n Natural Language Processing Course6">
 <meta property="og:url" content="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
 <meta property="og:description" content="Course 6 - Language Models and RNNsLanguage Modelingis the task of predicting what word comes next.   P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)also, ass">
-<meta property="og:image" content="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20200210211740128.png">
-<meta property="og:image" content="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20200210220449695.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/04/VGcU3SeqL7JhZoM.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/04/2vle5KkWsRcUJ8F.png">
 <meta property="article:published_time" content="2020-02-10T15:57:23.000Z">
-<meta property="article:modified_time" content="2020-02-11T03:52:57.046Z">
+<meta property="article:modified_time" content="2020-03-04T12:21:30.863Z">
 <meta property="article:author" content="Xinyi HU">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20200210211740128.png">
+<meta name="twitter:image" content="https://i.loli.net/2020/03/04/VGcU3SeqL7JhZoM.png">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title>Stanford CS224n Natural Language Processing Course6 - ongoing | Xinyi's gadget</title>
+  <title>Stanford CS224n Natural Language Processing Course6 | Xinyi's gadget</title>
   
 
 
@@ -275,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Stanford CS224n Natural Language Processing Course6 - ongoing</h1>
+          <h1 class="post-title" itemprop="name headline">Stanford CS224n Natural Language Processing Course6</h1>
         
 
         <div class="post-meta">
@@ -341,7 +341,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  434
+                  554
                 </span>
               
 
@@ -357,7 +357,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -386,9 +386,9 @@ P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1
 <h4 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h4><p>Collect statistics about how frequent different n-grams are, and use these to predict next word.</p>
 <h4 id="Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><a href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data" class="headerlink" title="Sparity Problem 1: what if “students opened their w“ never occurred in data"></a>Sparity Problem 1: what if “students opened their <em>w</em>“ never occurred in data</h4><p>Solution-Smoothing: Add small delta to the count for every <em>w</em> </p>
 <h4 id="Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><a href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data" class="headerlink" title="Sparity Problem2: what if “students opened their” never occurred in data?"></a>Sparity Problem2: what if “students opened their” never occurred in data?</h4><p>Solution-backoff: Just condition on “opened their” instead</p>
-<h2 id="How-to-build-a-neural-Language-Model"><a href="#How-to-build-a-neural-Language-Model" class="headerlink" title="How to build a neural Language Model"></a>How to build a <em>neural</em> Language Model</h2><h3 id="A-fixed-window-neural-Language-Model"><a href="#A-fixed-window-neural-Language-Model" class="headerlink" title="A fixed-window neural Language Model"></a>A fixed-window neural Language Model</h3><h3 id="Recurrent-Neural-Networks-RNN"><a href="#Recurrent-Neural-Networks-RNN" class="headerlink" title="Recurrent Neural Networks(RNN)"></a>Recurrent Neural Networks(RNN)</h3><p><img src="/2020/02/10/CS224n%20Classnotes%20Course6/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200210211740128.png" alt="image-20200210211740128"></p>
+<h2 id="How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks"><a href="#How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks" class="headerlink" title="How to build a neural Language Model - Recurrent Neural Networks"></a>How to build a <em>neural</em> Language Model - Recurrent Neural Networks</h2><h3 id="A-fixed-window-neural-Language-Model"><a href="#A-fixed-window-neural-Language-Model" class="headerlink" title="A fixed-window neural Language Model"></a>A fixed-window neural Language Model</h3><h3 id="Recurrent-Neural-Networks-RNN"><a href="#Recurrent-Neural-Networks-RNN" class="headerlink" title="Recurrent Neural Networks(RNN)"></a>Recurrent Neural Networks(RNN)</h3><p><img src="https://i.loli.net/2020/03/04/VGcU3SeqL7JhZoM.png" alt="image-20200210211740128.png"></p>
 <p><strong>Core idea</strong>: Apply the same weight W repeatedly. </p>
-<p><img src="/2020/02/10/CS224n%20Classnotes%20Course6/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200210220449695.png" alt="image-20200210220449695"></p>
+<p><img src="https://i.loli.net/2020/03/04/2vle5KkWsRcUJ8F.png" alt="image-20200210220449695.png"></p>
 <p><strong>Advantages</strong></p>
 <ul>
 <li>Can process any length input</li>
@@ -419,7 +419,17 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
 <h4 id="Backpropagation-for-RNNs"><a href="#Backpropagation-for-RNNs" class="headerlink" title="Backpropagation for RNNs"></a>Backpropagation for RNNs</h4><p>Questions: derivative of $J^{(t)}(\theta)$ w.r.t the <strong>repeated</strong> weight matrix </p>
 <p>Answer:</p>
 <script type="math/tex; mode=display">
-\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script>
+\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script><h4 id="Generating-text-with-a-RNN-Language-Model"><a href="#Generating-text-with-a-RNN-Language-Model" class="headerlink" title="Generating text with a RNN Language Model."></a>Generating text with a RNN Language Model.</h4><p>repeated sampling </p>
+<h4 id="Evaluating-Language-Models-Perplexity"><a href="#Evaluating-Language-Models-Perplexity" class="headerlink" title="Evaluating Language Models: Perplexity"></a>Evaluating Language Models: Perplexity</h4><script type="math/tex; mode=display">
+perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)}\right)^{1 / T} = \exp(J(\theta))</script><p>lower perplexity is better!</p>
+<h4 id="Why-should-we-care-about-Language-Modeling"><a href="#Why-should-we-care-about-Language-Modeling" class="headerlink" title="Why should we care about Language Modeling?"></a>Why should we care about Language Modeling?</h4><p>Language Modeling is a <strong>benchmark task</strong> that helps us <strong>measure our progress</strong> on understanding language.</p>
+<p><strong>subcomponent</strong> of many NLP tasks.</p>
+<p>RNNs can be used for tagging, NER, part-of-speech tagging.</p>
+<p>RNNs can be used for sentence classification, sentiment classification.</p>
+<p>RNNs can be used as an encoder module, question answering, machine translation.</p>
+<p>RNN described is called <strong>vanilla RNN</strong></p>
+<p>GRU, LSTM(chocolate), multi-layer RNNs</p>
+
       
     </div>
     
@@ -536,7 +546,7 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -553,6 +563,15 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
@@ -604,7 +623,7 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-6-Language-Models-and-RNNs"><span class="nav-number">1.</span> <span class="nav-text">Course 6 - Language Models and RNNs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Modeling"><span class="nav-number">1.1.</span> <span class="nav-text">Language Modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#n-gram-Language-Models"><span class="nav-number">1.1.1.</span> <span class="nav-text">n-gram Language Models</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">Sparity Problem 1: what if “students opened their w“ never occurred in data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">Sparity Problem2: what if “students opened their” never occurred in data?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-build-a-neural-Language-Model"><span class="nav-number">1.2.</span> <span class="nav-text">How to build a neural Language Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-fixed-window-neural-Language-Model"><span class="nav-number">1.2.1.</span> <span class="nav-text">A fixed-window neural Language Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recurrent-Neural-Networks-RNN"><span class="nav-number">1.2.2.</span> <span class="nav-text">Recurrent Neural Networks(RNN)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Training-a-RNN-Language-Model"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Training a RNN Language Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Backpropagation-for-RNNs"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Backpropagation for RNNs</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-6-Language-Models-and-RNNs"><span class="nav-number">1.</span> <span class="nav-text">Course 6 - Language Models and RNNs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Modeling"><span class="nav-number">1.1.</span> <span class="nav-text">Language Modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#n-gram-Language-Models"><span class="nav-number">1.1.1.</span> <span class="nav-text">n-gram Language Models</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">Sparity Problem 1: what if “students opened their w“ never occurred in data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">Sparity Problem2: what if “students opened their” never occurred in data?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks"><span class="nav-number">1.2.</span> <span class="nav-text">How to build a neural Language Model - Recurrent Neural Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-fixed-window-neural-Language-Model"><span class="nav-number">1.2.1.</span> <span class="nav-text">A fixed-window neural Language Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recurrent-Neural-Networks-RNN"><span class="nav-number">1.2.2.</span> <span class="nav-text">Recurrent Neural Networks(RNN)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Training-a-RNN-Language-Model"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Training a RNN Language Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Backpropagation-for-RNNs"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Backpropagation for RNNs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generating-text-with-a-RNN-Language-Model"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">Generating text with a RNN Language Model.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating-Language-Models-Perplexity"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">Evaluating Language Models: Perplexity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Why-should-we-care-about-Language-Modeling"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">Why should we care about Language Modeling?</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>

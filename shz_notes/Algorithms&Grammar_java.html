@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="GrammarBufferedReader (比较快)12345678910import java.io.*;public class Solution &amp;#123;        private static BufferedReader reader &#x3D; new BufferedReader(new InputStreamReader(System.in));	public static vo">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Xinyi&#39;s gadget">
+<meta property="og:url" content="http://nobugs.dev/shz_notes/Algorithms&Grammar_java.html">
+<meta property="og:site_name" content="Xinyi&#39;s gadget">
+<meta property="og:description" content="GrammarBufferedReader (比较快)12345678910import java.io.*;public class Solution &amp;#123;        private static BufferedReader reader &#x3D; new BufferedReader(new InputStreamReader(System.in));	public static vo">
+<meta property="article:published_time" content="2020-02-23T12:31:06.782Z">
+<meta property="article:modified_time" content="2020-02-23T12:21:19.203Z">
+<meta property="article:author" content="Xinyi HU">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nobugs.dev/shz_notes/Algorithms&Grammar_java.html"/>
+
+
+
+
+
+  <title> | Xinyi's gadget</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xinyi's gadget</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-knowme">
+          <a href="/KnowMe" rel="section">
+            
+            KnowMe
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resume">
+          <a href="/about" rel="section">
+            
+            Resume
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-blogs">
+          <a href="/archives" rel="section">
+            
+            Blogs
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects" rel="section">
+            
+            Projects
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friends">
+          <a href="/group" rel="section">
+            
+            Friends
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline"></h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="Grammar"><a href="#Grammar" class="headerlink" title="Grammar"></a>Grammar</h1><h3 id="BufferedReader-比较快"><a href="#BufferedReader-比较快" class="headerlink" title="BufferedReader (比较快)"></a>BufferedReader (比较快)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">		String[] line = reader.nextLine().split();</span><br><span class="line">        <span class="keyword">int</span> num = Integer.parseInt(line[<span class="number">0</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Scanner-输入字符串"><a href="#Scanner-输入字符串" class="headerlink" title="Scanner 输入字符串"></a>Scanner 输入字符串</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        System.out.print(<span class="string">"Fuck you."</span>);</span><br><span class="line">        String input = scanner.nextLine();</span><br><span class="line">        System.out.println(<span class="string">"input = "</span> + input);</span><br><span class="line">        System.out.printf(<span class="string">"%d"</span>, <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Input-Integer"><a href="#Input-Integer" class="headerlink" title="Input Integer"></a>Input Integer</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String input = scanner.nextLine();</span><br><span class="line"><span class="keyword">int</span> num = Integer.parseInt(input);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> num = Scanner.nextInt(); <span class="comment">// very slow</span></span><br><span class="line"><span class="keyword">int</span> num = Integer.parseInt(Scanner.next())</span><br></pre></td></tr></table></figure>
+<h3 id="Convert-Integer-to-String"><a href="#Convert-Integer-to-String" class="headerlink" title="Convert Integer to String"></a>Convert Integer to String</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">str = Integer.toString(num);</span><br><span class="line"></span><br><span class="line">str = Integer.toBinaryString(num);</span><br><span class="line">str = Integer.toHexString(num);</span><br><span class="line">str = Integer.toOctalString(num);</span><br><span class="line"></span><br><span class="line">str = Integer.toString(num, radix=<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="Convert-Double-to-String"><a href="#Convert-Double-to-String" class="headerlink" title="Convert Double to String"></a>Convert Double to String</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">str = Double.toString(num);</span><br><span class="line"></span><br><span class="line">str = Double.toBinaryString(num);</span><br><span class="line">str = Double.toHexString(num);</span><br><span class="line">str = Double.toOctalString(num);</span><br><span class="line"></span><br><span class="line">str = Double.toString(num, radix=<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="String-Methods"><a href="#String-Methods" class="headerlink" title="String Methods"></a>String Methods</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>[] charArray = &#123;<span class="string">'0'</span>, <span class="string">'f'</span>, <span class="string">'u'</span>&#125;;</span><br><span class="line">String str = <span class="keyword">new</span> String(charArray);</span><br><span class="line"></span><br><span class="line"><span class="comment">// length of the string</span></span><br><span class="line">length = str.length();</span><br><span class="line"></span><br><span class="line"><span class="comment">// index</span></span><br><span class="line"><span class="keyword">char</span> a = str.charAt(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// substring</span></span><br><span class="line">str.substring(<span class="number">0</span>, str.length()-<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// reverse a string</span></span><br><span class="line">str = <span class="keyword">new</span> StringBuilder(str).reverse().toString();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 格式化输出 double, int 等</span></span><br><span class="line">String.format(<span class="string">"%d"</span>, num);</span><br><span class="line">String.format(<span class="string">"%.1f"</span>, num);</span><br><span class="line"></span><br><span class="line"><span class="comment">// string的分开，和python差不多</span></span><br><span class="line">String[] splited = str.split(<span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// string的头尾去掉空格</span></span><br><span class="line">String trimed = str.trim();</span><br><span class="line"></span><br><span class="line"><span class="comment">// replace: 非正则表达式，返回一个新的字符串，只能够替换char</span></span><br><span class="line">str.replace(<span class="keyword">char</span> oldChar, <span class="keyword">char</span> newChar);</span><br><span class="line"></span><br><span class="line"><span class="comment">// replaceAll</span></span><br><span class="line">str.repalceAll(<span class="string">"^\+"</span>, <span class="string">""</span>); <span class="comment">// replace all the starting "</span></span><br><span class="line"></span><br><span class="line">str = <span class="string">"fuck"</span>;</span><br><span class="line"><span class="comment">// compareTo, compareToIgnoreCase</span></span><br><span class="line">str.compareTo(<span class="string">"fuck"</span>);</span><br><span class="line">str.compareToIgnoreCase(<span class="string">"FUCk"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// endsWith, returns boolean</span></span><br><span class="line">str.endsWith(<span class="string">"ck"</span>);</span><br><span class="line"><span class="comment">// startsWith, returns boolean</span></span><br><span class="line">str.startsWith(<span class="string">"wh"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// equals, equalsIgnoreCase</span></span><br><span class="line">str.equalsIgnoreCase(<span class="string">"Fuck"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 找到第一个出现的位置</span></span><br><span class="line">indexOf(<span class="keyword">char</span> chr);</span><br><span class="line">indexOf(<span class="keyword">char</span> chr, <span class="keyword">int</span> fromIndex);</span><br><span class="line">indexOf(String str, <span class="keyword">int</span> fromIndex);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 找到最后一个出现的位置</span></span><br><span class="line">lastIndexOf(<span class="keyword">char</span> chr);</span><br><span class="line"></span><br><span class="line"><span class="comment">// regionMatches, 测试两个字符串区域是否相等</span></span><br><span class="line">str.regionMatches(<span class="keyword">int</span> offset, String otherString, <span class="keyword">int</span> offset_hat, <span class="keyword">int</span> length);</span><br><span class="line"></span><br><span class="line"><span class="comment">// concat, 在仅仅只有两个string的时候是最快的</span></span><br><span class="line">str.concat(<span class="string">"you"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Arrays-and-ArrayList"><a href="#Arrays-and-ArrayList" class="headerlink" title="Arrays and ArrayList"></a>Arrays and ArrayList</h3><p>Java中的array是在heap中创建的，每个array的元素都会被自动初始化，该值根据不同的类型而定。</p>
+<ul>
+<li>int - 初始化为0</li>
+<li>boolean - 初始化为false</li>
+<li>double - 初始化为0.0</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array</span></span><br><span class="line"><span class="keyword">int</span>[] nums = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] nums = <span class="keyword">new</span> nums[<span class="number">6</span>];</span><br><span class="line"><span class="keyword">int</span>[] nums = <span class="keyword">new</span> nums[]&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// iterate</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)</span><br><span class="line">    System.out.println(nums[i]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i: nums)</span><br><span class="line">    System.out.println(i);</span><br><span class="line"></span><br><span class="line"><span class="comment">// size</span></span><br><span class="line">len = nums.length;</span><br><span class="line"></span><br><span class="line"><span class="comment">// array的填充(常作为初始化的方法)</span></span><br><span class="line"><span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line">Arrays.fill(nums, Integer.MAX_VALUE);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 二维数组的填充</span></span><br><span class="line"><span class="keyword">int</span>[][] nums = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span>[] row : nums)</span><br><span class="line">    Arrays.fill(row, Integer.MAX_VALUE);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ArrayList</span></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="comment">// creation, 不能用正常数据类型(int, double, char),只能用Integer, Double, </span></span><br><span class="line">ArrayList&lt;Integer&gt; arr = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line"><span class="comment">// Arrays.asList() to initialize a list：</span></span><br><span class="line">List&lt;String&gt; tmp = Arrays.asList(<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"4"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加对象进入list</span></span><br><span class="line"><span class="comment">// 在index i处添加对象，i之后的对象自动往后移</span></span><br><span class="line">arr.add(i, obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在list末尾添加对象</span></span><br><span class="line">arr.add(obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移去index i处的元素</span></span><br><span class="line">arr.remove((<span class="keyword">int</span>)i);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移去对象</span></span><br><span class="line">arr.remove(obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">// List转换为array</span></span><br><span class="line">arr.toArray();</span><br></pre></td></tr></table></figure>
+<h3 id="Map的使用"><a href="#Map的使用" class="headerlink" title="Map的使用"></a>Map的使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Map 创建</span></span><br><span class="line">Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">// size</span></span><br><span class="line">map.size()</span><br><span class="line"></span><br><span class="line"><span class="comment">// clear</span></span><br><span class="line">map.clear();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 含有key/value</span></span><br><span class="line">map.containsKey();</span><br><span class="line">map.containsValue();</span><br><span class="line"></span><br><span class="line"><span class="comment">// get, put, remove</span></span><br><span class="line">map.get(k);</span><br><span class="line">map.put(k, v);</span><br><span class="line">map.remove(k);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否空</span></span><br><span class="line">map.isEmpty();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 键值集合</span></span><br><span class="line">map.keySet();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 快速加入或者自增</span></span><br><span class="line">map.put(key, map.getOrDefault(key, <span class="number">0</span>)+<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="Queue的使用"><a href="#Queue的使用" class="headerlink" title="Queue的使用"></a>Queue的使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明</span></span><br><span class="line">Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加弹出元素</span></span><br><span class="line">queue.offer(<span class="number">5</span>); <span class="comment">// if full return false</span></span><br><span class="line">queue.poll();	<span class="comment">// if empty return null</span></span><br><span class="line">queue.peek();	<span class="comment">// if empty return null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//vevtor中继承的方法</span></span><br><span class="line">queue.size();</span><br><span class="line">queue.isEmpty();</span><br><span class="line"></span><br><span class="line"><span class="comment">// PriorityQueue</span></span><br><span class="line">Queue&lt;Integer&gt; queue = <span class="keyword">new</span> PriorityQueue&lt;&gt;((a,b) -&gt; b-a); <span class="comment">// maxHeap</span></span><br></pre></td></tr></table></figure>
+<h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化</span></span><br><span class="line">Stack&lt;Integer&gt; st = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line"></span><br><span class="line">st.peek();</span><br><span class="line">st.push();</span><br><span class="line">st.pop();</span><br><span class="line">st.isEmpty();</span><br></pre></td></tr></table></figure>
+<p>array用Arrays.sort()，如果是普通的基本数据类型，则没有lambda表达式。</p>
+<h3 id="List-数组"><a href="#List-数组" class="headerlink" title="List 数组"></a>List 数组</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意后面的ArrayList不带尖括号</span></span><br><span class="line">List&lt;Integer&gt;[] arr = <span class="keyword">new</span> ArrayList[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组排序, use new Comparator statement</span></span><br><span class="line">Arrays.sort(arr, <span class="keyword">new</span> Comparator&lt;List&lt;Integer&gt;&gt;() &#123;</span><br><span class="line">   	<span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(List&lt;Integer&gt; a, List&lt;Integer&gt;)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a.size() - b.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组每个的初始化</span></span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;arr.lengh;i++) arr[i] = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) arr[i] = i;</span><br><span class="line"><span class="comment">// 1. sort, 适用基本数据类型</span></span><br><span class="line">Arrays.sort(arr); <span class="comment">// ascending</span></span><br><span class="line">Collections.sort(arr, Collections.reverseOrder()); <span class="comment">// descending</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// sort, 非基本数据类型：array of lists 为例 (new Comparator&lt;class&gt;() &#123;@Override ...&#125; ) </span></span><br><span class="line">Arrays.sort(lists, <span class="keyword">new</span> Comparator&lt;List&lt;Integer&gt;&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(List&lt;Integer&gt; a1, List&lt;Integer&gt; a2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> -a1.get(<span class="number">0</span>) + a2.get(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. binarySearch, 如果不在数组中返回(-insertIndex-1)</span></span><br><span class="line">Arrays.binarySearch(arr, <span class="number">10</span>); <span class="comment">// return </span></span><br><span class="line">Arrays.binarySearch(arr, fromIndex, toIndex, key);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. copyOfRange</span></span><br><span class="line"><span class="keyword">int</span>[] copy = Arrays.copyOfRange(arr, <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. equals: shallow equal 用在单个元素上</span></span><br><span class="line">Arrays.equals(arr, copy);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. deepEquals: deep equal 用在元素也是数组上，递归进行比较</span></span><br><span class="line">Arrays.deepEquals(arr, copy);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 6. toString (deepToString)</span></span><br><span class="line">System.out.println(Arrays.toString(arr));</span><br></pre></td></tr></table></figure>
+<h3 id="Functional-Programming-in-Java-OJ系统中不一定快"><a href="#Functional-Programming-in-Java-OJ系统中不一定快" class="headerlink" title="Functional Programming in Java (OJ系统中不一定快)"></a>Functional Programming in Java (OJ系统中不一定快)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// WRONG!!!!!!</span></span><br><span class="line">String[] strings = Array.stream(arr).map(x-&gt;String.valueOf(x)).toArray(String[]::<span class="keyword">new</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>以上代码会报错，</strong>这是由于Java实现了IntStream, LongStream, DoubleStream三个基本类型的stream，这些基本类型的stream有更好的性能，但是需要注意的是这些基本类型的stream的map函数只支持自身类型-&gt;自身类型(int-&gt;int/long-&gt;long/double-&gt;double)的映射，如果需要进行String类型的转换那么我们需要使用mapToObj()函数。</p>
+<p>三个基本类型的Stream相互转化的函数为mapToDouble(), mapToInt(), mapToLong().</p>
+<p><strong>应当优先使用基本类型的stream</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// List, Array</span></span><br><span class="line">Stream&lt;Integer&gt; stream = Arrays.stream(arr);</span><br><span class="line">Stream&lt;Integer&gt; stream = list.stream();</span><br><span class="line"></span><br><span class="line"><span class="comment">// map (Integer / int)</span></span><br><span class="line">arr = Arrays.stream(arr).map(x-&gt;x*<span class="number">2</span>).toArray(); <span class="comment">// no function passed to toArray() call.</span></span><br><span class="line">String[] strings = Array.stream(arr).mapToObj(x-&gt;String.valueOf(x)).toArray(String[]::<span class="keyword">new</span>); </span><br><span class="line">String[] strings = Array.stream(arr).mapToObj(x-&gt;String.valueOf(x)).toArray(n-&gt;<span class="keyword">new</span> String[n]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// filter</span></span><br><span class="line">arr = Arrays.stream(arr).filter(x-&gt;x&gt;<span class="number">10</span>).toArray();</span><br><span class="line">String[] strings = list.stream().filter(x-&gt;x&gt;<span class="number">10</span>).toArray(String[]::<span class="keyword">new</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// reduce</span></span><br><span class="line"><span class="keyword">int</span> sum = Arrays.stream(arr).sum(); <span class="comment">// 只能够用在基本类型stream上</span></span><br><span class="line"><span class="keyword">int</span> sum = Arrays.stream(arr).reduce(<span class="number">0</span>, (a,b)-&gt;a+b);</span><br><span class="line"></span><br><span class="line"><span class="comment">// forEach 可以很帅地打印</span></span><br><span class="line">Arrays.stream(arr).forEach(x-&gt;System.out.println(x));</span><br><span class="line"></span><br><span class="line"><span class="comment">// IntStream的很帅的用法</span></span><br><span class="line"><span class="comment">// 快速初始化</span></span><br><span class="line">IntStream stream = IntStream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">IntStream range = IntStream.range(<span class="number">1</span>, <span class="number">10</span>);</span><br><span class="line">IntStream rangeClosed = IntStream.rangeClosed(<span class="number">1</span>, <span class="number">10</span>); <span class="comment">// 包含10的range</span></span><br><span class="line">IntStream infinite = IntStream.iterate(<span class="number">1</span>, operand-&gt;oprand + <span class="number">2</span>); <span class="comment">// 生成一个无限生成奇数的generator</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">String[] strs = <span class="keyword">new</span> String[]&#123;<span class="string">"what"</span>, <span class="string">"the"</span>, <span class="string">"fuck"</span>&#125;;</span><br><span class="line"><span class="comment">// 求最大、最小、求和 (如果没有 .get() / .orElse() 则返回的是optional)</span></span><br><span class="line"><span class="keyword">int</span> max = Arrays.stream(arr).max().orElse(Integer.MIN_VALUE);</span><br><span class="line"><span class="keyword">int</span> min = Arrays.stream(arr).min().orElse(Integer.MAX_VALUE);</span><br><span class="line"><span class="keyword">int</span> sum = Arrays.stream(arr).sum().orElse(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">String max = Arrays.stream(strs).max((a,b)-&gt;a.compareTo(b)).orElse(<span class="string">""</span>);</span><br><span class="line">String sum = Arrays.stream(strs).reduce(<span class="string">""</span>, (a,b)-&gt;a.concate(b));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 另一种有趣写法</span></span><br><span class="line"><span class="keyword">int</span> max = Arrays.stream(arr).reduce(Integer.MIN_VALUE, Math::max);</span><br></pre></td></tr></table></figure>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Xinyi HU" />
+            
+              <p class="site-author-name" itemprop="name">Xinyi HU</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/samaritanhu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:samaritanhu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/in/xinyi-cindy-hu-b98b1a163/" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Linkedin</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Grammar"><span class="nav-number">1.</span> <span class="nav-text">Grammar</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BufferedReader-比较快"><span class="nav-number">1.0.1.</span> <span class="nav-text">BufferedReader (比较快)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scanner-输入字符串"><span class="nav-number">1.0.2.</span> <span class="nav-text">Scanner 输入字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-Integer"><span class="nav-number">1.0.3.</span> <span class="nav-text">Input Integer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-Integer-to-String"><span class="nav-number">1.0.4.</span> <span class="nav-text">Convert Integer to String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-Double-to-String"><span class="nav-number">1.0.5.</span> <span class="nav-text">Convert Double to String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-Methods"><span class="nav-number">1.0.6.</span> <span class="nav-text">String Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays-and-ArrayList"><span class="nav-number">1.0.7.</span> <span class="nav-text">Arrays and ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map的使用"><span class="nav-number">1.0.8.</span> <span class="nav-text">Map的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue的使用"><span class="nav-number">1.0.9.</span> <span class="nav-text">Queue的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-number">1.0.10.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List-数组"><span class="nav-number">1.0.11.</span> <span class="nav-text">List 数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays"><span class="nav-number">1.0.12.</span> <span class="nav-text">Arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Functional-Programming-in-Java-OJ系统中不一定快"><span class="nav-number">1.0.13.</span> <span class="nav-text">Functional Programming in Java (OJ系统中不一定快)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinyi HU</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+-->
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+ 
+
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+
+</body>
+</html>

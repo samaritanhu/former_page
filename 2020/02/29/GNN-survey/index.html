@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="GNN," />
 
 
 
@@ -79,11 +79,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xinyi&#39;s gadget">
-<meta property="og:url" content="http://nobugs.dev/categories/NLP/index.html">
+<meta name="description" content="Background and DefinitionsBackgroundEarly studies fall into the category of recurrent graph neural networks(RecGNNs). With the success of CNNs,  new approach developed. (ConvGNNs)  ConvGNNs are divide">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GNN survey">
+<meta property="og:url" content="http://nobugs.dev/2020/02/29/GNN-survey/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
+<meta property="og:description" content="Background and DefinitionsBackgroundEarly studies fall into the category of recurrent graph neural networks(RecGNNs). With the success of CNNs,  new approach developed. (ConvGNNs)  ConvGNNs are divide">
+<meta property="article:published_time" content="2020-02-29T04:56:21.000Z">
+<meta property="article:modified_time" content="2020-03-03T15:42:52.560Z">
 <meta property="article:author" content="Xinyi HU">
+<meta property="article:tag" content="GNN">
 <meta name="twitter:card" content="summary">
 
 
@@ -114,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://nobugs.dev/categories/NLP/"/>
+  <link rel="canonical" href="http://nobugs.dev/2020/02/29/GNN-survey/"/>
 
 
 
 
 
-  <title>分类: NLP | Xinyi's gadget</title>
+  <title>GNN survey | Xinyi's gadget</title>
   
 
 
@@ -139,7 +144,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
 <!-- ҳ����С���� -->
@@ -237,223 +242,204 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>NLP<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/29/GNN-survey/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/02/12/CS224n%20Classnotes%20Course7/" itemprop="url">
-              
-                <span itemprop="name">Stanford CS224n Natural Language Processing Course7 - ongoing</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">GNN survey</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-12T20:25:23+08:00"
-              content="2020-02-12" >
-          02-12
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-29T12:56:21+08:00">
+                2020-02-29
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  646
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/10/CS224n%20Classnotes%20Course6/" itemprop="url">
-              
-                <span itemprop="name">Stanford CS224n Natural Language Processing Course6</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-10T23:57:23+08:00"
-              content="2020-02-10" >
-          02-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/04/CS224n%20Classnotes%20Course5/" itemprop="url">
-              
-                <span itemprop="name">Stanford CS224n Natural Language Processing Course5</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-04T21:57:23+08:00"
-              content="2020-02-04" >
-          02-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/03/CS224n%20Classnotes%20Course4/" itemprop="url">
-              
-                <span itemprop="name">Stanford CS224n Natural Language Processing Course4</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-03T21:57:23+08:00"
-              content="2020-02-03" >
-          02-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/02/CS224n%20Classnotes%20Course3/" itemprop="url">
-              
-                <span itemprop="name">Stanford CS224n Natural Language Processing Course3</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-02T21:57:23+08:00"
-              content="2020-02-02" >
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/01/CS224n%20Classnotes%20Course2/" itemprop="url">
-              
-                <span itemprop="name">Stanford CS224n Natural Language Processing Course2</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T21:57:23+08:00"
-              content="2020-02-01" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/31/CS224n%20Classnotes%20Course1/" itemprop="url">
-              
-                <span itemprop="name">Stanford CS224n Natural Language Processing Course1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-31T21:57:23+08:00"
-              content="2020-01-31" >
-          01-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+        <h1 id="Background-and-Definitions"><a href="#Background-and-Definitions" class="headerlink" title="Background and Definitions"></a>Background and Definitions</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Early studies fall into the category of recurrent graph neural networks(<strong>RecGNNs</strong>). With the success of CNNs,  new approach developed. (<strong>ConvGNNs</strong>)  ConvGNNs are divided into two main streams, the <strong>spectral-based</strong> approaches and the <strong>spatial-based</strong> approaches. </p>
+<p>Network embedding aims at representing network nodes as low-dimensional vector representations, preserving both network topology structure and node content information.</p>
+<p>Graph kernel methods employ a kernel function to measure the similarity between pairs of graphs.  Graph kernels can embed graphs or nodes into vector spaces by a mapping function. The difference between GNN and graph kernels is that this mapping function is deterministic rather than learnable.</p>
+<h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><p><strong>Deﬁnition 1 (Graph):</strong> A graph is represented as $G = (V,E)$ where $V$ is the set of vertices or nodes, and $E$ is the set of edges. Let $v_i \in V$ to denote a node and $e_{ij} = (v_i,v_j) \in E$ to denote an edge pointing from $v_j$ to $v_i$. The neighborhood of a node $v$ is deﬁned as $N(v) = {u \in V|(v,u) \in E}$. The adjacency matrix $A$ is a $n \times n$ matrix with $A_{ij} = 1$ if $e_{ij} \in E$ and $A_{ij} = 0$ if $e_{ij} \notin E$. A graph may have node attributes $ x_{v}$ , where $X \in R^{n×d}$ is a node feature matrix with $x_{v} \in R^d$  representing the feature vector of a node $v$. Meanwhile, a graph may have edge attributes $X^e$, where $X^e \in R^{m×c}$ is an edge feature matrix with $x^{e}_{v,u} \in R^c$ representing the feature vector of an edge $(v,u)$.</p>
+<p><strong>Deﬁnition 2 (Directed Graph):</strong> A directed graph is a graph with all edges directed from one node to another. An undirected graph is considered as a special case of directed graphs where there is a pair of edges with inverse directions if two nodes are connected. A graph is undirected if and only if the adjacency matrix is symmetric. </p>
+<p><strong>Deﬁnition 3 (Spatial-Temporal Graph)</strong>: A spatial-temporal graph is an attributed graph where the node attributes change dynamically over time. The spatial-temporal graph is deﬁned as $G^{(t)} = (V,E,X^{(t)})$ with $X^{(t)} \in R^{n×d}$. </p>
+<h1 id="Categorization-and-Frameworks"><a href="#Categorization-and-Frameworks" class="headerlink" title="Categorization and Frameworks"></a>Categorization and Frameworks</h1><p>Recurrent Neural Network - aim to learn node representations with recurrent neural architectures.</p>
+<p>Convolutional graph neural networks - generate a node $v$’s representation by aggregating its own features $x_v$ and neighbors’ features $x_u$, where $u \in N(v)$ </p>
+<p>Graph autoencoders(GAE)  learn network embeddings and graph generative distributions</p>
+<h1 id="How-powerful-is-Graph-Neural-Networks"><a href="#How-powerful-is-Graph-Neural-Networks" class="headerlink" title="How powerful is Graph Neural Networks?"></a>How powerful is Graph Neural Networks?</h1><p>GNNs follow a neighborhood aggregation scheme, where the representation vector of a node is computed by recursively aggregating and transforming representation vectors of its neighboring nodes. </p>
+<p>There are two tasks of interest: </p>
+<p>(1) Node classiﬁcation</p>
+<p>(2) Graph classiﬁcation</p>
+<p> Formally, the k-th layer of a GNN is</p>
+<script type="math/tex; mode=display">
+a_{v}^{(k)}=\operatorname{AGGREGATE}^{(k)}\left(\left\{h_{u}^{(k-1)}: u \in \mathcal{N}(v)\right\}\right), \quad h_{v}^{(k)}=\mathrm{COMBINE}^{(k)}\left(h_{v}^{(k-1)}, a_{v}^{(k)}\right)</script><p> In the pooling variant of GraphSAGE, AGGREGATE has been formulated as </p>
+<script type="math/tex; mode=display">
+a_{v}^{(k)}=\operatorname{MAX}\left(\left\{\operatorname{ReLU}\left(W \cdot h_{u}^{(k-1)}\right), \forall u \in \mathcal{N}(v)\right\}\right)</script><p>and COMBINE could be concatenation followed by a linear mapping </p>
+<script type="math/tex; mode=display">
+W \cdot [h_{v}^{(k-1)}, a_{v}^{(k)}]</script><p>Graph Convolutional Networks (GCN) - the element-wise <em>mean</em> pooling is used. AGGREGATE and COMBINE step</p>
+<script type="math/tex; mode=display">
+h_{v}^{(k)}=\operatorname{ReLU}\left(W \cdot \operatorname{MEAN}\left\{h_{u}^{(k-1)}, \forall u \in \mathcal{N}(v) \cup\{v\}\right\}\right)</script><p>the READOUT function aggregates node features from the ﬁnal iteration to obtain the entire graph’s representation $h_G$</p>
+<script type="math/tex; mode=display">
+h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</script>
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GNN/" rel="tag"># GNN</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/12/CS224n%20Classnotes%20Course7/" rel="next" title="Stanford CS224n Natural Language Processing Course7 - ongoing">
+                <i class="fa fa-chevron-left"></i> Stanford CS224n Natural Language Processing Course7 - ongoing
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/" rel="prev" title="ubuntu18.04+nvidia driver+cuda+cudnn爬坑全记录">
+                ubuntu18.04+nvidia driver+cuda+cudnn爬坑全记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -461,6 +447,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -481,8 +471,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -568,6 +567,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background-and-Definitions"><span class="nav-number">1.</span> <span class="nav-text">Background and Definitions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Definitions"><span class="nav-number">1.2.</span> <span class="nav-text">Definitions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Categorization-and-Frameworks"><span class="nav-number">2.</span> <span class="nav-text">Categorization and Frameworks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-powerful-is-Graph-Neural-Networks"><span class="nav-number">3.</span> <span class="nav-text">How powerful is Graph Neural Networks?</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -728,6 +743,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

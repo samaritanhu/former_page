@@ -252,6 +252,555 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/" itemprop="url">ubuntu18.04+nvidia driver+cuda+cudnn爬坑全记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-29T22:48:34+08:00">
+                2020-02-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  387
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Ubuntu18-04-install-https-blog-csdn-net-silver1225-article-details-100393719"><a href="#Ubuntu18-04-install-https-blog-csdn-net-silver1225-article-details-100393719" class="headerlink" title="[Ubuntu18.04 install][https://blog.csdn.net/silver1225/article/details/100393719]"></a>[Ubuntu18.04 install][<a href="https://blog.csdn.net/silver1225/article/details/100393719" target="_blank" rel="noopener">https://blog.csdn.net/silver1225/article/details/100393719</a>]</h1><h1 id="install-nvidia-driver"><a href="#install-nvidia-driver" class="headerlink" title="install nvidia driver"></a>install nvidia driver</h1><h2 id="First-disable-original-nvidia-driver-nouveau"><a href="#First-disable-original-nvidia-driver-nouveau" class="headerlink" title="First, disable original nvidia driver, nouveau"></a>First, disable original nvidia driver, nouveau</h2><ol>
+<li>delete the original nvidia driver</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove nvidia-*</span><br></pre></td></tr></table></figure>
+<ol>
+<li>forbid nouveau</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;modprobe.d&#x2F;blacklist.conf</span><br></pre></td></tr></table></figure>
+<p>and add this in the bottom</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau</span><br><span class="line">options nouveau modeset&#x3D;0</span><br></pre></td></tr></table></figure>
+<ol>
+<li>execute</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-initramfs -u</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<ol>
+<li>see the version of nouveau, if nothing returns, you succeed.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep nouveau</span><br></pre></td></tr></table></figure>
+<h2 id="Second-install-your-nvidia-driver"><a href="#Second-install-your-nvidia-driver" class="headerlink" title="Second, install your nvidia driver."></a>Second, install your nvidia driver.</h2><ol>
+<li><p>search your nvidia driver according to your version at <a href="https://www.nvidia.cn/Download/index.aspx?lang=cn" target="_blank" rel="noopener">https://www.nvidia.cn/Download/index.aspx?lang=cn</a></p>
+</li>
+<li><p>update all</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<ol>
+<li>install gcc</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential</span><br></pre></td></tr></table></figure>
+<ol>
+<li>show the version of your nvidia</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lshw -numeric -C display</span><br></pre></td></tr></table></figure>
+<ol>
+<li>install</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x NVIDIA-Linux-x86_64-418.43.run</span><br><span class="line">sudo .&#x2F;NVIDIA-Linux-x86_64-418.43.run --no-opengl-files --no-x-check --no-nouveau-check</span><br></pre></td></tr></table></figure>
+<ol>
+<li>check whether you succeed or not</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
+<h2 id="Third-download-cuda"><a href="#Third-download-cuda" class="headerlink" title="Third, download cuda"></a>Third, download cuda</h2><p>download cuda at <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh cuda_10.0.130_410.48_linux.run</span><br></pre></td></tr></table></figure>
+<p>and select </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 accept #同意安装</span><br><span class="line">2 n #不安装Driver，因为已安装最新驱动</span><br><span class="line">3 y #安装CUDA Toolkit</span><br><span class="line">4 &lt;Enter&gt; #安装到默认目录</span><br><span class="line">5 y #创建安装目录的软链接</span><br><span class="line">6 y #复制Samples一份到家目录</span><br></pre></td></tr></table></figure>
+<p>Then</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~&#x2F;.bashrc</span><br></pre></td></tr></table></figure>
+<p>Add this to the file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;bin$&#123;PATH:+:$PATH&#125;&#125; </span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;lib64$&#123;LD_LIBRARY_PATH:+:$&#123;LD_LIBRARY_PATH&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>Go back to command line</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bashrc</span><br><span class="line">sudo vim &#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;bin:$PATH</span><br><span class="line">sudo vim &#x2F;etc&#x2F;ld.so.conf.d&#x2F;cuda.conf</span><br></pre></td></tr></table></figure>
+<p>Add this to the file</p>
+<h1 id="Last"><a href="#Last" class="headerlink" title="Last"></a>Last</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">from torch.autograd import Variable, grad</span><br><span class="line"></span><br><span class="line">SIZE&#x3D;[1, 1, 171*21, 171*21]</span><br><span class="line">input &#x3D; Variable(torch.cuda.FloatTensor(*SIZE).uniform_(), requires_grad&#x3D;True)</span><br><span class="line">conv1 &#x3D; nn.Conv2d(1, 1, kernel_size&#x3D;3, stride&#x3D;1, dilation&#x3D;1, padding&#x3D;1,bias&#x3D;False).cuda()</span><br><span class="line">output &#x3D; conv1(input)</span><br><span class="line">loss &#x3D; output.sum()</span><br><span class="line">loss.backward()</span><br></pre></td></tr></table></figure>
+<p>run this, if no error, you SUCCEED!</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/29/GNN-survey/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/29/GNN-survey/" itemprop="url">GNN survey</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-29T12:56:21+08:00">
+                2020-02-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  646
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Background-and-Definitions"><a href="#Background-and-Definitions" class="headerlink" title="Background and Definitions"></a>Background and Definitions</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Early studies fall into the category of recurrent graph neural networks(<strong>RecGNNs</strong>). With the success of CNNs,  new approach developed. (<strong>ConvGNNs</strong>)  ConvGNNs are divided into two main streams, the <strong>spectral-based</strong> approaches and the <strong>spatial-based</strong> approaches. </p>
+<p>Network embedding aims at representing network nodes as low-dimensional vector representations, preserving both network topology structure and node content information.</p>
+<p>Graph kernel methods employ a kernel function to measure the similarity between pairs of graphs.  Graph kernels can embed graphs or nodes into vector spaces by a mapping function. The difference between GNN and graph kernels is that this mapping function is deterministic rather than learnable.</p>
+<h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><p><strong>Deﬁnition 1 (Graph):</strong> A graph is represented as $G = (V,E)$ where $V$ is the set of vertices or nodes, and $E$ is the set of edges. Let $v_i \in V$ to denote a node and $e_{ij} = (v_i,v_j) \in E$ to denote an edge pointing from $v_j$ to $v_i$. The neighborhood of a node $v$ is deﬁned as $N(v) = {u \in V|(v,u) \in E}$. The adjacency matrix $A$ is a $n \times n$ matrix with $A_{ij} = 1$ if $e_{ij} \in E$ and $A_{ij} = 0$ if $e_{ij} \notin E$. A graph may have node attributes $ x_{v}$ , where $X \in R^{n×d}$ is a node feature matrix with $x_{v} \in R^d$  representing the feature vector of a node $v$. Meanwhile, a graph may have edge attributes $X^e$, where $X^e \in R^{m×c}$ is an edge feature matrix with $x^{e}_{v,u} \in R^c$ representing the feature vector of an edge $(v,u)$.</p>
+<p><strong>Deﬁnition 2 (Directed Graph):</strong> A directed graph is a graph with all edges directed from one node to another. An undirected graph is considered as a special case of directed graphs where there is a pair of edges with inverse directions if two nodes are connected. A graph is undirected if and only if the adjacency matrix is symmetric. </p>
+<p><strong>Deﬁnition 3 (Spatial-Temporal Graph)</strong>: A spatial-temporal graph is an attributed graph where the node attributes change dynamically over time. The spatial-temporal graph is deﬁned as $G^{(t)} = (V,E,X^{(t)})$ with $X^{(t)} \in R^{n×d}$. </p>
+<h1 id="Categorization-and-Frameworks"><a href="#Categorization-and-Frameworks" class="headerlink" title="Categorization and Frameworks"></a>Categorization and Frameworks</h1><p>Recurrent Neural Network - aim to learn node representations with recurrent neural architectures.</p>
+<p>Convolutional graph neural networks - generate a node $v$’s representation by aggregating its own features $x_v$ and neighbors’ features $x_u$, where $u \in N(v)$ </p>
+<p>Graph autoencoders(GAE)  learn network embeddings and graph generative distributions</p>
+<h1 id="How-powerful-is-Graph-Neural-Networks"><a href="#How-powerful-is-Graph-Neural-Networks" class="headerlink" title="How powerful is Graph Neural Networks?"></a>How powerful is Graph Neural Networks?</h1><p>GNNs follow a neighborhood aggregation scheme, where the representation vector of a node is computed by recursively aggregating and transforming representation vectors of its neighboring nodes. </p>
+<p>There are two tasks of interest: </p>
+<p>(1) Node classiﬁcation</p>
+<p>(2) Graph classiﬁcation</p>
+<p> Formally, the k-th layer of a GNN is</p>
+<script type="math/tex; mode=display">
+a_{v}^{(k)}=\operatorname{AGGREGATE}^{(k)}\left(\left\{h_{u}^{(k-1)}: u \in \mathcal{N}(v)\right\}\right), \quad h_{v}^{(k)}=\mathrm{COMBINE}^{(k)}\left(h_{v}^{(k-1)}, a_{v}^{(k)}\right)</script><p> In the pooling variant of GraphSAGE, AGGREGATE has been formulated as </p>
+<script type="math/tex; mode=display">
+a_{v}^{(k)}=\operatorname{MAX}\left(\left\{\operatorname{ReLU}\left(W \cdot h_{u}^{(k-1)}\right), \forall u \in \mathcal{N}(v)\right\}\right)</script><p>and COMBINE could be concatenation followed by a linear mapping </p>
+<script type="math/tex; mode=display">
+W \cdot [h_{v}^{(k-1)}, a_{v}^{(k)}]</script><p>Graph Convolutional Networks (GCN) - the element-wise <em>mean</em> pooling is used. AGGREGATE and COMBINE step</p>
+<script type="math/tex; mode=display">
+h_{v}^{(k)}=\operatorname{ReLU}\left(W \cdot \operatorname{MEAN}\left\{h_{u}^{(k-1)}, \forall u \in \mathcal{N}(v) \cup\{v\}\right\}\right)</script><p>the READOUT function aggregates node features from the ﬁnal iteration to obtain the entire graph’s representation $h_G$</p>
+<script type="math/tex; mode=display">
+h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/12/CS224n%20Classnotes%20Course7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/12/CS224n%20Classnotes%20Course7/" itemprop="url">Stanford CS224n Natural Language Processing Course7 - ongoing</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-12T20:25:23+08:00">
+                2020-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  7
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-7-Vanishing-Gradients-Fancy-RNN（ongoing）"><a href="#Course-7-Vanishing-Gradients-Fancy-RNN（ongoing）" class="headerlink" title="Course 7 - Vanishing Gradients, Fancy RNN（ongoing）"></a>Course 7 - Vanishing Gradients, Fancy RNN（ongoing）</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/11/weibo_delete_all/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -451,7 +1000,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/10/CS224n%20Classnotes%20Course6/" itemprop="url">Stanford CS224n Natural Language Processing Course6 - ongoing</a></h1>
+                <a class="post-title-link" href="/2020/02/10/CS224n%20Classnotes%20Course6/" itemprop="url">Stanford CS224n Natural Language Processing Course6</a></h1>
         
 
         <div class="post-meta">
@@ -517,7 +1066,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  434
+                  554
                 </span>
               
 
@@ -533,7 +1082,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -564,9 +1113,9 @@ P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1
 <h4 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h4><p>Collect statistics about how frequent different n-grams are, and use these to predict next word.</p>
 <h4 id="Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><a href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data" class="headerlink" title="Sparity Problem 1: what if “students opened their w“ never occurred in data"></a>Sparity Problem 1: what if “students opened their <em>w</em>“ never occurred in data</h4><p>Solution-Smoothing: Add small delta to the count for every <em>w</em> </p>
 <h4 id="Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><a href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data" class="headerlink" title="Sparity Problem2: what if “students opened their” never occurred in data?"></a>Sparity Problem2: what if “students opened their” never occurred in data?</h4><p>Solution-backoff: Just condition on “opened their” instead</p>
-<h2 id="How-to-build-a-neural-Language-Model"><a href="#How-to-build-a-neural-Language-Model" class="headerlink" title="How to build a neural Language Model"></a>How to build a <em>neural</em> Language Model</h2><h3 id="A-fixed-window-neural-Language-Model"><a href="#A-fixed-window-neural-Language-Model" class="headerlink" title="A fixed-window neural Language Model"></a>A fixed-window neural Language Model</h3><h3 id="Recurrent-Neural-Networks-RNN"><a href="#Recurrent-Neural-Networks-RNN" class="headerlink" title="Recurrent Neural Networks(RNN)"></a>Recurrent Neural Networks(RNN)</h3><p><img src="/2020/02/10/CS224n%20Classnotes%20Course6/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200210211740128.png" alt="image-20200210211740128"></p>
+<h2 id="How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks"><a href="#How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks" class="headerlink" title="How to build a neural Language Model - Recurrent Neural Networks"></a>How to build a <em>neural</em> Language Model - Recurrent Neural Networks</h2><h3 id="A-fixed-window-neural-Language-Model"><a href="#A-fixed-window-neural-Language-Model" class="headerlink" title="A fixed-window neural Language Model"></a>A fixed-window neural Language Model</h3><h3 id="Recurrent-Neural-Networks-RNN"><a href="#Recurrent-Neural-Networks-RNN" class="headerlink" title="Recurrent Neural Networks(RNN)"></a>Recurrent Neural Networks(RNN)</h3><p><img src="https://i.loli.net/2020/03/04/VGcU3SeqL7JhZoM.png" alt="image-20200210211740128.png"></p>
 <p><strong>Core idea</strong>: Apply the same weight W repeatedly. </p>
-<p><img src="/2020/02/10/CS224n%20Classnotes%20Course6/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200210220449695.png" alt="image-20200210220449695"></p>
+<p><img src="https://i.loli.net/2020/03/04/2vle5KkWsRcUJ8F.png" alt="image-20200210220449695.png"></p>
 <p><strong>Advantages</strong></p>
 <ul>
 <li>Can process any length input</li>
@@ -597,7 +1146,17 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
 <h4 id="Backpropagation-for-RNNs"><a href="#Backpropagation-for-RNNs" class="headerlink" title="Backpropagation for RNNs"></a>Backpropagation for RNNs</h4><p>Questions: derivative of $J^{(t)}(\theta)$ w.r.t the <strong>repeated</strong> weight matrix </p>
 <p>Answer:</p>
 <script type="math/tex; mode=display">
-\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script>
+\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script><h4 id="Generating-text-with-a-RNN-Language-Model"><a href="#Generating-text-with-a-RNN-Language-Model" class="headerlink" title="Generating text with a RNN Language Model."></a>Generating text with a RNN Language Model.</h4><p>repeated sampling </p>
+<h4 id="Evaluating-Language-Models-Perplexity"><a href="#Evaluating-Language-Models-Perplexity" class="headerlink" title="Evaluating Language Models: Perplexity"></a>Evaluating Language Models: Perplexity</h4><script type="math/tex; mode=display">
+perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)}\right)^{1 / T} = \exp(J(\theta))</script><p>lower perplexity is better!</p>
+<h4 id="Why-should-we-care-about-Language-Modeling"><a href="#Why-should-we-care-about-Language-Modeling" class="headerlink" title="Why should we care about Language Modeling?"></a>Why should we care about Language Modeling?</h4><p>Language Modeling is a <strong>benchmark task</strong> that helps us <strong>measure our progress</strong> on understanding language.</p>
+<p><strong>subcomponent</strong> of many NLP tasks.</p>
+<p>RNNs can be used for tagging, NER, part-of-speech tagging.</p>
+<p>RNNs can be used for sentence classification, sentiment classification.</p>
+<p>RNNs can be used as an encoder module, question answering, machine translation.</p>
+<p>RNN described is called <strong>vanilla RNN</strong></p>
+<p>GRU, LSTM(chocolate), multi-layer RNNs</p>
+
           
         
       
@@ -1621,722 +2180,6 @@ J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/01/CS224n%20Classnotes%20Course2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/01/CS224n%20Classnotes%20Course2/" itemprop="url">Stanford CS224n Natural Language Processing Course2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-01T21:57:23+08:00">
-                2020-02-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  899
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Course-2-Word-Vectors-and-Word-Senses"><a href="#Course-2-Word-Vectors-and-Word-Senses" class="headerlink" title="Course 2 - Word Vectors and Word Senses"></a>Course 2 - Word Vectors and Word Senses</h1><p>Firstly, some analogy by calculating the linear space similarity by word vectors.</p>
-<p><img src="/2020/02/01/CS224n%20Classnotes%20Course2/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200201062227420.png" alt="Vector Composilion"></p>
-<p>Definition of Code:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">analogy</span><span class="params">(x1, x2, y1)</span>:</span></span><br><span class="line">    result = model.most_similar(positive=[y1,x2], negative=[x1])</span><br><span class="line">    <span class="keyword">return</span> result[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-<p>Some Implementations:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">analogy(<span class="string">'japan'</span>,<span class="string">'japanese'</span>,<span class="string">'australia'</span>) <span class="comment"># australian</span></span><br><span class="line">analogy(<span class="string">'man'</span>,<span class="string">'king'</span>,<span class="string">'woman'</span>) <span class="comment"># queen</span></span><br><span class="line">analogy(<span class="string">'australia'</span>,<span class="string">'beer'</span>,<span class="string">'france'</span>) <span class="comment"># champagne</span></span><br></pre></td></tr></table></figure>
-<p>Next thing: <strong>PCA Scatterplot</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">display_pca_scatterplot</span><span class="params">(model, words=None, sample=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> words == <span class="keyword">None</span>:</span><br><span class="line">        <span class="keyword">if</span> sample &gt; <span class="number">0</span>:</span><br><span class="line">            words = np.random.choice(list(model.vocab.keys()), sample)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            words = [ word <span class="keyword">for</span> word <span class="keyword">in</span> model.vocab ]</span><br><span class="line">        </span><br><span class="line">        word_vectors = np.array([model[w] <span class="keyword">for</span> w <span class="keyword">in</span> words])</span><br><span class="line">        </span><br><span class="line">        twodim = PCA().fit_transform(word_vectors)[:,:<span class="number">2</span>]</span><br><span class="line">        </span><br><span class="line">        plt.figure(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">        plt.scatter(twodim[:,<span class="number">0</span>], twodim[:,<span class="number">1</span>], edgecolors=<span class="string">'k'</span>, c=<span class="string">'r'</span>)</span><br><span class="line">        <span class="keyword">for</span> word, (x,y) <span class="keyword">in</span> zip(words, twodim):</span><br><span class="line">            plt.text(x+<span class="number">0.05</span>, y+<span class="number">0.05</span>, word)</span><br></pre></td></tr></table></figure>
-<h2 id="Word-Vectors-and-word2vec"><a href="#Word-Vectors-and-word2vec" class="headerlink" title="Word Vectors and word2vec"></a>Word Vectors and word2vec</h2><h3 id="1-Review-Main-idea-of-word2vec"><a href="#1-Review-Main-idea-of-word2vec" class="headerlink" title="1. Review: Main idea of word2vec"></a>1. Review: Main idea of word2vec</h3><ul>
-<li>Iterate through each word of the whole corpus</li>
-<li>Predict surrounding words using word vectors</li>
-</ul>
-<script type="math/tex; mode=display">
-P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w}^{T} v_{c}\right)}</script><h2 id="Optimization-Basics-Gradient-Descent-cs229-Optimization"><a href="#Optimization-Basics-Gradient-Descent-cs229-Optimization" class="headerlink" title="Optimization Basics: Gradient Descent(cs229 Optimization)"></a>Optimization Basics: Gradient Descent(cs229 Optimization)</h2><p>Idea: for current value of theta, calculate gradient of J(theta), then take <strong>small step in the direction of negative gradient</strong>. </p>
-<p><strong>Update equation</strong>(in matrix notation)</p>
-<script type="math/tex; mode=display">
-\theta^{n e w}=\theta^{o l d}-\alpha \nabla_{\theta} J(\theta)</script><p><strong>Update equation</strong>(in a single parameter)</p>
-<script type="math/tex; mode=display">
-\theta_{j}^{n e w}=\theta_{j}^{o l d}-\alpha \frac{\partial}{\partial \theta_{j}^{o l d}} J(\theta)</script><p>Algorithm:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    theta_grad = evaluate_gradient(J, corpus, theta)</span><br><span class="line">    theta = theta - alpha * theta_grad</span><br></pre></td></tr></table></figure>
-<h3 id="Stochastic-Gradient-Descent-SGD"><a href="#Stochastic-Gradient-Descent-SGD" class="headerlink" title="Stochastic Gradient Descent(SGD)"></a>Stochastic Gradient Descent(SGD)</h3><p>Solution: Repeatedly sample windows, and update after each one</p>
-<p>Algorithm</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    window = sample_window(corpus)</span><br><span class="line">    theta_grad = evaluate_gradient(J, window, theta)</span><br><span class="line">    theta = theta - alpha * theta_grad</span><br></pre></td></tr></table></figure>
-<h3 id="Stochastic-Gradient-with-word-vectors"><a href="#Stochastic-Gradient-with-word-vectors" class="headerlink" title="Stochastic Gradient with word vectors:"></a>Stochastic Gradient with word vectors:</h3><p>Iteratively take gradients at each such window for SGD</p>
-<p>But in each window, we only have at most <em>2m+1</em> words, so it’s very sparse!</p>
-<script type="math/tex; mode=display">
-\nabla_{\theta} J_{t}(\theta)=\left[\begin{array}{c}{0} \\ {\vdots} \\ {\nabla_{v_{v i k e}}} \\ {\vdots} \\ {0} \\ {\vdots} \\ {\nabla_{u_{\text {learning}}}} \\ {\vdots}\end{array}\right] \in \mathbb{R}^{2 d V}</script><p>Solution: </p>
-<ul>
-<li>need sparse matrix update operations to only update certain rows of full embedding matrices <em>U</em> and <em>V</em></li>
-<li>need to keep around a hash for word vectors</li>
-</ul>
-<h3 id="Word2Vec-More-details"><a href="#Word2Vec-More-details" class="headerlink" title="Word2Vec: More details"></a>Word2Vec: More details</h3><p>Two model variants:</p>
-<ul>
-<li>Skip-grams(SG): Predict context words given center word</li>
-<li>Continuous Bag of Words(CBOW): Predict center word from context words</li>
-</ul>
-<p>=&gt; <strong>Skip-gram model</strong></p>
-<p>Additional efficiency in training: </p>
-<ul>
-<li>Negative sampling</li>
-</ul>
-<p>Paper: “Distributed Representations of Words and Phrases and their Compositionality”(Mikolov et al.2013)</p>
-<p><strong>Overall objective function</strong>(maximize):</p>
-<script type="math/tex; mode=display">
-J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J_{t}(\theta)\\
-J_{t}(\theta)=\log \sigma\left(u_{o}^{T} v_{c}\right)+\sum_{i=1}^{k} \mathbb{E}_{j \sim P(w)}\left[\log \sigma\left(-u_{j}^{T} v_{c}\right)\right]</script><p>The sigmoid function:</p>
-<script type="math/tex; mode=display">
-\sigma(x)=\frac{1}{1+e^{-x}}</script><p>So we maximize the probability of two words co-occurring in the first log</p>
-<script type="math/tex; mode=display">
-J_{n e g-s a m p l e}\left(\boldsymbol{o}, \boldsymbol{v}_{c}, \boldsymbol{U}\right)=-\log \left(\sigma\left(\boldsymbol{u}_{o}^{\top} \boldsymbol{v}_{c}\right)\right)-\sum_{k=1}^{K} \log \left(\sigma\left(-\boldsymbol{u}_{k}^{\top} \boldsymbol{v}_{c}\right)\right)</script><p>Maximize probability that real outside word appears, minimize prob. that random word appear around center word.</p>
-<p>The unigram distribution U(w)</p>
-<script type="math/tex; mode=display">
-P(w)=U(w)^{3 / 4} / Z</script><p>raised to the 3/4 power, which makes less frequent words be sampled more often.</p>
-<h2 id="Can-we-capture-this-essence-more-effectively-by-counting"><a href="#Can-we-capture-this-essence-more-effectively-by-counting" class="headerlink" title="Can we capture this essence more effectively by counting?"></a>Can we capture this essence more effectively by counting?</h2><p>With a co-occurrence matrix <em>X</em></p>
-<ul>
-<li>2 options: windows vs. full document</li>
-<li>Window: Similar to word2vec, use window around each word -&gt; captures both syntactic(POS) and semantic information</li>
-<li>Word-document co-occurrence matrix will give general topic leading to <em>Latent Semantic Analysis</em></li>
-</ul>
-<p>Models are less robust due to increase in size with vocabulary.</p>
-<p>Solution: Low dimensional vectors</p>
-<p>Idea: store most information in a fixed, small number of dimensions</p>
-<h3 id="Singular-Value-Decomposition-of-co-occurrence-matrix-X-SVD"><a href="#Singular-Value-Decomposition-of-co-occurrence-matrix-X-SVD" class="headerlink" title="Singular Value Decomposition of co-occurrence matrix X - SVD"></a>Singular Value Decomposition of co-occurrence matrix <em>X</em> - SVD</h3><script type="math/tex; mode=display">
-X = U \Sigma V^{\top}</script><h3 id="Hacks-to-X-several-used-in-Rohde-et-al-2005"><a href="#Hacks-to-X-several-used-in-Rohde-et-al-2005" class="headerlink" title="Hacks to X (several used in Rohde et al. 2005)"></a>Hacks to X (several used in Rohde et al. 2005)</h3><p>Problem: function words(<em>the, he, has</em>) are too frequent -&gt; syntax has too much impact</p>
-<p>Solution</p>
-<ul>
-<li>min(X,t) t~= 100, Ignore them all</li>
-<li>Use Pearson correlations instead of counts, then set negative values to 0</li>
-</ul>
-<h2 id="The-GloVe-model-of-word-vectors"><a href="#The-GloVe-model-of-word-vectors" class="headerlink" title="The GloVe model of word vectors"></a>The GloVe model of word vectors</h2><h3 id="Crucial-insight"><a href="#Crucial-insight" class="headerlink" title="Crucial insight"></a>Crucial insight</h3><p>Ratios of co-occurrence probabilities can encode meaning components</p>
-<script type="math/tex; mode=display">
-w_{i} \cdot w_{j}=\log P(i | j)\\
-J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\tilde{b}_{j}-\log X_{i j}\right)^{2}</script><p><strong>Merits</strong></p>
-<ul>
-<li>Fast training</li>
-<li>Scalable to hug corpora</li>
-<li>Good performance even with small corpus and small vectors</li>
-</ul>
-<h2 id="Evaluating-word-vectors"><a href="#Evaluating-word-vectors" class="headerlink" title="Evaluating word vectors"></a>Evaluating word vectors</h2><h3 id="Intrinsic"><a href="#Intrinsic" class="headerlink" title="Intrinsic"></a>Intrinsic</h3><ul>
-<li>Evaluation on a specific/intermediate subtask</li>
-<li>Fast to compute</li>
-<li>Helps to understand that system</li>
-<li>Not clear if helpful</li>
-</ul>
-<p>Methods: </p>
-<ol>
-<li>Cosine distance of word vectors</li>
-<li>Word vector distances and their correlation with human judgments</li>
-</ol>
-<h3 id="Extrinsic"><a href="#Extrinsic" class="headerlink" title="Extrinsic"></a>Extrinsic</h3><ul>
-<li>Evaluation on a real task</li>
-<li>Can take a long time to compute accuracy</li>
-<li>Unclear if subsystem is the problem or its interaction</li>
-<li>If replacing exactly one subsystem with another improves accuracy</li>
-</ul>
-<p>Example: NER</p>
-<h2 id="Word-senses"><a href="#Word-senses" class="headerlink" title="Word senses"></a>Word senses</h2><h4 id="Word-senses-and-word-sense-ambiguity"><a href="#Word-senses-and-word-sense-ambiguity" class="headerlink" title="Word senses and word sense ambiguity"></a>Word senses and word sense ambiguity</h4><p>Most words have lots of meanings, especially common words. </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/01/31/CS224n%20Classnotes%20Course1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/31/CS224n%20Classnotes%20Course1/" itemprop="url">Stanford CS224n Natural Language Processing Course1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-31T21:57:23+08:00">
-                2020-01-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  498
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://web.stanford.edu/class/cs224n/index.html#schedule" target="_blank" rel="noopener"><strong>Course Link(including Slides and Materials)</strong></a></p>
-<p><a href="http://onlinehub.stanford.edu/cs224" target="_blank" rel="noopener"><strong>Online Video Link</strong></a></p>
-<p><a href="https://www.bilibili.com/video/av46216519" target="_blank" rel="noopener"><strong>Online Video Link in Chinese</strong></a></p>
-<h1 id="Course-1-Introduction-and-Word-Vectors"><a href="#Course-1-Introduction-and-Word-Vectors" class="headerlink" title="Course 1 - Introduction and Word Vectors"></a>Course 1 - Introduction and Word Vectors</h1><p>Language isn’t a formal system. Language is glorious chaos. <em>by Chris Manning</em></p>
-<p><strong>Target</strong></p>
-<ul>
-<li>Modern methods: Recurrent networks, attentions</li>
-<li>Big Picture</li>
-<li>Build system in PyTorch: Word meaning, dependency parsing, machine translation, question answering.</li>
-</ul>
-<h2 id="1-how-do-we-represent-the-meaning-of-a-word"><a href="#1-how-do-we-represent-the-meaning-of-a-word" class="headerlink" title="1. how do we represent the meaning of a word?"></a>1. how do we represent the meaning of a word?</h2><p>signifier(symbol) &lt;=&gt; signified(idea or thing) = denotational semantics</p>
-<h2 id="2-how-do-we-have-usable-meaning-in-a-computer"><a href="#2-how-do-we-have-usable-meaning-in-a-computer" class="headerlink" title="2. how do we have usable meaning in a computer?"></a>2. how do we have usable meaning in a computer?</h2><p><strong>Common Solution</strong> Use e.g. WordNet containing lists of <strong>synonym sets</strong> and <strong>hypernyms</strong></p>
-<p><strong>Problems</strong> </p>
-<ul>
-<li>missing nuance: proficient = good in some contexts</li>
-<li>new meanings of words: wicked, badass, ninja</li>
-<li>Subjective</li>
-<li>Requires human labor to create and adapt</li>
-<li>Can’t compute accurate and word similarity</li>
-</ul>
-<h3 id="Representing-words-as-discrete-symbols"><a href="#Representing-words-as-discrete-symbols" class="headerlink" title="Representing words as discrete symbols"></a>Representing words as discrete symbols</h3><p><strong>one-hot vectors</strong> =&gt; <strong>encode similarity in the vector themselves</strong></p>
-<p><strong>Distributional semantics</strong>: A word’s meaning is given by the words that frequently appear close-by.</p>
-<p><strong>Word Vectors</strong>: a dense vector for each word, chosen so that it is similar to vectors of words that appear in similar contexts.</p>
-<p>Note: Word Vectors = Word Embeddings = Word Representations. All distributed representation</p>
-<script type="math/tex; mode=display">
-banking = \left[
- \begin{matrix}
-   0.286 \\
-   0.792  \\
-   -0.177 \\
-   -0.107 \\
-   0.109 \\
-   -0.542\\
-   0.349\\
-   0.271\\
-   0.487
-  \end{matrix}
-  \right] \tag{1}</script><h2 id="3-Word2Vec-Overview"><a href="#3-Word2Vec-Overview" class="headerlink" title="3. Word2Vec: Overview"></a>3. Word2Vec: Overview</h2><p>Idea:</p>
-<ul>
-<li>a large corpus of text</li>
-<li>every word in a fixed vocabulary is represented by a <strong>vector</strong></li>
-<li>go through each position <em>t</em> in the text, which has a center word <em>c</em> and context words <em>o</em></li>
-<li>Use the <strong>similarity of the word vectors</strong> for <em>c</em> and <em>o</em> to <strong>calculate the probability</strong> of <em>o</em> given <em>c</em></li>
-<li><strong>Keep Adjusting the word vectors</strong> to maximize this probability</li>
-</ul>
-<script type="math/tex; mode=display">
-likelihood = L(\theta) = \prod_{t=1}^{T} \prod_{-m \leq j \leq m \atop j \neq 0} P\left(w_{t+j} | w_{t} ; \theta\right)</script><p>Note: theta is all variables to be optimized</p>
-<h3 id="Objective-function-J"><a href="#Objective-function-J" class="headerlink" title="Objective function J"></a>Objective function J</h3><p>sometimes called <strong>cost / loss function</strong></p>
-<script type="math/tex; mode=display">
-J(\theta)=-\frac{1}{T} \log L(\theta)=-\frac{1}{T} \sum_{t=1}^{T} \sum_{-m \leq j \leq m} \log P\left(w_{t+j} | w_{t} ; \theta\right)</script><p><strong>Minimizing objective function &lt;=&gt; Maximizing predictive accuracy</strong></p>
-<p><em>Question: How to calculate P?</em></p>
-<p><em>Answer: We use two vectors per word w</em></p>
-<ul>
-<li><code>v_w</code> when <em>w</em> is a center word</li>
-<li><code>u_w</code> when <em>w</em> is a context word</li>
-</ul>
-<p>Then for a center word <em>c</em> and a context word <em>o</em>:</p>
-<h3 id="Prediction-function"><a href="#Prediction-function" class="headerlink" title="Prediction function"></a>Prediction function</h3><script type="math/tex; mode=display">
-P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w}^{T} v_{c}\right)}</script><h3 id="To-train-the-model-Compute-all-vector-gradients"><a href="#To-train-the-model-Compute-all-vector-gradients" class="headerlink" title="To train the model: Compute all vector gradients"></a>To train the model: Compute all vector gradients</h3><ul>
-<li><p>Recall: theta represents <strong>all</strong> model parameters, in one long vector</p>
-</li>
-<li><p>In our cases</p>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-\theta=\left[\begin{array}{l}{v_{\text {aardvark}}} \\ {v_{a}} \\ {\vdots} \\ {v_{z e b r a}} \\ {u_{\text {aardvark}}} \\ {u_{a}} \\ {\vdots} \\ {u_{z e b r a}}\end{array}\right] \in \mathbb{R}^{2 d V}</script><ul>
-<li><p>Remember: every word has two vectors</p>
-</li>
-<li><p>We optimize these parameters by walking down the gradient</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/01/30/MYSQL_Leetcode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/30/MYSQL_Leetcode/" itemprop="url">Leetcode MySQL cases</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-30T17:03:23+08:00">
-                2020-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  485
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-175-Combine-Two-Tables"><a href="#Problem-175-Combine-Two-Tables" class="headerlink" title="Problem 175 - Combine Two Tables"></a>Problem 175 - Combine Two Tables</h2><h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>Table: <code>Person</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+-------------+---------+</span><br><span class="line">| Column Name | Type    |</span><br><span class="line">+-------------+---------+</span><br><span class="line">| PersonId    | int     |</span><br><span class="line">| FirstName   | varchar |</span><br><span class="line">| LastName    | varchar |</span><br><span class="line">+-------------+---------+</span><br><span class="line">PersonId is the primary key column for this table.</span><br></pre></td></tr></table></figure>
-<p>Table: <code>Address</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+-------------+---------+</span><br><span class="line">| Column Name | Type    |</span><br><span class="line">+-------------+---------+</span><br><span class="line">| AddressId   | int     |</span><br><span class="line">| PersonId    | int     |</span><br><span class="line">| City        | varchar |</span><br><span class="line">| State       | varchar |</span><br><span class="line">+-------------+---------+</span><br><span class="line">AddressId is the primary key column for this table.</span><br></pre></td></tr></table></figure>
-<p>Write a SQL query for a report that provides the following information for each person in the Person table, regardless if there is an address for each of those people:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FirstName, LastName, City, State</span><br></pre></td></tr></table></figure>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>This is a easy question that interferes with <strong>LEFT JOIN</strong> technique, FYI, please notice the word <strong>ON</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT FirstName, LastName, City, State</span><br><span class="line">FROM </span><br><span class="line">Person a</span><br><span class="line">LEFT JOIN</span><br><span class="line">Address b</span><br><span class="line">ON a.PersonId &#x3D; b.PersonId;</span><br></pre></td></tr></table></figure>
-<h2 id="Problem-176-Second-Highest-Salary"><a href="#Problem-176-Second-Highest-Salary" class="headerlink" title="Problem 176 - Second Highest Salary"></a>Problem 176 - Second Highest Salary</h2><h3 id="Question-1"><a href="#Question-1" class="headerlink" title="Question:"></a>Question:</h3><p>Write a SQL query to get the second highest salary from the <code>Employee</code> table.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+----+--------+</span><br><span class="line">| Id | Salary |</span><br><span class="line">+----+--------+</span><br><span class="line">| 1  | 100    |</span><br><span class="line">| 2  | 200    |</span><br><span class="line">| 3  | 300    |</span><br><span class="line">+----+--------+</span><br></pre></td></tr></table></figure>
-<p>For example, given the above Employee table, the query should return <code>200</code> as the second highest salary. If there is no second highest salary, then the query should return <code>null</code>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+---------------------+</span><br><span class="line">| SecondHighestSalary |</span><br><span class="line">+---------------------+</span><br><span class="line">| 200                 |</span><br><span class="line">+---------------------+</span><br></pre></td></tr></table></figure>
-<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution:"></a>Solution:</h3><p>recommended way.</p>
-<p>Runtime: faster than 92%</p>
-<p>Memory: Less than 100%</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT MAX(salary) AS SecondHighestSalary</span><br><span class="line">FROM Employee</span><br><span class="line">WHERE salary &lt; (SELECT MAX(salary) FROM Employee);</span><br></pre></td></tr></table></figure>
-<p>other solution which might be slower for using the <strong>DISTINCT</strong> </p>
-<p>Runtime: faster than 39%</p>
-<p>Memory: Less than 100%</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">CASE WHEN COUNT(a.SecondHighestSalary) &gt; 0 THEN a.SecondHighestSalary ELSE null END AS SecondHighestSalary</span><br><span class="line">FROM</span><br><span class="line">(SELECT </span><br><span class="line">DISTINCT Salary AS SecondHighestSalary </span><br><span class="line">FROM</span><br><span class="line">Employee ORDER BY Salary DESC LIMIT 1,1) a;</span><br></pre></td></tr></table></figure>
-<h2 id="Problem-178-Rank-Scores"><a href="#Problem-178-Rank-Scores" class="headerlink" title="Problem 178 - Rank Scores"></a>Problem 178 - Rank Scores</h2><h3 id="Question-2"><a href="#Question-2" class="headerlink" title="Question:"></a>Question:</h3><p>Write a SQL query to rank scores. If there is a tie between two scores, both should have the same ranking. Note that after a tie, the next ranking number should be the next consecutive integer value. In other words, there should be no “holes” between ranks.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+----+-------+</span><br><span class="line">| Id | Score |</span><br><span class="line">+----+-------+</span><br><span class="line">| 1  | 3.50  |</span><br><span class="line">| 2  | 3.65  |</span><br><span class="line">| 3  | 4.00  |</span><br><span class="line">| 4  | 3.85  |</span><br><span class="line">| 5  | 4.00  |</span><br><span class="line">| 6  | 3.65  |</span><br><span class="line">+----+-------+</span><br></pre></td></tr></table></figure>
-<p>For example, given the above <code>Scores</code> table, your query should generate the following report (order by highest score):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+-------+------+</span><br><span class="line">| Score | Rank |</span><br><span class="line">+-------+------+</span><br><span class="line">| 4.00  | 1    |</span><br><span class="line">| 4.00  | 1    |</span><br><span class="line">| 3.85  | 2    |</span><br><span class="line">| 3.65  | 3    |</span><br><span class="line">| 3.65  | 3    |</span><br><span class="line">| 3.50  | 4    |</span><br><span class="line">+-------+------+</span><br></pre></td></tr></table></figure>
-<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="Problem-181-Employees-Earning-More-Than-Their-Managers"><a href="#Problem-181-Employees-Earning-More-Than-Their-Managers" class="headerlink" title="Problem 181 - Employees Earning More Than Their Managers"></a>Problem 181 - Employees Earning More Than Their Managers</h2><h3 id="Question-3"><a href="#Question-3" class="headerlink" title="Question:"></a>Question:</h3><p>The <code>Employee</code> table holds all employees including their managers. Every employee has an Id, and there is also a column for the manager Id.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+----+-------+--------+-----------+</span><br><span class="line">| Id | Name  | Salary | ManagerId |</span><br><span class="line">+----+-------+--------+-----------+</span><br><span class="line">| 1  | Joe   | 70000  | 3         |</span><br><span class="line">| 2  | Henry | 80000  | 4         |</span><br><span class="line">| 3  | Sam   | 60000  | NULL      |</span><br><span class="line">| 4  | Max   | 90000  | NULL      |</span><br><span class="line">+----+-------+--------+-----------+</span><br></pre></td></tr></table></figure>
-<p>Given the <code>Employee</code> table, write a SQL query that finds out employees who earn more than their managers. For the above table, Joe is the only employee who earns more than his manager.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+----------+</span><br><span class="line">| Employee |</span><br><span class="line">+----------+</span><br><span class="line">| Joe      |</span><br><span class="line">+----------+</span><br></pre></td></tr></table></figure>
-<h3 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution:"></a>Solution:</h3><p>Runtime: faster than 93.96%</p>
-<p>Memory: Less than 100%</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.Name AS Employee</span><br><span class="line">FROM</span><br><span class="line">(SELECT * FROM Employee WHERE ManagerId IS NOT NULL) a</span><br><span class="line">LEFT JOIN</span><br><span class="line">Employee b</span><br><span class="line">ON a.ManagerId &#x3D; b.Id</span><br><span class="line">WHERE a.Salary &gt; b.Salary;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2391,7 +2234,7 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2408,6 +2251,15 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
