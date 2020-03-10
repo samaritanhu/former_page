@@ -252,6 +252,373 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/10/How_powerful_is_gnn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/10/How_powerful_is_gnn/" itemprop="url">How powerful is Graph Neural Networks?</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-10T12:56:21+08:00">
+                2020-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  424
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="How-powerful-is-Graph-Neural-Networks"><a href="#How-powerful-is-Graph-Neural-Networks" class="headerlink" title="How powerful is Graph Neural Networks?"></a>How powerful is Graph Neural Networks?</h1><p>GNNs follow a neighborhood aggregation scheme, where the representation vector of a node is computed by recursively aggregating and transforming representation vectors of its neighboring nodes. </p>
+<p>There are two tasks of interest: </p>
+<p>(1) Node classiﬁcation</p>
+<p>(2) Graph classiﬁcation</p>
+<p> Formally, the k-th layer of a GNN is</p>
+<script type="math/tex; mode=display">
+a_{v}^{(k)}=\operatorname{AGGREGATE}^{(k)}\left(\left\{h_{u}^{(k-1)}: u \in \mathcal{N}(v)\right\}\right), \quad h_{v}^{(k)}=\mathrm{COMBINE}^{(k)}\left(h_{v}^{(k-1)}, a_{v}^{(k)}\right)</script><p> In the pooling variant of GraphSAGE, AGGREGATE has been formulated as </p>
+<script type="math/tex; mode=display">
+a_{v}^{(k)}=\operatorname{MAX}\left(\left\{\operatorname{ReLU}\left(W \cdot h_{u}^{(k-1)}\right), \forall u \in \mathcal{N}(v)\right\}\right)</script><p>and COMBINE could be concatenation followed by a linear mapping </p>
+<script type="math/tex; mode=display">
+W \cdot [h_{v}^{(k-1)}, a_{v}^{(k)}]</script><p>Graph Convolutional Networks (GCN) - the element-wise <em>mean</em> pooling is used. AGGREGATE and COMBINE step</p>
+<script type="math/tex; mode=display">
+h_{v}^{(k)}=\operatorname{ReLU}\left(W \cdot \operatorname{MEAN}\left\{h_{u}^{(k-1)}, \forall u \in \mathcal{N}(v) \cup\{v\}\right\}\right)</script><p>the READOUT function aggregates node features from the ﬁnal iteration to obtain the entire graph’s representation $h_G$</p>
+<script type="math/tex; mode=display">
+h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</script><p><strong>Deﬁnition1 (Multiset).</strong> A multiset is a generalized concept of a set that allows multiple instances for its elements. More formally, a multiset is a 2-tuple $X = (S,m)$ where $S$ is the underlying set of $X$ that is formed from its distinct elements, and $m : S \rightarrow N_{\geq 1}$ gives the multiplicity of the elements. </p>
+<p><strong>Lemma2</strong>. Let $G_1$ and $G_2$ be any two non-isomorphic graphs. If a graph neural network $A : G→R^d $ maps $G_1$ and $G_2$ to different embeddings, the Weisfeiler-Lehman graph isomorphism test also decides $G_1$ and $G_2$ are not isomorphic. </p>
+<p><strong>Theorem 3</strong>. Let $A : G → R^d$ be a GNN. With a sufﬁcient number of GNN layers, A maps any graphs $G_1$ and $G_2$ that the Weisfeiler-Lehman test of isomorphism decides as non-isomorphic, to different embeddings if the following conditions hold: </p>
+<p>a) $A$ aggregates and updates node features iteratively with </p>
+<script type="math/tex; mode=display">
+h_{v}^{(k)}=\phi\left(h_{v}^{(k-1)}, f\left(\left\{h_{u}^{(k-1)}: u \in \mathcal{N}(v)\right\}\right)\right)</script><p>where the functions $f$, which operates on multisets, and $φ$ are injective. </p>
+<p>b) $A$’s graph-level readout, which operates on the multiset of node features ${h_{v}^{(k)}}$, is injective. </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/08/CMU-cryptography/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/08/CMU-cryptography/" itemprop="url">CMU cryptography lecture 1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T09:27:35+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  462
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Lecture1-Introduction"><a href="#Lecture1-Introduction" class="headerlink" title="Lecture1 - Introduction"></a>Lecture1 - Introduction</h1><p>Teaching Assistant: Xinyi Hu</p>
+<p>In the first week, we talked about cryptography’s first goal, the three algorithms of a secret key encryption, 3 classical ciphers and how to break them. The detailed class notes are as follows.</p>
+<p>Cryptography’s first goal is to keep secret communication.</p>
+<p>A secret key encryption(SKE) consists of 3 algorithms:</p>
+<ul>
+<li>Gen - generation algorithm</li>
+<li>Enc - encryption algorithm</li>
+<li>Dec - decryption algorithm</li>
+</ul>
+<p>Some classical ciphers </p>
+<ul>
+<li>Caesar Cipher - shift by 3</li>
+<li>Substitution Cipher - can be broken by frequency analysis</li>
+<li>Vigenere cipher - can be broken by frequency analysis</li>
+</ul>
+<p>Homework:</p>
+<ul>
+<li>Read <a href="http://norvig.com/mayzner.html" target="_blank" rel="noopener">http://norvig.com/mayzner.html</a></li>
+<li>Exercises to think about:<ul>
+<li>You are given a ciphertext encrypted under Caesar cipher: “ibbiks eqbp nctt nwzkm ia awwv ia bpm acv zqama”. Recover the key and the plaintext.</li>
+<li>Review the slides for this class as well as the next class</li>
+<li>Read about digital signature, public key encryption and private key encryption. See their applications. See how they are different. </li>
+<li>Read about modular exponentiation if you can (and if you are done with the first 3 exercises)</li>
+</ul>
+</li>
+</ul>
+<p>Extra materials for this course: </p>
+<ul>
+<li><a href="http://www.cs.cmu.edu/~goyal/s18/15503.html" target="_blank" rel="noopener">http://www.cs.cmu.edu/~goyal/s18/15503.html</a></li>
+<li>Katz and Lindell book: Introduction to Modern Cryptography</li>
+</ul>
+<p>Questions:</p>
+<p>Q1: Does the ‘spacebar’ count when encrypting?</p>
+<p>A1: Frequency analysis.</p>
+<p>Q2: In Vigenere cipher, if we generate a random string equal the ciphertext length, how to attack this one?</p>
+<p>A2: Guess the length of Vigenere cipher, then use frequency analysis.</p>
+<p>Q3: As you mention before, we can break the Caeser cipher by finding the frequency. If we encrypt the plaintext by using the same keys again and again, it will be almost impossible to analyze the frequency. if you shift by 2 say 3 times, its same as shifting once by 6.</p>
+<p>A3: No, even if you encrypt again and again using the same key, frequency analysis should still work<br>encrypting with the same key many times is no different than encryption with another key once</p>
+<p>Q4: how does the “attack” shift “cuycdp”</p>
+<p>A4:  Using the alphabet, A matchs 1, B matchs 2, …, Z matchs 26. (or A matchs 0, B matchs 1, …, Z matchs 25, they are the same). Key is BAEBAE. Add ATTACK and BAEBAE separately, you can get CUYCDP. </p>
+<p>Q5: why t mapped to r ,h mapped to,is it fixed</p>
+<p>A5: It’s already defined. </p>
+<p>Q6: In Vigenere cipher, if the length of random string is not equal to message, there are some extra letters left. How can we deal with them?</p>
+<p>A6: Repeat to make it equal to message length</p>
+<p>Q7: i search the vigenere cipher on the Internet, the ciphertext of “ATTACK” is “BTXBCO” instead of “CUYCDP”, according to a table, why?</p>
+<p>A7: You can select key you like in vigenere cipher. The ciphertext depends upon the key as well.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/02/GNN-survey/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -315,7 +682,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  646
+                  429
                 </span>
               
 
@@ -331,7 +698,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  2
                 </span>
               
             </div>
@@ -363,21 +730,7 @@
 <h1 id="Categorization-and-Frameworks"><a href="#Categorization-and-Frameworks" class="headerlink" title="Categorization and Frameworks"></a>Categorization and Frameworks</h1><p>Recurrent Neural Network - aim to learn node representations with recurrent neural architectures.</p>
 <p>Convolutional graph neural networks - generate a node $v$’s representation by aggregating its own features $x_v$ and neighbors’ features $x_u$, where $u \in N(v)$ </p>
 <p>Graph autoencoders(GAE)  learn network embeddings and graph generative distributions</p>
-<h1 id="How-powerful-is-Graph-Neural-Networks"><a href="#How-powerful-is-Graph-Neural-Networks" class="headerlink" title="How powerful is Graph Neural Networks?"></a>How powerful is Graph Neural Networks?</h1><p>GNNs follow a neighborhood aggregation scheme, where the representation vector of a node is computed by recursively aggregating and transforming representation vectors of its neighboring nodes. </p>
-<p>There are two tasks of interest: </p>
-<p>(1) Node classiﬁcation</p>
-<p>(2) Graph classiﬁcation</p>
-<p> Formally, the k-th layer of a GNN is</p>
-<script type="math/tex; mode=display">
-a_{v}^{(k)}=\operatorname{AGGREGATE}^{(k)}\left(\left\{h_{u}^{(k-1)}: u \in \mathcal{N}(v)\right\}\right), \quad h_{v}^{(k)}=\mathrm{COMBINE}^{(k)}\left(h_{v}^{(k-1)}, a_{v}^{(k)}\right)</script><p> In the pooling variant of GraphSAGE, AGGREGATE has been formulated as </p>
-<script type="math/tex; mode=display">
-a_{v}^{(k)}=\operatorname{MAX}\left(\left\{\operatorname{ReLU}\left(W \cdot h_{u}^{(k-1)}\right), \forall u \in \mathcal{N}(v)\right\}\right)</script><p>and COMBINE could be concatenation followed by a linear mapping </p>
-<script type="math/tex; mode=display">
-W \cdot [h_{v}^{(k-1)}, a_{v}^{(k)}]</script><p>Graph Convolutional Networks (GCN) - the element-wise <em>mean</em> pooling is used. AGGREGATE and COMBINE step</p>
-<script type="math/tex; mode=display">
-h_{v}^{(k)}=\operatorname{ReLU}\left(W \cdot \operatorname{MEAN}\left\{h_{u}^{(k-1)}, \forall u \in \mathcal{N}(v) \cup\{v\}\right\}\right)</script><p>the READOUT function aggregates node features from the ﬁnal iteration to obtain the entire graph’s representation $h_G$</p>
-<script type="math/tex; mode=display">
-h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</script>
+
           
         
       
@@ -1751,436 +2104,6 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/03/CS224n%20Classnotes%20Course4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/03/CS224n%20Classnotes%20Course4/" itemprop="url">Stanford CS224n Natural Language Processing Course4</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-03T21:57:23+08:00">
-                2020-02-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  270
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Course-4-Backpropagation-and-computation-graphs"><a href="#Course-4-Backpropagation-and-computation-graphs" class="headerlink" title="Course 4 - Backpropagation and computation graphs"></a>Course 4 - Backpropagation and computation graphs</h1><h2 id="Matrix-gradients-for-our-simple-neural-net-and-some-tips"><a href="#Matrix-gradients-for-our-simple-neural-net-and-some-tips" class="headerlink" title="Matrix gradients for our simple neural net and some tips"></a>Matrix gradients for our simple neural net and some tips</h2><p>Chain rule:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\boldsymbol{s}=&\boldsymbol{u}^{T} \boldsymbol{h} \\
-\boldsymbol{h}=& f(\boldsymbol{z}) \\ \boldsymbol{z}=& W \boldsymbol{x}+\boldsymbol{b} \end{aligned}</script><script type="math/tex; mode=display">
-\begin{aligned} 
-\frac{\partial s}{\partial \boldsymbol{W}}=&\frac{\partial s}{\partial \boldsymbol{h}} \frac{\partial \boldsymbol{h}}{\partial \boldsymbol{z}} \frac{\partial \boldsymbol{z}}{\partial \boldsymbol{W}} \\
-=& \delta\frac{\partial z}{\partial W}\\
-=& \delta \frac{\partial}{\partial W} Wx + b \\
-=& \delta^{T}x+b
-\end{aligned}</script><p><strong>Question</strong> Should I use available “pre-trained” word vectors?</p>
-<p><strong>Answer</strong> almost always</p>
-<p><strong>Question</strong> Should I update(“fine tune”) my own word vectors?</p>
-<p><strong>Answer</strong> </p>
-<ul>
-<li>If you only have a <strong>small</strong> training data set, <strong>don’t</strong> train the word vectors</li>
-<li>If you have a <strong>large</strong> dataset, it probably will work better to <strong>train = update = fine-tune</strong> word vectors to the task</li>
-</ul>
-<h2 id="Computation-graphs-and-backpropagation"><a href="#Computation-graphs-and-backpropagation" class="headerlink" title="Computation graphs and backpropagation"></a>Computation graphs and backpropagation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiplyGate</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(x,y)</span>:</span></span><br><span class="line">        z = x*y</span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">        <span class="keyword">return</span> z</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(dz)</span>:</span></span><br><span class="line">        dx = self.y * dz</span><br><span class="line">        dy = self.x * dz</span><br><span class="line">        <span class="keyword">return</span> [dx,dy]</span><br></pre></td></tr></table></figure>
-<h2 id="Stuff-you-should-know"><a href="#Stuff-you-should-know" class="headerlink" title="Stuff you should know"></a>Stuff you should know</h2><h3 id="Regularization-to-prevent-overfitting"><a href="#Regularization-to-prevent-overfitting" class="headerlink" title="Regularization to prevent overfitting"></a>Regularization to prevent overfitting</h3><script type="math/tex; mode=display">
-J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^{C} e^{f_{c}}}\right)\left[+\lambda \sum_{k} \theta_{k}^{2}\right]</script><p>Prevents <strong>overfitting</strong> when we have a lot of features</p>
-<h3 id="Vectorization"><a href="#Vectorization" class="headerlink" title="Vectorization"></a>Vectorization</h3><h3 id="Nonlinearities"><a href="#Nonlinearities" class="headerlink" title="Nonlinearities"></a>Nonlinearities</h3><p>logistic(“sigmoid”)</p>
-<script type="math/tex; mode=display">
-f(z)=\frac{1}{1+\exp (-z)}</script><p>tanh</p>
-<script type="math/tex; mode=display">
-f(z)=\tanh (z)=\frac{e^{z}-e^{-z}}{e^{z}+e^{-z}} \\
-\tanh (z) = 2\operatorname{logistic}(2z) - 1</script><p>hard tanh</p>
-<script type="math/tex; mode=display">
-\operatorname{HardTanh} (x)=\left\{\begin{array}{cl}{-1} & {\text { if } x<-1} \\ {x} & {\text { if }-1<=x<=1} \\ {1} & {\text { if } x>1}\end{array}\right.</script><p>ReLU: </p>
-<script type="math/tex; mode=display">
-rect(z) = \max(z,0)</script><p>Leaky ReLU/Parametric ReLU</p>
-<h3 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h3><p>Xavier initialzation has variance inversely proportional to fan-in n_in and fan-out n_out:</p>
-<script type="math/tex; mode=display">
-\operatorname{Var}\left(W_{i}\right)=\frac{2}{n_{\mathrm{in}}+n_{\mathrm{out}}}</script><h3 id="Optimizers"><a href="#Optimizers" class="headerlink" title="Optimizers"></a>Optimizers</h3><p>SGD/Adagrad/RMSprop/Adak/SparseAdam</p>
-<h3 id="Learning-rates"><a href="#Learning-rates" class="headerlink" title="Learning rates"></a>Learning rates</h3><ul>
-<li><p>You can just use a constant learning rate</p>
-</li>
-<li><p>Better results can generally be obtained by allowing learning rates to decrease as you train</p>
-<ul>
-<li><p>by hand: halve the learning rate every k epochs</p>
-</li>
-<li><p>By a formula, for epoch t</p>
-</li>
-<li><script type="math/tex; mode=display">
-lr = lr_0 e^{-kt}</script></li>
-<li><p>Fancier method like cyclic learning rates(q.v.)</p>
-</li>
-</ul>
-</li>
-<li><p>Fancier optimizers still use a learning rate but it may be an initial rate that the optimizer shrinks - so may be able to start high</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/02/CS224n%20Classnotes%20Course3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/02/CS224n%20Classnotes%20Course3/" itemprop="url">Stanford CS224n Natural Language Processing Course3</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-02T21:57:23+08:00">
-                2020-02-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  364
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Course-3-Neural-Networks"><a href="#Course-3-Neural-Networks" class="headerlink" title="Course 3 - Neural Networks"></a>Course 3 - Neural Networks</h1><h2 id="Classification-review-introduction"><a href="#Classification-review-introduction" class="headerlink" title="Classification review/introduction"></a>Classification review/introduction</h2><p>Generally we have a <strong>training dataset</strong> consisting of <strong>samples</strong></p>
-<script type="math/tex; mode=display">
-\left\{x_{\mathrm{i}}, y_{\mathrm{i}}\right\}_{\mathrm{i}=1}^{\mathrm{N}}</script><p>x_i are inputs, eg words, sentences, documents, etc</p>
-<p>y_j are labels we try to predict. </p>
-<ul>
-<li>classes: sentiment, named entities, buy/sell decision</li>
-<li>other words</li>
-<li>later: multi-word sequences</li>
-</ul>
-<p>Traditional ML/Stats approach: assume x_i are fixed, train softmax/logistic regression weights <em>W in R(C,d)</em> to determine a decision boundary as in the picture. </p>
-<h3 id="Method-Training-with-softmax-and-cross-entropy-loss"><a href="#Method-Training-with-softmax-and-cross-entropy-loss" class="headerlink" title="Method: Training with softmax and cross-entropy loss"></a>Method: Training with softmax and cross-entropy loss</h3><p>For each <em>x</em>, predict:</p>
-<script type="math/tex; mode=display">
-p(y | x)=\frac{\exp \left(W_{y} \cdot x\right)}{\sum_{c=1}^{C} \exp \left(W_{c} \cdot x\right)}</script><p>For each training example (x,y), to <strong>maximize the probability of the correct class</strong> <em>y</em>, or <strong>minimize the negative log probability</strong></p>
-<script type="math/tex; mode=display">
--\log p(y | x)=-\log \left(\frac{\exp \left(f_{y}\right)}{\sum_{c=1}^{C} \exp \left(f_{c}\right)}\right)</script><p>FYI: Cross entropy in the full dataset is </p>
-<script type="math/tex; mode=display">
-J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^{C} e^{f_{c}}}\right)</script><h2 id="Neural-networks-introduction"><a href="#Neural-networks-introduction" class="headerlink" title="Neural networks introduction"></a>Neural networks introduction</h2><p>Commonly in NLP deep learning:</p>
-<ul>
-<li>We learn <strong>both</strong> W <strong>and</strong> word vectors X</li>
-<li>We learn <strong>both</strong> conventional parameters <strong>and</strong> representations</li>
-</ul>
-<script type="math/tex; mode=display">
-\nabla_{\theta} J(\theta)=\left[\begin{array}{c}{\nabla_{W_{1}}} \\ {\vdots} \\ {\nabla_{W_{d}}} \\ {\nabla_{x_{a a r d v a r k}}} \\ {\vdots} \\ {\nabla_{x_{z e b r a}}}\end{array}\right] \in \mathbb{R}^{C d+V d}</script><h2 id="Named-Entity-Recognition"><a href="#Named-Entity-Recognition" class="headerlink" title="Named Entity Recognition"></a>Named Entity Recognition</h2><p>The task: <strong>find</strong> and <strong>classify</strong> name in text.</p>
-<h3 id="NER-on-word-sequences"><a href="#NER-on-word-sequences" class="headerlink" title="NER on word sequences"></a>NER on word sequences</h3><p>We predict entities by classifying words in context and then extracting entities as word subsequences.</p>
-<p>BIAO encoding </p>
-<h3 id="Why-might-NER-be-hard"><a href="#Why-might-NER-be-hard" class="headerlink" title="Why might NER be hard?"></a>Why might NER be hard?</h3><ul>
-<li>hard to work out boundaries of entity</li>
-<li>hard to know if something is an entity</li>
-<li>hard to know class of unknown/novel entity</li>
-<li>entity class is ambiguous and depends on context</li>
-</ul>
-<h2 id="Binary-true-vs-corrupted-word-window-classification"><a href="#Binary-true-vs-corrupted-word-window-classification" class="headerlink" title="Binary true vs. corrupted word window classification"></a>Binary true vs. corrupted word window classification</h2><h3 id="Binary-word-window-classification"><a href="#Binary-word-window-classification" class="headerlink" title="Binary word window classification"></a>Binary word window classification</h3><p>Problem: ambiguity</p>
-<p>Idea: <strong>classify a word in its context window</strong> of neighboring words.</p>
-<p>Solution: train softmax classifer to classify a center word by taking <strong>concatenation of word vectors surrounding it</strong> in a window</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2235,7 +2158,7 @@ J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2257,7 +2180,7 @@ J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

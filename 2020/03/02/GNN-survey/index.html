@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
 <meta property="og:description" content="Background and DefinitionsBackgroundEarly studies fall into the category of recurrent graph neural networks(RecGNNs). With the success of CNNs,  new approach developed. (ConvGNNs)  ConvGNNs are divide">
 <meta property="article:published_time" content="2020-03-02T04:56:21.000Z">
-<meta property="article:modified_time" content="2020-03-04T12:57:00.983Z">
+<meta property="article:modified_time" content="2020-03-10T04:39:12.629Z">
 <meta property="article:author" content="Xinyi HU">
 <meta property="article:tag" content="GNN">
 <meta name="twitter:card" content="summary">
@@ -317,7 +317,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  646
+                  429
                 </span>
               
 
@@ -333,7 +333,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  2
                 </span>
               
             </div>
@@ -363,21 +363,7 @@
 <h1 id="Categorization-and-Frameworks"><a href="#Categorization-and-Frameworks" class="headerlink" title="Categorization and Frameworks"></a>Categorization and Frameworks</h1><p>Recurrent Neural Network - aim to learn node representations with recurrent neural architectures.</p>
 <p>Convolutional graph neural networks - generate a node $v$’s representation by aggregating its own features $x_v$ and neighbors’ features $x_u$, where $u \in N(v)$ </p>
 <p>Graph autoencoders(GAE)  learn network embeddings and graph generative distributions</p>
-<h1 id="How-powerful-is-Graph-Neural-Networks"><a href="#How-powerful-is-Graph-Neural-Networks" class="headerlink" title="How powerful is Graph Neural Networks?"></a>How powerful is Graph Neural Networks?</h1><p>GNNs follow a neighborhood aggregation scheme, where the representation vector of a node is computed by recursively aggregating and transforming representation vectors of its neighboring nodes. </p>
-<p>There are two tasks of interest: </p>
-<p>(1) Node classiﬁcation</p>
-<p>(2) Graph classiﬁcation</p>
-<p> Formally, the k-th layer of a GNN is</p>
-<script type="math/tex; mode=display">
-a_{v}^{(k)}=\operatorname{AGGREGATE}^{(k)}\left(\left\{h_{u}^{(k-1)}: u \in \mathcal{N}(v)\right\}\right), \quad h_{v}^{(k)}=\mathrm{COMBINE}^{(k)}\left(h_{v}^{(k-1)}, a_{v}^{(k)}\right)</script><p> In the pooling variant of GraphSAGE, AGGREGATE has been formulated as </p>
-<script type="math/tex; mode=display">
-a_{v}^{(k)}=\operatorname{MAX}\left(\left\{\operatorname{ReLU}\left(W \cdot h_{u}^{(k-1)}\right), \forall u \in \mathcal{N}(v)\right\}\right)</script><p>and COMBINE could be concatenation followed by a linear mapping </p>
-<script type="math/tex; mode=display">
-W \cdot [h_{v}^{(k-1)}, a_{v}^{(k)}]</script><p>Graph Convolutional Networks (GCN) - the element-wise <em>mean</em> pooling is used. AGGREGATE and COMBINE step</p>
-<script type="math/tex; mode=display">
-h_{v}^{(k)}=\operatorname{ReLU}\left(W \cdot \operatorname{MEAN}\left\{h_{u}^{(k-1)}, \forall u \in \mathcal{N}(v) \cup\{v\}\right\}\right)</script><p>the READOUT function aggregates node features from the ﬁnal iteration to obtain the entire graph’s representation $h_G$</p>
-<script type="math/tex; mode=display">
-h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</script>
+
       
     </div>
     
@@ -416,6 +402,10 @@ h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</s
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/08/CMU-cryptography/" rel="prev" title="CMU cryptography lecture 1">
+                CMU cryptography lecture 1 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -496,7 +486,7 @@ h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</s
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -518,7 +508,7 @@ h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</s
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -573,7 +563,7 @@ h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</s
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background-and-Definitions"><span class="nav-number">1.</span> <span class="nav-text">Background and Definitions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Definitions"><span class="nav-number">1.2.</span> <span class="nav-text">Definitions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Categorization-and-Frameworks"><span class="nav-number">2.</span> <span class="nav-text">Categorization and Frameworks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-powerful-is-Graph-Neural-Networks"><span class="nav-number">3.</span> <span class="nav-text">How powerful is Graph Neural Networks?</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background-and-Definitions"><span class="nav-number">1.</span> <span class="nav-text">Background and Definitions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Definitions"><span class="nav-number">1.2.</span> <span class="nav-text">Definitions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Categorization-and-Frameworks"><span class="nav-number">2.</span> <span class="nav-text">Categorization and Frameworks</span></a></li></ol></div>
             
 
           </div>
