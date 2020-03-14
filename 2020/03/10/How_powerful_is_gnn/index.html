@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
 <meta property="og:description" content="How powerful is Graph Neural Networks?GNNs follow a neighborhood aggregation scheme, where the representation vector of a node is computed by recursively aggregating and transforming representation ve">
 <meta property="article:published_time" content="2020-03-10T04:56:21.000Z">
-<meta property="article:modified_time" content="2020-03-10T04:52:29.512Z">
+<meta property="article:modified_time" content="2020-03-13T15:48:35.364Z">
 <meta property="article:author" content="Xinyi HU">
 <meta property="article:tag" content="GNN">
 <meta name="twitter:card" content="summary">
@@ -317,7 +317,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  424
+                  1k
                 </span>
               
 
@@ -333,7 +333,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  6
                 </span>
               
             </div>
@@ -368,13 +368,32 @@ W \cdot [h_{v}^{(k-1)}, a_{v}^{(k)}]</script><p>Graph Convolutional Networks (GC
 <script type="math/tex; mode=display">
 h_{v}^{(k)}=\operatorname{ReLU}\left(W \cdot \operatorname{MEAN}\left\{h_{u}^{(k-1)}, \forall u \in \mathcal{N}(v) \cup\{v\}\right\}\right)</script><p>the READOUT function aggregates node features from the ﬁnal iteration to obtain the entire graph’s representation $h_G$</p>
 <script type="math/tex; mode=display">
-h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</script><p><strong>Deﬁnition1 (Multiset).</strong> A multiset is a generalized concept of a set that allows multiple instances for its elements. More formally, a multiset is a 2-tuple $X = (S,m)$ where $S$ is the underlying set of $X$ that is formed from its distinct elements, and $m : S \rightarrow N_{\geq 1}$ gives the multiplicity of the elements. </p>
-<p><strong>Lemma2</strong>. Let $G_1$ and $G_2$ be any two non-isomorphic graphs. If a graph neural network $A : G→R^d $ maps $G_1$ and $G_2$ to different embeddings, the Weisfeiler-Lehman graph isomorphism test also decides $G_1$ and $G_2$ are not isomorphic. </p>
-<p><strong>Theorem 3</strong>. Let $A : G → R^d$ be a GNN. With a sufﬁcient number of GNN layers, A maps any graphs $G_1$ and $G_2$ that the Weisfeiler-Lehman test of isomorphism decides as non-isomorphic, to different embeddings if the following conditions hold: </p>
+h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</script><p><strong>Deﬁnition1 (Multiset).</strong> A multiset is a generalized concept of a set that allows multiple instances for its elements. More formally, a multiset is a 2-tuple $X = (S,m)$ where $S$ is the underlying set of $X$ that is formed from its distinct elements, and $m : S \rightarrow \mathbb{N}_{\geq 1}$ gives the multiplicity of the elements. </p>
+<p><strong>Lemma2</strong>. Let $G_1$ and $G_2$ be any two non-isomorphic graphs. If a graph neural network $A : G→\mathbb{R}^d $ maps $G_1$ and $G_2$ to different embeddings, the Weisfeiler-Lehman graph isomorphism test also decides $G_1$ and $G_2$ are not isomorphic. </p>
+<p><strong>Theorem 3</strong>. Let $A : G → \mathbb{R}^d$ be a GNN. With a sufﬁcient number of GNN layers, A maps any graphs $G_1$ and $G_2$ that the Weisfeiler-Lehman test of isomorphism decides as non-isomorphic, to different embeddings if the following conditions hold: </p>
 <p>a) $A$ aggregates and updates node features iteratively with </p>
 <script type="math/tex; mode=display">
 h_{v}^{(k)}=\phi\left(h_{v}^{(k-1)}, f\left(\left\{h_{u}^{(k-1)}: u \in \mathcal{N}(v)\right\}\right)\right)</script><p>where the functions $f$, which operates on multisets, and $φ$ are injective. </p>
 <p>b) $A$’s graph-level readout, which operates on the multiset of node features ${h_{v}^{(k)}}$, is injective. </p>
+<p><strong>Lemma4</strong>. Assume the input feature space $\mathcal{X}$ is <em>countable</em>. Let $g^{(k)}$ be the function parameterized by a GNN’s k-th layer for $k = 1,…,L$, where $g^{(1)}$ is deﬁned on multisets $X \subset \mathcal{X}$ of bounded size. The range of $g^{(k)}$, i.e., the space of node hidden features ${h_{v}^{(k)}}$, is also countable for all  $k = 1,…,L$.</p>
+<p><em>countable</em>: If a set A has the same cardinality as $\mathbb{N}$, then we say that A is <em>countable</em>.</p>
+<p><strong>Lemma5</strong>. Assume $\mathcal{X}$ is countable. There exists a function $f : \mathcal{X} →\mathbb{R}^n$ so that  $h(X) =\sum _{x\in X} f(x)$ is unique for each multiset  $X \subset \mathcal{X}$  of bounded size. Moreover, any multiset function $g$ can be decomposed as $g (X) = \varphi(\sum _{x\in X} f(x))$ for some function $\varphi$.</p>
+<p><strong>Corollary 6</strong>. Assume $\mathcal{X}$ is countable. There exists a function $f : \mathcal{X} →\mathbb{R}^n$ so that for inﬁnitely many choices of $\epsilon$, including all irrational numbers, $h(c,X) = (1 + \epsilon) · f(c) + \sum_{x \in X} f(x)$ is unique for each pair $(c,X)$, where $c \in \mathcal{X}$ and $X \subset \mathcal{X}$ is a multiset of bounded size. Moreover, any function $g$ over such pairs can be decomposed as $g (c,X) = \varphi((1 + \epsilon)·f(c) + \sum_{x\in X} f(x))$ for some function $\varphi$. </p>
+<h2 id="GIN-GRAPH-ISOMORPHISM-NETWORK"><a href="#GIN-GRAPH-ISOMORPHISM-NETWORK" class="headerlink" title="GIN - GRAPH ISOMORPHISM NETWORK"></a>GIN - GRAPH ISOMORPHISM NETWORK</h2><p>To update node representation - </p>
+<script type="math/tex; mode=display">
+h_{v}^{(k)}=\operatorname{MLP}^{(k)}\left(\left(1+\epsilon^{(k)}\right) \cdot h_{v}^{(k-1)}+\sum_{u \in \mathcal{N}(v)} h_{u}^{(k-1)}\right)</script><p>node learnt can be directly used for tasks like <strong>node classification and link prediction</strong>.</p>
+<p>Readout function for graph classiﬁcation tasks. Given embeddings of individual nodes, readout function produces the embedding of the entire graph. </p>
+<script type="math/tex; mode=display">
+h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} | v \in G\right\}\right) | k=0,1, \ldots, K\right)</script><h2 id="GNN-GRAPH-NEURAL-NETWORK"><a href="#GNN-GRAPH-NEURAL-NETWORK" class="headerlink" title="GNN - GRAPH NEURAL NETWORK"></a>GNN - GRAPH NEURAL NETWORK</h2><p>GNN do not satisfy the conditions in Theorem 3, and we conduct ablation studies in </p>
+<p>*An ablation study typically refers to removing some “feature” of the model or algorithm, and seeing how that affects performance.</p>
+<p>(1) 1-layer perceptrons instead of MLPs</p>
+<p>We are interested in understanding whether 1-layer perceptrons are enough for graph learning.</p>
+<p><strong>Lemma 7.</strong> There exist ﬁnite multisets $X1 \neq X2$ so that for any linear mapping $W$, $\sum_{x\in X_1} ReLU(Wx) =\sum_{x\in X_2} ReLU(Wx). $</p>
+<p>(2) mean or max-pooling instead of the sum.</p>
+<p>Mean learns distributions, and max-pooling learns sets with distinct elements.</p>
+<p>Consider $X_1 = (S,m)$ and $X_2 = (S,k ·m)$, where $X_1$ and $X_2$ have the same set of distinct elements, but $X_2$ contains $k$ copies of each element of $X_1$.</p>
+<p><strong>Corollary 8.</strong> Assume $X$ is countable. There exists a function $f : \mathcal{X} → \mathbb{R^n}$ so that for $h(X) = \frac{1}{|X|}\sum{x\in X} f(x), h(X_1) = h(X_2)$ if and only if multisets $X_1$ and $X_2$ have the same distribution. That is, assuming $|X_2|\geq|X_1|$, we have $X_1 = (S,m)$ and $X_2 = (S,k\cdot m)$ for some $k \in \mathbb{N}_{\geq 1}.$</p>
+<p><strong>Corollary 9</strong>. Assume $X$  is countable. Then there exists a function $f : X → \mathbb{R}^{\infty}$ so that for $h(X) = max_{x\in X} f(x), h(X_1) = h(X_2)$ if and only if $X_1$ and $X_2$ have the same underlying set. </p>
 
       
     </div>
@@ -405,8 +424,8 @@ h_{v}^{(k)}=\phi\left(h_{v}^{(k-1)}, f\left(\left\{h_{u}^{(k-1)}: u \in \mathcal
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/08/CMU-cryptography/" rel="next" title="CMU cryptography lecture 1">
-                <i class="fa fa-chevron-left"></i> CMU cryptography lecture 1
+              <a href="/2020/03/08/cmu_cryptography_lecture1/" rel="next" title="CMU cryptography lecture 1 notes">
+                <i class="fa fa-chevron-left"></i> CMU cryptography lecture 1 notes
               </a>
             
           </div>
@@ -414,6 +433,10 @@ h_{v}^{(k)}=\phi\left(h_{v}^{(k-1)}, f\left(\left\{h_{u}^{(k-1)}: u \in \mathcal
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/12/cmu_cryptography_mentor1/" rel="prev" title="CMU cryptography mentor session 1 notes">
+                CMU cryptography mentor session 1 notes <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -494,7 +517,7 @@ h_{v}^{(k)}=\phi\left(h_{v}^{(k-1)}, f\left(\left\{h_{u}^{(k-1)}: u \in \mathcal
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -571,7 +594,7 @@ h_{v}^{(k)}=\phi\left(h_{v}^{(k-1)}, f\left(\left\{h_{u}^{(k-1)}: u \in \mathcal
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-powerful-is-Graph-Neural-Networks"><span class="nav-number">1.</span> <span class="nav-text">How powerful is Graph Neural Networks?</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-powerful-is-Graph-Neural-Networks"><span class="nav-number">1.</span> <span class="nav-text">How powerful is Graph Neural Networks?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GIN-GRAPH-ISOMORPHISM-NETWORK"><span class="nav-number">1.1.</span> <span class="nav-text">GIN - GRAPH ISOMORPHISM NETWORK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GNN-GRAPH-NEURAL-NETWORK"><span class="nav-number">1.2.</span> <span class="nav-text">GNN - GRAPH NEURAL NETWORK</span></a></li></ol></li></ol></div>
             
 
           </div>

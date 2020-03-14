@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="cryptography," />
 
 
 
@@ -79,15 +79,16 @@
 
 
 
-<meta name="description" content="Course Link(including Slides and Materials) Online Video Link Online Video Link in Chinese Course 1 - Introduction and Word VectorsLanguage isn’t a formal system. Language is glorious chaos. by Chris">
+<meta name="description" content="Lecture1 - IntroductionTeaching Assistant: Xinyi Hu In the first week, we talked about cryptography’s first goal, the three algorithms of a secret key encryption, 3 classical ciphers and how to break">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Stanford CS224n Natural Language Processing Course1">
-<meta property="og:url" content="http://nobugs.dev/2020/01/31/CS224n%20Classnotes%20Course1/index.html">
+<meta property="og:title" content="CMU cryptography lecture 1 notes">
+<meta property="og:url" content="http://nobugs.dev/2020/03/08/cmu_cryptography_lecture1/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
-<meta property="og:description" content="Course Link(including Slides and Materials) Online Video Link Online Video Link in Chinese Course 1 - Introduction and Word VectorsLanguage isn’t a formal system. Language is glorious chaos. by Chris">
-<meta property="article:published_time" content="2020-01-31T13:57:23.000Z">
-<meta property="article:modified_time" content="2020-03-14T11:18:47.585Z">
+<meta property="og:description" content="Lecture1 - IntroductionTeaching Assistant: Xinyi Hu In the first week, we talked about cryptography’s first goal, the three algorithms of a secret key encryption, 3 classical ciphers and how to break">
+<meta property="article:published_time" content="2020-03-08T01:27:35.000Z">
+<meta property="article:modified_time" content="2020-03-10T04:55:19.539Z">
 <meta property="article:author" content="Xinyi HU">
+<meta property="article:tag" content="cryptography">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://nobugs.dev/2020/01/31/CS224n Classnotes Course1/"/>
+  <link rel="canonical" href="http://nobugs.dev/2020/03/08/cmu_cryptography_lecture1/"/>
 
 
 
 
 
-  <title>Stanford CS224n Natural Language Processing Course1 | Xinyi's gadget</title>
+  <title>CMU cryptography lecture 1 notes | Xinyi's gadget</title>
   
 
 
@@ -255,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/01/31/CS224n%20Classnotes%20Course1/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/08/cmu_cryptography_lecture1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi HU">
@@ -272,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Stanford CS224n Natural Language Processing Course1</h1>
+          <h1 class="post-title" itemprop="name headline">CMU cryptography lecture 1 notes</h1>
         
 
         <div class="post-meta">
@@ -284,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-31T21:57:23+08:00">
-                2020-01-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T09:27:35+08:00">
+                2020-03-08
               </time>
             
 
@@ -294,28 +295,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -338,7 +317,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  498
+                  462
                 </span>
               
 
@@ -354,7 +333,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  2
                 </span>
               
             </div>
@@ -375,77 +354,52 @@
       
 
       
-        <p><a href="http://web.stanford.edu/class/cs224n/index.html#schedule" target="_blank" rel="noopener"><strong>Course Link(including Slides and Materials)</strong></a></p>
-<p><a href="http://onlinehub.stanford.edu/cs224" target="_blank" rel="noopener"><strong>Online Video Link</strong></a></p>
-<p><a href="https://www.bilibili.com/video/av46216519" target="_blank" rel="noopener"><strong>Online Video Link in Chinese</strong></a></p>
-<h1 id="Course-1-Introduction-and-Word-Vectors"><a href="#Course-1-Introduction-and-Word-Vectors" class="headerlink" title="Course 1 - Introduction and Word Vectors"></a>Course 1 - Introduction and Word Vectors</h1><p>Language isn’t a formal system. Language is glorious chaos. <em>by Chris Manning</em></p>
-<p><strong>Target</strong></p>
+        <h1 id="Lecture1-Introduction"><a href="#Lecture1-Introduction" class="headerlink" title="Lecture1 - Introduction"></a>Lecture1 - Introduction</h1><p>Teaching Assistant: Xinyi Hu</p>
+<p>In the first week, we talked about cryptography’s first goal, the three algorithms of a secret key encryption, 3 classical ciphers and how to break them. The detailed class notes are as follows.</p>
+<p>Cryptography’s first goal is to keep secret communication.</p>
+<p>A secret key encryption(SKE) consists of 3 algorithms:</p>
 <ul>
-<li>Modern methods: Recurrent networks, attentions</li>
-<li>Big Picture</li>
-<li>Build system in PyTorch: Word meaning, dependency parsing, machine translation, question answering.</li>
+<li>Gen - generation algorithm</li>
+<li>Enc - encryption algorithm</li>
+<li>Dec - decryption algorithm</li>
 </ul>
-<h2 id="1-how-do-we-represent-the-meaning-of-a-word"><a href="#1-how-do-we-represent-the-meaning-of-a-word" class="headerlink" title="1. how do we represent the meaning of a word?"></a>1. how do we represent the meaning of a word?</h2><p>signifier(symbol) &lt;=&gt; signified(idea or thing) = denotational semantics</p>
-<h2 id="2-how-do-we-have-usable-meaning-in-a-computer"><a href="#2-how-do-we-have-usable-meaning-in-a-computer" class="headerlink" title="2. how do we have usable meaning in a computer?"></a>2. how do we have usable meaning in a computer?</h2><p><strong>Common Solution</strong> Use e.g. WordNet containing lists of <strong>synonym sets</strong> and <strong>hypernyms</strong></p>
-<p><strong>Problems</strong> </p>
+<p>Some classical ciphers </p>
 <ul>
-<li>missing nuance: proficient = good in some contexts</li>
-<li>new meanings of words: wicked, badass, ninja</li>
-<li>Subjective</li>
-<li>Requires human labor to create and adapt</li>
-<li>Can’t compute accurate and word similarity</li>
+<li>Caesar Cipher - shift by 3</li>
+<li>Substitution Cipher - can be broken by frequency analysis</li>
+<li>Vigenere cipher - can be broken by frequency analysis</li>
 </ul>
-<h3 id="Representing-words-as-discrete-symbols"><a href="#Representing-words-as-discrete-symbols" class="headerlink" title="Representing words as discrete symbols"></a>Representing words as discrete symbols</h3><p><strong>one-hot vectors</strong> =&gt; <strong>encode similarity in the vector themselves</strong></p>
-<p><strong>Distributional semantics</strong>: A word’s meaning is given by the words that frequently appear close-by.</p>
-<p><strong>Word Vectors</strong>: a dense vector for each word, chosen so that it is similar to vectors of words that appear in similar contexts.</p>
-<p>Note: Word Vectors = Word Embeddings = Word Representations. All distributed representation</p>
-<script type="math/tex; mode=display">
-banking = \left[
- \begin{matrix}
-   0.286 \\
-   0.792  \\
-   -0.177 \\
-   -0.107 \\
-   0.109 \\
-   -0.542\\
-   0.349\\
-   0.271\\
-   0.487
-  \end{matrix}
-  \right] \tag{1}</script><h2 id="3-Word2Vec-Overview"><a href="#3-Word2Vec-Overview" class="headerlink" title="3. Word2Vec: Overview"></a>3. Word2Vec: Overview</h2><p>Idea:</p>
+<p>Homework:</p>
 <ul>
-<li>a large corpus of text</li>
-<li>every word in a fixed vocabulary is represented by a <strong>vector</strong></li>
-<li>go through each position <em>t</em> in the text, which has a center word <em>c</em> and context words <em>o</em></li>
-<li>Use the <strong>similarity of the word vectors</strong> for <em>c</em> and <em>o</em> to <strong>calculate the probability</strong> of <em>o</em> given <em>c</em></li>
-<li><strong>Keep Adjusting the word vectors</strong> to maximize this probability</li>
+<li>Read <a href="http://norvig.com/mayzner.html" target="_blank" rel="noopener">http://norvig.com/mayzner.html</a></li>
+<li>Exercises to think about:<ul>
+<li>You are given a ciphertext encrypted under Caesar cipher: “ibbiks eqbp nctt nwzkm ia awwv ia bpm acv zqama”. Recover the key and the plaintext.</li>
+<li>Review the slides for this class as well as the next class</li>
+<li>Read about digital signature, public key encryption and private key encryption. See their applications. See how they are different. </li>
+<li>Read about modular exponentiation if you can (and if you are done with the first 3 exercises)</li>
 </ul>
-<script type="math/tex; mode=display">
-likelihood = L(\theta) = \prod_{t=1}^{T} \prod_{-m \leq j \leq m \atop j \neq 0} P\left(w_{t+j} | w_{t} ; \theta\right)</script><p>Note: theta is all variables to be optimized</p>
-<h3 id="Objective-function-J"><a href="#Objective-function-J" class="headerlink" title="Objective function J"></a>Objective function J</h3><p>sometimes called <strong>cost / loss function</strong></p>
-<script type="math/tex; mode=display">
-J(\theta)=-\frac{1}{T} \log L(\theta)=-\frac{1}{T} \sum_{t=1}^{T} \sum_{-m \leq j \leq m} \log P\left(w_{t+j} | w_{t} ; \theta\right)</script><p><strong>Minimizing objective function &lt;=&gt; Maximizing predictive accuracy</strong></p>
-<p><em>Question: How to calculate P?</em></p>
-<p><em>Answer: We use two vectors per word w</em></p>
-<ul>
-<li><code>v_w</code> when <em>w</em> is a center word</li>
-<li><code>u_w</code> when <em>w</em> is a context word</li>
-</ul>
-<p>Then for a center word <em>c</em> and a context word <em>o</em>:</p>
-<h3 id="Prediction-function"><a href="#Prediction-function" class="headerlink" title="Prediction function"></a>Prediction function</h3><script type="math/tex; mode=display">
-P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w}^{T} v_{c}\right)}</script><h3 id="To-train-the-model-Compute-all-vector-gradients"><a href="#To-train-the-model-Compute-all-vector-gradients" class="headerlink" title="To train the model: Compute all vector gradients"></a>To train the model: Compute all vector gradients</h3><ul>
-<li><p>Recall: theta represents <strong>all</strong> model parameters, in one long vector</p>
-</li>
-<li><p>In our cases</p>
 </li>
 </ul>
-<script type="math/tex; mode=display">
-\theta=\left[\begin{array}{l}{v_{\text {aardvark}}} \\ {v_{a}} \\ {\vdots} \\ {v_{z e b r a}} \\ {u_{\text {aardvark}}} \\ {u_{a}} \\ {\vdots} \\ {u_{z e b r a}}\end{array}\right] \in \mathbb{R}^{2 d V}</script><ul>
-<li><p>Remember: every word has two vectors</p>
-</li>
-<li><p>We optimize these parameters by walking down the gradient</p>
-</li>
+<p>Extra materials for this course: </p>
+<ul>
+<li><a href="http://www.cs.cmu.edu/~goyal/s18/15503.html" target="_blank" rel="noopener">http://www.cs.cmu.edu/~goyal/s18/15503.html</a></li>
+<li>Katz and Lindell book: Introduction to Modern Cryptography</li>
 </ul>
+<p>Questions:</p>
+<p>Q1: Does the ‘spacebar’ count when encrypting?</p>
+<p>A1: Frequency analysis.</p>
+<p>Q2: In Vigenere cipher, if we generate a random string equal the ciphertext length, how to attack this one?</p>
+<p>A2: Guess the length of Vigenere cipher, then use frequency analysis.</p>
+<p>Q3: As you mention before, we can break the Caeser cipher by finding the frequency. If we encrypt the plaintext by using the same keys again and again, it will be almost impossible to analyze the frequency. if you shift by 2 say 3 times, its same as shifting once by 6.</p>
+<p>A3: No, even if you encrypt again and again using the same key, frequency analysis should still work<br>encrypting with the same key many times is no different than encryption with another key once</p>
+<p>Q4: how does the “attack” shift “cuycdp”</p>
+<p>A4:  Using the alphabet, A matchs 1, B matchs 2, …, Z matchs 26. (or A matchs 0, B matchs 1, …, Z matchs 25, they are the same). Key is BAEBAE. Add ATTACK and BAEBAE separately, you can get CUYCDP. </p>
+<p>Q5: why t mapped to r ,h mapped to,is it fixed</p>
+<p>A5: It’s already defined. </p>
+<p>Q6: In Vigenere cipher, if the length of random string is not equal to message, there are some extra letters left. How can we deal with them?</p>
+<p>A6: Repeat to make it equal to message length</p>
+<p>Q7: i search the vigenere cipher on the Internet, the ciphertext of “ATTACK” is “BTXBCO” instead of “CUYCDP”, according to a table, why?</p>
+<p>A7: You can select key you like in vigenere cipher. The ciphertext depends upon the key as well.</p>
 
       
     </div>
@@ -461,6 +415,12 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/cryptography/" rel="tag"># cryptography</a>
+          
+        </div>
+      
 
       
       
@@ -470,8 +430,8 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/30/MYSQL_Leetcode/" rel="next" title="Leetcode MySQL cases">
-                <i class="fa fa-chevron-left"></i> Leetcode MySQL cases
+              <a href="/2020/03/02/GNN-survey/" rel="next" title="GNN survey">
+                <i class="fa fa-chevron-left"></i> GNN survey
               </a>
             
           </div>
@@ -480,8 +440,8 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/02/01/CS224n%20Classnotes%20Course2/" rel="prev" title="Stanford CS224n Natural Language Processing Course2">
-                Stanford CS224n Natural Language Processing Course2 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/03/10/How_powerful_is_gnn/" rel="prev" title="How powerful is Graph Neural Networks?">
+                How powerful is Graph Neural Networks? <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -640,7 +600,7 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-1-Introduction-and-Word-Vectors"><span class="nav-number">1.</span> <span class="nav-text">Course 1 - Introduction and Word Vectors</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-how-do-we-represent-the-meaning-of-a-word"><span class="nav-number">1.1.</span> <span class="nav-text">1. how do we represent the meaning of a word?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-how-do-we-have-usable-meaning-in-a-computer"><span class="nav-number">1.2.</span> <span class="nav-text">2. how do we have usable meaning in a computer?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Representing-words-as-discrete-symbols"><span class="nav-number">1.2.1.</span> <span class="nav-text">Representing words as discrete symbols</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Word2Vec-Overview"><span class="nav-number">1.3.</span> <span class="nav-text">3. Word2Vec: Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Objective-function-J"><span class="nav-number">1.3.1.</span> <span class="nav-text">Objective function J</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prediction-function"><span class="nav-number">1.3.2.</span> <span class="nav-text">Prediction function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#To-train-the-model-Compute-all-vector-gradients"><span class="nav-number">1.3.3.</span> <span class="nav-text">To train the model: Compute all vector gradients</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture1-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Lecture1 - Introduction</span></a></li></ol></div>
             
 
           </div>
