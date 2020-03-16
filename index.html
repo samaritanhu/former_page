@@ -252,6 +252,240 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/16/CS224n%20Classnotes%20Course7/" itemprop="url">Stanford CS224n Natural Language Processing Course7 - ongoing</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23+08:00">
+                2020-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  757
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-7-Vanishing-Gradients-Fancy-RNN"><a href="#Course-7-Vanishing-Gradients-Fancy-RNN" class="headerlink" title="Course 7 - Vanishing Gradients, Fancy RNN"></a>Course 7 - Vanishing Gradients, Fancy RNN</h1><h2 id="Vanishing-Gradients"><a href="#Vanishing-Gradients" class="headerlink" title="Vanishing Gradients"></a>Vanishing Gradients</h2><p>Gradient can be viewed as a measure of <em>the effect of the past on the future</em></p>
+<ul>
+<li>There is no dependency between step $t$ and $t+n$ in the data</li>
+<li>We have wrong parameters to capture the true dependency between  $t$ and $t+n$ </li>
+</ul>
+<h2 id="Effect-of-vanishing-gradient-on-RNN-LM"><a href="#Effect-of-vanishing-gradient-on-RNN-LM" class="headerlink" title="Effect of vanishing gradient on RNN-LM"></a>Effect of vanishing gradient on RNN-LM</h2><p>LM task - unable to predict similar long-distance dependencies</p>
+<p>Syntactic recency: The <em>writer</em> of the books <strong>is</strong></p>
+<p>Sequential recency: The writer of <em>books</em> <strong>are</strong></p>
+<p>Due to vanishing gradient, RNN-LMs are better at learning from sequential recency than syntactic </p>
+<h2 id="Why-is-exploding-gradient-a-problem"><a href="#Why-is-exploding-gradient-a-problem" class="headerlink" title="Why is exploding gradient a problem?"></a>Why is exploding gradient a problem?</h2><script type="math/tex; mode=display">
+\theta^{new} = \theta^{old}-\alpha \nabla_{\theta} J(\theta)</script><h3 id="Solution-gradient-clipping"><a href="#Solution-gradient-clipping" class="headerlink" title="Solution: gradient clipping"></a>Solution: gradient clipping</h3><p>Algorithm 1: Pseudo-code for norm clipping</p>
+<p>$\hat{g} \leftarrow \frac{\partial \epsilon}{\partial \theta}$</p>
+<p>if $||\hat{g}|| \geq threshold $ then</p>
+<p>​    $\hat{g} \leftarrow \frac{threshold}{||\hat{g}||} \hat{g}$</p>
+<p>end if </p>
+<h2 id="Long-Short-Term-Memory-LSTM"><a href="#Long-Short-Term-Memory-LSTM" class="headerlink" title="Long Short-Term Memory(LSTM)"></a>Long Short-Term Memory(LSTM)</h2><p>On step $t$, there is a hidden state $h^{(t)}$ and a cell state $c^{(t)}$</p>
+<ul>
+<li>Both are vectors length $n$</li>
+<li>The cell stores long-term information</li>
+<li>The LSTM can erase, write and read information from the cell</li>
+</ul>
+<p>The selection is controlled by 3 corresponding <strong>gates</strong></p>
+<ul>
+<li>vector length $n$</li>
+<li>each element of the gates can be open(1), closed(0), or in between</li>
+<li>dynamic: their value is computed based on the current context</li>
+</ul>
+<p>We have a sequence of input $x^{(t)}$, and we will compute a sequence of hidden states $h^{(t)}$ and cell states $c^{(t)}$. On timestep $t$:</p>
+<p>Forget gate - controls what is kept vs forgotten, from previous cell state</p>
+<script type="math/tex; mode=display">
+\boldsymbol{f}^{(t)}={\sigma}\left(\boldsymbol{W}_{f} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{f} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{f}\right)</script><p>Input gate - controls what parts of the new cell content are written to cell</p>
+<script type="math/tex; mode=display">
+\boldsymbol{i}^{(t)}=\sigma\left(\boldsymbol{W}_{i} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{i} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{i}\right)</script><p>Output gate - controls what parts of cell are output to hidden state</p>
+<script type="math/tex; mode=display">
+\boldsymbol{o}^{(t)}={\sigma}\left(\boldsymbol{W}_{o} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{o} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{o}\right)</script><p>New cell content - this is the new content to be written to the cell</p>
+<script type="math/tex; mode=display">
+\tilde{\boldsymbol{c}}^{(t)}=\tanh \left(\boldsymbol{W}_{c} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{c} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{c}\right)</script><p>Cell state - erase(“forget”) some content from last cell state, and write(“input”) some new cell content</p>
+<script type="math/tex; mode=display">
+\boldsymbol{c}^{(t)}=\boldsymbol{f}^{(t)} \circ \boldsymbol{c}^{(t-1)}+\boldsymbol{i}^{(t)} \circ \tilde{\boldsymbol{c}}^{(t)}</script><p>Hidden state: read(“output”) some content from the cell</p>
+<script type="math/tex; mode=display">
+\boldsymbol{h}^{(t)}=\boldsymbol{o}^{(t)} \circ \tanh \boldsymbol{c}^{(t)}</script><p><img src="/2020/03/16/CS224n%20Classnotes%20Course7/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200316220913640.png" alt="image-20200316220913640"></p>
+<h2 id="Gated-Recurrent-Units-GRU"><a href="#Gated-Recurrent-Units-GRU" class="headerlink" title="Gated Recurrent Units(GRU)"></a>Gated Recurrent Units(GRU)</h2><p>a simpler alternative to the LSTM</p>
+<p>On each timestep $t$ we have input $x^{(t)}$ and hidden state $h^{(t)}$ (no cell state)</p>
+<p>Update gate - controls what parts of hidden state are updated vs preserved</p>
+<script type="math/tex; mode=display">
+\boldsymbol{u}^{(t)}=\sigma\left(\boldsymbol{W}_{u} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{u} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{u}\right)</script><p>Reset gate - controls what parts of previous hidden state are used to compute new content</p>
+<script type="math/tex; mode=display">
+\boldsymbol{r}^{(t)}=\sigma\left(\boldsymbol{W}_{r} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{r} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{r}\right)</script><p>New hidden state content - reset gate selects useful parts of prev hidden state. Use this and current input to compute new hidden content.</p>
+<script type="math/tex; mode=display">
+\tilde{\boldsymbol{h}}^{(t)}=\tanh \left(\boldsymbol{W}_{h}\left(\boldsymbol{r}^{(t)} \circ \boldsymbol{h}^{(t-1)}\right)+\boldsymbol{U}_{h} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{h}\right)</script><p>Hidden state - update gate simultaneously controls what is kept from previous hidden state, and what is updated to new hidden state content</p>
+<script type="math/tex; mode=display">
+\boldsymbol{h}^{(t)}=\left(1-\boldsymbol{u}^{(t)}\right) \circ \boldsymbol{h}^{(t-1)}+\boldsymbol{u}^{(t)} \circ \tilde{\boldsymbol{h}}^{(t)}</script><h2 id="LSTM-vs-GRU"><a href="#LSTM-vs-GRU" class="headerlink" title="LSTM vs GRU"></a>LSTM vs GRU</h2><p>LSTM is a good default choice.</p>
+<p>Rule of thumb: start with LSTM, but switch to GRU if you want something more efficient</p>
+<h2 id="Vanishing-exploding-gradient"><a href="#Vanishing-exploding-gradient" class="headerlink" title="Vanishing/exploding gradient"></a>Vanishing/exploding gradient</h2><p>add more direct connections.</p>
+<p>e.g.: Residual connections, “ResNet”. Skip-connections. The identity connection preserves information by default.</p>
+<p>e.g.: Dense connections, “DenseNet”. </p>
+<p>e.g.:Highway connections, “HighwayNet”.</p>
+<h2 id="Bidirectional-RNNs"><a href="#Bidirectional-RNNs" class="headerlink" title="Bidirectional RNNs"></a>Bidirectional RNNs</h2><p>motivation - task: Sentiment Classification</p>
+<p><img src="/2020/03/16/CS224n%20Classnotes%20Course7/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200317001951410.png" alt="image-20200317001951410"></p>
+<p>Note: bidirection RNNs are only applicable if you have access to the entire input sentence. </p>
+<p>BERT is built on bidirectionality.</p>
+<h2 id="Multi-layer-RNNs-stacked-RNNs"><a href="#Multi-layer-RNNs-stacked-RNNs" class="headerlink" title="Multi-layer RNNs = stacked RNNs"></a>Multi-layer RNNs = stacked RNNs</h2><p>High-performing RNNs are often multi-layer(but aren’t as deep as cn)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/12/cmu_cryptography_mentor1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -565,7 +799,7 @@ x = a^{-1} (y-b) \quad mod \; 26</script><p>Thus, as long as $a$ is not 0 and $a
 <p>There are two tasks of interest: </p>
 <p>(1) Node classiﬁcation</p>
 <p>(2) Graph classiﬁcation</p>
-<p> Formally, the k-th layer of a GNN is</p>
+<p>x Formally, the k-th layer of a GNN is</p>
 <script type="math/tex; mode=display">
 a_{v}^{(k)}=\operatorname{AGGREGATE}^{(k)}\left(\left\{h_{u}^{(k-1)}: u \in \mathcal{N}(v)\right\}\right), \quad h_{v}^{(k)}=\mathrm{COMBINE}^{(k)}\left(h_{v}^{(k-1)}, a_{v}^{(k)}\right)</script><p> In the pooling variant of GraphSAGE, AGGREGATE has been formulated as </p>
 <script type="math/tex; mode=display">
@@ -1162,178 +1396,6 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
 <h1 id="Last"><a href="#Last" class="headerlink" title="Last"></a>Last</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">from torch.autograd import Variable, grad</span><br><span class="line"></span><br><span class="line">SIZE&#x3D;[1, 1, 171*21, 171*21]</span><br><span class="line">input &#x3D; Variable(torch.cuda.FloatTensor(*SIZE).uniform_(), requires_grad&#x3D;True)</span><br><span class="line">conv1 &#x3D; nn.Conv2d(1, 1, kernel_size&#x3D;3, stride&#x3D;1, dilation&#x3D;1, padding&#x3D;1,bias&#x3D;False).cuda()</span><br><span class="line">output &#x3D; conv1(input)</span><br><span class="line">loss &#x3D; output.sum()</span><br><span class="line">loss.backward()</span><br></pre></td></tr></table></figure>
 <p>run this, if no error, you SUCCEED!</p>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/12/CS224n%20Classnotes%20Course7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/12/CS224n%20Classnotes%20Course7/" itemprop="url">Stanford CS224n Natural Language Processing Course7 - ongoing</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-12T20:25:23+08:00">
-                2020-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  6
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Course-7-Vanishing-Gradients-Fancy-RNN"><a href="#Course-7-Vanishing-Gradients-Fancy-RNN" class="headerlink" title="Course 7 - Vanishing Gradients, Fancy RNN"></a>Course 7 - Vanishing Gradients, Fancy RNN</h1>
           
         
       
