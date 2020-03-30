@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="cryptography," />
 
 
 
@@ -79,15 +79,16 @@
 
 
 
-<meta name="description" content="Web Scrawler is dangerousFirst and foremost, do not touch web scrawler if you are 100% sure that you wanna do this. Similar topic:https:&#x2F;&#x2F;nobugs.dev&#x2F;2019&#x2F;07&#x2F;14&#x2F;webscrawler&#x2F; website: enlightent This ti">
+<meta name="description" content="Lecture3 - IntroductionTeaching Assistant: Xinyi Hu In the third week, we talked about hard problems, digital signatures, one-way functions, ElGamal public-key encryption and HTTPS&#x2F;SSL protocol. Digit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China">
-<meta property="og:url" content="http://nobugs.dev/2020/02/10/weibo%20hottopics%20crawler/index.html">
+<meta property="og:title" content="CMU cryptography lecture 3 notes">
+<meta property="og:url" content="http://nobugs.dev/2020/03/21/cmu_cryptography_lecture3/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
-<meta property="og:description" content="Web Scrawler is dangerousFirst and foremost, do not touch web scrawler if you are 100% sure that you wanna do this. Similar topic:https:&#x2F;&#x2F;nobugs.dev&#x2F;2019&#x2F;07&#x2F;14&#x2F;webscrawler&#x2F; website: enlightent This ti">
-<meta property="article:published_time" content="2020-02-10T07:30:40.000Z">
-<meta property="article:modified_time" content="2020-02-10T07:31:46.934Z">
+<meta property="og:description" content="Lecture3 - IntroductionTeaching Assistant: Xinyi Hu In the third week, we talked about hard problems, digital signatures, one-way functions, ElGamal public-key encryption and HTTPS&#x2F;SSL protocol. Digit">
+<meta property="article:published_time" content="2020-03-21T01:27:35.000Z">
+<meta property="article:modified_time" content="2020-03-24T11:35:28.311Z">
 <meta property="article:author" content="Xinyi HU">
+<meta property="article:tag" content="cryptography">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://nobugs.dev/2020/02/10/weibo hottopics crawler/"/>
+  <link rel="canonical" href="http://nobugs.dev/2020/03/21/cmu_cryptography_lecture3/"/>
 
 
 
 
 
-  <title>Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China | Xinyi's gadget</title>
+  <title>CMU cryptography lecture 3 notes | Xinyi's gadget</title>
   
 
 
@@ -255,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/weibo%20hottopics%20crawler/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/21/cmu_cryptography_lecture3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi HU">
@@ -272,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China</h1>
+          <h1 class="post-title" itemprop="name headline">CMU cryptography lecture 3 notes</h1>
         
 
         <div class="post-meta">
@@ -284,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T15:30:40+08:00">
-                2020-02-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-21T09:27:35+08:00">
+                2020-03-21
               </time>
             
 
@@ -294,28 +295,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
-                    <span itemprop="name">Computer Science</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -338,7 +317,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  369
+                  666
                 </span>
               
 
@@ -354,7 +333,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -375,11 +354,32 @@
       
 
       
-        <h3 id="Web-Scrawler-is-dangerous"><a href="#Web-Scrawler-is-dangerous" class="headerlink" title="Web Scrawler is dangerous"></a>Web Scrawler is dangerous</h3><p>First and foremost, do not touch web scrawler if you are 100% sure that you wanna do this.</p>
-<h3 id="Similar-topic"><a href="#Similar-topic" class="headerlink" title="Similar topic:"></a>Similar topic:</h3><p><a href="https://nobugs.dev/2019/07/14/webscrawler/">https://nobugs.dev/2019/07/14/webscrawler/</a></p>
-<p>website: enlightent</p>
-<h3 id="This-time"><a href="#This-time" class="headerlink" title="This time"></a>This time</h3><p>We choose to use the package of <code>requests</code> and package <code>json</code> to get the result of hot topics  in weibo, similar website to twitter which has real-time hot topics, a great way to monitor the public sentiment in China.</p>
-<h3 id="Code-Implementation"><a href="#Code-Implementation" class="headerlink" title="Code Implementation"></a>Code Implementation</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'charset'</span>: <span class="string">"utf-8"</span>,</span><br><span class="line">    <span class="string">'Accept-Encoding'</span>: <span class="string">"gzip"</span>,</span><br><span class="line">    <span class="string">'referer'</span>: <span class="string">"https://servicewechat.com/wx90ae92bbd13ec629/11/page-frame.html"</span>,</span><br><span class="line">    <span class="string">'content-type'</span>: <span class="string">"application/x-www-form-urlencoded"</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">"Mozilla/5.0 (Linux; Android 9; Redmi Note 7 Build/PKQ1.180904.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.91 Mobile Safari/537.36 MicroMessenger/7.0.3.1400(0x2700033B) Process/appbrand0 NetType/WIFI Language/zh_CN"</span>,</span><br><span class="line">    <span class="string">'Host'</span>: <span class="string">"www.eecso.com"</span>,</span><br><span class="line">    <span class="string">'Connection'</span>: <span class="string">"keep-alive"</span>,</span><br><span class="line">    <span class="string">'cache-control'</span>: <span class="string">"no-cache"</span>,</span><br><span class="line">    <span class="string">'Origin'</span>: <span class="string">'https://www.weibotop.cn'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'微博热搜.csv'</span>, <span class="string">'w'</span>, encoding=<span class="string">'gbk'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">'时间,排名,热搜内容,上榜时间,最后时间\n'</span>)</span><br><span class="line"></span><br><span class="line">timeid = <span class="number">77594</span></span><br><span class="line">dateUrl = <span class="string">"https://www.eecso.com/test/weibo/apis/getlatest.php?timeid=&#123;&#125;"</span></span><br><span class="line">contentUrl = <span class="string">"https://www.eecso.com/test/weibo/apis/currentitems.php?timeid=&#123;&#125;"</span></span><br><span class="line">n = <span class="number">1</span></span><br><span class="line">days = <span class="number">42</span> <span class="comment">#需获取2.10往前多少天的数据</span></span><br><span class="line">interval = <span class="number">720</span> <span class="comment">#改为1则是爬所有数据（该网站2分钟记录一次） 24*30 = 720</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    dateResponse = requests.request(<span class="string">"GET"</span>, dateUrl.format(timeid), headers=headers,verify=<span class="keyword">False</span>)</span><br><span class="line">    contentResponse = requests.request(<span class="string">"GET"</span>, contentUrl.format(timeid), headers=headers,verify=<span class="keyword">False</span>)</span><br><span class="line">    timeid = <span class="number">77594</span>-interval*n <span class="comment">#77594为2020/2/10 12:00的timeid，720为一天timeid的间隔</span></span><br><span class="line">    print(timeid)</span><br><span class="line">    n += <span class="number">1</span></span><br><span class="line">    dateJson = json.loads(dateResponse.text)</span><br><span class="line">    json_obj = json.loads(contentResponse.text)</span><br><span class="line">    <span class="comment">#print(dateJson)</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> index,item <span class="keyword">in</span> enumerate(json_obj):</span><br><span class="line">        date = dateJson[<span class="number">1</span>]</span><br><span class="line">        rank = str(index+<span class="number">1</span>)</span><br><span class="line">        hotTopic = item[<span class="number">0</span>]</span><br><span class="line">        onTime = item[<span class="number">1</span>]</span><br><span class="line">        lastTime = item[<span class="number">2</span>]</span><br><span class="line">        save_res = date+<span class="string">","</span>+rank+<span class="string">","</span>+hotTopic+<span class="string">','</span>+onTime+<span class="string">','</span>+lastTime+<span class="string">'\n'</span></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'微博热搜.csv'</span>,<span class="string">'a'</span>,encoding=<span class="string">'gbk'</span>,errors=<span class="string">'ignore'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(save_res)</span><br><span class="line">    <span class="keyword">if</span> n &gt; days:</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+        <h1 id="Lecture3-Introduction"><a href="#Lecture3-Introduction" class="headerlink" title="Lecture3 - Introduction"></a>Lecture3 - Introduction</h1><p>Teaching Assistant: Xinyi Hu</p>
+<p>In the third week, we talked about hard problems, digital signatures, one-way functions, ElGamal public-key encryption and HTTPS/SSL protocol.</p>
+<h3 id="Digital-Signature-数字签名"><a href="#Digital-Signature-数字签名" class="headerlink" title="Digital Signature 数字签名"></a>Digital Signature <a href="https://blog.csdn.net/qq_30505673/article/details/83446390" target="_blank" rel="noopener">数字签名</a></h3><p>1) Gen: A randomized algorithm which outputs VK and SK </p>
+<p>2) Sign: A (possibly randomized) algorithm. Takes input SK and M. Outputs σ. </p>
+<p>3) Verify: Takes input (M, σ, VK). Outputs 0/1.</p>
+<p>Correctness: If (VK, SK) are output of Gen, must have Verify(M, Sign(M, SK), VK) = 1</p>
+<h3 id="One-way-functions"><a href="#One-way-functions" class="headerlink" title="One-way functions"></a>One-way functions</h3><h3 id="ElGamal-public-key-encryption"><a href="#ElGamal-public-key-encryption" class="headerlink" title="ElGamal public-key encryption"></a>ElGamal public-key encryption</h3><p><a href="https://www.jianshu.com/p/9d9a2fae260d" target="_blank" rel="noopener">ElGamal密码体制</a></p>
+<h3 id="Homework-2"><a href="#Homework-2" class="headerlink" title="Homework 2"></a>Homework 2</h3><p>Q1: Consider the one-time digital signature scheme discussed in the lecture. Suppose the adversary can get signatures on any two messages of his choice. Show how the adversary can produce a signature on a third message (different from the first two).</p>
+<p>Q2: Now suppose a signer needs to sign two message securely. How can he choose a public key and a secret key which will allow him to sign 2 different message (while still keeping security intact). </p>
+<p>Q3: Suppose someone gives you an algorithm to solve the CDH problem: it takes as input g, g^a, g^b and output g^ab. Show how you can use this to break Elgamal encryption. </p>
+<p>Q4: You work in the IT department of a company. The company employees need to be able to send encrypted emails to each other. However the employees are constantly joining and leaving and the number of employees is large, so its not possible for the each employee to store the public key corresponding to every email ID. Every employee can trust the IT department. Propose a solution for encrypted email communication.<br>Assume that all adversary is sitting on the network and watching all communication.</p>
+<p>HW5: (only for those who know programming) HW: Write a program to compute modular exponentiation: take g (base), e (exponent), and, N (modulas) as input from the user and output the result. Use an online compiler. Do not use the inbuilt functions to compute this. Also, try to make the program as efficient as possible. In particular, please implement the square and multiply algorithm discussed in the class. </p>
+<h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><p>Q1: In digital signature, I want to know if the possible value of x0[i] or x1[i] is limited, such as only can be 0 or 1. </p>
+<p>A1: Yeah we are signing digital strings<br>So each bit is either 0 or 1<br>If you have a longer string, you can divide into multiple parts</p>
+<p>Q2: In asymmetric encryption, the client and the server share the key. What if the public key is intercepted and changed on the Internet?</p>
+<p>A2: Yeah that’s exactly why we have the notion of certificates. If you use certificates, the certificate will specify the right public key and no adversary can change the certificate</p>
+<p>Q4: What’s the meaning of ‘still hard with better than 1/2’ in DDH problem?</p>
+<p>A4: It mean even if you guess at random, you will be correct with probability half<br>Because you are given two things and you have to decide which one is real and which one is random<br>so certainly with probability half, you can solve it<br>but solving with probability better than half is hard</p>
+<p>Q5: In One-Time Signatures,why is sigma +=x0[i] instead of  sigma[i]=x0[i]?</p>
+<p>A5: Yes correct sigma +=x0[i] means sigma = sigma+ x0[i]. you can concatenating these two strings.</p>
+<p>Q6: Can we change the public key and verify the certification,because we know the VK, and we can try to find a  suitble change that verify the certification.</p>
+<p>A6: No, you can’t find such a public key. on any other public key, the certification would <strong>fail</strong></p>
+<p>Q7: what are the square brackets for</p>
+<p>A7: Square brackets are like an array if you know any programming</p>
+<p>Q8: When we communicate with Google, how can we decrypt the message from Google?</p>
+<p>A8: Google will encrypt the message under the key which you choose<br>so you know the key</p>
 
       
     </div>
@@ -395,6 +395,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/cryptography/" rel="tag"># cryptography</a>
+          
+        </div>
+      
 
       
       
@@ -404,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/10/Functional%20Analysis%20brief%20theorems/" rel="next" title="Walter Rudin, Functional Analysis brief theorems(Chapter General Theory) - ongoing">
-                <i class="fa fa-chevron-left"></i> Walter Rudin, Functional Analysis brief theorems(Chapter General Theory) - ongoing
+              <a href="/2020/03/16/CS224n%20Classnotes%20Course8/" rel="next" title="Stanford CS224n Natural Language Processing Course8">
+                <i class="fa fa-chevron-left"></i> Stanford CS224n Natural Language Processing Course8
               </a>
             
           </div>
@@ -414,8 +420,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/02/10/CS224n%20Classnotes%20Course6/" rel="prev" title="Stanford CS224n Natural Language Processing Course6">
-                Stanford CS224n Natural Language Processing Course6 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/03/29/Object-Oriented-Programming-in-Java-Data-Structure/" rel="prev" title="Object Oriented Programming in Java: Data Structure">
+                Object Oriented Programming in Java: Data Structure <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -574,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-Scrawler-is-dangerous"><span class="nav-number">1.</span> <span class="nav-text">Web Scrawler is dangerous</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Similar-topic"><span class="nav-number">2.</span> <span class="nav-text">Similar topic:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#This-time"><span class="nav-number">3.</span> <span class="nav-text">This time</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Implementation"><span class="nav-number">4.</span> <span class="nav-text">Code Implementation</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture3-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Lecture3 - Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Digital-Signature-数字签名"><span class="nav-number">1.0.1.</span> <span class="nav-text">Digital Signature 数字签名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#One-way-functions"><span class="nav-number">1.0.2.</span> <span class="nav-text">One-way functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ElGamal-public-key-encryption"><span class="nav-number">1.0.3.</span> <span class="nav-text">ElGamal public-key encryption</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Homework-2"><span class="nav-number">1.0.4.</span> <span class="nav-text">Homework 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-amp-A"><span class="nav-number">1.0.5.</span> <span class="nav-text">Q&amp;A</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -748,24 +754,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -818,6 +807,43 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

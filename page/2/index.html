@@ -252,6 +252,763 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/11/weibo_delete_all/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/11/weibo_delete_all/" itemprop="url">Weibo - Delete all your followings and posts</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-11T15:30:40+08:00">
+                2020-02-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  263
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Delete-all-your-followings"><a href="#Delete-all-your-followings" class="headerlink" title="Delete all your followings"></a>Delete all your followings</h2><ol>
+<li>open Google Chrome</li>
+<li>Press F12</li>
+<li>click <code>console</code></li>
+<li>paste the codes</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* 点击批量管理 *&#x2F;</span><br><span class="line">$(&quot;.btn_link.S_txt1&quot;).click();</span><br><span class="line">&#x2F;* 勾选全部 *&#x2F;</span><br><span class="line">$$(&#39;.member_li&#39;).forEach(l &#x3D;&gt; l.click());</span><br><span class="line">&#x2F;* 点击取消关注 *&#x2F;</span><br><span class="line">$(&#39;.W_btn_a[node-type&#x3D;&quot;cancelFollowBtn&quot;]&#39;).click();</span><br><span class="line">&#x2F;* 点击确认按钮 *&#x2F;</span><br><span class="line">$(&#39;[node-type&#x3D;&quot;ok&quot;]&#39;).click();</span><br></pre></td></tr></table></figure>
+<h2 id="Delete-all-your-posts"><a href="#Delete-all-your-posts" class="headerlink" title="Delete all your posts"></a>Delete all your posts</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; &#x3D;&#x3D;UserScript&#x3D;&#x3D;</span><br><span class="line">&#x2F;&#x2F; @name         Weibored.js</span><br><span class="line">&#x2F;&#x2F; @namespace    https:&#x2F;&#x2F;vito.sdf.org</span><br><span class="line">&#x2F;&#x2F; @version      0.2.0</span><br><span class="line">&#x2F;&#x2F; @description  删除所有微博</span><br><span class="line">&#x2F;&#x2F; @author       Vito Van</span><br><span class="line">&#x2F;&#x2F; @match        https:&#x2F;&#x2F;weibo.com&#x2F;p&#x2F;*</span><br><span class="line">&#x2F;&#x2F; @grant        none</span><br><span class="line">&#x2F;&#x2F; &#x3D;&#x3D;&#x2F;UserScript&#x3D;&#x3D;</span><br><span class="line">&#39;use strict&#39;;</span><br><span class="line">var s &#x3D; document.createElement(&#39;script&#39;);</span><br><span class="line">s.setAttribute(</span><br><span class="line">&#39;src&#39;,</span><br><span class="line">&#39;https:&#x2F;&#x2F;lib.sinaapp.com&#x2F;js&#x2F;jquery&#x2F;2.0.3&#x2F;jquery-2.0.3.min.js&#39;</span><br><span class="line">);</span><br><span class="line">s.onload &#x3D; function() &#123;</span><br><span class="line">setInterval(function() &#123;</span><br><span class="line">if (!$(&#39;a[action-type&#x3D;&quot;feed_list_delete&quot;]&#39;)) &#123;</span><br><span class="line">$(&#39;a.next&#39;).click();</span><br><span class="line">&#125; else &#123;</span><br><span class="line">$(&#39;a[action-type&#x3D;&quot;feed_list_delete&quot;]&#39;)[0].click();</span><br><span class="line">$(&#39;a[action-type&#x3D;&quot;ok&quot;]&#39;)[0].click();</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; scroll bottom let auto load</span><br><span class="line">$(&#39;html, body&#39;).animate(&#123; scrollTop: $(document).height() &#125;, &#39;slow&#39;);</span><br><span class="line">&#125;, 800);</span><br><span class="line">&#125;;</span><br><span class="line">document.head.appendChild(s);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/10/CS224n%20Classnotes%20Course6/" itemprop="url">Stanford CS224n Natural Language Processing Course6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T23:57:23+08:00">
+                2020-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  554
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-6-Language-Models-and-RNNs"><a href="#Course-6-Language-Models-and-RNNs" class="headerlink" title="Course 6 - Language Models and RNNs"></a>Course 6 - Language Models and RNNs</h1><h2 id="Language-Modeling"><a href="#Language-Modeling" class="headerlink" title="Language Modeling"></a>Language Modeling</h2><p>is the task of predicting what word comes next. </p>
+<script type="math/tex; mode=display">
+P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)</script><p>also, <strong>assigns probability to a piece of text</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned} P\left(\boldsymbol{x}^{(1)}, \ldots, \boldsymbol{x}^{(T)}\right) &=P\left(\boldsymbol{x}^{(1)}\right) \times P\left(\boldsymbol{x}^{(2)} | \boldsymbol{x}^{(1)}\right) \times \cdots \times P\left(\boldsymbol{x}^{(T)} | \boldsymbol{x}^{(T-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \\ &=\prod_{t=1}^{T} P\left(\boldsymbol{x}^{(t)} | \boldsymbol{x}^{(t-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \end{aligned}</script><h3 id="n-gram-Language-Models"><a href="#n-gram-Language-Models" class="headerlink" title="n-gram Language Models"></a>n-gram Language Models</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>A <strong>n-gram</strong> is a chunk of n consecutive words</p>
+<h4 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h4><p>Collect statistics about how frequent different n-grams are, and use these to predict next word.</p>
+<h4 id="Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><a href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data" class="headerlink" title="Sparity Problem 1: what if “students opened their w“ never occurred in data"></a>Sparity Problem 1: what if “students opened their <em>w</em>“ never occurred in data</h4><p>Solution-Smoothing: Add small delta to the count for every <em>w</em> </p>
+<h4 id="Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><a href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data" class="headerlink" title="Sparity Problem2: what if “students opened their” never occurred in data?"></a>Sparity Problem2: what if “students opened their” never occurred in data?</h4><p>Solution-backoff: Just condition on “opened their” instead</p>
+<h2 id="How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks"><a href="#How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks" class="headerlink" title="How to build a neural Language Model - Recurrent Neural Networks"></a>How to build a <em>neural</em> Language Model - Recurrent Neural Networks</h2><h3 id="A-fixed-window-neural-Language-Model"><a href="#A-fixed-window-neural-Language-Model" class="headerlink" title="A fixed-window neural Language Model"></a>A fixed-window neural Language Model</h3><h3 id="Recurrent-Neural-Networks-RNN"><a href="#Recurrent-Neural-Networks-RNN" class="headerlink" title="Recurrent Neural Networks(RNN)"></a>Recurrent Neural Networks(RNN)</h3><p><img src="https://i.loli.net/2020/03/04/VGcU3SeqL7JhZoM.png" alt="image-20200210211740128.png"></p>
+<p><strong>Core idea</strong>: Apply the same weight W repeatedly. </p>
+<p><img src="https://i.loli.net/2020/03/04/2vle5KkWsRcUJ8F.png" alt="image-20200210220449695.png"></p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Can process any length input</li>
+<li>use information from many steps back in theory</li>
+<li>Model size doesn’t increase for longer input</li>
+<li>Same weights applied on every steps. </li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>slow computation</li>
+<li>difficult to access information from many steps back practically </li>
+</ul>
+<h4 id="Training-a-RNN-Language-Model"><a href="#Training-a-RNN-Language-Model" class="headerlink" title="Training a RNN Language Model"></a>Training a RNN Language Model</h4><ul>
+<li><p>Get a <strong>big corpus of text</strong> which is a sequence of word $x^{1}, \cdots, x^{T}$</p>
+</li>
+<li><p>Feed into RNN-LM</p>
+</li>
+<li><p>Loss function on step t is <strong>cross-entropy</strong></p>
+<script type="math/tex; mode=display">
+J^{(t)}(\theta)=C E\left(\boldsymbol{y}^{(t)}, \hat{\boldsymbol{y}}^{(t)}\right)=-\sum_{w \in V} \boldsymbol{y}_{w}^{(t)} \log \hat{\boldsymbol{y}}_{w}^{(t)}=-\log \hat{\boldsymbol{y}}_{\boldsymbol{x}_{t+1}}^{(t)}</script></li>
+<li><p>Average this to get <strong>overall loss </strong>for entire training set</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-\log \hat{y}_{x_{t+1}}^{(t)}</script></li>
+<li><p>However, computing loss and gradients across <strong>entire corpus</strong> is too expensive. In practice, consider $x^{1}, \cdots, x^{T}$ as a <strong>sentence</strong> (or a <strong>document</strong>)</p>
+</li>
+<li>Instead, using <strong>SGD</strong> to compute loss $J(\theta)$ for a sentence, compute gradients and update weights. Repeat.</li>
+</ul>
+<h4 id="Backpropagation-for-RNNs"><a href="#Backpropagation-for-RNNs" class="headerlink" title="Backpropagation for RNNs"></a>Backpropagation for RNNs</h4><p>Questions: derivative of $J^{(t)}(\theta)$ w.r.t the <strong>repeated</strong> weight matrix </p>
+<p>Answer:</p>
+<script type="math/tex; mode=display">
+\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script><h4 id="Generating-text-with-a-RNN-Language-Model"><a href="#Generating-text-with-a-RNN-Language-Model" class="headerlink" title="Generating text with a RNN Language Model."></a>Generating text with a RNN Language Model.</h4><p>repeated sampling </p>
+<h4 id="Evaluating-Language-Models-Perplexity"><a href="#Evaluating-Language-Models-Perplexity" class="headerlink" title="Evaluating Language Models: Perplexity"></a>Evaluating Language Models: Perplexity</h4><script type="math/tex; mode=display">
+perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)}\right)^{1 / T} = \exp(J(\theta))</script><p>lower perplexity is better!</p>
+<h4 id="Why-should-we-care-about-Language-Modeling"><a href="#Why-should-we-care-about-Language-Modeling" class="headerlink" title="Why should we care about Language Modeling?"></a>Why should we care about Language Modeling?</h4><p>Language Modeling is a <strong>benchmark task</strong> that helps us <strong>measure our progress</strong> on understanding language.</p>
+<p><strong>subcomponent</strong> of many NLP tasks.</p>
+<p>RNNs can be used for tagging, NER, part-of-speech tagging.</p>
+<p>RNNs can be used for sentence classification, sentiment classification.</p>
+<p>RNNs can be used as an encoder module, question answering, machine translation.</p>
+<p>RNN described is called <strong>vanilla RNN</strong></p>
+<p>GRU, LSTM(chocolate), multi-layer RNNs</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/weibo%20hottopics%20crawler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/10/weibo%20hottopics%20crawler/" itemprop="url">Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T15:30:40+08:00">
+                2020-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  369
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Web-Scrawler-is-dangerous"><a href="#Web-Scrawler-is-dangerous" class="headerlink" title="Web Scrawler is dangerous"></a>Web Scrawler is dangerous</h3><p>First and foremost, do not touch web scrawler if you are 100% sure that you wanna do this.</p>
+<h3 id="Similar-topic"><a href="#Similar-topic" class="headerlink" title="Similar topic:"></a>Similar topic:</h3><p><a href="https://nobugs.dev/2019/07/14/webscrawler/">https://nobugs.dev/2019/07/14/webscrawler/</a></p>
+<p>website: enlightent</p>
+<h3 id="This-time"><a href="#This-time" class="headerlink" title="This time"></a>This time</h3><p>We choose to use the package of <code>requests</code> and package <code>json</code> to get the result of hot topics  in weibo, similar website to twitter which has real-time hot topics, a great way to monitor the public sentiment in China.</p>
+<h3 id="Code-Implementation"><a href="#Code-Implementation" class="headerlink" title="Code Implementation"></a>Code Implementation</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'charset'</span>: <span class="string">"utf-8"</span>,</span><br><span class="line">    <span class="string">'Accept-Encoding'</span>: <span class="string">"gzip"</span>,</span><br><span class="line">    <span class="string">'referer'</span>: <span class="string">"https://servicewechat.com/wx90ae92bbd13ec629/11/page-frame.html"</span>,</span><br><span class="line">    <span class="string">'content-type'</span>: <span class="string">"application/x-www-form-urlencoded"</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">"Mozilla/5.0 (Linux; Android 9; Redmi Note 7 Build/PKQ1.180904.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.91 Mobile Safari/537.36 MicroMessenger/7.0.3.1400(0x2700033B) Process/appbrand0 NetType/WIFI Language/zh_CN"</span>,</span><br><span class="line">    <span class="string">'Host'</span>: <span class="string">"www.eecso.com"</span>,</span><br><span class="line">    <span class="string">'Connection'</span>: <span class="string">"keep-alive"</span>,</span><br><span class="line">    <span class="string">'cache-control'</span>: <span class="string">"no-cache"</span>,</span><br><span class="line">    <span class="string">'Origin'</span>: <span class="string">'https://www.weibotop.cn'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'微博热搜.csv'</span>, <span class="string">'w'</span>, encoding=<span class="string">'gbk'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">'时间,排名,热搜内容,上榜时间,最后时间\n'</span>)</span><br><span class="line"></span><br><span class="line">timeid = <span class="number">77594</span></span><br><span class="line">dateUrl = <span class="string">"https://www.eecso.com/test/weibo/apis/getlatest.php?timeid=&#123;&#125;"</span></span><br><span class="line">contentUrl = <span class="string">"https://www.eecso.com/test/weibo/apis/currentitems.php?timeid=&#123;&#125;"</span></span><br><span class="line">n = <span class="number">1</span></span><br><span class="line">days = <span class="number">42</span> <span class="comment">#需获取2.10往前多少天的数据</span></span><br><span class="line">interval = <span class="number">720</span> <span class="comment">#改为1则是爬所有数据（该网站2分钟记录一次） 24*30 = 720</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    dateResponse = requests.request(<span class="string">"GET"</span>, dateUrl.format(timeid), headers=headers,verify=<span class="keyword">False</span>)</span><br><span class="line">    contentResponse = requests.request(<span class="string">"GET"</span>, contentUrl.format(timeid), headers=headers,verify=<span class="keyword">False</span>)</span><br><span class="line">    timeid = <span class="number">77594</span>-interval*n <span class="comment">#77594为2020/2/10 12:00的timeid，720为一天timeid的间隔</span></span><br><span class="line">    print(timeid)</span><br><span class="line">    n += <span class="number">1</span></span><br><span class="line">    dateJson = json.loads(dateResponse.text)</span><br><span class="line">    json_obj = json.loads(contentResponse.text)</span><br><span class="line">    <span class="comment">#print(dateJson)</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> index,item <span class="keyword">in</span> enumerate(json_obj):</span><br><span class="line">        date = dateJson[<span class="number">1</span>]</span><br><span class="line">        rank = str(index+<span class="number">1</span>)</span><br><span class="line">        hotTopic = item[<span class="number">0</span>]</span><br><span class="line">        onTime = item[<span class="number">1</span>]</span><br><span class="line">        lastTime = item[<span class="number">2</span>]</span><br><span class="line">        save_res = date+<span class="string">","</span>+rank+<span class="string">","</span>+hotTopic+<span class="string">','</span>+onTime+<span class="string">','</span>+lastTime+<span class="string">'\n'</span></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'微博热搜.csv'</span>,<span class="string">'a'</span>,encoding=<span class="string">'gbk'</span>,errors=<span class="string">'ignore'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(save_res)</span><br><span class="line">    <span class="keyword">if</span> n &gt; days:</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/Functional%20Analysis%20brief%20theorems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/10/Functional%20Analysis%20brief%20theorems/" itemprop="url">Walter Rudin, Functional Analysis brief theorems(Chapter General Theory) - ongoing</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T15:07:23+08:00">
+                2020-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mathematics/" itemprop="url" rel="index">
+                    <span itemprop="name">mathematics</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  108
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://59clc.files.wordpress.com/2012/08/functional-analysis-_-rudin-2th.pdf" target="_blank" rel="noopener">Booklink</a></p>
+<h1 id="Part-I-General-Theory"><a href="#Part-I-General-Theory" class="headerlink" title="Part I - General Theory"></a>Part I - General Theory</h1><h2 id="Chapter-1-Topological-Vector-Spaces"><a href="#Chapter-1-Topological-Vector-Spaces" class="headerlink" title="Chapter 1 -  Topological Vector Spaces"></a>Chapter 1 -  Topological Vector Spaces</h2><p><strong>1.2 Normed spaces</strong> A vector space X is said to be a normed space if to every x in X there is associated a nonnegative real number llxll, called the norm of x, in such a way that </p>
+<p>(a) $\quad|x+y| \leq|x|+|y|$ for all $x$ and $y$ in $X$<br>(b) $\quad|\alpha x|=|\alpha||x|$ if $x \in X$ and $\alpha$ is a scalar,<br>(c) $\quad|x|&gt;0$ if $x \neq 0$</p>
+<p>In any metric space, the open ball with center at x and radius r is the set </p>
+<script type="math/tex; mode=display">
+B_r(x) = \{y:d(x,y)<r\}</script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/04/CS224n%20Classnotes%20Course5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -766,7 +1523,7 @@ lr = lr_0 e^{-kt}</script></li>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  364
+                  368
                 </span>
               
 
@@ -839,7 +1596,8 @@ J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^
 <h2 id="Binary-true-vs-corrupted-word-window-classification"><a href="#Binary-true-vs-corrupted-word-window-classification" class="headerlink" title="Binary true vs. corrupted word window classification"></a>Binary true vs. corrupted word window classification</h2><h3 id="Binary-word-window-classification"><a href="#Binary-word-window-classification" class="headerlink" title="Binary word window classification"></a>Binary word window classification</h3><p>Problem: ambiguity</p>
 <p>Idea: <strong>classify a word in its context window</strong> of neighboring words.</p>
 <p>Solution: train softmax classifer to classify a center word by taking <strong>concatenation of word vectors surrounding it</strong> in a window</p>
-
+<script type="math/tex; mode=display">
+(x_1, x_2, \cdots, x_n)</script>
           
         
       
@@ -1590,1088 +2348,11 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/08/29/SQL-cheetsheet/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/29/SQL-cheetsheet/" itemprop="url">SQL cheetsheet</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T20:56:01+08:00">
-                2019-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
-                    <span itemprop="name">Computer Science</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  171
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="SQL-Cheetsheet"><a href="#SQL-Cheetsheet" class="headerlink" title="SQL Cheetsheet"></a>SQL Cheetsheet</h2><p>It’s more convenient to store the data in your MySQL instead of Hive to improve the efficiency and facilitate retrieval of the data if the amount of data is not that large. Here are some tips about SQL, according to <a href="https://www.coursera.org/learn/sql-data-science/" target="_blank" rel="noopener">IBM Databases and SQL for Data Science</a></p>
-<hr>
-<h3 id="String-Patterns-Ranges-Sorting-and-Grouping"><a href="#String-Patterns-Ranges-Sorting-and-Grouping" class="headerlink" title="String Patterns, Ranges, Sorting and Grouping"></a>String Patterns, Ranges, Sorting and Grouping</h3><p><strong>using string pattern</strong>: like ‘%%’</p>
-<p><strong>using a range</strong>: between … and …</p>
-<p><strong>using a set of values</strong>: in (‘’, ‘’)</p>
-<p><strong>Sorting</strong>: order by … / order by … desc / order by 2(column number)</p>
-<p><strong>Eliminating Duplicates</strong>: distinct </p>
-<p>It seems like you don’t need to write distinct(), distinct also works.</p>
-<p><strong>Group by clause</strong></p>
-<p><strong>Restricting the result set - Having clause</strong>: Having </p>
-<p>works only with the GROUP BY clause.</p>
-<hr>
-<h3 id="Functions-Sub-Queries-Multiple-Tables"><a href="#Functions-Sub-Queries-Multiple-Tables" class="headerlink" title="Functions, Sub-Queries, Multiple Tables"></a>Functions, Sub-Queries, Multiple Tables</h3><p><strong>Aggregate Functions</strong>: sum(), min(), max(), avg()</p>
-<p><strong>Scaler and String functions</strong>: round(), length(), ucase, lcase</p>
-<p><strong>Date and Time functions</strong>: year(), month(), day(), dayofmonth(), dayofweek(), dayofyear(), week(), hour(), minute(), second()</p>
-<p><strong>Date or time arithmetic</strong>: + 1 Days, CURRENT_DATE, CURRENT_TIME</p>
-<p><strong>Accessing multiple tables with with Implicit join</strong>: </p>
-<p>select * from employees E, departments D where E.DEP_ID = D.DEPT_ID_DEP;</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/07/14/webscrawler/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/14/webscrawler/" itemprop="url">Discovery towards Web Scrawler</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-14T09:33:40+08:00">
-                2019-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
-                    <span itemprop="name">Computer Science</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  544
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Web-Scrawler-is-dangerous"><a href="#Web-Scrawler-is-dangerous" class="headerlink" title="Web Scrawler is dangerous"></a>Web Scrawler is dangerous</h3><p>First and foremost, do not touch web scrawler if you are 100% sure that you wanna do this.</p>
-<h3 id="Beginning"><a href="#Beginning" class="headerlink" title="Beginning"></a>Beginning</h3><p>The target website is enlightent, a third-party data website which have data of my company and component. </p>
-<p>We need to do some background research first. The problems I encountered are listed:</p>
-<ul>
-<li>Need to log in with WeChat account by QR code</li>
-<li>Simulate click (by package selenium)</li>
-<li>It’s a dynamic website, you need to wait for its information loaded (by package time)</li>
-<li>Write into MySQL (by package Pymysql)</li>
-</ul>
-<h3 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h3><h5 id="First-problem-cannot-be-solve-due-to-the-security-of-WeChat"><a href="#First-problem-cannot-be-solve-due-to-the-security-of-WeChat" class="headerlink" title="First problem cannot be solve due to the security of WeChat."></a>First problem cannot be solve due to the security of WeChat.</h5><h5 id="Second-problem"><a href="#Second-problem" class="headerlink" title="Second problem"></a>Second problem</h5><p>Step 1: Find the pattern in html. Using chrome, just ctrl+u or ctrl+shift+i. It needs your patience to find the thing you want. If you mistaken the pattern, you cannot get the information you want</p>
-<p>Step 2: Choose the function: by_path or by_class. The tricky point is that if there is only one class, it’s okay to use by_class, if there are more than two classes, selenium would choose the first class as your output. As a result, I choose by_path</p>
-<p>Step 3: Install chrome driver according to your chrome version. Be sure to download into /anaconda3/lib/site-packages.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Choose daily</span></span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">driver.find_elements_by_id(<span class="string">"rank-date-btn"</span>)[<span class="number">0</span>].click()</span><br><span class="line"><span class="comment"># Choose year</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_class_name(<span class="string">"datepicker-switch"</span>).click()</span><br><span class="line"><span class="comment"># Choose target month</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># driver.find_element_by_class_name("month").click()</span></span><br><span class="line">month_url = <span class="string">"/html/body/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div/div/div[2]/table/tbody/tr/td/span[%s]"</span> % (l+<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_xpath(month_url).click()</span><br><span class="line"><span class="comment"># Choose target Date</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># day = driver.find_element_by_class_name("day").click()</span></span><br><span class="line">xpath = <span class="string">"/html/body/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div/div/div/table/tbody/tr[%d]/td[%d]"</span> % ((start_date) // <span class="number">7</span> + <span class="number">1</span>, (start_date) % <span class="number">7</span> + <span class="number">1</span>)</span><br><span class="line">driver.find_element_by_xpath(xpath).click()</span><br><span class="line"><span class="comment"># Press enter</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_id(<span class="string">"choose-rank"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h5 id="Third-Problem-Data-Processing"><a href="#Third-Problem-Data-Processing" class="headerlink" title="Third Problem: Data Processing"></a>Third Problem: Data Processing</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">album_separately = string_list[j][string_list[j].find(<span class="string">'data-name='</span>):string_list[j].find(<span class="string">'data-channeltype="tv"'</span>)]</span><br><span class="line"><span class="keyword">if</span> j != <span class="number">0</span>: </span><br><span class="line">    album.append(album_separately.replace(<span class="string">'data-name='</span>,<span class="string">''</span>).replace(<span class="string">'"'</span>,<span class="string">''</span>))</span><br><span class="line">percentage_separately = string_list[j][string_list[j].find(<span class="string">'&lt;td class="sort rank-playTimesPredicted active" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;'</span>)]</span><br><span class="line">percentage.append(percentage_separately.replace(<span class="string">'&lt;td class="sort rank-playTimesPredicted active" style=""&gt;&lt;span&gt;'</span>,<span class="string">''</span>))</span><br><span class="line">click_separately = string_list[j][string_list[j].find(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;span class="star-playtimes"&gt;'</span>)]</span><br><span class="line"><span class="keyword">if</span> len(click_separately) &gt;= <span class="number">10</span>:</span><br><span class="line">    click_separately = string_list[j][string_list[j].find(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;/td&gt;&lt;td class="rank-average m-change" style=""&gt;'</span>)]</span><br><span class="line">click.append(click_separately.replace(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>,<span class="string">''</span>).replace(<span class="string">'&lt;/span&gt;&lt;span class="star-playtimes"&gt;'</span>,<span class="string">''</span>))</span><br></pre></td></tr></table></figure>
-<h5 id="Fourth-problem-Log-into-your-MySQL-and-use-python-like-MySQL"><a href="#Fourth-problem-Log-into-your-MySQL-and-use-python-like-MySQL" class="headerlink" title="Fourth problem: Log into your MySQL and use python like MySQL!"></a>Fourth problem: Log into your MySQL and use python like MySQL!</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db = DB(<span class="string">'your database'</span>)</span><br><span class="line">db.insert(dataset)</span><br></pre></td></tr></table></figure>
-<h3 id="Take-Care-Be-sure-to-add-time-sleep-when-you-do-it"><a href="#Take-Care-Be-sure-to-add-time-sleep-when-you-do-it" class="headerlink" title="Take Care! Be sure to add time.sleep() when you do it!"></a>Take Care! Be sure to add time.sleep() when you do it!</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/05/05/RandomForest/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/05/RandomForest/" itemprop="url">Random Forest Classification from the bottom layer</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T21:36:03+08:00">
-                2019-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
-                    <span itemprop="name">Computer Science</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  918
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>import packages we need</p>
-<pre><code>import random
-import numpy as np
-import sys
-</code></pre><p>The feature list is an array of the possible feature indicies to use. This prevents splitting on the same feature multiple times and runs a rough C45 algorithm.</p>
-<p>In pseudocode, the general algorithm for building decision trees is:</p>
-<p>1.Check for base cases<br>2.For each attribute a<br>3.Find the normalized information gain ratio from splitting on a<br>4.Let a_best be the attribute with the highest normalized information gain<br>5.Create a decision node that splits on a_best<br>6.Recur on the sublists obtained by splitting on a_best, and add those nodes as children of node</p>
-<pre><code>class TreeNode:
-    def __init__(self, dataSet, featureList, parent=None):
-        self.featureNumber = None  #This is the trained index of the feature to split on
-        self.featureList = featureList 
-        self.threshold = None     #This is the trained threshold of the feature to split on
-        self.leftChild = None
-        self.rightChild = None
-        self.dataSet = dataSet
-        self.parent = parent
-
-    def c45Train(self):
-        if(self.dataSet.isPure()):
-            #gets the label of the first data instance and makes a leaf node
-            #classifying it. 
-            label = self.dataSet.getData()[0].getLabel()
-            leaf = LeafNode(label)
-            return leaf
-        #If there are no more features in the feature list
-        if len(self.featureList) == 0:
-            labels = self.dataSet.getLabelStatistics()
-            bestLabel = None
-            mostTimes = 0
-
-            for key in labels:
-                if labels[key] &gt; mostTimes:
-                    bestLabel = key
-                    mostTimes = labels[key]
-            #Make the leaf node with the best label
-            leaf = LeafNode(bestLabel)
-            return leaf
-
-        #Check all of the features for the split with the most 
-        #information gain. Use that split.
-        currentEntropy = self.dataSet.getEntropy()
-        currentLength = self.dataSet.getLength()
-        infoGain = -1 * sys.maxsize
-        bestFeature = 0
-        bestLeft = None
-        bestRight = None
-        bestThreshold = 0
-
-        #Feature Bagging, Random subspace
-        num = int(np.ceil(np.sqrt(len(self.featureList))))
-        featureSubset = random.sample(self.featureList, num)
-
-        for featureIndex in featureSubset:
-            #Calculate the threshold to use for that feature
-            threshold = self.dataSet.betterThreshold(featureIndex)
-
-            (leftSet, rightSet) = self.dataSet.splitOn(featureIndex, threshold)
-
-            leftEntropy = leftSet.getEntropy()
-            rightEntropy = rightSet.getEntropy()
-            #Weighted entropy for this split
-            newEntropy = (leftSet.getLength() / currentLength) * leftEntropy + (rightSet.getLength() / currentLength) * rightEntropy
-            #Calculate the gain for this test
-            newIG = currentEntropy - newEntropy
-
-            if(newIG &gt; infoGain):
-                #Update the best stuff
-                infoGain = newIG
-                bestLeft = leftSet
-                bestRight = rightSet
-                bestFeature = featureIndex
-                bestThreshold = threshold
-
-        newFeatureList = list(self.featureList)
-        newFeatureList.remove(bestFeature)
-
-        #Another base case, if there are no good features to split on
-        if bestLeft.getLength() == 0 or bestRight.getLength() == 0:
-            labels = self.dataSet.getLabelStatistics()
-            bestLabel = None
-            mostTimes = 0
-
-            for key in labels:
-                if labels[key] &gt; mostTimes:
-                    bestLabel = key
-                    mostTimes = labels[key]
-            #Make the leaf node with the best label
-            leaf = LeafNode(bestLabel)
-            return leaf
-
-        self.threshold = bestThreshold
-        self.featureNumber = bestFeature
-
-        leftChild = TreeNode(bestLeft, newFeatureList, self)
-        rightChild = TreeNode(bestRight, newFeatureList, self)
-
-        self.leftChild = leftChild.c45Train()
-        self.rightChild = rightChild.c45Train()
-
-        return self
-
-    def __str__(self):
-        return str(self.featureList)
-
-    def __repr__(self):
-        return self.__str__()
-
-    def classify(self, sample):
-        &#39;&#39;&#39;
-        Recursivly traverse the tree to classify the sample that is passed in. 
-        &#39;&#39;&#39;
-
-        value = sample.getFeatures()[self.featureNumber]
-
-        if(value &lt; self.threshold):
-            #Continue down the left child    
-            return self.leftChild.classify(sample)
-
-        else:
-            #continue down the right child
-            return self.rightChild.classify(sample)
-
-
-class LeafNode:
-    &#39;&#39;&#39;
-    A leaf node is a node that just has a classification 
-    and is used to cap off a tree.
-    &#39;&#39;&#39;
-
-    def __init__(self, classification):
-        self.classification = classification
-
-    def classify(self, sample):
-        #A leaf node simply is a classification, return that
-        #This is the base case of the classify recursive function for TreeNodes
-        return self.classification
-
-
-class C45Tree:
-    &#39;&#39;&#39;
-    A tree contains a root node and from here
-    does the training and classification. Tree objects also
-    are responsible for having the data that they use to train.
-    &#39;&#39;&#39;
-
-    def __init__(self, data):
-        self.rootNode = None
-        self.data = data
-
-    def train(self):
-        &#39;&#39;&#39;
-        Trains a decision tree classifier on data set passed in. 
-        The data set should contain a good mix of each class to be
-        classified.
-        &#39;&#39;&#39;
-        length = self.data.getFeatureLength()
-        featureIndices = range(length)
-        self.rootNode = TreeNode(self.data, featureIndices)
-        self.rootNode.c45Train()
-
-    def classify(self, sample):
-        &#39;&#39;&#39;
-        Classify a sample based off of this trained tree.
-        &#39;&#39;&#39;
-
-        return self.rootNode.classify(sample)
-</code></pre><p>Then we introduce the RandomForest algorithm</p>
-<pre><code>from C45Tree import C45Tree
-
-
-class RandomForest(object):
-    &quot;&quot;&quot;A random forest object with the default of using a C45Tree 
-    for each of the trees in the random forest. To train the forest
-    create an instance of it then call train on a TraingData object&quot;&quot;&quot;
-    def __init__(self, data, numberOfTrees=100):
-        &#39;&#39;&#39;
-        Initialize the random forest. 
-        Each tree has a bag of the data associated with it.
-        &#39;&#39;&#39;
-        self.data = data    #The data that the trees will be trained on
-        self.numberOfTrees = numberOfTrees
-        self.forest = []
-
-        for i in range(numberOfTrees):
-            bag = data.getBag()
-            self.forest.append(C45Tree(bag))
-
-    def train(self):
-        &#39;&#39;&#39;
-        Train the random forest trees.
-        &#39;&#39;&#39;
-        for tree in self.forest:
-            tree.train()
-
-    def classify(self, sample):
-        &#39;&#39;&#39;
-        Classify a data sample by polling the trees.
-        &#39;&#39;&#39;
-
-        #Create an empty dictionary
-        votes = {}
-        #Tally the votes, for each tree classify the sample
-        for tree in self.forest:
-            label = tree.classify(sample)
-            if label in votes:
-                votes[label] += 1
-            else:
-                votes[label] = 1
-
-        bestLabel = None
-        mostTimes = 0
-        #Find the label with the most votes
-        for key in votes:
-            if votes[key] &gt; mostTimes:
-                bestLabel = key
-                mostTimes = votes[key]
-
-        #Return the most popular label
-        return bestLabel      
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/04/16/kaggle%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/kaggle%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" itemprop="url">Deep dive into KAGGLE</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T08:10:23+08:00">
-                2019-04-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kaggle/" itemprop="url" rel="index">
-                    <span itemprop="name">Kaggle</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.5k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  9
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.kaggle.com/ronitf/heart-disease-uci" target="_blank" rel="noopener">click here to kaggle official website for this dataset</a></p>
-<h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><p>This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. In particular, the Cleveland database is the only one that has been used by ML researchers to this date. The “goal” field refers to the presence of heart disease in the patient. It is integer valued from 0 (no presence) to 4.</p>
-<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="Attribute-Information"><a href="#Attribute-Information" class="headerlink" title="Attribute Information:"></a>Attribute Information:</h3><blockquote>
-<ol>
-<li>age </li>
-<li>sex </li>
-<li>chest pain type (4 values) </li>
-<li>resting blood pressure </li>
-<li>serum cholestoral in mg/dl </li>
-<li>fasting blood sugar &gt; 120 mg/dl</li>
-<li>resting electrocardiographic results (values 0,1,2)</li>
-<li>maximum heart rate achieved </li>
-<li>exercise induced angina </li>
-<li>oldpeak = ST depression induced by exercise relative to rest </li>
-<li>the slope of the peak exercise ST segment </li>
-<li>number of major vessels (0-3) colored by flourosopy </li>
-<li>thal: 3 = normal; 6 = fixed defect; 7 = reversable defect<br>The names and social security numbers of the patients were recently removed from the database, replaced with dummy values. One file has been “processed”, that one containing the Cleveland database. All four unprocessed files also exist in this directory.</li>
-</ol>
-</blockquote>
-<p>To see Test Costs (donated by Peter Turney), please see the folder “Costs”</p>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>To solve this problem, here we introduce jupyter notebook by python, implementing random forest to give us a brief scope of this dataset.<br>Firstly, we import the packages needed.</p>
-<pre><code>import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns #for plotting
-from sklearn.ensemble import RandomForestClassifier #for the model
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.tree import export_graphviz #plot tree
-from sklearn.metrics import roc_curve, auc #for model evaluation
-from sklearn.metrics import classification_report #for model evaluation
-from sklearn.metrics import confusion_matrix #for model evaluation
-from sklearn.model_selection import train_test_split #for data splitting
-import eli5 #for purmutation importance
-from eli5.sklearn import PermutationImportance
-import shap #for SHAP values
-from pdpbox import pdp, info_plots #for partial plots
-np.random.seed(123) #ensure reproducibility
-pd.options.mode.chained_assignment = None  #hide any pandas warnings
-</code></pre><h1 id="The-data"><a href="#The-data" class="headerlink" title="The data"></a>The data</h1><p>Next, we load the data.</p>
-<pre><code>dt = pd.read_csv(&quot;../input/heart.csv&quot;)
-</code></pre><p>It’s a clean, easy to understand set of data. However, the meaning of some of the column headers are not obvious. Here’s what they mean,</p>
-<p><strong>age</strong>: The person’s age in years<br><strong>sex</strong>: The person’s sex (1 = male, 0 = female)<br><strong>cp</strong>: The chest pain experienced (Value 1: typical angina, Value 2: atypical angina, Value 3: non-anginal pain, Value 4: asymptomatic)<br><strong>trestbps</strong>: The person’s resting blood pressure (mm Hg on admission to the hospital)<br><strong>chol</strong>: The person’s cholesterol measurement in mg/dl<br><strong>fbs</strong>: The person’s fasting blood sugar (&gt; 120 mg/dl, 1 = true; 0 = false)<br><strong>restecg</strong>: Resting electrocardiographic measurement (0 = normal, 1 = having ST-T wave abnormality, 2 = showing probable or definite left ventricular hypertrophy by Estes’ criteria)<br><strong>thalach</strong>: The person’s maximum heart rate achieved<br><strong>exang</strong>: Exercise induced angina (1 = yes; 0 = no)<br><strong>oldpeak</strong>: ST depression induced by exercise relative to rest (‘ST’ relates to positions on the ECG plot. See more here)<br><strong>slope</strong>: the slope of the peak exercise ST segment (Value 1: upsloping, Value 2: flat, Value 3: downsloping)<br><strong>ca</strong>: The number of major vessels (0-3)<br><strong>thal</strong>: A blood disorder called thalassemia (3 = normal; 6 = fixed defect; 7 = reversable defect)<br><strong>target</strong>: Heart disease (0 = no, 1 = yes)</p>
-<p><strong>Diagnosis</strong>: The diagnosis of heart disease is done on a combination of clinical signs and test results. The types of tests run will be chosen on the basis of what the physician thinks is going on 1, ranging from electrocardiograms and cardiac computerized tomography (CT) scans, to blood tests and exercise stress tests 2.</p>
-<p>Looking at information of heart disease risk factors led me to the following: high cholesterol, high blood pressure, diabetes, weight, family history and smoking 3. According to another source 4, the major factors that can’t be changed are: increasing age, male gender and heredity. Note that thalassemia, one of the variables in this dataset, is heredity. Major factors that can be modified are: Smoking, high cholesterol, high blood pressure, physical inactivity, and being overweight and having diabetes. Other factors include stress, alcohol and poor diet/nutrition.</p>
-<p>I can see no reference to the ‘number of major vessels’, but given that the definition of heart disease is “…what happens when your heart’s blood supply is blocked or interrupted by a build-up of fatty substances in the coronary arteries”, it seems logical the more major vessels is a good thing, and therefore will reduce the probability of heart disease.</p>
-<p>Given the above, I would hypothesis that, if the model has some predictive ability, we’ll see these factors standing out as the most important.</p>
-<p>Declare some of the columns to make the indication clear</p>
-<pre><code>dt.columns = [&#39;age&#39;, &#39;sex&#39;, &#39;chest_pain_type&#39;, &#39;resting_blood_pressure&#39;, &#39;cholesterol&#39;, &#39;fasting_blood_sugar&#39;, &#39;rest_ecg&#39;, &#39;max_heart_rate_achieved&#39;,
-   &#39;exercise_induced_angina&#39;, &#39;st_depression&#39;, &#39;st_slope&#39;, &#39;num_major_vessels&#39;, &#39;thalassemia&#39;, &#39;target&#39;]
-
-
-dt[&#39;sex&#39;][dt[&#39;sex&#39;] == 0] = &#39;female&#39;
-dt[&#39;sex&#39;][dt[&#39;sex&#39;] == 1] = &#39;male&#39;
-
-dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 1] = &#39;typical angina&#39;
-dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 2] = &#39;atypical angina&#39;
-dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 3] = &#39;non-anginal pain&#39;
-dt[&#39;chest_pain_type&#39;][dt[&#39;chest_pain_type&#39;] == 4] = &#39;asymptomatic&#39;
-
-dt[&#39;fasting_blood_sugar&#39;][dt[&#39;fasting_blood_sugar&#39;] == 0] = &#39;lower than 120mg/ml&#39;
-dt[&#39;fasting_blood_sugar&#39;][dt[&#39;fasting_blood_sugar&#39;] == 1] = &#39;greater than 120mg/ml&#39;
-
-dt[&#39;rest_ecg&#39;][dt[&#39;rest_ecg&#39;] == 0] = &#39;normal&#39;
-dt[&#39;rest_ecg&#39;][dt[&#39;rest_ecg&#39;] == 1] = &#39;ST-T wave abnormality&#39;
-dt[&#39;rest_ecg&#39;][dt[&#39;rest_ecg&#39;] == 2] = &#39;left ventricular hypertrophy&#39;
-
-dt[&#39;exercise_induced_angina&#39;][dt[&#39;exercise_induced_angina&#39;] == 0] = &#39;no&#39;
-dt[&#39;exercise_induced_angina&#39;][dt[&#39;exercise_induced_angina&#39;] == 1] = &#39;yes&#39;
-
-dt[&#39;st_slope&#39;][dt[&#39;st_slope&#39;] == 1] = &#39;upsloping&#39;
-dt[&#39;st_slope&#39;][dt[&#39;st_slope&#39;] == 2] = &#39;flat&#39;
-dt[&#39;st_slope&#39;][dt[&#39;st_slope&#39;] == 3] = &#39;downsloping&#39;
-
-dt[&#39;thalassemia&#39;][dt[&#39;thalassemia&#39;] == 1] = &#39;normal&#39;
-dt[&#39;thalassemia&#39;][dt[&#39;thalassemia&#39;] == 2] = &#39;fixed defect&#39;
-dt[&#39;thalassemia&#39;][dt[&#39;thalassemia&#39;] == 3] = &#39;reversable defect&#39;
-</code></pre><h1 id="The-Model"><a href="#The-Model" class="headerlink" title="The Model"></a>The Model</h1><p>Depending on package sklearn, we split the data - test data 70%, training data 30%</p>
-<pre><code>X_train, X_test, y_train, y_test = train_test_split(dt.drop(&#39;target&#39;, 1), dt[&#39;target&#39;], test_size = .2, random_state=10) #split the data
-</code></pre><p>Using random forest methodology</p>
-<pre><code>model = RandomForestClassifier(max_depth=5)
-model.fit(X_train, y_train)
-</code></pre><p>plot the result of random forest</p>
-<pre><code>estimator = model.estimators_[1]
-feature_names = [i for i in X_train.columns]
-
-y_train_str = y_train.astype(&#39;str&#39;)
-y_train_str[y_train_str == &#39;0&#39;] = &#39;no disease&#39;
-y_train_str[y_train_str == &#39;1&#39;] = &#39;disease&#39;
-y_train_str = y_train_str.values
-</code></pre><p>code from <a href="https://towardsdatascience.com/how-to-visualize-a-decision-tree-from-a-random-forest-in-python-using-scikit-learn-38ad2d75f21c" target="_blank" rel="noopener">https://towardsdatascience.com/how-to-visualize-a-decision-tree-from-a-random-forest-in-python-using-scikit-learn-38ad2d75f21c</a></p>
-<pre><code>export_graphviz(estimator, out_file=&#39;tree.dot&#39;, 
-                feature_names = feature_names,
-                class_names = y_train_str,
-                rounded = True, proportion = True, 
-                label=&#39;root&#39;,
-                precision = 2, filled = True)
-
-from subprocess import call
-call([&#39;dot&#39;, &#39;-Tpng&#39;, &#39;tree.dot&#39;, &#39;-o&#39;, &#39;tree.png&#39;, &#39;-Gdpi=600&#39;])
-
-from IPython.display import Image
-Image(filename = &#39;tree.png&#39;)
-</code></pre><p>Evaluate the model</p>
-<pre><code>y_predict = model.predict(X_test)
-y_pred_quant = model.predict_proba(X_test)[:, 1]
-y_pred_bin = model.predict(X_test)
-</code></pre><p>Fit with Cnfusion model</p>
-<pre><code>confusion_matrix = confusion_matrix(y_test, y_pred_bin)
-</code></pre><p>Here we propose the sensitvity and specificity</p>
-<script type="math/tex; mode=display">sensitivity = \frac{TF}{TP+FN}</script><script type="math/tex; mode=display">specificity = \frac{TN}{TN+FP}</script><pre><code>total=sum(sum(confusion_matrix))
-
-sensitivity = confusion_matrix[0,0]/(confusion_matrix[0,0]+confusion_matrix[1,0])
-print(&#39;Sensitivity : &#39;, sensitivity )
-
-specificity = confusion_matrix[1,1]/(confusion_matrix[1,1]+confusion_matrix[0,1])
-print(&#39;Specificity : &#39;, specificity)
-</code></pre><p>Next, we check ROC curve.</p>
-<pre><code>fpr, tpr, thresholds = roc_curve(y_test, y_pred_quant)
-
-fig, ax = plt.subplots()
-ax.plot(fpr, tpr)
-ax.plot([0, 1], [0, 1], transform=ax.transAxes, ls=&quot;--&quot;, c=&quot;.3&quot;)
-plt.xlim([0.0, 1.0])
-plt.ylim([0.0, 1.0])
-plt.rcParams[&#39;font.size&#39;] = 12
-plt.title(&#39;ROC curve for diabetes classifier&#39;)
-plt.xlabel(&#39;False Positive Rate (1 - Specificity)&#39;)
-plt.ylabel(&#39;True Positive Rate (Sensitivity)&#39;)
-plt.grid(True)
-</code></pre><p>Another common metric is the Area Under the Curve, or AUC.</p>
-<pre><code>auc(fpr, tpr)
-</code></pre><h1 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h1><p>Here we implement the shap value to explain our model.</p>
-<pre><code>explainer = shap.TreeExplainer(model)
-shap_values = explainer.shap_values(X_test)
-
-shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
-</code></pre><p><a href="https://www.kaggle.com/tentotheminus9/what-causes-heart-disease-explaining-the-model" target="_blank" rel="noopener">for more</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -2721,7 +2402,7 @@ shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2743,7 +2424,7 @@ shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
