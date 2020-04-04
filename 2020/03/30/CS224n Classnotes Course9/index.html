@@ -85,12 +85,13 @@
 <meta property="og:url" content="http://nobugs.dev/2020/03/30/CS224n%20Classnotes%20Course9/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
 <meta property="og:description" content="Course 10 - Question AnsweringMotivation&#x2F;HistoryWith massive collections of full-text documents, return relevant documents. 2 parts  find documents that might contain an answer find an answer in a par">
-<meta property="og:image" content="http://nobugs.dev/2020/03/30/CS224n%20Classnotes%20Course9/cs224n_pics/image-20200330135135377.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/xpvqj1TbEcJkyOL.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/wpZ5DlvJ7AK4xVY.png">
 <meta property="article:published_time" content="2020-03-30T12:25:23.000Z">
-<meta property="article:modified_time" content="2020-03-30T08:32:15.001Z">
+<meta property="article:modified_time" content="2020-04-04T04:34:22.185Z">
 <meta property="article:author" content="Xinyi HU">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://nobugs.dev/2020/03/30/CS224n%20Classnotes%20Course9/cs224n_pics/image-20200330135135377.png">
+<meta name="twitter:image" content="https://i.loli.net/2020/04/04/xpvqj1TbEcJkyOL.png">
 
 
 
@@ -340,7 +341,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  113
+                  215
                 </span>
               
 
@@ -384,7 +385,7 @@
 <li>find an answer in a paragraph or a document</li>
 </ol>
 <p>MCTest Reading Comprehension: Passage+Question=Answer</p>
-<p><img src="/2020/03/30/CS224n%20Classnotes%20Course9/cs224n_pics\image-20200330135135377.png" alt="image-20200330135135377"></p>
+<p><img src="https://i.loli.net/2020/04/04/xpvqj1TbEcJkyOL.png" alt="image-20200330135135377.png"></p>
 <h2 id="The-SQuAD-dataset"><a href="#The-SQuAD-dataset" class="headerlink" title="The SQuAD dataset"></a>The SQuAD dataset</h2><p>Evalution </p>
 <ul>
 <li><p>Systems are scored on two metrics</p>
@@ -402,7 +403,21 @@
 <li>Barely any multi-facts/sentence inference beyonce coreference</li>
 </ul>
 <p>But still, well-targeted, well-structured, clean dataset</p>
-<h2 id="The-Stanford-Attentive-Reader-model"><a href="#The-Stanford-Attentive-Reader-model" class="headerlink" title="The Stanford Attentive Reader model"></a>The Stanford Attentive Reader model</h2><h2 id="BiDAF"><a href="#BiDAF" class="headerlink" title="BiDAF"></a>BiDAF</h2><h2 id="Recent-more-advanced-architectures"><a href="#Recent-more-advanced-architectures" class="headerlink" title="Recent, more advanced architectures"></a>Recent, more advanced architectures</h2><h2 id="ELMo-and-BERT-preview"><a href="#ELMo-and-BERT-preview" class="headerlink" title="ELMo and BERT preview"></a>ELMo and BERT preview</h2>
+<h2 id="The-Stanford-Attentive-Reader-model"><a href="#The-Stanford-Attentive-Reader-model" class="headerlink" title="The Stanford Attentive Reader model"></a>The Stanford Attentive Reader model</h2><h2 id="BiDAF"><a href="#BiDAF" class="headerlink" title="BiDAF"></a>BiDAF</h2><p><img src="https://i.loli.net/2020/04/04/wpZ5DlvJ7AK4xVY.png" alt="image-20200331105339872.png"></p>
+<p>central idea: the Attention Flow layer</p>
+<p>Idea: attention should flow both ways - from the context to the question and from the question to the context</p>
+<p>Make the similarity matrix:</p>
+<script type="math/tex; mode=display">
+S_{ij} = w_{sim}^{T}[c_i;q_j;c_i \cdot q_j]</script><p>Context-to-Question attention:</p>
+<script type="math/tex; mode=display">
+\alpha^{i} = softmax(S_i,:) \in \mathbb{R}^M\\
+\alpha_i=\sum_{j=1}^M \alpha_j^i q_j \in \mathbb{R}^{2h}</script><p>Attention Flow Idea: attention should flow both ways</p>
+<p>Question-to-Context attention:</p>
+<script type="math/tex; mode=display">
+m_i=max_j S_{ij} \in \mathbb{R}\\
+\beta = softmax(m) \in \mathbb{R}^N\\
+c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-advanced-architectures"><a href="#Recent-more-advanced-architectures" class="headerlink" title="Recent, more advanced architectures"></a>Recent, more advanced architectures</h2><p>FusionNet</p>
+<h2 id="ELMo-and-BERT-preview"><a href="#ELMo-and-BERT-preview" class="headerlink" title="ELMo and BERT preview"></a>ELMo and BERT preview</h2>
       
     </div>
     
@@ -426,8 +441,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/29/Object-Oriented-Programming-in-Java-Data-Structure/" rel="next" title="Object Oriented Programming in Java: Data Structure">
-                <i class="fa fa-chevron-left"></i> Object Oriented Programming in Java: Data Structure
+              <a href="/2020/03/30/CS224n%20Classnotes%20Course11/" rel="next" title="Stanford CS224n Natural Language Processing Course11">
+                <i class="fa fa-chevron-left"></i> Stanford CS224n Natural Language Processing Course11
               </a>
             
           </div>
@@ -515,7 +530,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -537,7 +552,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

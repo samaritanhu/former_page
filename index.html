@@ -337,7 +337,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  113
+                  215
                 </span>
               
 
@@ -383,7 +383,7 @@
 <li>find an answer in a paragraph or a document</li>
 </ol>
 <p>MCTest Reading Comprehension: Passage+Question=Answer</p>
-<p><img src="/2020/03/30/CS224n%20Classnotes%20Course9/cs224n_pics\image-20200330135135377.png" alt="image-20200330135135377"></p>
+<p><img src="https://i.loli.net/2020/04/04/xpvqj1TbEcJkyOL.png" alt="image-20200330135135377.png"></p>
 <h2 id="The-SQuAD-dataset"><a href="#The-SQuAD-dataset" class="headerlink" title="The SQuAD dataset"></a>The SQuAD dataset</h2><p>Evalution </p>
 <ul>
 <li><p>Systems are scored on two metrics</p>
@@ -401,7 +401,193 @@
 <li>Barely any multi-facts/sentence inference beyonce coreference</li>
 </ul>
 <p>But still, well-targeted, well-structured, clean dataset</p>
-<h2 id="The-Stanford-Attentive-Reader-model"><a href="#The-Stanford-Attentive-Reader-model" class="headerlink" title="The Stanford Attentive Reader model"></a>The Stanford Attentive Reader model</h2><h2 id="BiDAF"><a href="#BiDAF" class="headerlink" title="BiDAF"></a>BiDAF</h2><h2 id="Recent-more-advanced-architectures"><a href="#Recent-more-advanced-architectures" class="headerlink" title="Recent, more advanced architectures"></a>Recent, more advanced architectures</h2><h2 id="ELMo-and-BERT-preview"><a href="#ELMo-and-BERT-preview" class="headerlink" title="ELMo and BERT preview"></a>ELMo and BERT preview</h2>
+<h2 id="The-Stanford-Attentive-Reader-model"><a href="#The-Stanford-Attentive-Reader-model" class="headerlink" title="The Stanford Attentive Reader model"></a>The Stanford Attentive Reader model</h2><h2 id="BiDAF"><a href="#BiDAF" class="headerlink" title="BiDAF"></a>BiDAF</h2><p><img src="https://i.loli.net/2020/04/04/wpZ5DlvJ7AK4xVY.png" alt="image-20200331105339872.png"></p>
+<p>central idea: the Attention Flow layer</p>
+<p>Idea: attention should flow both ways - from the context to the question and from the question to the context</p>
+<p>Make the similarity matrix:</p>
+<script type="math/tex; mode=display">
+S_{ij} = w_{sim}^{T}[c_i;q_j;c_i \cdot q_j]</script><p>Context-to-Question attention:</p>
+<script type="math/tex; mode=display">
+\alpha^{i} = softmax(S_i,:) \in \mathbb{R}^M\\
+\alpha_i=\sum_{j=1}^M \alpha_j^i q_j \in \mathbb{R}^{2h}</script><p>Attention Flow Idea: attention should flow both ways</p>
+<p>Question-to-Context attention:</p>
+<script type="math/tex; mode=display">
+m_i=max_j S_{ij} \in \mathbb{R}\\
+\beta = softmax(m) \in \mathbb{R}^N\\
+c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-advanced-architectures"><a href="#Recent-more-advanced-architectures" class="headerlink" title="Recent, more advanced architectures"></a>Recent, more advanced architectures</h2><p>FusionNet</p>
+<h2 id="ELMo-and-BERT-preview"><a href="#ELMo-and-BERT-preview" class="headerlink" title="ELMo and BERT preview"></a>ELMo and BERT preview</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/30/CS224n%20Classnotes%20Course11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/30/CS224n%20Classnotes%20Course11/" itemprop="url">Stanford CS224n Natural Language Processing Course11</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-30T20:25:23+08:00">
+                2020-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-11-Convolutional-Network-for-NLP"><a href="#Course-11-Convolutional-Network-for-NLP" class="headerlink" title="Course 11 - Convolutional Network for NLP"></a>Course 11 - Convolutional Network for NLP</h1>
           
         
       
@@ -626,182 +812,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/21/cmu_cryptography_lecture3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/21/cmu_cryptography_lecture3/" itemprop="url">CMU cryptography lecture 3 notes</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-21T09:27:35+08:00">
-                2020-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  666
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Lecture3-Introduction"><a href="#Lecture3-Introduction" class="headerlink" title="Lecture3 - Introduction"></a>Lecture3 - Introduction</h1><p>Teaching Assistant: Xinyi Hu</p>
-<p>In the third week, we talked about hard problems, digital signatures, one-way functions, ElGamal public-key encryption and HTTPS/SSL protocol.</p>
-<h3 id="Digital-Signature-数字签名"><a href="#Digital-Signature-数字签名" class="headerlink" title="Digital Signature 数字签名"></a>Digital Signature <a href="https://blog.csdn.net/qq_30505673/article/details/83446390" target="_blank" rel="noopener">数字签名</a></h3><p>1) Gen: A randomized algorithm which outputs VK and SK </p>
-<p>2) Sign: A (possibly randomized) algorithm. Takes input SK and M. Outputs σ. </p>
-<p>3) Verify: Takes input (M, σ, VK). Outputs 0/1.</p>
-<p>Correctness: If (VK, SK) are output of Gen, must have Verify(M, Sign(M, SK), VK) = 1</p>
-<h3 id="One-way-functions"><a href="#One-way-functions" class="headerlink" title="One-way functions"></a>One-way functions</h3><h3 id="ElGamal-public-key-encryption"><a href="#ElGamal-public-key-encryption" class="headerlink" title="ElGamal public-key encryption"></a>ElGamal public-key encryption</h3><p><a href="https://www.jianshu.com/p/9d9a2fae260d" target="_blank" rel="noopener">ElGamal密码体制</a></p>
-<h3 id="Homework-2"><a href="#Homework-2" class="headerlink" title="Homework 2"></a>Homework 2</h3><p>Q1: Consider the one-time digital signature scheme discussed in the lecture. Suppose the adversary can get signatures on any two messages of his choice. Show how the adversary can produce a signature on a third message (different from the first two).</p>
-<p>Q2: Now suppose a signer needs to sign two message securely. How can he choose a public key and a secret key which will allow him to sign 2 different message (while still keeping security intact). </p>
-<p>Q3: Suppose someone gives you an algorithm to solve the CDH problem: it takes as input g, g^a, g^b and output g^ab. Show how you can use this to break Elgamal encryption. </p>
-<p>Q4: You work in the IT department of a company. The company employees need to be able to send encrypted emails to each other. However the employees are constantly joining and leaving and the number of employees is large, so its not possible for the each employee to store the public key corresponding to every email ID. Every employee can trust the IT department. Propose a solution for encrypted email communication.<br>Assume that all adversary is sitting on the network and watching all communication.</p>
-<p>HW5: (only for those who know programming) HW: Write a program to compute modular exponentiation: take g (base), e (exponent), and, N (modulas) as input from the user and output the result. Use an online compiler. Do not use the inbuilt functions to compute this. Also, try to make the program as efficient as possible. In particular, please implement the square and multiply algorithm discussed in the class. </p>
-<h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><p>Q1: In digital signature, I want to know if the possible value of x0[i] or x1[i] is limited, such as only can be 0 or 1. </p>
-<p>A1: Yeah we are signing digital strings<br>So each bit is either 0 or 1<br>If you have a longer string, you can divide into multiple parts</p>
-<p>Q2: In asymmetric encryption, the client and the server share the key. What if the public key is intercepted and changed on the Internet?</p>
-<p>A2: Yeah that’s exactly why we have the notion of certificates. If you use certificates, the certificate will specify the right public key and no adversary can change the certificate</p>
-<p>Q4: What’s the meaning of ‘still hard with better than 1/2’ in DDH problem?</p>
-<p>A4: It mean even if you guess at random, you will be correct with probability half<br>Because you are given two things and you have to decide which one is real and which one is random<br>so certainly with probability half, you can solve it<br>but solving with probability better than half is hard</p>
-<p>Q5: In One-Time Signatures,why is sigma +=x0[i] instead of  sigma[i]=x0[i]?</p>
-<p>A5: Yes correct sigma +=x0[i] means sigma = sigma+ x0[i]. you can concatenating these two strings.</p>
-<p>Q6: Can we change the public key and verify the certification,because we know the VK, and we can try to find a  suitble change that verify the certification.</p>
-<p>A6: No, you can’t find such a public key. on any other public key, the certification would <strong>fail</strong></p>
-<p>Q7: what are the square brackets for</p>
-<p>A7: Square brackets are like an array if you know any programming</p>
-<p>Q8: When we communicate with Google, how can we decrypt the message from Google?</p>
-<p>A8: Google will encrypt the message under the key which you choose<br>so you know the key</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -942,7 +952,7 @@ argmax_y P(y|x)\\
 <ul>
 <li>conditional - its predictions are conditioned on the source sentence $x$</li>
 </ul>
-<p><img src="/2020/03/16/CS224n%20Classnotes%20Course8/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200328233749255.png" alt="image-20200328233749255"></p>
+<p><img src="https://i.loli.net/2020/04/04/gixM6LmGa5Ce7Js.png" alt="image-20200328233749255.png"></p>
 <p>Other tasks </p>
 <ul>
 <li>summarization</li>
@@ -1225,7 +1235,7 @@ score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1
 <script type="math/tex; mode=display">
 \boldsymbol{c}^{(t)}=\boldsymbol{f}^{(t)} \circ \boldsymbol{c}^{(t-1)}+\boldsymbol{i}^{(t)} \circ \tilde{\boldsymbol{c}}^{(t)}</script><p>Hidden state: read(“output”) some content from the cell</p>
 <script type="math/tex; mode=display">
-\boldsymbol{h}^{(t)}=\boldsymbol{o}^{(t)} \circ \tanh \boldsymbol{c}^{(t)}</script><p><img src="/2020/03/16/CS224n%20Classnotes%20Course7/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200316220913640.png" alt="image-20200316220913640"></p>
+\boldsymbol{h}^{(t)}=\boldsymbol{o}^{(t)} \circ \tanh \boldsymbol{c}^{(t)}</script><p><img src="https://i.loli.net/2020/04/04/pW7mMj9aDN53h8C.png" alt="image-20200316220913640.png"></p>
 <h2 id="Gated-Recurrent-Units-GRU"><a href="#Gated-Recurrent-Units-GRU" class="headerlink" title="Gated Recurrent Units(GRU)"></a>Gated Recurrent Units(GRU)</h2><p>a simpler alternative to the LSTM</p>
 <p>On each timestep $t$ we have input $x^{(t)}$ and hidden state $h^{(t)}$ (no cell state)</p>
 <p>Update gate - controls what parts of hidden state are updated vs preserved</p>
@@ -1243,217 +1253,10 @@ score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1
 <p>e.g.: Dense connections, “DenseNet”. </p>
 <p>e.g.:Highway connections, “HighwayNet”.</p>
 <h2 id="Bidirectional-RNNs"><a href="#Bidirectional-RNNs" class="headerlink" title="Bidirectional RNNs"></a>Bidirectional RNNs</h2><p>motivation - task: Sentiment Classification</p>
-<p><img src="/2020/03/16/CS224n%20Classnotes%20Course7/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20200317001951410.png" alt="image-20200317001951410"></p>
+<p><img src="https://i.loli.net/2020/04/04/on9a2s1Y5jJiADb.png" alt="image-20200317001951410.png"></p>
 <p>Note: bidirection RNNs are only applicable if you have access to the entire input sentence. </p>
 <p>BERT is built on bidirectionality.</p>
 <h2 id="Multi-layer-RNNs-stacked-RNNs"><a href="#Multi-layer-RNNs-stacked-RNNs" class="headerlink" title="Multi-layer RNNs = stacked RNNs"></a>Multi-layer RNNs = stacked RNNs</h2><p>High-performing RNNs are often multi-layer(but aren’t as deep as cn)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/12/cmu_cryptography_mentor1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/12/cmu_cryptography_mentor1/" itemprop="url">CMU cryptography mentor session 1 notes</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-12T19:59:48+08:00">
-                2020-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  288
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Mentor-Session-1-Introduction"><a href="#Mentor-Session-1-Introduction" class="headerlink" title="Mentor Session 1 - Introduction"></a>Mentor Session 1 - Introduction</h1><p>Teaching Assistant: Xinyi Hu</p>
-<p>In the first mentor session, we reviewed three classical ciphers, learnt affline cipher, and its enigma example. The detailed class notes are as follows.</p>
-<p>Classical ciphers</p>
-<ul>
-<li>Caesar cipher</li>
-<li>Substitution cipher</li>
-<li>Vignere cipher</li>
-</ul>
-<p>In this session</p>
-<ol>
-<li>Affine cipher</li>
-</ol>
-<script type="math/tex; mode=display">
-T(x) = a \cdot x + c \quad (mod \; 26)</script><p>Broken by frequency analysis.</p>
-<ol>
-<li>Enigma example</li>
-</ol>
-<script type="math/tex; mode=display">
-T(x) = 7x + 11 \quad (mod \; 26)</script><ol>
-<li>Puzzles</li>
-</ol>
-<p>Use the cipher table to decrypt the ciphertext:</p>
-<p>WLZD HMLAAFJ IPG OIN OANLHVAN</p>
-<p>Answer: jack sparrow hid the treasure.</p>
-<p><strong>Mathematical Interpretation:</strong></p>
-<script type="math/tex; mode=display">
-C = ciphertext\\
-
-M = plaintext\\
-
-K = key\\
-
-Enc = Encryption function\\
-
-C = Enc (M, K)\\
-
-Unknowns: M, K</script><ol>
-<li>Optional: secret sharing example</li>
-</ol>
-<p>Multiple people coming together to reconstruct a secret. Example: In a (t,n) secret sharing scheme, there are ‘n’ users each with a piece of the puzzle. The secret is successfully reconstructed only if at least ‘t’ users come together.</p>
-<script type="math/tex; mode=display">
-ax^2 + bx +c = 0</script><p>Questions:</p>
-<p>Q1: Is there any possibility that two characters are converted to the same number?</p>
-<p>A1: </p>
-<script type="math/tex; mode=display">
-ax_1 + b \equiv ax_2 + b \quad (mod \; 26) \\
-a(x_1 - x_2) \equiv 0 \quad(mod \; 26)</script><p>As a matter of fact, $x_1 - x_2$ mod 26 could not be 0, if so, $x_1$ and $x_2$ must be the same letter.</p>
-<p>Therefore, as long as $a$ is not the factor of 26, this cipher is injective.</p>
-<p>Q2: Why the affine cipher is bijection?</p>
-<p>A2: </p>
-<p>Firstly, injection:</p>
-<script type="math/tex; mode=display">
-y = ax+b\quad mod \; 26</script><p>Thus, as long as $a$ is not the factor of 26, this cipher is injective.</p>
-<p>Secondly, subjection:</p>
-<script type="math/tex; mode=display">
-y = ax+b\quad mod \; 26 \\
-x = a^{-1} (y-b) \quad mod \; 26</script><p>Thus, as long as $a$ is not 0 and $a^{-1}$ is not the factor of 26, this cipher is surjective.</p>
 
           
         
@@ -1644,202 +1447,6 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
 <p>Consider $X_1 = (S,m)$ and $X_2 = (S,k ·m)$, where $X_1$ and $X_2$ have the same set of distinct elements, but $X_2$ contains $k$ copies of each element of $X_1$.</p>
 <p><strong>Corollary 8.</strong> Assume $X$ is countable. There exists a function $f : \mathcal{X} → \mathbb{R^n}$ so that for $h(X) = \frac{1}{|X|}\sum{x\in X} f(x), h(X_1) = h(X_2)$ if and only if multisets $X_1$ and $X_2$ have the same distribution. That is, assuming $|X_2|\geq|X_1|$, we have $X_1 = (S,m)$ and $X_2 = (S,k\cdot m)$ for some $k \in \mathbb{N}_{\geq 1}.$</p>
 <p><strong>Corollary 9</strong>. Assume $X$  is countable. Then there exists a function $f : X → \mathbb{R}^{\infty}$ so that for $h(X) = max_{x\in X} f(x), h(X_1) = h(X_2)$ if and only if $X_1$ and $X_2$ have the same underlying set. </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/08/cmu_cryptography_lecture1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/08/cmu_cryptography_lecture1/" itemprop="url">CMU cryptography lecture 1 notes</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T09:27:35+08:00">
-                2020-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  462
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Lecture1-Introduction"><a href="#Lecture1-Introduction" class="headerlink" title="Lecture1 - Introduction"></a>Lecture1 - Introduction</h1><p>Teaching Assistant: Xinyi Hu</p>
-<p>In the first week, we talked about cryptography’s first goal, the three algorithms of a secret key encryption, 3 classical ciphers and how to break them. The detailed class notes are as follows.</p>
-<p>Cryptography’s first goal is to keep secret communication.</p>
-<p>A secret key encryption(SKE) consists of 3 algorithms:</p>
-<ul>
-<li>Gen - generation algorithm</li>
-<li>Enc - encryption algorithm</li>
-<li>Dec - decryption algorithm</li>
-</ul>
-<p>Some classical ciphers </p>
-<ul>
-<li>Caesar Cipher - shift by 3</li>
-<li>Substitution Cipher - can be broken by frequency analysis</li>
-<li>Vigenere cipher - can be broken by frequency analysis</li>
-</ul>
-<p>Homework:</p>
-<ul>
-<li>Read <a href="http://norvig.com/mayzner.html" target="_blank" rel="noopener">http://norvig.com/mayzner.html</a></li>
-<li>Exercises to think about:<ul>
-<li>You are given a ciphertext encrypted under Caesar cipher: “ibbiks eqbp nctt nwzkm ia awwv ia bpm acv zqama”. Recover the key and the plaintext.</li>
-<li>Review the slides for this class as well as the next class</li>
-<li>Read about digital signature, public key encryption and private key encryption. See their applications. See how they are different. </li>
-<li>Read about modular exponentiation if you can (and if you are done with the first 3 exercises)</li>
-</ul>
-</li>
-</ul>
-<p>Extra materials for this course: </p>
-<ul>
-<li><a href="http://www.cs.cmu.edu/~goyal/s18/15503.html" target="_blank" rel="noopener">http://www.cs.cmu.edu/~goyal/s18/15503.html</a></li>
-<li>Katz and Lindell book: Introduction to Modern Cryptography</li>
-</ul>
-<p>Questions:</p>
-<p>Q1: Does the ‘spacebar’ count when encrypting?</p>
-<p>A1: Frequency analysis.</p>
-<p>Q2: In Vigenere cipher, if we generate a random string equal the ciphertext length, how to attack this one?</p>
-<p>A2: Guess the length of Vigenere cipher, then use frequency analysis.</p>
-<p>Q3: As you mention before, we can break the Caeser cipher by finding the frequency. If we encrypt the plaintext by using the same keys again and again, it will be almost impossible to analyze the frequency. if you shift by 2 say 3 times, its same as shifting once by 6.</p>
-<p>A3: No, even if you encrypt again and again using the same key, frequency analysis should still work<br>encrypting with the same key many times is no different than encryption with another key once</p>
-<p>Q4: how does the “attack” shift “cuycdp”</p>
-<p>A4:  Using the alphabet, A matchs 1, B matchs 2, …, Z matchs 26. (or A matchs 0, B matchs 1, …, Z matchs 25, they are the same). Key is BAEBAE. Add ATTACK and BAEBAE separately, you can get CUYCDP. </p>
-<p>Q5: why t mapped to r ,h mapped to,is it fixed</p>
-<p>A5: It’s already defined. </p>
-<p>Q6: In Vigenere cipher, if the length of random string is not equal to message, there are some extra letters left. How can we deal with them?</p>
-<p>A6: Repeat to make it equal to message length</p>
-<p>Q7: i search the vigenere cipher on the Internet, the ciphertext of “ATTACK” is “BTXBCO” instead of “CUYCDP”, according to a table, why?</p>
-<p>A7: You can select key you like in vigenere cipher. The ciphertext depends upon the key as well.</p>
 
           
         
@@ -2239,6 +1846,409 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/11/weibo_delete_all/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/11/weibo_delete_all/" itemprop="url">Weibo - Delete all your followings and posts</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-11T15:30:40+08:00">
+                2020-02-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  263
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Delete-all-your-followings"><a href="#Delete-all-your-followings" class="headerlink" title="Delete all your followings"></a>Delete all your followings</h2><ol>
+<li>open Google Chrome</li>
+<li>Press F12</li>
+<li>click <code>console</code></li>
+<li>paste the codes</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* 点击批量管理 *&#x2F;</span><br><span class="line">$(&quot;.btn_link.S_txt1&quot;).click();</span><br><span class="line">&#x2F;* 勾选全部 *&#x2F;</span><br><span class="line">$$(&#39;.member_li&#39;).forEach(l &#x3D;&gt; l.click());</span><br><span class="line">&#x2F;* 点击取消关注 *&#x2F;</span><br><span class="line">$(&#39;.W_btn_a[node-type&#x3D;&quot;cancelFollowBtn&quot;]&#39;).click();</span><br><span class="line">&#x2F;* 点击确认按钮 *&#x2F;</span><br><span class="line">$(&#39;[node-type&#x3D;&quot;ok&quot;]&#39;).click();</span><br></pre></td></tr></table></figure>
+<h2 id="Delete-all-your-posts"><a href="#Delete-all-your-posts" class="headerlink" title="Delete all your posts"></a>Delete all your posts</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; &#x3D;&#x3D;UserScript&#x3D;&#x3D;</span><br><span class="line">&#x2F;&#x2F; @name         Weibored.js</span><br><span class="line">&#x2F;&#x2F; @namespace    https:&#x2F;&#x2F;vito.sdf.org</span><br><span class="line">&#x2F;&#x2F; @version      0.2.0</span><br><span class="line">&#x2F;&#x2F; @description  删除所有微博</span><br><span class="line">&#x2F;&#x2F; @author       Vito Van</span><br><span class="line">&#x2F;&#x2F; @match        https:&#x2F;&#x2F;weibo.com&#x2F;p&#x2F;*</span><br><span class="line">&#x2F;&#x2F; @grant        none</span><br><span class="line">&#x2F;&#x2F; &#x3D;&#x3D;&#x2F;UserScript&#x3D;&#x3D;</span><br><span class="line">&#39;use strict&#39;;</span><br><span class="line">var s &#x3D; document.createElement(&#39;script&#39;);</span><br><span class="line">s.setAttribute(</span><br><span class="line">&#39;src&#39;,</span><br><span class="line">&#39;https:&#x2F;&#x2F;lib.sinaapp.com&#x2F;js&#x2F;jquery&#x2F;2.0.3&#x2F;jquery-2.0.3.min.js&#39;</span><br><span class="line">);</span><br><span class="line">s.onload &#x3D; function() &#123;</span><br><span class="line">setInterval(function() &#123;</span><br><span class="line">if (!$(&#39;a[action-type&#x3D;&quot;feed_list_delete&quot;]&#39;)) &#123;</span><br><span class="line">$(&#39;a.next&#39;).click();</span><br><span class="line">&#125; else &#123;</span><br><span class="line">$(&#39;a[action-type&#x3D;&quot;feed_list_delete&quot;]&#39;)[0].click();</span><br><span class="line">$(&#39;a[action-type&#x3D;&quot;ok&quot;]&#39;)[0].click();</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; scroll bottom let auto load</span><br><span class="line">$(&#39;html, body&#39;).animate(&#123; scrollTop: $(document).height() &#125;, &#39;slow&#39;);</span><br><span class="line">&#125;, 800);</span><br><span class="line">&#125;;</span><br><span class="line">document.head.appendChild(s);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/10/CS224n%20Classnotes%20Course6/" itemprop="url">Stanford CS224n Natural Language Processing Course6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T23:57:23+08:00">
+                2020-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  554
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-6-Language-Models-and-RNNs"><a href="#Course-6-Language-Models-and-RNNs" class="headerlink" title="Course 6 - Language Models and RNNs"></a>Course 6 - Language Models and RNNs</h1><h2 id="Language-Modeling"><a href="#Language-Modeling" class="headerlink" title="Language Modeling"></a>Language Modeling</h2><p>is the task of predicting what word comes next. </p>
+<script type="math/tex; mode=display">
+P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)</script><p>also, <strong>assigns probability to a piece of text</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned} P\left(\boldsymbol{x}^{(1)}, \ldots, \boldsymbol{x}^{(T)}\right) &=P\left(\boldsymbol{x}^{(1)}\right) \times P\left(\boldsymbol{x}^{(2)} | \boldsymbol{x}^{(1)}\right) \times \cdots \times P\left(\boldsymbol{x}^{(T)} | \boldsymbol{x}^{(T-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \\ &=\prod_{t=1}^{T} P\left(\boldsymbol{x}^{(t)} | \boldsymbol{x}^{(t-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \end{aligned}</script><h3 id="n-gram-Language-Models"><a href="#n-gram-Language-Models" class="headerlink" title="n-gram Language Models"></a>n-gram Language Models</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>A <strong>n-gram</strong> is a chunk of n consecutive words</p>
+<h4 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h4><p>Collect statistics about how frequent different n-grams are, and use these to predict next word.</p>
+<h4 id="Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><a href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data" class="headerlink" title="Sparity Problem 1: what if “students opened their w“ never occurred in data"></a>Sparity Problem 1: what if “students opened their <em>w</em>“ never occurred in data</h4><p>Solution-Smoothing: Add small delta to the count for every <em>w</em> </p>
+<h4 id="Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><a href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data" class="headerlink" title="Sparity Problem2: what if “students opened their” never occurred in data?"></a>Sparity Problem2: what if “students opened their” never occurred in data?</h4><p>Solution-backoff: Just condition on “opened their” instead</p>
+<h2 id="How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks"><a href="#How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks" class="headerlink" title="How to build a neural Language Model - Recurrent Neural Networks"></a>How to build a <em>neural</em> Language Model - Recurrent Neural Networks</h2><h3 id="A-fixed-window-neural-Language-Model"><a href="#A-fixed-window-neural-Language-Model" class="headerlink" title="A fixed-window neural Language Model"></a>A fixed-window neural Language Model</h3><h3 id="Recurrent-Neural-Networks-RNN"><a href="#Recurrent-Neural-Networks-RNN" class="headerlink" title="Recurrent Neural Networks(RNN)"></a>Recurrent Neural Networks(RNN)</h3><p><img src="https://i.loli.net/2020/03/04/VGcU3SeqL7JhZoM.png" alt="image-20200210211740128.png"></p>
+<p><strong>Core idea</strong>: Apply the same weight W repeatedly. </p>
+<p><img src="https://i.loli.net/2020/03/04/2vle5KkWsRcUJ8F.png" alt="image-20200210220449695.png"></p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Can process any length input</li>
+<li>use information from many steps back in theory</li>
+<li>Model size doesn’t increase for longer input</li>
+<li>Same weights applied on every steps. </li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>slow computation</li>
+<li>difficult to access information from many steps back practically </li>
+</ul>
+<h4 id="Training-a-RNN-Language-Model"><a href="#Training-a-RNN-Language-Model" class="headerlink" title="Training a RNN Language Model"></a>Training a RNN Language Model</h4><ul>
+<li><p>Get a <strong>big corpus of text</strong> which is a sequence of word $x^{1}, \cdots, x^{T}$</p>
+</li>
+<li><p>Feed into RNN-LM</p>
+</li>
+<li><p>Loss function on step t is <strong>cross-entropy</strong></p>
+<script type="math/tex; mode=display">
+J^{(t)}(\theta)=C E\left(\boldsymbol{y}^{(t)}, \hat{\boldsymbol{y}}^{(t)}\right)=-\sum_{w \in V} \boldsymbol{y}_{w}^{(t)} \log \hat{\boldsymbol{y}}_{w}^{(t)}=-\log \hat{\boldsymbol{y}}_{\boldsymbol{x}_{t+1}}^{(t)}</script></li>
+<li><p>Average this to get <strong>overall loss </strong>for entire training set</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-\log \hat{y}_{x_{t+1}}^{(t)}</script></li>
+<li><p>However, computing loss and gradients across <strong>entire corpus</strong> is too expensive. In practice, consider $x^{1}, \cdots, x^{T}$ as a <strong>sentence</strong> (or a <strong>document</strong>)</p>
+</li>
+<li>Instead, using <strong>SGD</strong> to compute loss $J(\theta)$ for a sentence, compute gradients and update weights. Repeat.</li>
+</ul>
+<h4 id="Backpropagation-for-RNNs"><a href="#Backpropagation-for-RNNs" class="headerlink" title="Backpropagation for RNNs"></a>Backpropagation for RNNs</h4><p>Questions: derivative of $J^{(t)}(\theta)$ w.r.t the <strong>repeated</strong> weight matrix </p>
+<p>Answer:</p>
+<script type="math/tex; mode=display">
+\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script><h4 id="Generating-text-with-a-RNN-Language-Model"><a href="#Generating-text-with-a-RNN-Language-Model" class="headerlink" title="Generating text with a RNN Language Model."></a>Generating text with a RNN Language Model.</h4><p>repeated sampling </p>
+<h4 id="Evaluating-Language-Models-Perplexity"><a href="#Evaluating-Language-Models-Perplexity" class="headerlink" title="Evaluating Language Models: Perplexity"></a>Evaluating Language Models: Perplexity</h4><script type="math/tex; mode=display">
+perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)}\right)^{1 / T} = \exp(J(\theta))</script><p>lower perplexity is better!</p>
+<h4 id="Why-should-we-care-about-Language-Modeling"><a href="#Why-should-we-care-about-Language-Modeling" class="headerlink" title="Why should we care about Language Modeling?"></a>Why should we care about Language Modeling?</h4><p>Language Modeling is a <strong>benchmark task</strong> that helps us <strong>measure our progress</strong> on understanding language.</p>
+<p><strong>subcomponent</strong> of many NLP tasks.</p>
+<p>RNNs can be used for tagging, NER, part-of-speech tagging.</p>
+<p>RNNs can be used for sentence classification, sentiment classification.</p>
+<p>RNNs can be used as an encoder module, question answering, machine translation.</p>
+<p>RNN described is called <strong>vanilla RNN</strong></p>
+<p>GRU, LSTM(chocolate), multi-layer RNNs</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2293,7 +2303,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2315,7 +2325,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
