@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="Introduction to RThis guide is a note for datacamp, introduction to R. I usually use Python, thus in this note, I used Python to contrast R on data collection to data cleaning to data frame…     R Pyt">
+<meta name="description" content="Chapter 16. Ensemble LearningWhat is the idea of Ensemble Learning?The idea of ensemble learning is to build a prediction model by combining the strengths of a collection of simpler base models. Zhou">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Introduction to R">
-<meta property="og:url" content="http://nobugs.dev/2020/06/18/R/index.html">
+<meta property="og:title" content="The Element of Statistical Learning Chapter 16">
+<meta property="og:url" content="http://nobugs.dev/2020/07/18/ESL%20Chapter%2016/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
-<meta property="og:description" content="Introduction to RThis guide is a note for datacamp, introduction to R. I usually use Python, thus in this note, I used Python to contrast R on data collection to data cleaning to data frame…     R Pyt">
-<meta property="article:published_time" content="2020-06-18T13:39:02.000Z">
-<meta property="article:modified_time" content="2020-06-18T13:57:17.454Z">
+<meta property="og:description" content="Chapter 16. Ensemble LearningWhat is the idea of Ensemble Learning?The idea of ensemble learning is to build a prediction model by combining the strengths of a collection of simpler base models. Zhou">
+<meta property="article:published_time" content="2020-07-18T11:37:23.000Z">
+<meta property="article:modified_time" content="2020-07-18T11:25:26.017Z">
 <meta property="article:author" content="Xinyi HU">
 <meta name="twitter:card" content="summary">
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://nobugs.dev/2020/06/18/R/"/>
+  <link rel="canonical" href="http://nobugs.dev/2020/07/18/ESL Chapter 16/"/>
 
 
 
 
 
-  <title>Introduction to R | Xinyi's gadget</title>
+  <title>The Element of Statistical Learning Chapter 16 | Xinyi's gadget</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/06/18/R/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/18/ESL%20Chapter%2016/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi HU">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Introduction to R</h1>
+          <h1 class="post-title" itemprop="name headline">The Element of Statistical Learning Chapter 16</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-18T21:39:02+08:00">
-                2020-06-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-18T19:37:23+08:00">
+                2020-07-18
               </time>
             
 
@@ -307,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
+                  <a href="/categories/ESL/" itemprop="url" rel="index">
+                    <span itemprop="name">ESL</span>
                   </a>
                 </span>
 
@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  328
+                  474
                 </span>
               
 
@@ -375,60 +375,58 @@
       
 
       
-        <h1 id="Introduction-to-R"><a href="#Introduction-to-R" class="headerlink" title="Introduction to R"></a>Introduction to R</h1><p>This guide is a note for datacamp, introduction to R.</p>
-<p>I usually use Python, thus in this note, I used Python to contrast R on data collection to data cleaning to data frame…</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>R</th>
-<th>Python</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Arithmetic with R </strong> <br>Addition: + <br>Subtraction: - <br>Multiplication: * <br>Division: / <br>Exponentiation: ^ <br>Modulo: %%</td>
-<td><br>Addition: + <br>Subtraction: - <br>Multiplication: * <br>Division: / <br>Exponentiation: pow() <br>Modulo: %</td>
-</tr>
-<tr>
-<td><strong>Variable assignment</strong><br>my_var &lt;- 4</td>
-<td><strong>Variable assignment</strong><br>my_var = 4</td>
-</tr>
-<tr>
-<td><strong>What’s that data type?</strong><br>class()</td>
-<td><strong>Data Type</strong><br>type()</td>
-</tr>
-<tr>
-<td><strong>Create a vector</strong> <br>the combine function c() <br>numeric_vector &lt;- c(1, 2, 3) <br>character_vector &lt;- c(“a”, “b”, “c”)</td>
-<td><strong>Create a vector?</strong><br>In python, we have List: []</td>
-</tr>
-<tr>
-<td><strong>Naming a vector</strong> <br>names() <br>some_vector &lt;- c(“John Doe”, “poker player”) <br>names(some_vector) &lt;- c(“Name”, “Profession”)</td>
-<td><strong>Naming a vector?</strong><br>I think we normally use another list And we use zip() function to put two lists together. Or we use dict()</td>
-</tr>
-<tr>
-<td>One unique feature: vectors can be added together. If a &lt;- c(1, 2, 3), b &lt;- c(4, 5, 6), then a + b would be c(5, 7, 9)</td>
-<td>Lists added together would be like stick together, instead of adding each element one by one. For example, a = [1, 2, 3], b = [4, 5, 6], a + b would be [1, 2, 3, 4, 5, 6]</td>
-</tr>
-<tr>
-<td><strong>Some functions</strong> <br>sum() <br>max() <br>min() <br>mean(na.rm = FALSE) # na.rm: drop NA data <br>abs() <br>round()</td>
-<td><strong>Some functions</strong><br>sum() <br>max() <br>min() <br>np.mean()</td>
-</tr>
-<tr>
-<td><strong>Index of vectors</strong> <br>In R, we start from 1.  <br>First element, vector_sample[1]. <br>First to third element, vector_sample[c(1,2,3)] or vector_sample[1:3]</td>
-<td><strong>Index of vectors</strong> <br>In python, we start from 0.</td>
-</tr>
-<tr>
-<td><strong>What’s a matrix?</strong> <br>matrix(1:9, byrow = TRUE, nrow = 3) <br>using <code>byrow</code>, we would fill the matrix by rows!</td>
-<td>Python doesn’t have this function. We use pandas.DataFrame or numpy to make a matrix, and we can use numpy.reshape.</td>
-</tr>
-<tr>
-<td><strong>Naming a matrix</strong><br>rownames(my_matrix) &lt;- row_names_vector <br>colnames(my_matrix) &lt;- col_names_vector   <br>rowSums() <br>colSums()</td>
-<td>In Python, we use dataframe, it works like this df.index = row_names_vector df.columns = col_names_vector</td>
-</tr>
-</tbody>
-</table>
-</div>
+        <h1 id="Chapter-16-Ensemble-Learning"><a href="#Chapter-16-Ensemble-Learning" class="headerlink" title="Chapter 16. Ensemble Learning"></a>Chapter 16. Ensemble Learning</h1><h2 id="What-is-the-idea-of-Ensemble-Learning"><a href="#What-is-the-idea-of-Ensemble-Learning" class="headerlink" title="What is the idea of Ensemble Learning?"></a>What is the idea of Ensemble Learning?</h2><p>The <strong>idea</strong> of ensemble learning is <strong>to build a prediction model by combining the strengths of a collection of simpler base models</strong>.</p>
+<p><a href="https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/springerEBR09.pdf" target="_blank" rel="noopener">Zhou Zhihua</a> Ensemble Learning: <strong>to boost</strong> <strong>weak learner</strong>s which are slightly better than random guess to <strong>strong learners</strong> which can make very accurate predictions.</p>
+<p>Ensemble learning can be broken down into <strong>two</strong> tasks:</p>
+<p><strong>First</strong>, developing a population of base learners from the training data,</p>
+<p><strong>then</strong> combining them to form the composite predictor. </p>
+<p>Zhou Zhihua:</p>
+<p><strong>First</strong>, a number of base learners are produced, which can be generated in a <em>parallel</em> style or in a <em>sequential</em> style where the generation of a base learner has influence on the generation of subsequent learners. </p>
+<p><strong>Then</strong>, the base learners are combined to use, where among the most popular combination schemes are <em>majority votin</em>g for classification and <em>weighted averagin</em>g for regression.</p>
+<h2 id="List-some-methods-of-Ensemble-Learning"><a href="#List-some-methods-of-Ensemble-Learning" class="headerlink" title="List some methods of Ensemble Learning."></a>List some <strong>methods</strong> of Ensemble Learning.</h2><ul>
+<li><p><strong>Bagging</strong>     </p>
+</li>
+<li><ul>
+<li>trains a number of base learners each from a different <em>bootstrap</em> sample by calling a base      learning algorithm.</li>
+<li>After obtaining the base learners, Bagging combines them by majority voting and the most-voted      class is predicted.</li>
+<li>Sample: Random Forest</li>
+<li>Reduce <strong>variance</strong></li>
+</ul>
+</li>
+<li><p><strong>Boosting</strong>     </p>
+</li>
+<li><ul>
+<li>Is a family of algorithms since there are many variants.</li>
+<li>Sample: Adaboost</li>
+<li>Reduce <strong>bias</strong></li>
+</ul>
+</li>
+<li><p><strong>Stacking</strong>     </p>
+</li>
+<li><ul>
+<li>A number of first-level individual learners are generated from the training data set      by employing different learning algorithms. </li>
+<li>Those individual learners are then combined by a second-level learner which is      called as <em>meta-learner</em>. </li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><em>Bayesian methods for nonparametric regression can also be viewed as ensemble methods</em> </p>
+</blockquote>
+<p>Generally speaking, there is no ensemble method which outperforms other ensemble methods consistently.</p>
+<h2 id="List-some-Penalized-Regression-and-how-they-works"><a href="#List-some-Penalized-Regression-and-how-they-works" class="headerlink" title="List some Penalized  Regression and how they works"></a>List some <strong>Penalized  Regression</strong> and how they works</h2><p><strong>Lasso regression</strong> and <strong>ridge regression</strong>.</p>
+<p>Consider the dictionary of all possible J-terminal node regression trees $T=\{T_k\}$ that could be realized on the training data as basis functions in  $R^p$. The linear model is</p>
+<script type="math/tex; mode=display">
+f(x)=\sum_{k=1}^K \alpha_k T_k(x)</script><p>Suppose the coefficients are to be estimated by <strong>least squares</strong>. Since the number of such trees is likely to be much larger than even the largest training data sets, some form of regularization is required. Let $\hat{\alpha}(\lambda)$ solve</p>
+<script type="math/tex; mode=display">
+\min_{\alpha}\{\sum_{i=1}^{N}(y_i-\sum_{k=1}^K\alpha_kT_k(x_i))^2+\lambda\cdot J(\alpha)\}</script><p>$J(\alpha)$ is a function of the coefficients that generally penalizes larger values. </p>
+<script type="math/tex; mode=display">
+J(\alpha)=\sum_{k=1}^K |\alpha_k|^2 - ridge  \\
+J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-to-Singles-generalization"><a href="#Why-ensemble-superior-to-Singles-generalization" class="headerlink" title="Why ensemble superior to Singles - generalization"></a>Why ensemble superior to Singles - <strong>generalization</strong></h2><ul>
+<li>the training data might not provide sufficient information for choosing a single best learner</li>
+<li>the search processes of the learning algorithms might be imperfect</li>
+<li>the hypothesis space being searched might not contain the true target function, while ensembles can give some good approximation. </li>
+</ul>
+<p><strong>The bias-variance decomposition</strong> is often used in studying the performance of ensemble methods.</p>
 
       
     </div>
@@ -453,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/30/CS224n%20Classnotes%20Course9/" rel="next" title="Stanford CS224n Natural Language Processing Course10">
-                <i class="fa fa-chevron-left"></i> Stanford CS224n Natural Language Processing Course10
+              <a href="/2020/07/18/ESL%20Chapter%202/" rel="next" title="The Element of Statistical Learning Chapter 2">
+                <i class="fa fa-chevron-left"></i> The Element of Statistical Learning Chapter 2
               </a>
             
           </div>
@@ -462,10 +460,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/18/ESL%20Chapter%201/" rel="prev" title="The Element of Statistical Learning Chapter 2">
-                The Element of Statistical Learning Chapter 2 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -546,7 +540,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -623,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-to-R"><span class="nav-number">1.</span> <span class="nav-text">Introduction to R</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-16-Ensemble-Learning"><span class="nav-number">1.</span> <span class="nav-text">Chapter 16. Ensemble Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-the-idea-of-Ensemble-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">What is the idea of Ensemble Learning?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-some-methods-of-Ensemble-Learning"><span class="nav-number">1.2.</span> <span class="nav-text">List some methods of Ensemble Learning.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-some-Penalized-Regression-and-how-they-works"><span class="nav-number">1.3.</span> <span class="nav-text">List some Penalized  Regression and how they works</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-ensemble-superior-to-Singles-generalization"><span class="nav-number">1.4.</span> <span class="nav-text">Why ensemble superior to Singles - generalization</span></a></li></ol></li></ol></div>
             
 
           </div>

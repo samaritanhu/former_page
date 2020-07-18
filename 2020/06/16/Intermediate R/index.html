@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Equality &#x3D;&#x3D; &#x2F; identical()  !&#x3D;  &lt; and &gt; # greater and less than  &amp; # and  | # or  ! # reverse the result  Compare vectors linkedin &gt; facebook  Compare matrices views &lt;&#x3D; 14  The if stat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intermediate R">
+<meta property="og:url" content="http://nobugs.dev/2020/06/16/Intermediate%20R/index.html">
+<meta property="og:site_name" content="Xinyi&#39;s gadget">
+<meta property="og:description" content="Equality &#x3D;&#x3D; &#x2F; identical()  !&#x3D;  &lt; and &gt; # greater and less than  &amp; # and  | # or  ! # reverse the result  Compare vectors linkedin &gt; facebook  Compare matrices views &lt;&#x3D; 14  The if stat">
+<meta property="article:published_time" content="2020-06-16T13:39:02.000Z">
+<meta property="article:modified_time" content="2020-07-18T11:39:19.305Z">
+<meta property="article:author" content="Xinyi HU">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nobugs.dev/2020/06/16/Intermediate R/"/>
+
+
+
+
+
+  <title>Intermediate R | Xinyi's gadget</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xinyi's gadget</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-knowme">
+          <a href="/KnowMe" rel="section">
+            
+            KnowMe
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resume">
+          <a href="/about" rel="section">
+            
+            Resume
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-blogs">
+          <a href="/archives" rel="section">
+            
+            Blogs
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects" rel="section">
+            
+            Projects
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friends">
+          <a href="/group" rel="section">
+            
+            Friends
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/06/16/Intermediate%20R/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Intermediate R</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-16T21:39:02+08:00">
+                2020-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  886
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><h1 id="Equality"><a href="#Equality" class="headerlink" title="Equality"></a>Equality</h1></li>
+<li><p><code>== / identical()</code></p>
+</li>
+<li><p><code>!=</code></p>
+</li>
+<li><p><code>&lt; and &gt; # greater and less than</code></p>
+</li>
+<li><p><code>&amp; # and</code></p>
+</li>
+<li><p><code>| # or</code></p>
+</li>
+<li><p><code>! # reverse the result</code></p>
+</li>
+<li><h1 id="Compare-vectors"><a href="#Compare-vectors" class="headerlink" title="Compare vectors"></a>Compare vectors</h1></li>
+<li><p><code>linkedin &gt; facebook</code></p>
+</li>
+<li><h1 id="Compare-matrices"><a href="#Compare-matrices" class="headerlink" title="Compare matrices"></a>Compare matrices</h1></li>
+<li><p><code>views &lt;= 14</code></p>
+</li>
+<li><h1 id="The-if-statement"><a href="#The-if-statement" class="headerlink" title="The if statement"></a>The if statement</h1></li>
+<li><p>```R<br>if (condition) </p>
+<pre><code>{   expr  } 
+</code></pre><p>else if (condition2) </p>
+<pre><code>{   expr2  } 
+</code></pre><p>else if (condition3) </p>
+<pre><code>{   expr3  } 
+</code></pre><p>else {   expr4  }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- # Write a while loop</span><br><span class="line"></span><br><span class="line">- &#96;while (condition) &#123;   expr  &#125;&#96;</span><br><span class="line"></span><br><span class="line">- </span><br><span class="line"></span><br><span class="line">- # Stop the while loop: </span><br><span class="line"></span><br><span class="line">- &#96;break&#96;</span><br><span class="line"></span><br><span class="line">- # Loop over a vector</span><br><span class="line"></span><br><span class="line">- &#96;primes &lt;- c(2, 3, 5, 7, 11, 13)&#96;</span><br><span class="line"></span><br><span class="line">- &#96;# loop version 1  for (p in primes) &#123;   print(p)  &#125;&#96;</span><br><span class="line"></span><br><span class="line">- &#96;# loop version 2  for (i in 1:length(primes)) &#123;   print(primes[i])  &#125;&#96;</span><br><span class="line"></span><br><span class="line">- # Loop over a list</span><br><span class="line"></span><br><span class="line">- &#96;primes_list &lt;- list(2, 3, 5, 7, 11, 13)&#96;</span><br><span class="line"></span><br><span class="line">- &#96;# loop version 1  for (p in primes_list) &#123;   print(p)  &#125;&#96;</span><br><span class="line"></span><br><span class="line">- &#96;# loop version 2  for (i in 1:length(primes_list)) &#123;   print(primes_list[[i]])  &#125;&#96;</span><br><span class="line"></span><br><span class="line">- # Loop over a matrix</span><br><span class="line"></span><br><span class="line">- &#96;for (var1 in seq1) &#123;   for (var2 in seq2) &#123;    expr   &#125;  &#125;&#96;</span><br><span class="line"></span><br><span class="line">- </span><br><span class="line"></span><br><span class="line">- # strsplit() </span><br><span class="line"></span><br><span class="line">- # Function documentation</span><br><span class="line"></span><br><span class="line">- &#96;help(sample)  ?sample&#96;</span><br><span class="line"></span><br><span class="line">- &#96;args(sample)&#96;</span><br><span class="line"></span><br><span class="line">- </span><br><span class="line"></span><br><span class="line">- # Write your own function</span><br><span class="line"></span><br><span class="line">- &#96;&#96;&#96;R</span><br><span class="line">  my_fun &lt;- function(arg1, arg2&#x3D;TRUE) &#123;   body&#96;</span><br><span class="line">  	return(result)&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h1 id="Load-an-R-Package"><a href="#Load-an-R-Package" class="headerlink" title="Load an R Package"></a>Load an R Package</h1></li>
+<li><ul>
+<li><a href="http://www.rdocumentation.org/packages/utils/functions/install.packages" target="_blank" rel="noopener"><strong>install.packages()</strong></a>, which as you can expect, installs a given package.</li>
+<li><a href="http://www.rdocumentation.org/packages/base/functions/library" target="_blank" rel="noopener"><strong>library()</strong></a> which loads packages, i.e.      attaches them to the search list on your R workspace. /  <a href="http://www.rdocumentation.org/packages/base/functions/library" target="_blank" rel="noopener"><strong>require()</strong></a></li>
+</ul>
+</li>
+<li><ul>
+<li>search(), to look at the currently attached      packages and</li>
+<li>qplot(mtcars$wt, mtcars$hp), to build a      plot of two variables of the mtcars data frame.</li>
+</ul>
+</li>
+<li></li>
+<li><p><code>library(ggplot2)</code></p>
+</li>
+<li><p><code># a powerful package for data visualization</code></p>
+</li>
+<li><h1 id="Apply-functions-lapply-vapply"><a href="#Apply-functions-lapply-vapply" class="headerlink" title="Apply functions! - lapply, vapply?"></a>Apply functions! - lapply, vapply?</h1></li>
+<li><h2 id="Use-lapply-with-a-built-in-R-function"><a href="#Use-lapply-with-a-built-in-R-function" class="headerlink" title="Use lapply with a built-in R function"></a>Use lapply with a built-in R function</h2></li>
+<li><p><code>lapply(X, FUN, ...)</code></p>
+</li>
+<li><p>To put it generally, lapply takes a vector or list X, and applies the function FUN to each of its members. </p>
+</li>
+<li><h2 id="lapply-and-anonymous-functions"><a href="#lapply-and-anonymous-functions" class="headerlink" title="lapply and anonymous functions"></a>lapply and anonymous functions</h2></li>
+<li><p><code># Named function  triple &lt;- function(x) { 3 * x }</code></p>
+</li>
+<li><p><code># Anonymous function with same implementation  function(x) { 3 * x }</code></p>
+</li>
+<li><p><code># Use anonymous function inside lapply()  lapply(list(1,2,3), function(x) { 3 * x })</code></p>
+</li>
+<li><h2 id="Use-lapply-with-additional-arguments"><a href="#Use-lapply-with-additional-arguments" class="headerlink" title="Use lapply with additional arguments"></a>Use lapply with additional arguments</h2></li>
+<li><p><code>multiply &lt;- function(x, factor) {   x * factor  }  lapply(list(1,2,3), multiply, factor = 3)</code></p>
+</li>
+<li><h2 id="How-to-use-sapply"><a href="#How-to-use-sapply" class="headerlink" title="How to use sapply"></a>How to use sapply</h2></li>
+<li><p><code>sapply(X, FUN, ...)</code></p>
+</li>
+<li><p><code>sapply() simplifies the list that lapply() would return by turning it into a vector.</code></p>
+</li>
+<li><h2 id="Use-vapply"><a href="#Use-vapply" class="headerlink" title="Use vapply"></a>Use vapply</h2></li>
+<li><p><code>vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)</code></p>
+</li>
+<li></li>
+<li><p>Over the elements inside X, the function <code>FUN</code> is applied. The <code>FUN.VALUE</code> argument expects a template for the return argument of this function <code>FUN</code>. <code>USE.NAMES</code> is <code>TRUE</code> by default; in this case <code>vapply()</code>tries to generate a named array, if possible.</p>
+</li>
+<li><h1 id="Data-Utilities"><a href="#Data-Utilities" class="headerlink" title="Data Utilities"></a>Data Utilities</h1></li>
+<li><p>R features a bunch of functions to juggle around with data structures::</p>
+</li>
+<li><ul>
+<li><a href="http://www.rdocumentation.org/packages/base/functions/seq" target="_blank" rel="noopener"><strong>seq()</strong></a>: Generate sequences, by specifying      the from, to, and by arguments.</li>
+<li><a href="http://www.rdocumentation.org/packages/base/functions/rep" target="_blank" rel="noopener"><strong>rep()</strong></a>: Replicate elements of vectors and      lists.</li>
+<li><a href="http://www.rdocumentation.org/packages/base/functions/sort" target="_blank" rel="noopener"><strong>sort()</strong></a>: Sort a vector in ascending order. Works      on numerics, but also on character strings and logicals.</li>
+<li><a href="http://www.rdocumentation.org/packages/base/functions/rev" target="_blank" rel="noopener"><strong>rev()</strong></a>: Reverse the elements in a data      structures for which reversal is defined.</li>
+<li><a href="http://www.rdocumentation.org/packages/utils/functions/str" target="_blank" rel="noopener"><strong>str()</strong></a>: Display the structure of any R object.</li>
+<li><a href="http://www.rdocumentation.org/packages/base/functions/append" target="_blank" rel="noopener"><strong>append()</strong></a>: Merge vectors or lists.</li>
+</ul>
+</li>
+<li><ul>
+<li>is.*(): Check for the class of an R object.</li>
+<li>as.*(): Convert an R object from one class to another.</li>
+</ul>
+</li>
+<li><ul>
+<li><a href="http://www.rdocumentation.org/packages/base/functions/unlist" target="_blank" rel="noopener"><strong>unlist()</strong></a>: Flatten (possibly embedded) lists to produce a vector.</li>
+</ul>
+</li>
+<li></li>
+<li><p><code>grepl &amp; grep</code></p>
+</li>
+<li><p>In their most basic form, regular expressions can be used to see whether a pattern exists inside a character string or a vector of character strings. For this purpose, you can use:</p>
+</li>
+<li><ul>
+<li><a href="http://www.rdocumentation.org/packages/base/functions/grep" target="_blank" rel="noopener"><strong>grepl()</strong></a>, which returns TRUE when a pattern is found in the corresponding character string.</li>
+<li><a href="http://www.rdocumentation.org/packages/base/functions/grep" target="_blank" rel="noopener"><strong>grep()</strong></a>, which returns a vector of indices of the character strings that contains the pattern.</li>
+</ul>
+</li>
+<li></li>
+<li><p>You can use the caret, ^, and the dollar sign, $ to match the content located in the start and end of a string, respectively. This could take us one step closer to a correct pattern for matching only the “.edu” email addresses from our list of emails. But there’s more that can be added to make the pattern more robust:</p>
+</li>
+<li><ul>
+<li>@, because a valid email must contain an at-sign.</li>
+<li>.<em>, which matches any character (.) zero or more      times (</em>). Both the dot and the asterisk are metacharacters. You can use      them to match any character between the at-sign and the “.edu”      portion of an email address.</li>
+<li><a href="file://.edu$">\.edu$</a>, to match the “.edu” part of the email at the end of the string. The \\ part <em>escapes</em> the dot: it tells R that you want to use the . as an actual character.</li>
+</ul>
+</li>
+<li></li>
+<li><p>While grep() and grepl() were used to simply check whether a regular expression could be matched with a character vector, sub() and gsub() take it one step further: you can specify a replacement argument. If inside the character vector x, the regular expression pattern is found, the matching element(s) will be replaced with replacement.sub() only replaces the first match, whereas gsub() replaces all matches.</p>
+</li>
+<li><h1 id="Create-and-format-dates"><a href="#Create-and-format-dates" class="headerlink" title="Create and format dates"></a>Create and format dates</h1></li>
+<li><p>To create a Date object from a simple character string in R, you can use the <a href="http://www.rdocumentation.org/packages/base/functions/as.Date" target="_blank" rel="noopener"><strong>as.Date()</strong></a> function. The character string has to obey a format that can be defined using a set of symbols (the examples correspond to 13 January, 1982):</p>
+</li>
+<li><ul>
+<li>%Y: 4-digit year (1982)</li>
+<li>%y: 2-digit year (82)</li>
+<li>%m: 2-digit month (01)</li>
+<li>%d: 2-digit day of the month (13)</li>
+<li>%A: weekday (Wednesday)</li>
+<li>%a: abbreviated weekday (Wed)</li>
+<li>%B: month (January)</li>
+<li>%b: abbreviated month (Jan)</li>
+</ul>
+</li>
+<li></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/12/Introduction%20to%20R/" rel="next" title="Introduction to R">
+                <i class="fa fa-chevron-left"></i> Introduction to R
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/18/ESL%20Chapter%202/" rel="prev" title="The Element of Statistical Learning Chapter 2">
+                The Element of Statistical Learning Chapter 2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Xinyi HU" />
+            
+              <p class="site-author-name" itemprop="name">Xinyi HU</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/samaritanhu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:samaritanhu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/in/xinyi-cindy-hu-b98b1a163/" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Linkedin</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Equality"><span class="nav-number">1.</span> <span class="nav-text">Equality</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Compare-vectors"><span class="nav-number">2.</span> <span class="nav-text">Compare vectors</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Compare-matrices"><span class="nav-number">3.</span> <span class="nav-text">Compare matrices</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-if-statement"><span class="nav-number">4.</span> <span class="nav-text">The if statement</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Load-an-R-Package"><span class="nav-number">5.</span> <span class="nav-text">Load an R Package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Apply-functions-lapply-vapply"><span class="nav-number">6.</span> <span class="nav-text">Apply functions! - lapply, vapply?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-lapply-with-a-built-in-R-function"><span class="nav-number">6.1.</span> <span class="nav-text">Use lapply with a built-in R function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lapply-and-anonymous-functions"><span class="nav-number">6.2.</span> <span class="nav-text">lapply and anonymous functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-lapply-with-additional-arguments"><span class="nav-number">6.3.</span> <span class="nav-text">Use lapply with additional arguments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-use-sapply"><span class="nav-number">6.4.</span> <span class="nav-text">How to use sapply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-vapply"><span class="nav-number">6.5.</span> <span class="nav-text">Use vapply</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Utilities"><span class="nav-number">7.</span> <span class="nav-text">Data Utilities</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-and-format-dates"><span class="nav-number">8.</span> <span class="nav-text">Create and format dates</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinyi HU</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+-->
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+ 
+
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+
+</body>
+</html>
