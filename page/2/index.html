@@ -252,6 +252,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/weibo%20hottopics%20crawler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/10/weibo%20hottopics%20crawler/" itemprop="url">Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T15:30:40+08:00">
+                2020-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  369
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Web-Scrawler-is-dangerous"><a href="#Web-Scrawler-is-dangerous" class="headerlink" title="Web Scrawler is dangerous"></a>Web Scrawler is dangerous</h3><p>First and foremost, do not touch web scrawler if you are 100% sure that you wanna do this.</p>
+<h3 id="Similar-topic"><a href="#Similar-topic" class="headerlink" title="Similar topic:"></a>Similar topic:</h3><p><a href="https://nobugs.dev/2019/07/14/webscrawler/">https://nobugs.dev/2019/07/14/webscrawler/</a></p>
+<p>website: enlightent</p>
+<h3 id="This-time"><a href="#This-time" class="headerlink" title="This time"></a>This time</h3><p>We choose to use the package of <code>requests</code> and package <code>json</code> to get the result of hot topics  in weibo, similar website to twitter which has real-time hot topics, a great way to monitor the public sentiment in China.</p>
+<h3 id="Code-Implementation"><a href="#Code-Implementation" class="headerlink" title="Code Implementation"></a>Code Implementation</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'charset'</span>: <span class="string">"utf-8"</span>,</span><br><span class="line">    <span class="string">'Accept-Encoding'</span>: <span class="string">"gzip"</span>,</span><br><span class="line">    <span class="string">'referer'</span>: <span class="string">"https://servicewechat.com/wx90ae92bbd13ec629/11/page-frame.html"</span>,</span><br><span class="line">    <span class="string">'content-type'</span>: <span class="string">"application/x-www-form-urlencoded"</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">"Mozilla/5.0 (Linux; Android 9; Redmi Note 7 Build/PKQ1.180904.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.91 Mobile Safari/537.36 MicroMessenger/7.0.3.1400(0x2700033B) Process/appbrand0 NetType/WIFI Language/zh_CN"</span>,</span><br><span class="line">    <span class="string">'Host'</span>: <span class="string">"www.eecso.com"</span>,</span><br><span class="line">    <span class="string">'Connection'</span>: <span class="string">"keep-alive"</span>,</span><br><span class="line">    <span class="string">'cache-control'</span>: <span class="string">"no-cache"</span>,</span><br><span class="line">    <span class="string">'Origin'</span>: <span class="string">'https://www.weibotop.cn'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'微博热搜.csv'</span>, <span class="string">'w'</span>, encoding=<span class="string">'gbk'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">'时间,排名,热搜内容,上榜时间,最后时间\n'</span>)</span><br><span class="line"></span><br><span class="line">timeid = <span class="number">77594</span></span><br><span class="line">dateUrl = <span class="string">"https://www.eecso.com/test/weibo/apis/getlatest.php?timeid=&#123;&#125;"</span></span><br><span class="line">contentUrl = <span class="string">"https://www.eecso.com/test/weibo/apis/currentitems.php?timeid=&#123;&#125;"</span></span><br><span class="line">n = <span class="number">1</span></span><br><span class="line">days = <span class="number">42</span> <span class="comment">#需获取2.10往前多少天的数据</span></span><br><span class="line">interval = <span class="number">720</span> <span class="comment">#改为1则是爬所有数据（该网站2分钟记录一次） 24*30 = 720</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    dateResponse = requests.request(<span class="string">"GET"</span>, dateUrl.format(timeid), headers=headers,verify=<span class="keyword">False</span>)</span><br><span class="line">    contentResponse = requests.request(<span class="string">"GET"</span>, contentUrl.format(timeid), headers=headers,verify=<span class="keyword">False</span>)</span><br><span class="line">    timeid = <span class="number">77594</span>-interval*n <span class="comment">#77594为2020/2/10 12:00的timeid，720为一天timeid的间隔</span></span><br><span class="line">    print(timeid)</span><br><span class="line">    n += <span class="number">1</span></span><br><span class="line">    dateJson = json.loads(dateResponse.text)</span><br><span class="line">    json_obj = json.loads(contentResponse.text)</span><br><span class="line">    <span class="comment">#print(dateJson)</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> index,item <span class="keyword">in</span> enumerate(json_obj):</span><br><span class="line">        date = dateJson[<span class="number">1</span>]</span><br><span class="line">        rank = str(index+<span class="number">1</span>)</span><br><span class="line">        hotTopic = item[<span class="number">0</span>]</span><br><span class="line">        onTime = item[<span class="number">1</span>]</span><br><span class="line">        lastTime = item[<span class="number">2</span>]</span><br><span class="line">        save_res = date+<span class="string">","</span>+rank+<span class="string">","</span>+hotTopic+<span class="string">','</span>+onTime+<span class="string">','</span>+lastTime+<span class="string">'\n'</span></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'微博热搜.csv'</span>,<span class="string">'a'</span>,encoding=<span class="string">'gbk'</span>,errors=<span class="string">'ignore'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(save_res)</span><br><span class="line">    <span class="keyword">if</span> n &gt; days:</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/Functional%20Analysis%20brief%20theorems/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2145,397 +2322,6 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/05/05/RandomForest/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/05/RandomForest/" itemprop="url">Random Forest Classification from the bottom layer</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T21:36:03+08:00">
-                2019-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
-                    <span itemprop="name">Computer Science</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  918
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>import packages we need</p>
-<pre><code>import random
-import numpy as np
-import sys
-</code></pre><p>The feature list is an array of the possible feature indicies to use. This prevents splitting on the same feature multiple times and runs a rough C45 algorithm.</p>
-<p>In pseudocode, the general algorithm for building decision trees is:</p>
-<p>1.Check for base cases<br>2.For each attribute a<br>3.Find the normalized information gain ratio from splitting on a<br>4.Let a_best be the attribute with the highest normalized information gain<br>5.Create a decision node that splits on a_best<br>6.Recur on the sublists obtained by splitting on a_best, and add those nodes as children of node</p>
-<pre><code>class TreeNode:
-    def __init__(self, dataSet, featureList, parent=None):
-        self.featureNumber = None  #This is the trained index of the feature to split on
-        self.featureList = featureList 
-        self.threshold = None     #This is the trained threshold of the feature to split on
-        self.leftChild = None
-        self.rightChild = None
-        self.dataSet = dataSet
-        self.parent = parent
-
-    def c45Train(self):
-        if(self.dataSet.isPure()):
-            #gets the label of the first data instance and makes a leaf node
-            #classifying it. 
-            label = self.dataSet.getData()[0].getLabel()
-            leaf = LeafNode(label)
-            return leaf
-        #If there are no more features in the feature list
-        if len(self.featureList) == 0:
-            labels = self.dataSet.getLabelStatistics()
-            bestLabel = None
-            mostTimes = 0
-
-            for key in labels:
-                if labels[key] &gt; mostTimes:
-                    bestLabel = key
-                    mostTimes = labels[key]
-            #Make the leaf node with the best label
-            leaf = LeafNode(bestLabel)
-            return leaf
-
-        #Check all of the features for the split with the most 
-        #information gain. Use that split.
-        currentEntropy = self.dataSet.getEntropy()
-        currentLength = self.dataSet.getLength()
-        infoGain = -1 * sys.maxsize
-        bestFeature = 0
-        bestLeft = None
-        bestRight = None
-        bestThreshold = 0
-
-        #Feature Bagging, Random subspace
-        num = int(np.ceil(np.sqrt(len(self.featureList))))
-        featureSubset = random.sample(self.featureList, num)
-
-        for featureIndex in featureSubset:
-            #Calculate the threshold to use for that feature
-            threshold = self.dataSet.betterThreshold(featureIndex)
-
-            (leftSet, rightSet) = self.dataSet.splitOn(featureIndex, threshold)
-
-            leftEntropy = leftSet.getEntropy()
-            rightEntropy = rightSet.getEntropy()
-            #Weighted entropy for this split
-            newEntropy = (leftSet.getLength() / currentLength) * leftEntropy + (rightSet.getLength() / currentLength) * rightEntropy
-            #Calculate the gain for this test
-            newIG = currentEntropy - newEntropy
-
-            if(newIG &gt; infoGain):
-                #Update the best stuff
-                infoGain = newIG
-                bestLeft = leftSet
-                bestRight = rightSet
-                bestFeature = featureIndex
-                bestThreshold = threshold
-
-        newFeatureList = list(self.featureList)
-        newFeatureList.remove(bestFeature)
-
-        #Another base case, if there are no good features to split on
-        if bestLeft.getLength() == 0 or bestRight.getLength() == 0:
-            labels = self.dataSet.getLabelStatistics()
-            bestLabel = None
-            mostTimes = 0
-
-            for key in labels:
-                if labels[key] &gt; mostTimes:
-                    bestLabel = key
-                    mostTimes = labels[key]
-            #Make the leaf node with the best label
-            leaf = LeafNode(bestLabel)
-            return leaf
-
-        self.threshold = bestThreshold
-        self.featureNumber = bestFeature
-
-        leftChild = TreeNode(bestLeft, newFeatureList, self)
-        rightChild = TreeNode(bestRight, newFeatureList, self)
-
-        self.leftChild = leftChild.c45Train()
-        self.rightChild = rightChild.c45Train()
-
-        return self
-
-    def __str__(self):
-        return str(self.featureList)
-
-    def __repr__(self):
-        return self.__str__()
-
-    def classify(self, sample):
-        &#39;&#39;&#39;
-        Recursivly traverse the tree to classify the sample that is passed in. 
-        &#39;&#39;&#39;
-
-        value = sample.getFeatures()[self.featureNumber]
-
-        if(value &lt; self.threshold):
-            #Continue down the left child    
-            return self.leftChild.classify(sample)
-
-        else:
-            #continue down the right child
-            return self.rightChild.classify(sample)
-
-
-class LeafNode:
-    &#39;&#39;&#39;
-    A leaf node is a node that just has a classification 
-    and is used to cap off a tree.
-    &#39;&#39;&#39;
-
-    def __init__(self, classification):
-        self.classification = classification
-
-    def classify(self, sample):
-        #A leaf node simply is a classification, return that
-        #This is the base case of the classify recursive function for TreeNodes
-        return self.classification
-
-
-class C45Tree:
-    &#39;&#39;&#39;
-    A tree contains a root node and from here
-    does the training and classification. Tree objects also
-    are responsible for having the data that they use to train.
-    &#39;&#39;&#39;
-
-    def __init__(self, data):
-        self.rootNode = None
-        self.data = data
-
-    def train(self):
-        &#39;&#39;&#39;
-        Trains a decision tree classifier on data set passed in. 
-        The data set should contain a good mix of each class to be
-        classified.
-        &#39;&#39;&#39;
-        length = self.data.getFeatureLength()
-        featureIndices = range(length)
-        self.rootNode = TreeNode(self.data, featureIndices)
-        self.rootNode.c45Train()
-
-    def classify(self, sample):
-        &#39;&#39;&#39;
-        Classify a sample based off of this trained tree.
-        &#39;&#39;&#39;
-
-        return self.rootNode.classify(sample)
-</code></pre><p>Then we introduce the RandomForest algorithm</p>
-<pre><code>from C45Tree import C45Tree
-
-
-class RandomForest(object):
-    &quot;&quot;&quot;A random forest object with the default of using a C45Tree 
-    for each of the trees in the random forest. To train the forest
-    create an instance of it then call train on a TraingData object&quot;&quot;&quot;
-    def __init__(self, data, numberOfTrees=100):
-        &#39;&#39;&#39;
-        Initialize the random forest. 
-        Each tree has a bag of the data associated with it.
-        &#39;&#39;&#39;
-        self.data = data    #The data that the trees will be trained on
-        self.numberOfTrees = numberOfTrees
-        self.forest = []
-
-        for i in range(numberOfTrees):
-            bag = data.getBag()
-            self.forest.append(C45Tree(bag))
-
-    def train(self):
-        &#39;&#39;&#39;
-        Train the random forest trees.
-        &#39;&#39;&#39;
-        for tree in self.forest:
-            tree.train()
-
-    def classify(self, sample):
-        &#39;&#39;&#39;
-        Classify a data sample by polling the trees.
-        &#39;&#39;&#39;
-
-        #Create an empty dictionary
-        votes = {}
-        #Tally the votes, for each tree classify the sample
-        for tree in self.forest:
-            label = tree.classify(sample)
-            if label in votes:
-                votes[label] += 1
-            else:
-                votes[label] = 1
-
-        bestLabel = None
-        mostTimes = 0
-        #Find the label with the most votes
-        for key in votes:
-            if votes[key] &gt; mostTimes:
-                bestLabel = key
-                mostTimes = votes[key]
-
-        #Return the most popular label
-        return bestLabel      
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2590,7 +2376,7 @@ class RandomForest(object):
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2601,7 +2387,7 @@ class RandomForest(object):
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
