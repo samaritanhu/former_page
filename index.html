@@ -252,6 +252,413 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/19/Hulu%20AI%20class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/19/Hulu%20AI%20class/" itemprop="url">Hulu AI Class - Recommender Systems 1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-19T12:56:21+08:00">
+                2020-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  881
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="The-aim-of-this-class"><a href="#The-aim-of-this-class" class="headerlink" title="The aim of this class"></a>The aim of this class</h1><ul>
+<li>Basic concept of recommender systems</li>
+<li>Simple formula and theory</li>
+<li>Underlying intuition of each recommendation model</li>
+<li>Pros and cons</li>
+</ul>
+<h1 id="What-is-recommender-system"><a href="#What-is-recommender-system" class="headerlink" title="What is recommender system?"></a>What is recommender system?</h1><p>Basic assumption of recommender systems</p>
+<ul>
+<li>Information overload</li>
+<li>Users are unsure about what they are looking for(different from information retrieval)</li>
+</ul>
+<p>Target of (traditional) recommender systems</p>
+<ul>
+<li>Develop a <strong>mathematical model</strong> of an <strong>objective function</strong>($\mathcal{F}$) to predict how much a <strong>user</strong> will like an <strong>item</strong> in a given <strong>context</strong>.</li>
+</ul>
+<script type="math/tex; mode=display">
+R=\mathcal{F}(u, i ; c)</script><p><img src="https://i.loli.net/2020/07/19/cRID18HTiMgsLCn.png" alt="rs1.png"></p>
+<h1 id="Basic-Concept"><a href="#Basic-Concept" class="headerlink" title="Basic Concept"></a>Basic Concept</h1><ul>
+<li><p>Ratings</p>
+</li>
+<li><ul>
+<li>Explicit ratings: 5 star, like/dislike<em>(additional effort from users)</em></li>
+<li>Implicit ratings: page views, click, effective playback, purchase records, whether or not listen to a music track<em>(easier to collect, less precise)</em></li>
+</ul>
+</li>
+<li><p>Interaction matrix</p>
+</li>
+<li><ul>
+<li>Matrix modelling user’s rating on item</li>
+<li>User $u$’s rating towards item $i$ as $r_{u,i}$</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/19/zPJmU6hX3jLNYBK.png" alt="rs1.2.png"></p>
+<h1 id="Collaborative-Filtering-“物以类聚，人以群分”"><a href="#Collaborative-Filtering-“物以类聚，人以群分”" class="headerlink" title="Collaborative Filtering “物以类聚，人以群分”"></a>Collaborative Filtering “物以类聚，人以群分”</h1><ul>
+<li><p><strong>Context-free</strong> recommender system</p>
+</li>
+<li><p>Intuition: <strong>the users who have agreed in the past tend to also agree in the future</strong></p>
+</li>
+<li><p>F: aggregate from nearest neighbor</p>
+<script type="math/tex; mode=display">
+r_{u, i}=\frac{\sum_{v} w_{u v} \cdot r_{v, i}}{\# \text { of neighbors }}</script></li>
+</ul>
+<ul>
+<li><p>User-based CF: user neighbors (green block)</p>
+</li>
+<li><p>Item-based CF: item neighbors (blue block)</p>
+</li>
+<li><p>Hybrid: use both</p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/19/i4CtNJbxlD39rLM.png" alt="image-20200719113651705.png"></p>
+<p><img src="https://i.loli.net/2020/07/19/o7qUYWhifSOZcXy.png" alt="image-20200719113855912.png"></p>
+<h2 id="Similarity-Calculation"><a href="#Similarity-Calculation" class="headerlink" title="Similarity Calculation"></a>Similarity Calculation</h2><ul>
+<li>Cosine similarity</li>
+<li>Pearson correlation</li>
+<li>SimRank</li>
+</ul>
+<h2 id="Improvement-of-Similarity-Calculation"><a href="#Improvement-of-Similarity-Calculation" class="headerlink" title="Improvement of Similarity Calculation"></a>Improvement of Similarity Calculation</h2><ul>
+<li>Not all neighbors are equally “valuable” i.e. agreement on commonly liked items not so informative as agreement on controversial items<ul>
+<li>Give more weight to items that have a higher variance</li>
+</ul>
+</li>
+<li>Low number of co-rated items may introduce bias<ul>
+<li>Reduce “confidence” when the number of co-rated items is low</li>
+</ul>
+</li>
+<li>All neighbors are not very “similar”<ul>
+<li>Set similarity threshold</li>
+<li>Set maximum number of neighbors</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pros-and-Cons"><a href="#Pros-and-Cons" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li><p>Pros </p>
+<ul>
+<li>Easy to implement </li>
+<li>Good explanation </li>
+</ul>
+</li>
+<li><p>Cons</p>
+<ul>
+<li>Large Memory needed </li>
+<li>Sparsity issue</li>
+</ul>
+</li>
+</ul>
+<h1 id="Matrix-Factorization"><a href="#Matrix-Factorization" class="headerlink" title="Matrix Factorization"></a>Matrix Factorization</h1><ul>
+<li><strong>Context-free</strong> recommender system</li>
+<li>Intuition: express <strong>higher-level attributes</strong></li>
+<li><p>Generate user and item <strong>embeddings</strong> </p>
+<ul>
+<li>Latent vectors</li>
+<li><p>(A group of) similar users/items have similar embeddings</p>
+<p>$\mathcal{F}$  : dot product of embeddings $r_{u,i}=p_u^T q_i$</p>
+<script type="math/tex; mode=display">
+\min_{p,q} \sum_{(u,i)\in K} (r_{u,i}-p_u^T q_i)^2~+\lambda(||p||+||q||)^2</script></li>
+</ul>
+</li>
+</ul>
+<h2 id="Improvement-of-Matrix-Factorization"><a href="#Improvement-of-Matrix-Factorization" class="headerlink" title="Improvement of Matrix Factorization"></a>Improvement of Matrix Factorization</h2><ul>
+<li><p>$\mathcal{F}$  could be more complicated</p>
+<script type="math/tex; mode=display">
+r_{u, i}={\mu}+b_{i}+{b_{u}}+p_{u}^{T} q_{i}</script></li>
+<li><p>Global bias </p>
+<ul>
+<li>Average ratings in the whole catalog </li>
+</ul>
+</li>
+<li>Item bias <ul>
+<li>Users rate diﬀerent categories in diﬀerent ways </li>
+</ul>
+</li>
+<li>User bias<ul>
+<li>Some users tend to give high ratings while others are not</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pros-and-Cons-1"><a href="#Pros-and-Cons-1" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros: <ul>
+<li>Better generalization capability: even though two users haven’t rated any same movies, it’s still possible to ﬁnd the similarity between them through embeddings </li>
+<li>Low memory: only need to store low-dimensional latent vectors, no need to store large user behaviors </li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Hard to explain </li>
+<li>Sparsity</li>
+</ul>
+</li>
+</ul>
+<h1 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h1><ul>
+<li><p>Intuition: add <strong>context</strong> information to our model </p>
+</li>
+<li><p>Recommendation as <strong>classiﬁcation</strong>: </p>
+</li>
+<li><p>$\mathcal{F}$ </p>
+<script type="math/tex; mode=display">
+r_{u, i}=\frac{1}{1+e^{-(W x+b)}}</script></li>
+</ul>
+<ul>
+<li><p>User, item, context =&gt; <strong>categorical</strong> feature vector</p>
+<ul>
+<li>Example: gender, time diﬀerence within the day, show genre as feature </li>
+<li>$[0, 1, 0, 0, 0, 1, 0]$ =&gt; female, view on morning, target show is <em>Horror Movie</em> </li>
+</ul>
+</li>
+<li><p>Diﬀerent weight of features, <strong>learned by gradient descent</strong> </p>
+</li>
+<li><p>Sigmoid projection</p>
+</li>
+</ul>
+<h2 id="Logistic-Regression-——-why"><a href="#Logistic-Regression-——-why" class="headerlink" title="Logistic Regression —— why?"></a>Logistic Regression —— why?</h2><ul>
+<li><p>Why categorical feature vector? </p>
+<ul>
+<li>Some non-numerical features, e.g. device: “roku”, “web”, “android”…</li>
+<li>Absolute value of feature does not make sense </li>
+<li>Feature crossing </li>
+<li>Fast computation of sparse vector</li>
+</ul>
+</li>
+<li><p>Why sigmoid projection?</p>
+<ul>
+<li>Output between 0 and 1 </li>
+<li>Good mathematical form </li>
+<li>Maximum entropy model</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pros-and-Cons-2"><a href="#Pros-and-Cons-2" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros<ul>
+<li>Good explanation (feature importance) </li>
+<li>Good parallelism, fast model training </li>
+<li>Low training cost </li>
+<li>Online training </li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Manually craft features</li>
+<li>Limited model expressiveness (linear model)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Problems-of-Logistic-Regression"><a href="#Problems-of-Logistic-Regression" class="headerlink" title="Problems of Logistic Regression"></a>Problems of Logistic Regression</h2><p>Simpson’s Paradox</p>
+<h1 id="Factorization-Machine-FM"><a href="#Factorization-Machine-FM" class="headerlink" title="Factorization Machine (FM)"></a>Factorization Machine (FM)</h1><ul>
+<li><p>Intuition: <strong>feature crossing</strong></p>
+</li>
+<li><p>$\mathcal{F}$</p>
+<script type="math/tex; mode=display">
+y(x)=\operatorname{sigmoid}\left(w_{0}+\sum_{i=1}^{n} w_{i} x_{i}+\sum_{i=1}^{n-1} \sum_{j=i+1}^{n} w_{i j} x_{i} x_{j}\right)</script></li>
+</ul>
+<ul>
+<li>Let $w_{ij}=<v_i, v_j="">$ <script type="math/tex; mode=display">
+y(x)=sigmoid(w_0 + \sum_{i=1}^n w_ix_i + \sum_{i=1}^{n-1}\sum_{j=i+1}^{n} <v_i,v_j> x_ix_j)</script></v_i,></li>
+</ul>
+<ul>
+<li>Deal with parameter explosion ($n^2 \geq nk$)</li>
+<li>Equivalent to low rank parameter matrix factorization $W=VV^T$</li>
+</ul>
+<h2 id="Pros-and-Cons-3"><a href="#Pros-and-Cons-3" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros<ul>
+<li>Good expressiveness </li>
+<li>Good generalization </li>
+<li>Relatively low training cost</li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Hard to make higher level feature crossing</li>
+</ul>
+</li>
+</ul>
+<h1 id="Gradient-Boosting-Decision-Tree-GBDT"><a href="#Gradient-Boosting-Decision-Tree-GBDT" class="headerlink" title="Gradient Boosting Decision Tree (GBDT)"></a>Gradient Boosting Decision Tree (GBDT)</h1><ul>
+<li><p>$\mathcal{F}$</p>
+<script type="math/tex; mode=display">
+F_m(x)=\sum_{m=1}^M T(x;\theta_m)</script></li>
+<li><p>Training samples $(x_1, y_1), (x_2, y_2), … , (x_n,y_n)$</p>
+</li>
+<li><p>Boosting:</p>
+</li>
+<li><p>$f$ : Regression tre -&gt; Boosting Regression(Decision) Tree</p>
+</li>
+<li><p>Loss function -&gt; Gradient Boosting Decision Tree, GBDT</p>
+<script type="math/tex; mode=display">
+L=\sum_i (f(x_i)-y_i)^2 \\
+T(x_i;\theta_m) \approx -[\frac{\partial L(y_i, f(x_i))}{\partial f(x_i)}]_{f(x)=F_{m-1}(x)}</script></li>
+</ul>
+<h2 id="XGBoost-amp-LightGBM"><a href="#XGBoost-amp-LightGBM" class="headerlink" title="XGBoost &amp; LightGBM"></a>XGBoost &amp; LightGBM</h2><ul>
+<li><p>$\mathcal{F}$</p>
+<script type="math/tex; mode=display">
+\hat{y}=\sum_{k=1}^K f_k(x)</script></li>
+<li><p>Change optimization goal</p>
+<script type="math/tex; mode=display">
+O b j^{(t)}=\sum_{i=1}^{m} L\left(y_{i}, \hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\right)\right)+\sqrt{\gamma T}+\sqrt{\frac{\lambda}{2} \sum_{j=1}^{T} w_{j}^{2}}</script></li>
+<li><p>Loss function: Taylor expansion, keep second order terms </p>
+</li>
+<li>Regularization<ul>
+<li>Prevent too complicated trees </li>
+<li>Prevent extreme parameters </li>
+</ul>
+</li>
+<li>LightGBM (engineering optimization)</li>
+</ul>
+<h2 id="Pros-and-Cons-4"><a href="#Pros-and-Cons-4" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros<ul>
+<li>Good expressiveness </li>
+<li>Low eﬀort of feature engineering </li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Hard parallelism</li>
+<li>Unable to do incremental training</li>
+</ul>
+</li>
+</ul>
+<h1 id="GBDT-LR"><a href="#GBDT-LR" class="headerlink" title="GBDT + LR"></a>GBDT + LR</h1><ul>
+<li>Intuition: <strong>model-based feature engineering</strong></li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/19/bCaOt84o3Aji2pW.png" alt="image.png"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/18/ESL%20Chapter%2016/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2130,211 +2537,6 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/" itemprop="url">ubuntu18.04+nvidia driver+cuda+cudnn install</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-29T22:48:34+08:00">
-                2020-02-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  390
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Install-Ubuntu18-04"><a href="#Install-Ubuntu18-04" class="headerlink" title="Install Ubuntu18.04"></a>Install Ubuntu18.04</h1><p>according to this blog: <a href="https://blog.csdn.net/silver1225/article/details/100393719" target="_blank" rel="noopener">https://blog.csdn.net/silver1225/article/details/100393719</a></p>
-<h1 id="install-nvidia-driver"><a href="#install-nvidia-driver" class="headerlink" title="install nvidia driver"></a>install nvidia driver</h1><h2 id="First-disable-original-nvidia-driver-nouveau"><a href="#First-disable-original-nvidia-driver-nouveau" class="headerlink" title="First, disable original nvidia driver, nouveau"></a>First, disable original nvidia driver, nouveau</h2><ol>
-<li>delete the original nvidia driver</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove nvidia-*</span><br></pre></td></tr></table></figure>
-<ol>
-<li>forbid nouveau</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;modprobe.d&#x2F;blacklist.conf</span><br></pre></td></tr></table></figure>
-<p>and add this in the bottom</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau</span><br><span class="line">options nouveau modeset&#x3D;0</span><br></pre></td></tr></table></figure>
-<ol>
-<li>execute</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-initramfs -u</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<ol>
-<li>see the version of nouveau, if nothing returns, you succeed.</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep nouveau</span><br></pre></td></tr></table></figure>
-<h2 id="Second-install-your-nvidia-driver"><a href="#Second-install-your-nvidia-driver" class="headerlink" title="Second, install your nvidia driver."></a>Second, install your nvidia driver.</h2><ol>
-<li><p>search your nvidia driver according to your version at <a href="https://www.nvidia.cn/Download/index.aspx?lang=cn" target="_blank" rel="noopener">https://www.nvidia.cn/Download/index.aspx?lang=cn</a></p>
-</li>
-<li><p>update all</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-<ol>
-<li>install gcc</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential</span><br></pre></td></tr></table></figure>
-<ol>
-<li>show the version of your nvidia</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lshw -numeric -C display</span><br></pre></td></tr></table></figure>
-<ol>
-<li>install</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x NVIDIA-Linux-x86_64-418.43.run</span><br><span class="line">sudo .&#x2F;NVIDIA-Linux-x86_64-418.43.run --no-opengl-files --no-x-check --no-nouveau-check</span><br></pre></td></tr></table></figure>
-<ol>
-<li>check whether you succeed or not</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
-<h2 id="Third-download-cuda"><a href="#Third-download-cuda" class="headerlink" title="Third, download cuda"></a>Third, download cuda</h2><p>download cuda at <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh cuda_10.0.130_410.48_linux.run</span><br></pre></td></tr></table></figure>
-<p>and select </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 accept #同意安装</span><br><span class="line">2 n #不安装Driver，因为已安装最新驱动</span><br><span class="line">3 y #安装CUDA Toolkit</span><br><span class="line">4 &lt;Enter&gt; #安装到默认目录</span><br><span class="line">5 y #创建安装目录的软链接</span><br><span class="line">6 y #复制Samples一份到家目录</span><br></pre></td></tr></table></figure>
-<p>Then</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~&#x2F;.bashrc</span><br></pre></td></tr></table></figure>
-<p>Add this to the file</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;bin$&#123;PATH:+:$PATH&#125;&#125; </span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;lib64$&#123;LD_LIBRARY_PATH:+:$&#123;LD_LIBRARY_PATH&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>Go back to command line</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bashrc</span><br><span class="line">sudo vim &#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;bin:$PATH</span><br><span class="line">sudo vim &#x2F;etc&#x2F;ld.so.conf.d&#x2F;cuda.conf</span><br></pre></td></tr></table></figure>
-<p>Add this to the file.</p>
-<h1 id="Last"><a href="#Last" class="headerlink" title="Last"></a>Last</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">from torch.autograd import Variable, grad</span><br><span class="line"></span><br><span class="line">SIZE&#x3D;[1, 1, 171*21, 171*21]</span><br><span class="line">input &#x3D; Variable(torch.cuda.FloatTensor(*SIZE).uniform_(), requires_grad&#x3D;True)</span><br><span class="line">conv1 &#x3D; nn.Conv2d(1, 1, kernel_size&#x3D;3, stride&#x3D;1, dilation&#x3D;1, padding&#x3D;1,bias&#x3D;False).cuda()</span><br><span class="line">output &#x3D; conv1(input)</span><br><span class="line">loss &#x3D; output.sum()</span><br><span class="line">loss.backward()</span><br></pre></td></tr></table></figure>
-<p>run this, if no error, you SUCCEED!</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2389,7 +2591,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2411,7 +2613,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

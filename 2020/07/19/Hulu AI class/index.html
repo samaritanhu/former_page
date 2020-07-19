@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="RecommenderSystems," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="The aim of this class Basic concept of recommender systems Simple formula and theory Underlying intuition of each recommendation model Pros and cons  What is recommender system?Basic assumption of rec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hulu AI Class - Recommender Systems 1">
+<meta property="og:url" content="http://nobugs.dev/2020/07/19/Hulu%20AI%20class/index.html">
+<meta property="og:site_name" content="Xinyi&#39;s gadget">
+<meta property="og:description" content="The aim of this class Basic concept of recommender systems Simple formula and theory Underlying intuition of each recommendation model Pros and cons  What is recommender system?Basic assumption of rec">
+<meta property="og:image" content="https://i.loli.net/2020/07/19/cRID18HTiMgsLCn.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/19/zPJmU6hX3jLNYBK.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/19/i4CtNJbxlD39rLM.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/19/o7qUYWhifSOZcXy.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/19/bCaOt84o3Aji2pW.png">
+<meta property="article:published_time" content="2020-07-19T04:56:21.000Z">
+<meta property="article:modified_time" content="2020-07-19T05:24:36.020Z">
+<meta property="article:author" content="Xinyi HU">
+<meta property="article:tag" content="RecommenderSystems">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/07/19/cRID18HTiMgsLCn.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nobugs.dev/2020/07/19/Hulu AI class/"/>
+
+
+
+
+
+  <title>Hulu AI Class - Recommender Systems 1 | Xinyi's gadget</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xinyi's gadget</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-knowme">
+          <a href="/KnowMe" rel="section">
+            
+            KnowMe
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resume">
+          <a href="/about" rel="section">
+            
+            Resume
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-blogs">
+          <a href="/archives" rel="section">
+            
+            Blogs
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects" rel="section">
+            
+            Projects
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friends">
+          <a href="/group" rel="section">
+            
+            Friends
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/19/Hulu%20AI%20class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hulu AI Class - Recommender Systems 1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-19T12:56:21+08:00">
+                2020-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  881
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="The-aim-of-this-class"><a href="#The-aim-of-this-class" class="headerlink" title="The aim of this class"></a>The aim of this class</h1><ul>
+<li>Basic concept of recommender systems</li>
+<li>Simple formula and theory</li>
+<li>Underlying intuition of each recommendation model</li>
+<li>Pros and cons</li>
+</ul>
+<h1 id="What-is-recommender-system"><a href="#What-is-recommender-system" class="headerlink" title="What is recommender system?"></a>What is recommender system?</h1><p>Basic assumption of recommender systems</p>
+<ul>
+<li>Information overload</li>
+<li>Users are unsure about what they are looking for(different from information retrieval)</li>
+</ul>
+<p>Target of (traditional) recommender systems</p>
+<ul>
+<li>Develop a <strong>mathematical model</strong> of an <strong>objective function</strong>($\mathcal{F}$) to predict how much a <strong>user</strong> will like an <strong>item</strong> in a given <strong>context</strong>.</li>
+</ul>
+<script type="math/tex; mode=display">
+R=\mathcal{F}(u, i ; c)</script><p><img src="https://i.loli.net/2020/07/19/cRID18HTiMgsLCn.png" alt="rs1.png"></p>
+<h1 id="Basic-Concept"><a href="#Basic-Concept" class="headerlink" title="Basic Concept"></a>Basic Concept</h1><ul>
+<li><p>Ratings</p>
+</li>
+<li><ul>
+<li>Explicit ratings: 5 star, like/dislike<em>(additional effort from users)</em></li>
+<li>Implicit ratings: page views, click, effective playback, purchase records, whether or not listen to a music track<em>(easier to collect, less precise)</em></li>
+</ul>
+</li>
+<li><p>Interaction matrix</p>
+</li>
+<li><ul>
+<li>Matrix modelling user’s rating on item</li>
+<li>User $u$’s rating towards item $i$ as $r_{u,i}$</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/19/zPJmU6hX3jLNYBK.png" alt="rs1.2.png"></p>
+<h1 id="Collaborative-Filtering-“物以类聚，人以群分”"><a href="#Collaborative-Filtering-“物以类聚，人以群分”" class="headerlink" title="Collaborative Filtering “物以类聚，人以群分”"></a>Collaborative Filtering “物以类聚，人以群分”</h1><ul>
+<li><p><strong>Context-free</strong> recommender system</p>
+</li>
+<li><p>Intuition: <strong>the users who have agreed in the past tend to also agree in the future</strong></p>
+</li>
+<li><p>F: aggregate from nearest neighbor</p>
+<script type="math/tex; mode=display">
+r_{u, i}=\frac{\sum_{v} w_{u v} \cdot r_{v, i}}{\# \text { of neighbors }}</script></li>
+</ul>
+<ul>
+<li><p>User-based CF: user neighbors (green block)</p>
+</li>
+<li><p>Item-based CF: item neighbors (blue block)</p>
+</li>
+<li><p>Hybrid: use both</p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/19/i4CtNJbxlD39rLM.png" alt="image-20200719113651705.png"></p>
+<p><img src="https://i.loli.net/2020/07/19/o7qUYWhifSOZcXy.png" alt="image-20200719113855912.png"></p>
+<h2 id="Similarity-Calculation"><a href="#Similarity-Calculation" class="headerlink" title="Similarity Calculation"></a>Similarity Calculation</h2><ul>
+<li>Cosine similarity</li>
+<li>Pearson correlation</li>
+<li>SimRank</li>
+</ul>
+<h2 id="Improvement-of-Similarity-Calculation"><a href="#Improvement-of-Similarity-Calculation" class="headerlink" title="Improvement of Similarity Calculation"></a>Improvement of Similarity Calculation</h2><ul>
+<li>Not all neighbors are equally “valuable” i.e. agreement on commonly liked items not so informative as agreement on controversial items<ul>
+<li>Give more weight to items that have a higher variance</li>
+</ul>
+</li>
+<li>Low number of co-rated items may introduce bias<ul>
+<li>Reduce “confidence” when the number of co-rated items is low</li>
+</ul>
+</li>
+<li>All neighbors are not very “similar”<ul>
+<li>Set similarity threshold</li>
+<li>Set maximum number of neighbors</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pros-and-Cons"><a href="#Pros-and-Cons" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li><p>Pros </p>
+<ul>
+<li>Easy to implement </li>
+<li>Good explanation </li>
+</ul>
+</li>
+<li><p>Cons</p>
+<ul>
+<li>Large Memory needed </li>
+<li>Sparsity issue</li>
+</ul>
+</li>
+</ul>
+<h1 id="Matrix-Factorization"><a href="#Matrix-Factorization" class="headerlink" title="Matrix Factorization"></a>Matrix Factorization</h1><ul>
+<li><strong>Context-free</strong> recommender system</li>
+<li>Intuition: express <strong>higher-level attributes</strong></li>
+<li><p>Generate user and item <strong>embeddings</strong> </p>
+<ul>
+<li>Latent vectors</li>
+<li><p>(A group of) similar users/items have similar embeddings</p>
+<p>$\mathcal{F}$  : dot product of embeddings $r_{u,i}=p_u^T q_i$</p>
+<script type="math/tex; mode=display">
+\min_{p,q} \sum_{(u,i)\in K} (r_{u,i}-p_u^T q_i)^2~+\lambda(||p||+||q||)^2</script></li>
+</ul>
+</li>
+</ul>
+<h2 id="Improvement-of-Matrix-Factorization"><a href="#Improvement-of-Matrix-Factorization" class="headerlink" title="Improvement of Matrix Factorization"></a>Improvement of Matrix Factorization</h2><ul>
+<li><p>$\mathcal{F}$  could be more complicated</p>
+<script type="math/tex; mode=display">
+r_{u, i}={\mu}+b_{i}+{b_{u}}+p_{u}^{T} q_{i}</script></li>
+<li><p>Global bias </p>
+<ul>
+<li>Average ratings in the whole catalog </li>
+</ul>
+</li>
+<li>Item bias <ul>
+<li>Users rate diﬀerent categories in diﬀerent ways </li>
+</ul>
+</li>
+<li>User bias<ul>
+<li>Some users tend to give high ratings while others are not</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pros-and-Cons-1"><a href="#Pros-and-Cons-1" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros: <ul>
+<li>Better generalization capability: even though two users haven’t rated any same movies, it’s still possible to ﬁnd the similarity between them through embeddings </li>
+<li>Low memory: only need to store low-dimensional latent vectors, no need to store large user behaviors </li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Hard to explain </li>
+<li>Sparsity</li>
+</ul>
+</li>
+</ul>
+<h1 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h1><ul>
+<li><p>Intuition: add <strong>context</strong> information to our model </p>
+</li>
+<li><p>Recommendation as <strong>classiﬁcation</strong>: </p>
+</li>
+<li><p>$\mathcal{F}$ </p>
+<script type="math/tex; mode=display">
+r_{u, i}=\frac{1}{1+e^{-(W x+b)}}</script></li>
+</ul>
+<ul>
+<li><p>User, item, context =&gt; <strong>categorical</strong> feature vector</p>
+<ul>
+<li>Example: gender, time diﬀerence within the day, show genre as feature </li>
+<li>$[0, 1, 0, 0, 0, 1, 0]$ =&gt; female, view on morning, target show is <em>Horror Movie</em> </li>
+</ul>
+</li>
+<li><p>Diﬀerent weight of features, <strong>learned by gradient descent</strong> </p>
+</li>
+<li><p>Sigmoid projection</p>
+</li>
+</ul>
+<h2 id="Logistic-Regression-——-why"><a href="#Logistic-Regression-——-why" class="headerlink" title="Logistic Regression —— why?"></a>Logistic Regression —— why?</h2><ul>
+<li><p>Why categorical feature vector? </p>
+<ul>
+<li>Some non-numerical features, e.g. device: “roku”, “web”, “android”…</li>
+<li>Absolute value of feature does not make sense </li>
+<li>Feature crossing </li>
+<li>Fast computation of sparse vector</li>
+</ul>
+</li>
+<li><p>Why sigmoid projection?</p>
+<ul>
+<li>Output between 0 and 1 </li>
+<li>Good mathematical form </li>
+<li>Maximum entropy model</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pros-and-Cons-2"><a href="#Pros-and-Cons-2" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros<ul>
+<li>Good explanation (feature importance) </li>
+<li>Good parallelism, fast model training </li>
+<li>Low training cost </li>
+<li>Online training </li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Manually craft features</li>
+<li>Limited model expressiveness (linear model)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Problems-of-Logistic-Regression"><a href="#Problems-of-Logistic-Regression" class="headerlink" title="Problems of Logistic Regression"></a>Problems of Logistic Regression</h2><p>Simpson’s Paradox</p>
+<h1 id="Factorization-Machine-FM"><a href="#Factorization-Machine-FM" class="headerlink" title="Factorization Machine (FM)"></a>Factorization Machine (FM)</h1><ul>
+<li><p>Intuition: <strong>feature crossing</strong></p>
+</li>
+<li><p>$\mathcal{F}$</p>
+<script type="math/tex; mode=display">
+y(x)=\operatorname{sigmoid}\left(w_{0}+\sum_{i=1}^{n} w_{i} x_{i}+\sum_{i=1}^{n-1} \sum_{j=i+1}^{n} w_{i j} x_{i} x_{j}\right)</script></li>
+</ul>
+<ul>
+<li>Let $w_{ij}=<v_i, v_j="">$ <script type="math/tex; mode=display">
+y(x)=sigmoid(w_0 + \sum_{i=1}^n w_ix_i + \sum_{i=1}^{n-1}\sum_{j=i+1}^{n} <v_i,v_j> x_ix_j)</script></v_i,></li>
+</ul>
+<ul>
+<li>Deal with parameter explosion ($n^2 \geq nk$)</li>
+<li>Equivalent to low rank parameter matrix factorization $W=VV^T$</li>
+</ul>
+<h2 id="Pros-and-Cons-3"><a href="#Pros-and-Cons-3" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros<ul>
+<li>Good expressiveness </li>
+<li>Good generalization </li>
+<li>Relatively low training cost</li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Hard to make higher level feature crossing</li>
+</ul>
+</li>
+</ul>
+<h1 id="Gradient-Boosting-Decision-Tree-GBDT"><a href="#Gradient-Boosting-Decision-Tree-GBDT" class="headerlink" title="Gradient Boosting Decision Tree (GBDT)"></a>Gradient Boosting Decision Tree (GBDT)</h1><ul>
+<li><p>$\mathcal{F}$</p>
+<script type="math/tex; mode=display">
+F_m(x)=\sum_{m=1}^M T(x;\theta_m)</script></li>
+<li><p>Training samples $(x_1, y_1), (x_2, y_2), … , (x_n,y_n)$</p>
+</li>
+<li><p>Boosting:</p>
+</li>
+<li><p>$f$ : Regression tre -&gt; Boosting Regression(Decision) Tree</p>
+</li>
+<li><p>Loss function -&gt; Gradient Boosting Decision Tree, GBDT</p>
+<script type="math/tex; mode=display">
+L=\sum_i (f(x_i)-y_i)^2 \\
+T(x_i;\theta_m) \approx -[\frac{\partial L(y_i, f(x_i))}{\partial f(x_i)}]_{f(x)=F_{m-1}(x)}</script></li>
+</ul>
+<h2 id="XGBoost-amp-LightGBM"><a href="#XGBoost-amp-LightGBM" class="headerlink" title="XGBoost &amp; LightGBM"></a>XGBoost &amp; LightGBM</h2><ul>
+<li><p>$\mathcal{F}$</p>
+<script type="math/tex; mode=display">
+\hat{y}=\sum_{k=1}^K f_k(x)</script></li>
+<li><p>Change optimization goal</p>
+<script type="math/tex; mode=display">
+O b j^{(t)}=\sum_{i=1}^{m} L\left(y_{i}, \hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\right)\right)+\sqrt{\gamma T}+\sqrt{\frac{\lambda}{2} \sum_{j=1}^{T} w_{j}^{2}}</script></li>
+<li><p>Loss function: Taylor expansion, keep second order terms </p>
+</li>
+<li>Regularization<ul>
+<li>Prevent too complicated trees </li>
+<li>Prevent extreme parameters </li>
+</ul>
+</li>
+<li>LightGBM (engineering optimization)</li>
+</ul>
+<h2 id="Pros-and-Cons-4"><a href="#Pros-and-Cons-4" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros<ul>
+<li>Good expressiveness </li>
+<li>Low eﬀort of feature engineering </li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Hard parallelism</li>
+<li>Unable to do incremental training</li>
+</ul>
+</li>
+</ul>
+<h1 id="GBDT-LR"><a href="#GBDT-LR" class="headerlink" title="GBDT + LR"></a>GBDT + LR</h1><ul>
+<li>Intuition: <strong>model-based feature engineering</strong></li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/19/bCaOt84o3Aji2pW.png" alt="image.png"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RecommenderSystems/" rel="tag"># RecommenderSystems</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/18/ESL%20Chapter%2016/" rel="next" title="The Element of Statistical Learning Chapter 16">
+                <i class="fa fa-chevron-left"></i> The Element of Statistical Learning Chapter 16
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Xinyi HU" />
+            
+              <p class="site-author-name" itemprop="name">Xinyi HU</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/samaritanhu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:samaritanhu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/in/xinyi-cindy-hu-b98b1a163/" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Linkedin</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-aim-of-this-class"><span class="nav-number">1.</span> <span class="nav-text">The aim of this class</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-recommender-system"><span class="nav-number">2.</span> <span class="nav-text">What is recommender system?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Concept"><span class="nav-number">3.</span> <span class="nav-text">Basic Concept</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collaborative-Filtering-“物以类聚，人以群分”"><span class="nav-number">4.</span> <span class="nav-text">Collaborative Filtering “物以类聚，人以群分”</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Similarity-Calculation"><span class="nav-number">4.1.</span> <span class="nav-text">Similarity Calculation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Improvement-of-Similarity-Calculation"><span class="nav-number">4.2.</span> <span class="nav-text">Improvement of Similarity Calculation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pros-and-Cons"><span class="nav-number">4.3.</span> <span class="nav-text">Pros and Cons</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrix-Factorization"><span class="nav-number">5.</span> <span class="nav-text">Matrix Factorization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Improvement-of-Matrix-Factorization"><span class="nav-number">5.1.</span> <span class="nav-text">Improvement of Matrix Factorization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pros-and-Cons-1"><span class="nav-number">5.2.</span> <span class="nav-text">Pros and Cons</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">6.</span> <span class="nav-text">Logistic Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Logistic-Regression-——-why"><span class="nav-number">6.1.</span> <span class="nav-text">Logistic Regression —— why?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pros-and-Cons-2"><span class="nav-number">6.2.</span> <span class="nav-text">Pros and Cons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems-of-Logistic-Regression"><span class="nav-number">6.3.</span> <span class="nav-text">Problems of Logistic Regression</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Factorization-Machine-FM"><span class="nav-number">7.</span> <span class="nav-text">Factorization Machine (FM)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pros-and-Cons-3"><span class="nav-number">7.1.</span> <span class="nav-text">Pros and Cons</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Gradient-Boosting-Decision-Tree-GBDT"><span class="nav-number">8.</span> <span class="nav-text">Gradient Boosting Decision Tree (GBDT)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XGBoost-amp-LightGBM"><span class="nav-number">8.1.</span> <span class="nav-text">XGBoost &amp; LightGBM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pros-and-Cons-4"><span class="nav-number">8.2.</span> <span class="nav-text">Pros and Cons</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GBDT-LR"><span class="nav-number">9.</span> <span class="nav-text">GBDT + LR</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinyi HU</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+-->
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+ 
+
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+
+</body>
+</html>
