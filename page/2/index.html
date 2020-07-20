@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,6 +13,13 @@
 <meta name="theme-color" content="#222">
 
 
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -83,7 +90,8 @@
 <meta property="og:title" content="Xinyi&#39;s gadget">
 <meta property="og:url" content="http://nobugs.dev/page/2/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
-<meta property="article:author" content="Xinyi HU">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Xinyi Hu">
 <meta name="twitter:card" content="summary">
 
 
@@ -100,7 +108,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -132,7 +140,7 @@
 
 <meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -188,14 +196,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-resume">
-          <a href="/about" rel="section">
-            
-            Resume
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-blogs">
           <a href="/archives" rel="section">
             
@@ -204,10 +204,10 @@
         </li>
       
         
-        <li class="menu-item menu-item-projects">
-          <a href="/projects" rel="section">
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
             
-            Projects
+            Categories
           </a>
         </li>
       
@@ -221,9 +221,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -252,10 +284,180 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/02/GNN-survey/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/02/GNN-survey/" itemprop="url">GNN survey</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-02T12:56:21+08:00">
+                2020-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/03/02/GNN-survey/" class="leancloud_visitors" data-flag-title="GNN survey">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  429
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Background-and-Definitions"><a href="#Background-and-Definitions" class="headerlink" title="Background and Definitions"></a>Background and Definitions</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Early studies fall into the category of recurrent graph neural networks(<strong>RecGNNs</strong>). With the success of CNNs,  new approach developed. (<strong>ConvGNNs</strong>)  ConvGNNs are divided into two main streams, the <strong>spectral-based</strong> approaches and the <strong>spatial-based</strong> approaches. </p>
+<p>Network embedding aims at representing network nodes as low-dimensional vector representations, preserving both network topology structure and node content information.</p>
+<p>Graph kernel methods employ a kernel function to measure the similarity between pairs of graphs.  Graph kernels can embed graphs or nodes into vector spaces by a mapping function. The difference between GNN and graph kernels is that this mapping function is deterministic rather than learnable.</p>
+<h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><p><strong>Deﬁnition 1 (Graph):</strong> A graph is represented as $G = (V,E)$ where $V$ is the set of vertices or nodes, and $E$ is the set of edges. Let $v_i \in V$ to denote a node and $e_{ij} = (v_i,v_j) \in E$ to denote an edge pointing from $v_j$ to $v_i$. The neighborhood of a node $v$ is deﬁned as $N(v) = {u \in V|(v,u) \in E}$. The adjacency matrix $A$ is a $n \times n$ matrix with $A_{ij} = 1$ if $e_{ij} \in E$ and $A_{ij} = 0$ if $e_{ij} \notin E$. A graph may have node attributes $ x_{v}$ , where $X \in R^{n×d}$ is a node feature matrix with $x_{v} \in R^d$  representing the feature vector of a node $v$. Meanwhile, a graph may have edge attributes $X^e$, where $X^e \in R^{m×c}$ is an edge feature matrix with $x^{e}_{v,u} \in R^c$ representing the feature vector of an edge $(v,u)$.</p>
+<p><strong>Deﬁnition 2 (Directed Graph):</strong> A directed graph is a graph with all edges directed from one node to another. An undirected graph is considered as a special case of directed graphs where there is a pair of edges with inverse directions if two nodes are connected. A graph is undirected if and only if the adjacency matrix is symmetric. </p>
+<p><strong>Deﬁnition 3 (Spatial-Temporal Graph)</strong>: A spatial-temporal graph is an attributed graph where the node attributes change dynamically over time. The spatial-temporal graph is deﬁned as $G^{(t)} = (V,E,X^{(t)})$ with $X^{(t)} \in R^{n×d}$. </p>
+<h1 id="Categorization-and-Frameworks"><a href="#Categorization-and-Frameworks" class="headerlink" title="Categorization and Frameworks"></a>Categorization and Frameworks</h1><p>Recurrent Neural Network - aim to learn node representations with recurrent neural architectures.</p>
+<p>Convolutional graph neural networks - generate a node $v$’s representation by aggregating its own features $x_v$ and neighbors’ features $x_u$, where $u \in N(v)$ </p>
+<p>Graph autoencoders(GAE)  learn network embeddings and graph generative distributions</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -281,9 +483,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-29T22:48:34+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-29T22:48:34+08:00">
                 2020-02-29
               </time>
             
@@ -294,12 +496,45 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ubuntu18-04/" itemprop="url" rel="index">
+                    <span itemprop="name">Ubuntu18.04</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
           
 
           
+          
+             <span id="/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/" class="leancloud_visitors" data-flag-title="ubuntu18.04+nvidia driver+cuda+cudnn install">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -312,9 +547,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   390
                 </span>
               
@@ -328,9 +563,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   2
                 </span>
               
@@ -460,7 +695,7 @@
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/11/weibo_delete_all/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -486,9 +721,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-11T15:30:40+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-11T15:30:40+08:00">
                 2020-02-11
               </time>
             
@@ -507,7 +742,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -528,6 +763,17 @@
 
           
           
+             <span id="/2020/02/11/weibo_delete_all/" class="leancloud_visitors" data-flag-title="Weibo - Delete all your followings and posts">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -539,9 +785,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   263
                 </span>
               
@@ -555,9 +801,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   1
                 </span>
               
@@ -640,7 +886,7 @@
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -666,9 +912,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T23:57:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T23:57:23+08:00">
                 2020-02-10
               </time>
             
@@ -687,12 +933,23 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/NLP/" itemprop="url" rel="index">
                     <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -708,6 +965,17 @@
 
           
           
+             <span id="/2020/02/10/CS224n%20Classnotes%20Course6/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course6">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -719,9 +987,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   554
                 </span>
               
@@ -735,9 +1003,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   3
                 </span>
               
@@ -863,7 +1131,7 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/weibo%20hottopics%20crawler/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -889,9 +1157,9 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T15:30:40+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T15:30:40+08:00">
                 2020-02-10
               </time>
             
@@ -910,12 +1178,23 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Computer-Science/" itemprop="url" rel="index">
                     <span itemprop="name">Computer Science</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Science/Web-Crawler/" itemprop="url" rel="index">
+                    <span itemprop="name">Web Crawler</span>
                   </a>
                 </span>
 
@@ -931,6 +1210,17 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
 
           
           
+             <span id="/2020/02/10/weibo%20hottopics%20crawler/" class="leancloud_visitors" data-flag-title="Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -942,9 +1232,9 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   369
                 </span>
               
@@ -958,9 +1248,9 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   2
                 </span>
               
@@ -1040,7 +1330,7 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/Functional%20Analysis%20brief%20theorems/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -1066,9 +1356,9 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T15:07:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T15:07:23+08:00">
                 2020-02-10
               </time>
             
@@ -1087,12 +1377,23 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mathematics/" itemprop="url" rel="index">
-                    <span itemprop="name">mathematics</span>
+                  <a href="/categories/Mathematics/" itemprop="url" rel="index">
+                    <span itemprop="name">Mathematics</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mathematics/Functional-Analysis/" itemprop="url" rel="index">
+                    <span itemprop="name">Functional Analysis</span>
                   </a>
                 </span>
 
@@ -1108,6 +1409,17 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
 
           
           
+             <span id="/2020/02/10/Functional%20Analysis%20brief%20theorems/" class="leancloud_visitors" data-flag-title="Walter Rudin, Functional Analysis brief theorems(Chapter General Theory) - ongoing">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1119,9 +1431,9 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   108
                 </span>
               
@@ -1135,9 +1447,9 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   1
                 </span>
               
@@ -1217,7 +1529,7 @@ B_r(x) = \{y:d(x,y)<r\}</script>
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/04/CS224n%20Classnotes%20Course5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -1243,9 +1555,9 @@ B_r(x) = \{y:d(x,y)<r\}</script>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-04T21:57:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-04T21:57:23+08:00">
                 2020-02-04
               </time>
             
@@ -1264,7 +1576,7 @@ B_r(x) = \{y:d(x,y)<r\}</script>
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1285,6 +1597,17 @@ B_r(x) = \{y:d(x,y)<r\}</script>
 
           
           
+             <span id="/2020/02/04/CS224n%20Classnotes%20Course5/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course5">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1296,9 +1619,9 @@ B_r(x) = \{y:d(x,y)<r\}</script>
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   307
                 </span>
               
@@ -1312,9 +1635,9 @@ B_r(x) = \{y:d(x,y)<r\}</script>
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   1
                 </span>
               
@@ -1422,7 +1745,7 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/03/CS224n%20Classnotes%20Course4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -1448,9 +1771,9 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-03T21:57:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-03T21:57:23+08:00">
                 2020-02-03
               </time>
             
@@ -1469,12 +1792,23 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/NLP/" itemprop="url" rel="index">
                     <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -1490,6 +1824,17 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
 
           
           
+             <span id="/2020/02/03/CS224n%20Classnotes%20Course4/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course4">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1501,9 +1846,9 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   270
                 </span>
               
@@ -1517,9 +1862,9 @@ Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   1
                 </span>
               
@@ -1646,7 +1991,7 @@ lr = lr_0 e^{-kt}</script></li>
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/02/CS224n%20Classnotes%20Course3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -1672,9 +2017,9 @@ lr = lr_0 e^{-kt}</script></li>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-02T21:57:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-02T21:57:23+08:00">
                 2020-02-02
               </time>
             
@@ -1693,12 +2038,23 @@ lr = lr_0 e^{-kt}</script></li>
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/NLP/" itemprop="url" rel="index">
                     <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -1714,6 +2070,17 @@ lr = lr_0 e^{-kt}</script></li>
 
           
           
+             <span id="/2020/02/02/CS224n%20Classnotes%20Course3/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course3">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1725,9 +2092,9 @@ lr = lr_0 e^{-kt}</script></li>
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   368
                 </span>
               
@@ -1741,9 +2108,9 @@ lr = lr_0 e^{-kt}</script></li>
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   2
                 </span>
               
@@ -1853,7 +2220,7 @@ J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/01/CS224n%20Classnotes%20Course2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -1879,9 +2246,9 @@ J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-01T21:57:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-01T21:57:23+08:00">
                 2020-02-01
               </time>
             
@@ -1900,12 +2267,23 @@ J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/NLP/" itemprop="url" rel="index">
                     <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -1921,6 +2299,17 @@ J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^
 
           
           
+             <span id="/2020/02/01/CS224n%20Classnotes%20Course2/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course2">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1932,9 +2321,9 @@ J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   899
                 </span>
               
@@ -1948,9 +2337,9 @@ J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   5
                 </span>
               
@@ -2106,257 +2495,12 @@ J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\ti
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/01/31/CS224n%20Classnotes%20Course1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/31/CS224n%20Classnotes%20Course1/" itemprop="url">Stanford CS224n Natural Language Processing Course1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-31T21:57:23+08:00">
-                2020-01-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  498
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://web.stanford.edu/class/cs224n/index.html#schedule" target="_blank" rel="noopener"><strong>Course Link(including Slides and Materials)</strong></a></p>
-<p><a href="http://onlinehub.stanford.edu/cs224" target="_blank" rel="noopener"><strong>Online Video Link</strong></a></p>
-<p><a href="https://www.bilibili.com/video/av46216519" target="_blank" rel="noopener"><strong>Online Video Link in Chinese</strong></a></p>
-<h1 id="Course-1-Introduction-and-Word-Vectors"><a href="#Course-1-Introduction-and-Word-Vectors" class="headerlink" title="Course 1 - Introduction and Word Vectors"></a>Course 1 - Introduction and Word Vectors</h1><p>Language isn’t a formal system. Language is glorious chaos. <em>by Chris Manning</em></p>
-<p><strong>Target</strong></p>
-<ul>
-<li>Modern methods: Recurrent networks, attentions</li>
-<li>Big Picture</li>
-<li>Build system in PyTorch: Word meaning, dependency parsing, machine translation, question answering.</li>
-</ul>
-<h2 id="1-how-do-we-represent-the-meaning-of-a-word"><a href="#1-how-do-we-represent-the-meaning-of-a-word" class="headerlink" title="1. how do we represent the meaning of a word?"></a>1. how do we represent the meaning of a word?</h2><p>signifier(symbol) &lt;=&gt; signified(idea or thing) = denotational semantics</p>
-<h2 id="2-how-do-we-have-usable-meaning-in-a-computer"><a href="#2-how-do-we-have-usable-meaning-in-a-computer" class="headerlink" title="2. how do we have usable meaning in a computer?"></a>2. how do we have usable meaning in a computer?</h2><p><strong>Common Solution</strong> Use e.g. WordNet containing lists of <strong>synonym sets</strong> and <strong>hypernyms</strong></p>
-<p><strong>Problems</strong> </p>
-<ul>
-<li>missing nuance: proficient = good in some contexts</li>
-<li>new meanings of words: wicked, badass, ninja</li>
-<li>Subjective</li>
-<li>Requires human labor to create and adapt</li>
-<li>Can’t compute accurate and word similarity</li>
-</ul>
-<h3 id="Representing-words-as-discrete-symbols"><a href="#Representing-words-as-discrete-symbols" class="headerlink" title="Representing words as discrete symbols"></a>Representing words as discrete symbols</h3><p><strong>one-hot vectors</strong> =&gt; <strong>encode similarity in the vector themselves</strong></p>
-<p><strong>Distributional semantics</strong>: A word’s meaning is given by the words that frequently appear close-by.</p>
-<p><strong>Word Vectors</strong>: a dense vector for each word, chosen so that it is similar to vectors of words that appear in similar contexts.</p>
-<p>Note: Word Vectors = Word Embeddings = Word Representations. All distributed representation</p>
-<script type="math/tex; mode=display">
-banking = \left[
- \begin{matrix}
-   0.286 \\
-   0.792  \\
-   -0.177 \\
-   -0.107 \\
-   0.109 \\
-   -0.542\\
-   0.349\\
-   0.271\\
-   0.487
-  \end{matrix}
-  \right] \tag{1}</script><h2 id="3-Word2Vec-Overview"><a href="#3-Word2Vec-Overview" class="headerlink" title="3. Word2Vec: Overview"></a>3. Word2Vec: Overview</h2><p>Idea:</p>
-<ul>
-<li>a large corpus of text</li>
-<li>every word in a fixed vocabulary is represented by a <strong>vector</strong></li>
-<li>go through each position <em>t</em> in the text, which has a center word <em>c</em> and context words <em>o</em></li>
-<li>Use the <strong>similarity of the word vectors</strong> for <em>c</em> and <em>o</em> to <strong>calculate the probability</strong> of <em>o</em> given <em>c</em></li>
-<li><strong>Keep Adjusting the word vectors</strong> to maximize this probability</li>
-</ul>
-<script type="math/tex; mode=display">
-likelihood = L(\theta) = \prod_{t=1}^{T} \prod_{-m \leq j \leq m \atop j \neq 0} P\left(w_{t+j} | w_{t} ; \theta\right)</script><p>Note: theta is all variables to be optimized</p>
-<h3 id="Objective-function-J"><a href="#Objective-function-J" class="headerlink" title="Objective function J"></a>Objective function J</h3><p>sometimes called <strong>cost / loss function</strong></p>
-<script type="math/tex; mode=display">
-J(\theta)=-\frac{1}{T} \log L(\theta)=-\frac{1}{T} \sum_{t=1}^{T} \sum_{-m \leq j \leq m} \log P\left(w_{t+j} | w_{t} ; \theta\right)</script><p><strong>Minimizing objective function &lt;=&gt; Maximizing predictive accuracy</strong></p>
-<p><em>Question: How to calculate P?</em></p>
-<p><em>Answer: We use two vectors per word w</em></p>
-<ul>
-<li><code>v_w</code> when <em>w</em> is a center word</li>
-<li><code>u_w</code> when <em>w</em> is a context word</li>
-</ul>
-<p>Then for a center word <em>c</em> and a context word <em>o</em>:</p>
-<h3 id="Prediction-function"><a href="#Prediction-function" class="headerlink" title="Prediction function"></a>Prediction function</h3><script type="math/tex; mode=display">
-P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w}^{T} v_{c}\right)}</script><h3 id="To-train-the-model-Compute-all-vector-gradients"><a href="#To-train-the-model-Compute-all-vector-gradients" class="headerlink" title="To train the model: Compute all vector gradients"></a>To train the model: Compute all vector gradients</h3><ul>
-<li><p>Recall: theta represents <strong>all</strong> model parameters, in one long vector</p>
-</li>
-<li><p>In our cases</p>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-\theta=\left[\begin{array}{l}{v_{\text {aardvark}}} \\ {v_{a}} \\ {\vdots} \\ {v_{z e b r a}} \\ {u_{\text {aardvark}}} \\ {u_{a}} \\ {\vdots} \\ {u_{z e b r a}}\end{array}\right] \in \mathbb{R}^{2 d V}</script><ul>
-<li><p>Remember: every word has two vectors</p>
-</li>
-<li><p>We optimize these parameters by walking down the gradient</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
-  </nav>
-
-
+ <nav class="pagination">
+   <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="accessibility.prev_page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="accessibility.next_page"></i></a>
+ </nav>
 
           </div>
           
@@ -2390,9 +2534,9 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
             
               <img class="site-author-image" itemprop="image"
                 src="/uploads/avatar.jpg"
-                alt="Xinyi HU" />
+                alt="Xinyi Hu" />
             
-              <p class="site-author-name" itemprop="name">Xinyi HU</p>
+              <p class="site-author-name" itemprop="name">Xinyi Hu</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -2403,8 +2547,8 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2414,8 +2558,8 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">分类</span>
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">categories</span>
                 
               </div>
             
@@ -2425,8 +2569,8 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -2451,7 +2595,7 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="https://www.linkedin.com/in/xinyi-cindy-hu-b98b1a163/" target="_blank" title="Linkedin">
+                    <a href="https://www.linkedin.com/in/cindy-hu-b98b1a163/" target="_blank" title="Linkedin">
                       
                         <i class="fa fa-fw fa-globe"></i>Linkedin</a>
                   </span>
@@ -2488,14 +2632,14 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
   <span class="with-love">
     <i class="fa fa-snowflake-o"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Xinyi HU</span>
+  <span class="author" itemprop="copyrightHolder">Xinyi Hu</span>
 
   
 </div>
 
 <!--
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -2516,7 +2660,7 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
 
 <!--
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 -->
 
@@ -2563,12 +2707,11 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
   
 
 
-
-
-
-
   
-  
+
+
+
+
 
 
 
@@ -2608,12 +2751,7 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
 
   
   
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -2673,11 +2811,435 @@ P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

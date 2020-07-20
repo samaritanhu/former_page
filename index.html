@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,6 +13,13 @@
 <meta name="theme-color" content="#222">
 
 
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -83,7 +90,8 @@
 <meta property="og:title" content="Xinyi&#39;s gadget">
 <meta property="og:url" content="http://nobugs.dev/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
-<meta property="article:author" content="Xinyi HU">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Xinyi Hu">
 <meta name="twitter:card" content="summary">
 
 
@@ -100,7 +108,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -132,7 +140,7 @@
 
 <meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -188,14 +196,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-resume">
-          <a href="/about" rel="section">
-            
-            Resume
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-blogs">
           <a href="/archives" rel="section">
             
@@ -204,10 +204,10 @@
         </li>
       
         
-        <li class="menu-item menu-item-projects">
-          <a href="/projects" rel="section">
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
             
-            Projects
+            Categories
           </a>
         </li>
       
@@ -221,9 +221,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -252,10 +284,284 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/19/Computation%20Theory1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/19/Computation%20Theory1/" itemprop="url">Elements of the Theory of Computation - Chapter 1 Sets, Relations, and Languages</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-19T14:44:23+08:00">
+                2020-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/07/19/Computation%20Theory1/" class="leancloud_visitors" data-flag-title="Elements of the Theory of Computation - Chapter 1 Sets, Relations, and Languages">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  480
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h1><h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><ul>
+<li>an unordered collection of elements</li>
+</ul>
+<h2 id="subsets-and-proper-subsets"><a href="#subsets-and-proper-subsets" class="headerlink" title="subsets and proper subsets"></a>subsets and proper subsets</h2><ul>
+<li><p>Subset notation: $\subseteq$ </p>
+<script type="math/tex; mode=display">
+S \subseteq T \Leftrightarrow (\forall x \in S \Rightarrow x\in T)</script></li>
+<li><p>Proper subset $\subset $ </p>
+</li>
+</ul>
+<h2 id="Set-Operations-and-Its-Identities"><a href="#Set-Operations-and-Its-Identities" class="headerlink" title="Set Operations and Its Identities"></a>Set Operations and Its Identities</h2><ul>
+<li>Union, Intersection, Difference, Symmetric difference, complement</li>
+<li>Commutative Law, Associative Law, Distributive law, Absorption, DeMorgan’s Law, Idempotent law</li>
+</ul>
+<h2 id="Power-Set"><a href="#Power-Set" class="headerlink" title="Power Set"></a>Power Set</h2><ul>
+<li>$2^S$ = set of all subset of $S$<script type="math/tex; mode=display">
+2^S = \{T|T\subseteq S\}</script></li>
+</ul>
+<h2 id="Partition"><a href="#Partition" class="headerlink" title="Partition"></a>Partition</h2><p>A <strong>partition</strong> of nonempty set $A$ is a subset $\sqcap$ of $2^A$ such that</p>
+<ol>
+<li>$\phi\notin \sqcap $</li>
+<li>$\forall S,T \in \sqcap.$ and $S\neq T, S \cap T = \phi$</li>
+<li>$\cup \sqcap = A$</li>
+</ol>
+<h1 id="Relations-and-Functions"><a href="#Relations-and-Functions" class="headerlink" title="Relations and Functions"></a>Relations and Functions</h1><h2 id="Ordered-Pair-and-Binary-Relation"><a href="#Ordered-Pair-and-Binary-Relation" class="headerlink" title="Ordered Pair and Binary Relation"></a>Ordered Pair and Binary Relation</h2><ul>
+<li><p>Ordered Pair: $(a,b)$</p>
+<script type="math/tex; mode=display">
+(a,b)=(c,d) \Leftrightarrow (a=c) \land (b=d)</script></li>
+<li><p>Cartesian Product: $A \times B$</p>
+<script type="math/tex; mode=display">
+A \times B = \{ (a,b)|a\in A \land b\in B\}</script></li>
+<li><p>Binary Relation $A$ and $B$</p>
+<script type="math/tex; mode=display">
+R \subseteq A\times B</script></li>
+</ul>
+<h2 id="Ordered-Tuple-and-n-ary-Relation"><a href="#Ordered-Tuple-and-n-ary-Relation" class="headerlink" title="Ordered Tuple and n-ary Relation"></a>Ordered Tuple and n-ary Relation</h2><h2 id="Operations-of-Relations"><a href="#Operations-of-Relations" class="headerlink" title="Operations of Relations"></a>Operations of Relations</h2><ul>
+<li><p>Inverse</p>
+<script type="math/tex; mode=display">
+R \subseteq A\times B \Rightarrow R^{-1}\subseteq B\times A</script></li>
+<li><p>Composition</p>
+</li>
+</ul>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p>Definition: A function $f: A\rightarrow B$ must satisfy:</p>
+<ul>
+<li>$f \subseteq A \times B$</li>
+<li>$\forall a \in A, \exists$ exactly one $b \in B$ with $(a,b) \in f$</li>
+</ul>
+<p>Note: We write $(a,b)\in f$ as $f(a) = b$</p>
+<ul>
+<li>one-to-one function: $\forall a,b \in A \land a \neq b \Rightarrow f(a) \neq f(b)$</li>
+<li>onto function: $\forall b \in B, \exists a\in A$ such that $f(a)=b$</li>
+<li>bijection function: one-to-one + onto </li>
+</ul>
+<h1 id="Special-Types-of-Binary-Relations"><a href="#Special-Types-of-Binary-Relations" class="headerlink" title="Special Types of Binary Relations"></a>Special Types of Binary Relations</h1><h2 id="Representation-of-Relations"><a href="#Representation-of-Relations" class="headerlink" title="Representation of Relations"></a>Representation of Relations</h2><ul>
+<li>Directed graph: node, edge, path</li>
+<li>Matrix: Adjacency matrix</li>
+</ul>
+<h2 id="Properties-of-Relations-R-subseteq-A-times-A"><a href="#Properties-of-Relations-R-subseteq-A-times-A" class="headerlink" title="Properties of Relations ($R \subseteq A\times A$)"></a>Properties of Relations ($R \subseteq A\times A$)</h2><ul>
+<li>reflexive: $\forall a\in A \Rightarrow (a,a) \in R$</li>
+<li>symmetric: $(a,b) \in R \land a \neq b \Rightarrow (b,a)\in R$, antisymmetric: $(a,b) \in R \Rightarrow (b,a) \notin R$</li>
+<li>transitive: $(a.b)\in R, (b,c)\in R \Rightarrow (a,c)\in R$</li>
+</ul>
+<h2 id="Equivalence-Relation"><a href="#Equivalence-Relation" class="headerlink" title="Equivalence Relation"></a>Equivalence Relation</h2><ul>
+<li><p>reflexive, symmetric, transitive</p>
+</li>
+<li><p>equivalence classes</p>
+<script type="math/tex; mode=display">
+[a]=\{ b|(a,b)\in R\}</script></li>
+</ul>
+<p><strong>Theorem</strong> Let $R$ be an equivalence relation on a nonempty set $A$. Then the equivalence classes of $R$ constitute a partition of $A$.</p>
+<h2 id="Partial-Order"><a href="#Partial-Order" class="headerlink" title="Partial Order"></a>Partial Order</h2><ul>
+<li>reflexive, symmetric, transitive</li>
+<li>total order</li>
+<li>minimal element and maximal element</li>
+</ul>
+<h1 id="Finite-and-Infinite-sets"><a href="#Finite-and-Infinite-sets" class="headerlink" title="Finite and Infinite sets"></a>Finite and Infinite sets</h1><h2 id="Equinumerous"><a href="#Equinumerous" class="headerlink" title="Equinumerous"></a>Equinumerous</h2><ul>
+<li>Sets $A$ and $B$ equinumerous $\Leftrightarrow \exists$ bijection $f:A\rightarrow B$ </li>
+<li>Cardinality and generalized Cardinality</li>
+<li>Finite and Infinite sets</li>
+</ul>
+<h2 id="Countable-and-Uncountable-Infinite"><a href="#Countable-and-Uncountable-Infinite" class="headerlink" title="Countable and Uncountable Infinite"></a>Countable and Uncountable Infinite</h2><ul>
+<li>A set is said to be <strong>countably infinite</strong> $\Leftrightarrow$ it is equinumerous with $\mathbb{N}$</li>
+<li>S is an uncountable set $\Leftrightarrow |S|&gt;|\mathbb{N}|$</li>
+<li>The union of a countably infinite collection of countably infinite sets is countably infinite. </li>
+</ul>
+<p>Example: Show that $\mathbb{N} \times \mathbb{N}$ is countably infinite.</p>
+<p>Theorem: $|\mathbb{R}|&gt;|\mathbb{N}|$ (diagonalization)</p>
+<p>Question: Is $|\mathbb{R}| &gt; |(0,1)|$? </p>
+<script type="math/tex; mode=display">
+f(x)=\frac{1}{\pi}\arctan (x) + \frac12</script><h2 id="Continuum-Hypothesis"><a href="#Continuum-Hypothesis" class="headerlink" title="Continuum Hypothesis"></a>Continuum Hypothesis</h2><p>$|\mathbb{N}|=\aleph_0, |\mathbb{R}|=\aleph_1$</p>
+<p>$\aleph_0&lt;\aleph_1$</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/19/Hulu%20AI%20class/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -281,9 +587,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-19T12:56:21+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-19T12:56:21+08:00">
                 2020-07-19
               </time>
             
@@ -294,12 +600,67 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RecommenderSystems/" itemprop="url" rel="index">
+                    <span itemprop="name">RecommenderSystems</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RecommenderSystems/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RecommenderSystems/Machine-Learning/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
           
 
           
+          
+             <span id="/2020/07/19/Hulu%20AI%20class/" class="leancloud_visitors" data-flag-title="Hulu AI Class - Recommender Systems 1">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -312,9 +673,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   881
                 </span>
               
@@ -328,9 +689,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   5
                 </span>
               
@@ -396,8 +757,6 @@ R=\mathcal{F}(u, i ; c)</script><p><img src="https://i.loli.net/2020/07/19/cRID1
 <li><p>F: aggregate from nearest neighbor</p>
 <script type="math/tex; mode=display">
 r_{u, i}=\frac{\sum_{v} w_{u v} \cdot r_{v, i}}{\# \text { of neighbors }}</script></li>
-</ul>
-<ul>
 <li><p>User-based CF: user neighbors (green block)</p>
 </li>
 <li><p>Item-based CF: item neighbors (blue block)</p>
@@ -463,11 +822,13 @@ r_{u, i}={\mu}+b_{i}+{b_{u}}+p_{u}^{T} q_{i}</script></li>
 <li>Average ratings in the whole catalog </li>
 </ul>
 </li>
-<li>Item bias <ul>
+<li><p>Item bias </p>
+<ul>
 <li>Users rate diﬀerent categories in diﬀerent ways </li>
 </ul>
 </li>
-<li>User bias<ul>
+<li><p>User bias</p>
+<ul>
 <li>Some users tend to give high ratings while others are not</li>
 </ul>
 </li>
@@ -492,8 +853,6 @@ r_{u, i}={\mu}+b_{i}+{b_{u}}+p_{u}^{T} q_{i}</script></li>
 <li><p>$\mathcal{F}$ </p>
 <script type="math/tex; mode=display">
 r_{u, i}=\frac{1}{1+e^{-(W x+b)}}</script></li>
-</ul>
-<ul>
 <li><p>User, item, context =&gt; <strong>categorical</strong> feature vector</p>
 <ul>
 <li>Example: gender, time diﬀerence within the day, show genre as feature </li>
@@ -543,13 +902,11 @@ r_{u, i}=\frac{1}{1+e^{-(W x+b)}}</script></li>
 <li><p>$\mathcal{F}$</p>
 <script type="math/tex; mode=display">
 y(x)=\operatorname{sigmoid}\left(w_{0}+\sum_{i=1}^{n} w_{i} x_{i}+\sum_{i=1}^{n-1} \sum_{j=i+1}^{n} w_{i j} x_{i} x_{j}\right)</script></li>
-</ul>
-<ul>
-<li>Let $w_{ij}=<v_i, v_j="">$ <script type="math/tex; mode=display">
-y(x)=sigmoid(w_0 + \sum_{i=1}^n w_ix_i + \sum_{i=1}^{n-1}\sum_{j=i+1}^{n} <v_i,v_j> x_ix_j)</script></v_i,></li>
-</ul>
-<ul>
-<li>Deal with parameter explosion ($n^2 \geq nk$)</li>
+<li><p>Let $w_{ij}=<v_i, v_j="">$ </v_i,></p>
+<script type="math/tex; mode=display">
+y(x)=sigmoid(w_0 + \sum_{i=1}^n w_ix_i + \sum_{i=1}^{n-1}\sum_{j=i+1}^{n} <v_i,v_j> x_ix_j)</script></li>
+<li><p>Deal with parameter explosion ($n^2 \geq nk$)</p>
+</li>
 <li>Equivalent to low rank parameter matrix factorization $W=VV^T$</li>
 </ul>
 <h2 id="Pros-and-Cons-3"><a href="#Pros-and-Cons-3" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
@@ -662,7 +1019,7 @@ O b j^{(t)}=\sum_{i=1}^{m} L\left(y_{i}, \hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\ri
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/18/ESL%20Chapter%2016/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -688,9 +1045,9 @@ O b j^{(t)}=\sum_{i=1}^{m} L\left(y_{i}, \hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\ri
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-18T19:37:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T19:37:23+08:00">
                 2020-07-18
               </time>
             
@@ -709,12 +1066,34 @@ O b j^{(t)}=\sum_{i=1}^{m} L\left(y_{i}, \hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\ri
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/ESL/" itemprop="url" rel="index">
                     <span itemprop="name">ESL</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ESL/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ESL/Machine-Learning/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -730,6 +1109,17 @@ O b j^{(t)}=\sum_{i=1}^{m} L\left(y_{i}, \hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\ri
 
           
           
+             <span id="/2020/07/18/ESL%20Chapter%2016/" class="leancloud_visitors" data-flag-title="The Element of Statistical Learning Chapter 16">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -741,9 +1131,9 @@ O b j^{(t)}=\sum_{i=1}^{m} L\left(y_{i}, \hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\ri
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   474
                 </span>
               
@@ -757,9 +1147,9 @@ O b j^{(t)}=\sum_{i=1}^{m} L\left(y_{i}, \hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\ri
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   2
                 </span>
               
@@ -886,7 +1276,7 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/18/ESL%20Chapter%202/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -912,9 +1302,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-18T18:37:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T18:37:23+08:00">
                 2020-07-18
               </time>
             
@@ -933,12 +1323,34 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/ESL/" itemprop="url" rel="index">
                     <span itemprop="name">ESL</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ESL/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ESL/Machine-Learning/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -954,6 +1366,17 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
 
           
           
+             <span id="/2020/07/18/ESL%20Chapter%202/" class="leancloud_visitors" data-flag-title="The Element of Statistical Learning Chapter 2">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -965,9 +1388,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   182
                 </span>
               
@@ -981,9 +1404,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   1
                 </span>
               
@@ -1068,7 +1491,7 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/06/16/Intermediate%20R/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -1094,9 +1517,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-16T21:39:02+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-16T21:39:02+08:00">
                 2020-06-16
               </time>
             
@@ -1115,7 +1538,7 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1136,6 +1559,17 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
 
           
           
+             <span id="/2020/06/16/Intermediate%20R/" class="leancloud_visitors" data-flag-title="Intermediate R">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1147,9 +1581,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   885
                 </span>
               
@@ -1163,9 +1597,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   5
                 </span>
               
@@ -1278,7 +1712,7 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/06/12/Introduction%20to%20R/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -1304,9 +1738,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-12T21:39:02+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-12T21:39:02+08:00">
                 2020-06-12
               </time>
             
@@ -1325,7 +1759,7 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1346,6 +1780,17 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
 
           
           
+             <span id="/2020/06/12/Introduction%20to%20R/" class="leancloud_visitors" data-flag-title="Introduction to R">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1357,9 +1802,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   301
                 </span>
               
@@ -1373,9 +1818,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   1
                 </span>
               
@@ -1500,7 +1945,7 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/30/CS224n%20Classnotes%20Course9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -1526,9 +1971,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-30T20:25:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-30T20:25:23+08:00">
                 2020-03-30
               </time>
             
@@ -1547,12 +1992,23 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/NLP/" itemprop="url" rel="index">
                     <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -1568,6 +2024,17 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
 
           
           
+             <span id="/2020/03/30/CS224n%20Classnotes%20Course9/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course10">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1579,9 +2046,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   215
                 </span>
               
@@ -1595,9 +2062,9 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   1
                 </span>
               
@@ -1711,7 +2178,7 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -1737,9 +2204,9 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23+08:00">
                 2020-03-16
               </time>
             
@@ -1758,12 +2225,23 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/NLP/" itemprop="url" rel="index">
                     <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -1779,6 +2257,17 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
 
           
           
+             <span id="/2020/03/16/CS224n%20Classnotes%20Course7/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course7">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1790,9 +2279,9 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   757
                 </span>
               
@@ -1806,9 +2295,9 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   4
                 </span>
               
@@ -1945,7 +2434,7 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -1971,9 +2460,9 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23+08:00">
                 2020-03-16
               </time>
             
@@ -1992,12 +2481,23 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/NLP/" itemprop="url" rel="index">
                     <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
                   </a>
                 </span>
 
@@ -2013,6 +2513,17 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
 
           
           
+             <span id="/2020/03/16/CS224n%20Classnotes%20Course8/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course8">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -2024,9 +2535,9 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   553
                 </span>
               
@@ -2040,9 +2551,9 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   3
                 </span>
               
@@ -2204,7 +2715,7 @@ score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/10/How_powerful_is_gnn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
+      <meta itemprop="name" content="Xinyi Hu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
@@ -2230,9 +2741,9 @@ score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-10T12:56:21+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-10T12:56:21+08:00">
                 2020-03-10
               </time>
             
@@ -2243,12 +2754,78 @@ score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/GNN/" itemprop="url" rel="index">
+                    <span itemprop="name">GNN</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/GNN/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/GNN/Machine-Learning/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
           
 
           
+          
+             <span id="/2020/03/10/How_powerful_is_gnn/" class="leancloud_visitors" data-flag-title="How powerful is Graph Neural Networks?">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -2261,9 +2838,9 @@ score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   1k
                 </span>
               
@@ -2277,9 +2854,9 @@ score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   6
                 </span>
               
@@ -2378,173 +2955,12 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/02/GNN-survey/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/02/GNN-survey/" itemprop="url">GNN survey</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T12:56:21+08:00">
-                2020-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  429
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Background-and-Definitions"><a href="#Background-and-Definitions" class="headerlink" title="Background and Definitions"></a>Background and Definitions</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Early studies fall into the category of recurrent graph neural networks(<strong>RecGNNs</strong>). With the success of CNNs,  new approach developed. (<strong>ConvGNNs</strong>)  ConvGNNs are divided into two main streams, the <strong>spectral-based</strong> approaches and the <strong>spatial-based</strong> approaches. </p>
-<p>Network embedding aims at representing network nodes as low-dimensional vector representations, preserving both network topology structure and node content information.</p>
-<p>Graph kernel methods employ a kernel function to measure the similarity between pairs of graphs.  Graph kernels can embed graphs or nodes into vector spaces by a mapping function. The difference between GNN and graph kernels is that this mapping function is deterministic rather than learnable.</p>
-<h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><p><strong>Deﬁnition 1 (Graph):</strong> A graph is represented as $G = (V,E)$ where $V$ is the set of vertices or nodes, and $E$ is the set of edges. Let $v_i \in V$ to denote a node and $e_{ij} = (v_i,v_j) \in E$ to denote an edge pointing from $v_j$ to $v_i$. The neighborhood of a node $v$ is deﬁned as $N(v) = {u \in V|(v,u) \in E}$. The adjacency matrix $A$ is a $n \times n$ matrix with $A_{ij} = 1$ if $e_{ij} \in E$ and $A_{ij} = 0$ if $e_{ij} \notin E$. A graph may have node attributes $ x_{v}$ , where $X \in R^{n×d}$ is a node feature matrix with $x_{v} \in R^d$  representing the feature vector of a node $v$. Meanwhile, a graph may have edge attributes $X^e$, where $X^e \in R^{m×c}$ is an edge feature matrix with $x^{e}_{v,u} \in R^c$ representing the feature vector of an edge $(v,u)$.</p>
-<p><strong>Deﬁnition 2 (Directed Graph):</strong> A directed graph is a graph with all edges directed from one node to another. An undirected graph is considered as a special case of directed graphs where there is a pair of edges with inverse directions if two nodes are connected. A graph is undirected if and only if the adjacency matrix is symmetric. </p>
-<p><strong>Deﬁnition 3 (Spatial-Temporal Graph)</strong>: A spatial-temporal graph is an attributed graph where the node attributes change dynamically over time. The spatial-temporal graph is deﬁned as $G^{(t)} = (V,E,X^{(t)})$ with $X^{(t)} \in R^{n×d}$. </p>
-<h1 id="Categorization-and-Frameworks"><a href="#Categorization-and-Frameworks" class="headerlink" title="Categorization and Frameworks"></a>Categorization and Frameworks</h1><p>Recurrent Neural Network - aim to learn node representations with recurrent neural architectures.</p>
-<p>Convolutional graph neural networks - generate a node $v$’s representation by aggregating its own features $x_v$ and neighbors’ features $x_u$, where $u \in N(v)$ </p>
-<p>Graph autoencoders(GAE)  learn network embeddings and graph generative distributions</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
-  </nav>
-
-
+ <nav class="pagination">
+   <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="accessibility.next_page"></i></a>
+ </nav>
 
           </div>
           
@@ -2578,9 +2994,9 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
             
               <img class="site-author-image" itemprop="image"
                 src="/uploads/avatar.jpg"
-                alt="Xinyi HU" />
+                alt="Xinyi Hu" />
             
-              <p class="site-author-name" itemprop="name">Xinyi HU</p>
+              <p class="site-author-name" itemprop="name">Xinyi Hu</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -2591,8 +3007,8 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2602,8 +3018,8 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">分类</span>
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">categories</span>
                 
               </div>
             
@@ -2613,8 +3029,8 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -2639,7 +3055,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="https://www.linkedin.com/in/xinyi-cindy-hu-b98b1a163/" target="_blank" title="Linkedin">
+                    <a href="https://www.linkedin.com/in/cindy-hu-b98b1a163/" target="_blank" title="Linkedin">
                       
                         <i class="fa fa-fw fa-globe"></i>Linkedin</a>
                   </span>
@@ -2676,14 +3092,14 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
   <span class="with-love">
     <i class="fa fa-snowflake-o"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Xinyi HU</span>
+  <span class="author" itemprop="copyrightHolder">Xinyi Hu</span>
 
   
 </div>
 
 <!--
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -2704,7 +3120,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
 
 <!--
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 -->
 
@@ -2751,12 +3167,11 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
   
 
 
-
-
-
-
   
-  
+
+
+
+
 
 
 
@@ -2796,12 +3211,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
 
   
   
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -2861,11 +3271,435 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
