@@ -284,6 +284,698 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/20/OS162_Lecture2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/20/OS162_Lecture2/" itemprop="url">UC Berkeley CS162 Operating Systems Lecture 2 - Introduction to Processes</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-20T19:45:23+08:00">
+                2020-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index">
+                    <span itemprop="name">OS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/07/20/OS162_Lecture2/" class="leancloud_visitors" data-flag-title="UC Berkeley CS162 Operating Systems Lecture 2 - Introduction to Processes">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  925
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://inst.eecs.berkeley.edu/~cs162/sp19/" target="_blank" rel="noopener"><strong>Course Link(including Slides and Materials)</strong></a></p>
+<p><a href="https://www.bilibili.com/video/BV1e7411B7Ja?from=search&amp;seid=15268514960428356326" target="_blank" rel="noopener"><strong>Online Video Link</strong></a></p>
+<h1 id="Four-Fundamental-OS-Concepts"><a href="#Four-Fundamental-OS-Concepts" class="headerlink" title="Four Fundamental OS Concepts"></a>Four Fundamental OS Concepts</h1><h3 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a><strong>Thread</strong></h3><ul>
+<li>Single unique execution context: fully describes program state</li>
+<li>Program Counter, Registers, Execution Flags, Stack</li>
+</ul>
+<h3 id="Address-space-with-translation"><a href="#Address-space-with-translation" class="headerlink" title="Address space (with translation)"></a><strong>Address</strong> <strong>space</strong> (with <strong>translation</strong>)</h3><ul>
+<li>Programs execute in an <em>address space</em> that is distinct from the memory space of the physical machine</li>
+</ul>
+<h3 id="Process"><a href="#Process" class="headerlink" title="Process"></a><strong>Process</strong></h3><ul>
+<li>An instance of an executing program is <em>a process consisting of an address space and one or more threads of control</em></li>
+</ul>
+<h3 id="Dual-mode-operation-Protection"><a href="#Dual-mode-operation-Protection" class="headerlink" title="Dual mode operation / Protection"></a><strong>Dual mode operation / Protection</strong></h3><ul>
+<li>Only the “system” has the ability to access certain resources</li>
+<li>The OS and the hardware are protected from user programs and user programs are isolated from one another by <em>controlling the translation</em> from program virtual addresses to machine physical addresses</li>
+</ul>
+<h1 id="OS-Bottom-Line-Run-Programs"><a href="#OS-Bottom-Line-Run-Programs" class="headerlink" title="OS Bottom Line: Run Programs"></a>OS Bottom Line: Run Programs</h1><ul>
+<li>Load instruction and data segments of executable file into memory</li>
+<li>Create stack and heap</li>
+<li>“Transfer control to program”</li>
+<li>Provide services to program</li>
+<li>While protecting OS and program</li>
+</ul>
+<h1 id="What-happens-during-program-execution"><a href="#What-happens-during-program-execution" class="headerlink" title="What happens during program execution?"></a>What happens during program execution?</h1><ul>
+<li>Execution sequence:<ul>
+<li>Fetch Instruction at PC  </li>
+<li>Decode</li>
+<li>Execute (possibly using registers)</li>
+<li>Write results to registers/mem</li>
+<li>PC = Next Instruction(PC)</li>
+<li>Repeat</li>
+</ul>
+</li>
+</ul>
+<h1 id="First-OS-Concept-Thread-of-Control"><a href="#First-OS-Concept-Thread-of-Control" class="headerlink" title="First OS Concept: Thread of Control"></a>First OS Concept: Thread of Control</h1><ul>
+<li><p>Certain registers hold the <em>context</em> of thread</p>
+<ul>
+<li>Stack pointer holds the address of the top of stack<ul>
+<li>Other conventions: Frame pointer, Heap pointer, Data</li>
+</ul>
+</li>
+<li>May be defined by the instruction set architecture or by compiler conventions</li>
+</ul>
+</li>
+<li><p><strong>Thread</strong>: Single unique execution context</p>
+<ul>
+<li>Program Counter, Registers, Execution Flags, Stack</li>
+</ul>
+</li>
+<li><p>A thread is executing on a processor when it is resident in the processor registers.</p>
+</li>
+<li><p>PC register holds the address of executing instruction in the thread</p>
+</li>
+<li><p>Registers hold the root state of the thread.</p>
+<ul>
+<li>The rest is “in memory”</li>
+</ul>
+</li>
+</ul>
+<h1 id="Second-OS-Concept-Program’s-Address-Space"><a href="#Second-OS-Concept-Program’s-Address-Space" class="headerlink" title="Second OS Concept: Program’s Address Space"></a>Second OS Concept: Program’s Address Space</h1><ul>
+<li><p>Address space $\Rightarrow$ the set of accessible addresses + state associated with them:</p>
+<ul>
+<li>For a 32-bit processor there are 232 = 4 billion addresses</li>
+</ul>
+</li>
+<li><p>What happens when you read or write to an address?</p>
+<ul>
+<li>Perhaps nothing</li>
+<li>Perhaps acts like regular memory</li>
+<li>Perhaps ignores writes</li>
+<li>Perhaps causes I/O operation<ul>
+<li>(Memory-mapped I/O)</li>
+</ul>
+</li>
+<li>Perhaps causes exception (fault)</li>
+</ul>
+</li>
+</ul>
+<h1 id="How-can-we-give-the-illusion-of-multiple-processors"><a href="#How-can-we-give-the-illusion-of-multiple-processors" class="headerlink" title="How can we give the illusion of multiple processors?"></a>How can we give the illusion of multiple processors?</h1><p><img src="https://i.loli.net/2020/07/21/UKcseMStzlERg3X.png" alt="image.png"></p>
+<ul>
+<li><p>Assume a single processor. How do we provide the illusion of multiple processors?</p>
+<ul>
+<li>Multiplex in time!</li>
+</ul>
+</li>
+<li><p>Each virtual “CPU” needs a structure to hold:</p>
+<ul>
+<li>Program Counter (PC), Stack Pointer (SP)</li>
+<li>Registers (Integer, Floating point, others…?)</li>
+</ul>
+</li>
+<li><p>How switch from one virtual CPU to the next?</p>
+<ul>
+<li>Save PC, SP, and registers in current state block</li>
+<li>Load PC, SP, and registers from new state block</li>
+</ul>
+</li>
+<li><p>What triggers switch?</p>
+<ul>
+<li>Timer, voluntary yield, I/O, other things</li>
+</ul>
+</li>
+</ul>
+<h1 id="The-Basic-Problem-of-Concurrency"><a href="#The-Basic-Problem-of-Concurrency" class="headerlink" title="The Basic Problem of Concurrency"></a>The Basic Problem of Concurrency</h1><ul>
+<li><p>The basic problem of concurrency involves resources:</p>
+<ul>
+<li>Hardware: single CPU, single DRAM, single I/O devices</li>
+<li>Multiprogramming API: processes think they have exclusive access to shared resources</li>
+</ul>
+</li>
+<li><p>OS has to coordinate all activity</p>
+<ul>
+<li>Multiple processes, I/O interrupts, …</li>
+<li>How can it keep all these things straight?</li>
+</ul>
+</li>
+<li><p>Basic Idea: Use Virtual Machine abstraction</p>
+<ul>
+<li>Simple machine abstraction for processes</li>
+<li>Multiplex these abstract machines</li>
+</ul>
+</li>
+<li><p>Dijkstra did this for the “THE system”</p>
+<ul>
+<li>Few thousand lines vs 1 million lines in OS 360 (1K bugs)</li>
+</ul>
+</li>
+</ul>
+<h1 id="Properties-of-this-simple-multiprogramming-technique"><a href="#Properties-of-this-simple-multiprogramming-technique" class="headerlink" title="Properties of this simple multiprogramming technique"></a>Properties of this simple multiprogramming technique</h1><ul>
+<li><p>All virtual CPUs share same non-CPU resources</p>
+<ul>
+<li>I/O devices the same</li>
+<li>Memory the same</li>
+</ul>
+</li>
+<li><p>Consequence of sharing:</p>
+<ul>
+<li>Each thread can access the data of every other thread (good for sharing, bad for protection)</li>
+<li>Threads can share instructions<br> (good for sharing, bad for protection)</li>
+<li>Can threads overwrite OS functions? </li>
+</ul>
+</li>
+<li><p>This (unprotected) model is common in:</p>
+<ul>
+<li>Embedded applications</li>
+<li>Windows 3.1/Early Macintosh (switch only with yield)</li>
+<li>Windows 95—ME (switch with both yield and timer)</li>
+</ul>
+</li>
+</ul>
+<h1 id="Protection"><a href="#Protection" class="headerlink" title="Protection"></a>Protection</h1><ul>
+<li><p>Operating System must protect itself from user programs</p>
+<ul>
+<li>Reliability: compromising the operating system generally causes it to crash</li>
+<li>Security: limit the scope of what processes can do</li>
+<li>Privacy: limit each process to the data it is permitted to access</li>
+<li>Fairness: each should be limited to its appropriate share of system resources (CPU time, memory, I/O, etc)</li>
+</ul>
+</li>
+<li><p>It must protect User programs from one another</p>
+</li>
+<li><p>Primary Mechanism: limit the translation from program address space to physical memory space</p>
+<ul>
+<li>Can only touch what is mapped into process <em>address space</em></li>
+</ul>
+</li>
+<li><p>Additional Mechanisms:</p>
+<ul>
+<li>Privileged instructions, in/out instructions, special registers</li>
+<li>syscall processing, subsystem implementation <ul>
+<li>(e.g., file access rights, etc) </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Third-OS-Concept-Process"><a href="#Third-OS-Concept-Process" class="headerlink" title="Third OS Concept: Process"></a>Third OS Concept: Process</h1><ul>
+<li><p>Process: execution environment with Restricted Rights</p>
+<ul>
+<li>Address Space with One or More Threads</li>
+<li>Owns memory (address space)</li>
+<li>Owns file descriptors, file system context, …</li>
+<li>Encapsulate one or more threads sharing process resources</li>
+</ul>
+</li>
+<li><p>Why processes?</p>
+<ul>
+<li>Protected from each other!</li>
+<li>OS Protected from them</li>
+<li>Processes provides memory protection</li>
+<li>Threads more efficient than processes (later)</li>
+</ul>
+</li>
+<li><p>Fundamental tradeoff between protection and efficiency</p>
+</li>
+<li><p>Communication easier <em>within</em> a process</p>
+</li>
+<li><p>Communication harder <em>between</em> processes</p>
+</li>
+<li><p>Application instance consists of one or more processes </p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/21/BZK72hIqeuPV3MO.png" alt="image.png"></p>
+<ul>
+<li><p>Threads encapsulate concurrency: “Active” component</p>
+</li>
+<li><p>Address spaces encapsulate protection: “Passive” part</p>
+<ul>
+<li>Keeps buggy program from trashing the system</li>
+</ul>
+</li>
+</ul>
+<h1 id="Fourth-OS-Concept-Dual-Mode-Operation"><a href="#Fourth-OS-Concept-Dual-Mode-Operation" class="headerlink" title="Fourth OS Concept: Dual Mode Operation"></a>Fourth OS Concept: Dual Mode Operation</h1><ul>
+<li><p>Hardware provides at least two modes:</p>
+<ul>
+<li>“Kernel” mode (or “supervisor” or “protected”)</li>
+<li>“User” mode: Normal programs executed </li>
+</ul>
+</li>
+<li><p>What is needed in the hardware to support “dual mode” operation?</p>
+<ul>
+<li>A bit of state (user/system mode bit)</li>
+<li>Certain operations / actions only permitted in system/kernel mode<ul>
+<li>In user mode they fail or trap</li>
+</ul>
+</li>
+<li>User à Kernel transition <em>sets</em> system mode AND saves the user PC<ul>
+<li>Operating system code carefully puts aside user state then performs the necessary operations</li>
+</ul>
+</li>
+<li>Kernel à User transition <em>clears</em> system mode AND restores appropriate user PC<ul>
+<li>return-from-interrupt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/21/C7tZ6zcrw2vPNyn.png" alt="image.png"></p>
+<h2 id="Process-Control-Block"><a href="#Process-Control-Block" class="headerlink" title="Process Control Block"></a>Process Control Block</h2><ul>
+<li><p>Kernel represents each process as a process control block (PCB)</p>
+<ul>
+<li>Status (running, ready, blocked, …)</li>
+<li>Register state (when not ready)</li>
+<li>Process ID (PID), User, Executable, Priority, …</li>
+<li>Execution time, …</li>
+<li>Memory space, translation, …</li>
+</ul>
+</li>
+<li><p>Kernel Scheduler maintains a data structure containing the PCBs</p>
+</li>
+<li><p>Scheduling algorithm selects the next one to run</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/20/OS162_Lecture1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/20/OS162_Lecture1/" itemprop="url">UC Berkeley CS162 Operating Systems Lecture 1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-20T18:27:23+08:00">
+                2020-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index">
+                    <span itemprop="name">OS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/07/20/OS162_Lecture1/" class="leancloud_visitors" data-flag-title="UC Berkeley CS162 Operating Systems Lecture 1">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  225
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://inst.eecs.berkeley.edu/~cs162/sp19/" target="_blank" rel="noopener"><strong>Course Link(including Slides and Materials)</strong></a></p>
+<p><a href="https://www.bilibili.com/video/BV1e7411B7Ja?from=search&amp;seid=15268514960428356326" target="_blank" rel="noopener"><strong>Online Video Link</strong></a></p>
+<h1 id="What-is-an-operating-system"><a href="#What-is-an-operating-system" class="headerlink" title="What is an operating system?"></a>What is an operating system?</h1><h2 id="What-does-operating-system-do"><a href="#What-does-operating-system-do" class="headerlink" title="What does operating system do?"></a>What does operating system do?</h2><p>Provide abstractions to apps</p>
+<ul>
+<li>File systems </li>
+<li>Processes, threads </li>
+<li>VM, containers</li>
+<li>Naming system</li>
+</ul>
+<p>Manage resources: </p>
+<ul>
+<li>Memory, CPU, storage, …</li>
+</ul>
+<p>Achieves the above by implementing specific algorithms and techniques:</p>
+<ul>
+<li>Scheduling</li>
+<li>Concurrency</li>
+<li>Transactions </li>
+<li>Security</li>
+</ul>
+<h2 id="What-is-an-operating-system-1"><a href="#What-is-an-operating-system-1" class="headerlink" title="What is an operating system?"></a>What is an operating system?</h2><p>Special layer of software that provides application software access to hardware resources </p>
+<ul>
+<li>Convenient abstraction of complex hardware devices </li>
+<li>Protected access to shared resources </li>
+<li>Security and authentication </li>
+<li><p>Communication amongst logical entities</p>
+</li>
+<li><p>Referee</p>
+<ul>
+<li>Manage sharing of resources, Protection, Isolation<ul>
+<li>Resource allocation, isolation, communication</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Illusionist</p>
+<ul>
+<li>Provide clean, easy to use abstractions of physical resources<ul>
+<li>Infinite memory, dedicated machine</li>
+<li>Higher level objects: files, users, messages</li>
+<li>Masking limitations, virtualization</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Glue</p>
+<ul>
+<li>Common services<ul>
+<li>Storage, Window system, Networking</li>
+<li>Sharing, Authorization</li>
+<li>Look and feel</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>No universally accepted definition </p>
+</li>
+<li>“Everything a vendor ships when you order an operating system” is good approximation <ul>
+<li>But varies wildly </li>
+</ul>
+</li>
+<li>“The one program running at all times on the computer” is the kernel –Everything else is either a system program (ships with the operating system) or an application program</li>
+</ul>
+<h1 id="In-conclusion"><a href="#In-conclusion" class="headerlink" title="In conclusion"></a>In conclusion</h1><ul>
+<li>Operating systems provide a virtual machine abstraction to handle diverse hardware <ul>
+<li>Operating systems simplify application development by providing standard services </li>
+</ul>
+</li>
+<li>Operating systems coordinate resources and protect users from each other<ul>
+<li>Operating systems can provide an array of fault containment, fault tolerance, and fault recovery</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/19/Computation%20Theory1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2098,251 +2790,6 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/16/CS224n%20Classnotes%20Course7/" itemprop="url">Stanford CS224n Natural Language Processing Course7</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23+08:00">
-                2020-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/03/16/CS224n%20Classnotes%20Course7/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course7">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  757
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Course-7-Vanishing-Gradients-Fancy-RNN"><a href="#Course-7-Vanishing-Gradients-Fancy-RNN" class="headerlink" title="Course 7 - Vanishing Gradients, Fancy RNN"></a>Course 7 - Vanishing Gradients, Fancy RNN</h1><h2 id="Vanishing-Gradients"><a href="#Vanishing-Gradients" class="headerlink" title="Vanishing Gradients"></a>Vanishing Gradients</h2><p>Gradient can be viewed as a measure of <em>the effect of the past on the future</em></p>
-<ul>
-<li>There is no dependency between step $t$ and $t+n$ in the data</li>
-<li>We have wrong parameters to capture the true dependency between  $t$ and $t+n$ </li>
-</ul>
-<h2 id="Effect-of-vanishing-gradient-on-RNN-LM"><a href="#Effect-of-vanishing-gradient-on-RNN-LM" class="headerlink" title="Effect of vanishing gradient on RNN-LM"></a>Effect of vanishing gradient on RNN-LM</h2><p>LM task - unable to predict similar long-distance dependencies</p>
-<p>Syntactic recency: The <em>writer</em> of the books <strong>is</strong></p>
-<p>Sequential recency: The writer of <em>books</em> <strong>are</strong></p>
-<p>Due to vanishing gradient, RNN-LMs are better at learning from sequential recency than syntactic </p>
-<h2 id="Why-is-exploding-gradient-a-problem"><a href="#Why-is-exploding-gradient-a-problem" class="headerlink" title="Why is exploding gradient a problem?"></a>Why is exploding gradient a problem?</h2><script type="math/tex; mode=display">
-\theta^{new} = \theta^{old}-\alpha \nabla_{\theta} J(\theta)</script><h3 id="Solution-gradient-clipping"><a href="#Solution-gradient-clipping" class="headerlink" title="Solution: gradient clipping"></a>Solution: gradient clipping</h3><p>Algorithm 1: Pseudo-code for norm clipping</p>
-<p>$\hat{g} \leftarrow \frac{\partial \epsilon}{\partial \theta}$</p>
-<p>if $||\hat{g}|| \geq threshold $ then</p>
-<p>​    $\hat{g} \leftarrow \frac{threshold}{||\hat{g}||} \hat{g}$</p>
-<p>end if </p>
-<h2 id="Long-Short-Term-Memory-LSTM"><a href="#Long-Short-Term-Memory-LSTM" class="headerlink" title="Long Short-Term Memory(LSTM)"></a>Long Short-Term Memory(LSTM)</h2><p>On step $t$, there is a hidden state $h^{(t)}$ and a cell state $c^{(t)}$</p>
-<ul>
-<li>Both are vectors length $n$</li>
-<li>The cell stores long-term information</li>
-<li>The LSTM can erase, write and read information from the cell</li>
-</ul>
-<p>The selection is controlled by 3 corresponding <strong>gates</strong></p>
-<ul>
-<li>vector length $n$</li>
-<li>each element of the gates can be open(1), closed(0), or in between</li>
-<li>dynamic: their value is computed based on the current context</li>
-</ul>
-<p>We have a sequence of input $x^{(t)}$, and we will compute a sequence of hidden states $h^{(t)}$ and cell states $c^{(t)}$. On timestep $t$:</p>
-<p>Forget gate - controls what is kept vs forgotten, from previous cell state</p>
-<script type="math/tex; mode=display">
-\boldsymbol{f}^{(t)}={\sigma}\left(\boldsymbol{W}_{f} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{f} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{f}\right)</script><p>Input gate - controls what parts of the new cell content are written to cell</p>
-<script type="math/tex; mode=display">
-\boldsymbol{i}^{(t)}=\sigma\left(\boldsymbol{W}_{i} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{i} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{i}\right)</script><p>Output gate - controls what parts of cell are output to hidden state</p>
-<script type="math/tex; mode=display">
-\boldsymbol{o}^{(t)}={\sigma}\left(\boldsymbol{W}_{o} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{o} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{o}\right)</script><p>New cell content - this is the new content to be written to the cell</p>
-<script type="math/tex; mode=display">
-\tilde{\boldsymbol{c}}^{(t)}=\tanh \left(\boldsymbol{W}_{c} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{c} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{c}\right)</script><p>Cell state - erase(“forget”) some content from last cell state, and write(“input”) some new cell content</p>
-<script type="math/tex; mode=display">
-\boldsymbol{c}^{(t)}=\boldsymbol{f}^{(t)} \circ \boldsymbol{c}^{(t-1)}+\boldsymbol{i}^{(t)} \circ \tilde{\boldsymbol{c}}^{(t)}</script><p>Hidden state: read(“output”) some content from the cell</p>
-<script type="math/tex; mode=display">
-\boldsymbol{h}^{(t)}=\boldsymbol{o}^{(t)} \circ \tanh \boldsymbol{c}^{(t)}</script><p><img src="https://i.loli.net/2020/04/04/pW7mMj9aDN53h8C.png" alt="image-20200316220913640.png"></p>
-<h2 id="Gated-Recurrent-Units-GRU"><a href="#Gated-Recurrent-Units-GRU" class="headerlink" title="Gated Recurrent Units(GRU)"></a>Gated Recurrent Units(GRU)</h2><p>a simpler alternative to the LSTM</p>
-<p>On each timestep $t$ we have input $x^{(t)}$ and hidden state $h^{(t)}$ (no cell state)</p>
-<p>Update gate - controls what parts of hidden state are updated vs preserved</p>
-<script type="math/tex; mode=display">
-\boldsymbol{u}^{(t)}=\sigma\left(\boldsymbol{W}_{u} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{u} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{u}\right)</script><p>Reset gate - controls what parts of previous hidden state are used to compute new content</p>
-<script type="math/tex; mode=display">
-\boldsymbol{r}^{(t)}=\sigma\left(\boldsymbol{W}_{r} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{r} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{r}\right)</script><p>New hidden state content - reset gate selects useful parts of prev hidden state. Use this and current input to compute new hidden content.</p>
-<script type="math/tex; mode=display">
-\tilde{\boldsymbol{h}}^{(t)}=\tanh \left(\boldsymbol{W}_{h}\left(\boldsymbol{r}^{(t)} \circ \boldsymbol{h}^{(t-1)}\right)+\boldsymbol{U}_{h} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{h}\right)</script><p>Hidden state - update gate simultaneously controls what is kept from previous hidden state, and what is updated to new hidden state content</p>
-<script type="math/tex; mode=display">
-\boldsymbol{h}^{(t)}=\left(1-\boldsymbol{u}^{(t)}\right) \circ \boldsymbol{h}^{(t-1)}+\boldsymbol{u}^{(t)} \circ \tilde{\boldsymbol{h}}^{(t)}</script><h2 id="LSTM-vs-GRU"><a href="#LSTM-vs-GRU" class="headerlink" title="LSTM vs GRU"></a>LSTM vs GRU</h2><p>LSTM is a good default choice.</p>
-<p>Rule of thumb: start with LSTM, but switch to GRU if you want something more efficient</p>
-<h2 id="Vanishing-exploding-gradient"><a href="#Vanishing-exploding-gradient" class="headerlink" title="Vanishing/exploding gradient"></a>Vanishing/exploding gradient</h2><p>add more direct connections.</p>
-<p>e.g.: Residual connections, “ResNet”. Skip-connections. The identity connection preserves information by default.</p>
-<p>e.g.: Dense connections, “DenseNet”. </p>
-<p>e.g.:Highway connections, “HighwayNet”.</p>
-<h2 id="Bidirectional-RNNs"><a href="#Bidirectional-RNNs" class="headerlink" title="Bidirectional RNNs"></a>Bidirectional RNNs</h2><p>motivation - task: Sentiment Classification</p>
-<p><img src="https://i.loli.net/2020/04/04/on9a2s1Y5jJiADb.png" alt="image-20200317001951410.png"></p>
-<p>Note: bidirection RNNs are only applicable if you have access to the entire input sentence. </p>
-<p>BERT is built on bidirectionality.</p>
-<h2 id="Multi-layer-RNNs-stacked-RNNs"><a href="#Multi-layer-RNNs-stacked-RNNs" class="headerlink" title="Multi-layer RNNs = stacked RNNs"></a>Multi-layer RNNs = stacked RNNs</h2><p>High-performing RNNs are often multi-layer(but aren’t as deep as cn)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2600,229 +3047,6 @@ score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/10/How_powerful_is_gnn/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/10/How_powerful_is_gnn/" itemprop="url">How powerful is Graph Neural Networks?</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-10T12:56:21+08:00">
-                2020-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/03/10/How_powerful_is_gnn/" class="leancloud_visitors" data-flag-title="How powerful is Graph Neural Networks?">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  1k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  6
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="How-powerful-is-Graph-Neural-Networks"><a href="#How-powerful-is-Graph-Neural-Networks" class="headerlink" title="How powerful is Graph Neural Networks?"></a>How powerful is Graph Neural Networks?</h1><p>GNNs follow a neighborhood aggregation scheme, where the representation vector of a node is computed by recursively aggregating and transforming representation vectors of its neighboring nodes. </p>
-<p>There are two tasks of interest: </p>
-<p>(1) Node classiﬁcation</p>
-<p>(2) Graph classiﬁcation</p>
-<p>x Formally, the k-th layer of a GNN is</p>
-<script type="math/tex; mode=display">
-a_{v}^{(k)}=\operatorname{AGGREGATE}^{(k)}\left(\left\{h_{u}^{(k-1)}: u \in \mathcal{N}(v)\right\}\right), \quad h_{v}^{(k)}=\mathrm{COMBINE}^{(k)}\left(h_{v}^{(k-1)}, a_{v}^{(k)}\right)</script><p> In the pooling variant of GraphSAGE, AGGREGATE has been formulated as </p>
-<script type="math/tex; mode=display">
-a_{v}^{(k)}=\operatorname{MAX}\left(\left\{\operatorname{ReLU}\left(W \cdot h_{u}^{(k-1)}\right), \forall u \in \mathcal{N}(v)\right\}\right)</script><p>and COMBINE could be concatenation followed by a linear mapping </p>
-<script type="math/tex; mode=display">
-W \cdot [h_{v}^{(k-1)}, a_{v}^{(k)}]</script><p>Graph Convolutional Networks (GCN) - the element-wise <em>mean</em> pooling is used. AGGREGATE and COMBINE step</p>
-<script type="math/tex; mode=display">
-h_{v}^{(k)}=\operatorname{ReLU}\left(W \cdot \operatorname{MEAN}\left\{h_{u}^{(k-1)}, \forall u \in \mathcal{N}(v) \cup\{v\}\right\}\right)</script><p>the READOUT function aggregates node features from the ﬁnal iteration to obtain the entire graph’s representation $h_G$</p>
-<script type="math/tex; mode=display">
-h_{G}=\operatorname{READOUT}\left(\left\{h_{v}^{(K)} | v \in G\right\}\right)</script><p><strong>Deﬁnition1 (Multiset).</strong> A multiset is a generalized concept of a set that allows multiple instances for its elements. More formally, a multiset is a 2-tuple $X = (S,m)$ where $S$ is the underlying set of $X$ that is formed from its distinct elements, and $m : S \rightarrow \mathbb{N}_{\geq 1}$ gives the multiplicity of the elements. </p>
-<p><strong>Lemma2</strong>. Let $G_1$ and $G_2$ be any two non-isomorphic graphs. If a graph neural network $A : G→\mathbb{R}^d $ maps $G_1$ and $G_2$ to different embeddings, the Weisfeiler-Lehman graph isomorphism test also decides $G_1$ and $G_2$ are not isomorphic. </p>
-<p><strong>Theorem 3</strong>. Let $A : G → \mathbb{R}^d$ be a GNN. With a sufﬁcient number of GNN layers, A maps any graphs $G_1$ and $G_2$ that the Weisfeiler-Lehman test of isomorphism decides as non-isomorphic, to different embeddings if the following conditions hold: </p>
-<p>a) $A$ aggregates and updates node features iteratively with </p>
-<script type="math/tex; mode=display">
-h_{v}^{(k)}=\phi\left(h_{v}^{(k-1)}, f\left(\left\{h_{u}^{(k-1)}: u \in \mathcal{N}(v)\right\}\right)\right)</script><p>where the functions $f$, which operates on multisets, and $φ$ are injective. </p>
-<p>b) $A$’s graph-level readout, which operates on the multiset of node features ${h_{v}^{(k)}}$, is injective. </p>
-<p><strong>Lemma4</strong>. Assume the input feature space $\mathcal{X}$ is <em>countable</em>. Let $g^{(k)}$ be the function parameterized by a GNN’s k-th layer for $k = 1,…,L$, where $g^{(1)}$ is deﬁned on multisets $X \subset \mathcal{X}$ of bounded size. The range of $g^{(k)}$, i.e., the space of node hidden features ${h_{v}^{(k)}}$, is also countable for all  $k = 1,…,L$.</p>
-<p><em>countable</em>: If a set A has the same cardinality as $\mathbb{N}$, then we say that A is <em>countable</em>.</p>
-<p><strong>Lemma5</strong>. Assume $\mathcal{X}$ is countable. There exists a function $f : \mathcal{X} →\mathbb{R}^n$ so that  $h(X) =\sum _{x\in X} f(x)$ is unique for each multiset  $X \subset \mathcal{X}$  of bounded size. Moreover, any multiset function $g$ can be decomposed as $g (X) = \varphi(\sum _{x\in X} f(x))$ for some function $\varphi$.</p>
-<p><strong>Corollary 6</strong>. Assume $\mathcal{X}$ is countable. There exists a function $f : \mathcal{X} →\mathbb{R}^n$ so that for inﬁnitely many choices of $\epsilon$, including all irrational numbers, $h(c,X) = (1 + \epsilon) · f(c) + \sum_{x \in X} f(x)$ is unique for each pair $(c,X)$, where $c \in \mathcal{X}$ and $X \subset \mathcal{X}$ is a multiset of bounded size. Moreover, any function $g$ over such pairs can be decomposed as $g (c,X) = \varphi((1 + \epsilon)·f(c) + \sum_{x\in X} f(x))$ for some function $\varphi$. </p>
-<h2 id="GIN-GRAPH-ISOMORPHISM-NETWORK"><a href="#GIN-GRAPH-ISOMORPHISM-NETWORK" class="headerlink" title="GIN - GRAPH ISOMORPHISM NETWORK"></a>GIN - GRAPH ISOMORPHISM NETWORK</h2><p>To update node representation - </p>
-<script type="math/tex; mode=display">
-h_{v}^{(k)}=\operatorname{MLP}^{(k)}\left(\left(1+\epsilon^{(k)}\right) \cdot h_{v}^{(k-1)}+\sum_{u \in \mathcal{N}(v)} h_{u}^{(k-1)}\right)</script><p>node learnt can be directly used for tasks like <strong>node classification and link prediction</strong>.</p>
-<p>Readout function for graph classiﬁcation tasks. Given embeddings of individual nodes, readout function produces the embedding of the entire graph. </p>
-<script type="math/tex; mode=display">
-h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} | v \in G\right\}\right) | k=0,1, \ldots, K\right)</script><h2 id="GNN-GRAPH-NEURAL-NETWORK"><a href="#GNN-GRAPH-NEURAL-NETWORK" class="headerlink" title="GNN - GRAPH NEURAL NETWORK"></a>GNN - GRAPH NEURAL NETWORK</h2><p>GNN do not satisfy the conditions in Theorem 3, and we conduct ablation studies in </p>
-<p>*An ablation study typically refers to removing some “feature” of the model or algorithm, and seeing how that affects performance.</p>
-<p>(1) 1-layer perceptrons instead of MLPs</p>
-<p>We are interested in understanding whether 1-layer perceptrons are enough for graph learning.</p>
-<p><strong>Lemma 7.</strong> There exist ﬁnite multisets $X1 \neq X2$ so that for any linear mapping $W$, $\sum_{x\in X_1} ReLU(Wx) =\sum_{x\in X_2} ReLU(Wx). $</p>
-<p>(2) mean or max-pooling instead of the sum.</p>
-<p>Mean learns distributions, and max-pooling learns sets with distinct elements.</p>
-<p>Consider $X_1 = (S,m)$ and $X_2 = (S,k ·m)$, where $X_1$ and $X_2$ have the same set of distinct elements, but $X_2$ contains $k$ copies of each element of $X_1$.</p>
-<p><strong>Corollary 8.</strong> Assume $X$ is countable. There exists a function $f : \mathcal{X} → \mathbb{R^n}$ so that for $h(X) = \frac{1}{|X|}\sum{x\in X} f(x), h(X_1) = h(X_2)$ if and only if multisets $X_1$ and $X_2$ have the same distribution. That is, assuming $|X_2|\geq|X_1|$, we have $X_1 = (S,m)$ and $X_2 = (S,k\cdot m)$ for some $k \in \mathbb{N}_{\geq 1}.$</p>
-<p><strong>Corollary 9</strong>. Assume $X$  is countable. Then there exists a function $f : X → \mathbb{R}^{\infty}$ so that for $h(X) = max_{x\in X} f(x), h(X_1) = h(X_2)$ if and only if $X_1$ and $X_2$ have the same underlying set. </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2875,7 +3099,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2886,7 +3110,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>

@@ -284,6 +284,504 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/02/CS224n%20Classnotes%20Course3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/02/CS224n%20Classnotes%20Course3/" itemprop="url">Stanford CS224n Natural Language Processing Course3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-02T21:57:23+08:00">
+                2020-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/02/02/CS224n%20Classnotes%20Course3/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course3">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  368
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-3-Neural-Networks"><a href="#Course-3-Neural-Networks" class="headerlink" title="Course 3 - Neural Networks"></a>Course 3 - Neural Networks</h1><h2 id="Classification-review-introduction"><a href="#Classification-review-introduction" class="headerlink" title="Classification review/introduction"></a>Classification review/introduction</h2><p>Generally we have a <strong>training dataset</strong> consisting of <strong>samples</strong></p>
+<script type="math/tex; mode=display">
+\left\{x_{\mathrm{i}}, y_{\mathrm{i}}\right\}_{\mathrm{i}=1}^{\mathrm{N}}</script><p>x_i are inputs, eg words, sentences, documents, etc</p>
+<p>y_j are labels we try to predict. </p>
+<ul>
+<li>classes: sentiment, named entities, buy/sell decision</li>
+<li>other words</li>
+<li>later: multi-word sequences</li>
+</ul>
+<p>Traditional ML/Stats approach: assume x_i are fixed, train softmax/logistic regression weights <em>W in R(C,d)</em> to determine a decision boundary as in the picture. </p>
+<h3 id="Method-Training-with-softmax-and-cross-entropy-loss"><a href="#Method-Training-with-softmax-and-cross-entropy-loss" class="headerlink" title="Method: Training with softmax and cross-entropy loss"></a>Method: Training with softmax and cross-entropy loss</h3><p>For each <em>x</em>, predict:</p>
+<script type="math/tex; mode=display">
+p(y | x)=\frac{\exp \left(W_{y} \cdot x\right)}{\sum_{c=1}^{C} \exp \left(W_{c} \cdot x\right)}</script><p>For each training example (x,y), to <strong>maximize the probability of the correct class</strong> <em>y</em>, or <strong>minimize the negative log probability</strong></p>
+<script type="math/tex; mode=display">
+-\log p(y | x)=-\log \left(\frac{\exp \left(f_{y}\right)}{\sum_{c=1}^{C} \exp \left(f_{c}\right)}\right)</script><p>FYI: Cross entropy in the full dataset is </p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^{C} e^{f_{c}}}\right)</script><h2 id="Neural-networks-introduction"><a href="#Neural-networks-introduction" class="headerlink" title="Neural networks introduction"></a>Neural networks introduction</h2><p>Commonly in NLP deep learning:</p>
+<ul>
+<li>We learn <strong>both</strong> W <strong>and</strong> word vectors X</li>
+<li>We learn <strong>both</strong> conventional parameters <strong>and</strong> representations</li>
+</ul>
+<script type="math/tex; mode=display">
+\nabla_{\theta} J(\theta)=\left[\begin{array}{c}{\nabla_{W_{1}}} \\ {\vdots} \\ {\nabla_{W_{d}}} \\ {\nabla_{x_{a a r d v a r k}}} \\ {\vdots} \\ {\nabla_{x_{z e b r a}}}\end{array}\right] \in \mathbb{R}^{C d+V d}</script><h2 id="Named-Entity-Recognition"><a href="#Named-Entity-Recognition" class="headerlink" title="Named Entity Recognition"></a>Named Entity Recognition</h2><p>The task: <strong>find</strong> and <strong>classify</strong> name in text.</p>
+<h3 id="NER-on-word-sequences"><a href="#NER-on-word-sequences" class="headerlink" title="NER on word sequences"></a>NER on word sequences</h3><p>We predict entities by classifying words in context and then extracting entities as word subsequences.</p>
+<p>BIAO encoding </p>
+<h3 id="Why-might-NER-be-hard"><a href="#Why-might-NER-be-hard" class="headerlink" title="Why might NER be hard?"></a>Why might NER be hard?</h3><ul>
+<li>hard to work out boundaries of entity</li>
+<li>hard to know if something is an entity</li>
+<li>hard to know class of unknown/novel entity</li>
+<li>entity class is ambiguous and depends on context</li>
+</ul>
+<h2 id="Binary-true-vs-corrupted-word-window-classification"><a href="#Binary-true-vs-corrupted-word-window-classification" class="headerlink" title="Binary true vs. corrupted word window classification"></a>Binary true vs. corrupted word window classification</h2><h3 id="Binary-word-window-classification"><a href="#Binary-word-window-classification" class="headerlink" title="Binary word window classification"></a>Binary word window classification</h3><p>Problem: ambiguity</p>
+<p>Idea: <strong>classify a word in its context window</strong> of neighboring words.</p>
+<p>Solution: train softmax classifer to classify a center word by taking <strong>concatenation of word vectors surrounding it</strong> in a window</p>
+<script type="math/tex; mode=display">
+(x_1, x_2, \cdots, x_n)</script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/01/CS224n%20Classnotes%20Course2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/01/CS224n%20Classnotes%20Course2/" itemprop="url">Stanford CS224n Natural Language Processing Course2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-01T21:57:23+08:00">
+                2020-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/02/01/CS224n%20Classnotes%20Course2/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course2">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  899
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-2-Word-Vectors-and-Word-Senses"><a href="#Course-2-Word-Vectors-and-Word-Senses" class="headerlink" title="Course 2 - Word Vectors and Word Senses"></a>Course 2 - Word Vectors and Word Senses</h1><p>Firstly, some analogy by calculating the linear space similarity by word vectors.</p>
+<p><img src="https://i.loli.net/2020/04/04/CSBItLwc53PdYuX.png" alt="image-20200201062227420.png"></p>
+<p>Definition of Code:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">analogy</span><span class="params">(x1, x2, y1)</span>:</span></span><br><span class="line">    result = model.most_similar(positive=[y1,x2], negative=[x1])</span><br><span class="line">    <span class="keyword">return</span> result[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p>Some Implementations:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">analogy(<span class="string">'japan'</span>,<span class="string">'japanese'</span>,<span class="string">'australia'</span>) <span class="comment"># australian</span></span><br><span class="line">analogy(<span class="string">'man'</span>,<span class="string">'king'</span>,<span class="string">'woman'</span>) <span class="comment"># queen</span></span><br><span class="line">analogy(<span class="string">'australia'</span>,<span class="string">'beer'</span>,<span class="string">'france'</span>) <span class="comment"># champagne</span></span><br></pre></td></tr></table></figure>
+<p>Next thing: <strong>PCA Scatterplot</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">display_pca_scatterplot</span><span class="params">(model, words=None, sample=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> words == <span class="keyword">None</span>:</span><br><span class="line">        <span class="keyword">if</span> sample &gt; <span class="number">0</span>:</span><br><span class="line">            words = np.random.choice(list(model.vocab.keys()), sample)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            words = [ word <span class="keyword">for</span> word <span class="keyword">in</span> model.vocab ]</span><br><span class="line">        </span><br><span class="line">        word_vectors = np.array([model[w] <span class="keyword">for</span> w <span class="keyword">in</span> words])</span><br><span class="line">        </span><br><span class="line">        twodim = PCA().fit_transform(word_vectors)[:,:<span class="number">2</span>]</span><br><span class="line">        </span><br><span class="line">        plt.figure(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">        plt.scatter(twodim[:,<span class="number">0</span>], twodim[:,<span class="number">1</span>], edgecolors=<span class="string">'k'</span>, c=<span class="string">'r'</span>)</span><br><span class="line">        <span class="keyword">for</span> word, (x,y) <span class="keyword">in</span> zip(words, twodim):</span><br><span class="line">            plt.text(x+<span class="number">0.05</span>, y+<span class="number">0.05</span>, word)</span><br></pre></td></tr></table></figure>
+<h2 id="Word-Vectors-and-word2vec"><a href="#Word-Vectors-and-word2vec" class="headerlink" title="Word Vectors and word2vec"></a>Word Vectors and word2vec</h2><h3 id="1-Review-Main-idea-of-word2vec"><a href="#1-Review-Main-idea-of-word2vec" class="headerlink" title="1. Review: Main idea of word2vec"></a>1. Review: Main idea of word2vec</h3><ul>
+<li>Iterate through each word of the whole corpus</li>
+<li>Predict surrounding words using word vectors</li>
+</ul>
+<script type="math/tex; mode=display">
+P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w}^{T} v_{c}\right)}</script><h2 id="Optimization-Basics-Gradient-Descent-cs229-Optimization"><a href="#Optimization-Basics-Gradient-Descent-cs229-Optimization" class="headerlink" title="Optimization Basics: Gradient Descent(cs229 Optimization)"></a>Optimization Basics: Gradient Descent(cs229 Optimization)</h2><p>Idea: for current value of theta, calculate gradient of J(theta), then take <strong>small step in the direction of negative gradient</strong>. </p>
+<p><strong>Update equation</strong>(in matrix notation)</p>
+<script type="math/tex; mode=display">
+\theta^{n e w}=\theta^{o l d}-\alpha \nabla_{\theta} J(\theta)</script><p><strong>Update equation</strong>(in a single parameter)</p>
+<script type="math/tex; mode=display">
+\theta_{j}^{n e w}=\theta_{j}^{o l d}-\alpha \frac{\partial}{\partial \theta_{j}^{o l d}} J(\theta)</script><p>Algorithm:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    theta_grad = evaluate_gradient(J, corpus, theta)</span><br><span class="line">    theta = theta - alpha * theta_grad</span><br></pre></td></tr></table></figure>
+<h3 id="Stochastic-Gradient-Descent-SGD"><a href="#Stochastic-Gradient-Descent-SGD" class="headerlink" title="Stochastic Gradient Descent(SGD)"></a>Stochastic Gradient Descent(SGD)</h3><p>Solution: Repeatedly sample windows, and update after each one</p>
+<p>Algorithm</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    window = sample_window(corpus)</span><br><span class="line">    theta_grad = evaluate_gradient(J, window, theta)</span><br><span class="line">    theta = theta - alpha * theta_grad</span><br></pre></td></tr></table></figure>
+<h3 id="Stochastic-Gradient-with-word-vectors"><a href="#Stochastic-Gradient-with-word-vectors" class="headerlink" title="Stochastic Gradient with word vectors:"></a>Stochastic Gradient with word vectors:</h3><p>Iteratively take gradients at each such window for SGD</p>
+<p>But in each window, we only have at most <em>2m+1</em> words, so it’s very sparse!</p>
+<script type="math/tex; mode=display">
+\nabla_{\theta} J_{t}(\theta)=\left[\begin{array}{c}{0} \\ {\vdots} \\ {\nabla_{v_{v i k e}}} \\ {\vdots} \\ {0} \\ {\vdots} \\ {\nabla_{u_{\text {learning}}}} \\ {\vdots}\end{array}\right] \in \mathbb{R}^{2 d V}</script><p>Solution: </p>
+<ul>
+<li>need sparse matrix update operations to only update certain rows of full embedding matrices <em>U</em> and <em>V</em></li>
+<li>need to keep around a hash for word vectors</li>
+</ul>
+<h3 id="Word2Vec-More-details"><a href="#Word2Vec-More-details" class="headerlink" title="Word2Vec: More details"></a>Word2Vec: More details</h3><p>Two model variants:</p>
+<ul>
+<li>Skip-grams(SG): Predict context words given center word</li>
+<li>Continuous Bag of Words(CBOW): Predict center word from context words</li>
+</ul>
+<p>=&gt; <strong>Skip-gram model</strong></p>
+<p>Additional efficiency in training: </p>
+<ul>
+<li>Negative sampling</li>
+</ul>
+<p>Paper: “Distributed Representations of Words and Phrases and their Compositionality”(Mikolov et al.2013)</p>
+<p><strong>Overall objective function</strong>(maximize):</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J_{t}(\theta)\\
+J_{t}(\theta)=\log \sigma\left(u_{o}^{T} v_{c}\right)+\sum_{i=1}^{k} \mathbb{E}_{j \sim P(w)}\left[\log \sigma\left(-u_{j}^{T} v_{c}\right)\right]</script><p>The sigmoid function:</p>
+<script type="math/tex; mode=display">
+\sigma(x)=\frac{1}{1+e^{-x}}</script><p>So we maximize the probability of two words co-occurring in the first log</p>
+<script type="math/tex; mode=display">
+J_{n e g-s a m p l e}\left(\boldsymbol{o}, \boldsymbol{v}_{c}, \boldsymbol{U}\right)=-\log \left(\sigma\left(\boldsymbol{u}_{o}^{\top} \boldsymbol{v}_{c}\right)\right)-\sum_{k=1}^{K} \log \left(\sigma\left(-\boldsymbol{u}_{k}^{\top} \boldsymbol{v}_{c}\right)\right)</script><p>Maximize probability that real outside word appears, minimize prob. that random word appear around center word.</p>
+<p>The unigram distribution U(w)</p>
+<script type="math/tex; mode=display">
+P(w)=U(w)^{3 / 4} / Z</script><p>raised to the 3/4 power, which makes less frequent words be sampled more often.</p>
+<h2 id="Can-we-capture-this-essence-more-effectively-by-counting"><a href="#Can-we-capture-this-essence-more-effectively-by-counting" class="headerlink" title="Can we capture this essence more effectively by counting?"></a>Can we capture this essence more effectively by counting?</h2><p>With a co-occurrence matrix <em>X</em></p>
+<ul>
+<li>2 options: windows vs. full document</li>
+<li>Window: Similar to word2vec, use window around each word -&gt; captures both syntactic(POS) and semantic information</li>
+<li>Word-document co-occurrence matrix will give general topic leading to <em>Latent Semantic Analysis</em></li>
+</ul>
+<p>Models are less robust due to increase in size with vocabulary.</p>
+<p>Solution: Low dimensional vectors</p>
+<p>Idea: store most information in a fixed, small number of dimensions</p>
+<h3 id="Singular-Value-Decomposition-of-co-occurrence-matrix-X-SVD"><a href="#Singular-Value-Decomposition-of-co-occurrence-matrix-X-SVD" class="headerlink" title="Singular Value Decomposition of co-occurrence matrix X - SVD"></a>Singular Value Decomposition of co-occurrence matrix <em>X</em> - SVD</h3><script type="math/tex; mode=display">
+X = U \Sigma V^{\top}</script><h3 id="Hacks-to-X-several-used-in-Rohde-et-al-2005"><a href="#Hacks-to-X-several-used-in-Rohde-et-al-2005" class="headerlink" title="Hacks to X (several used in Rohde et al. 2005)"></a>Hacks to X (several used in Rohde et al. 2005)</h3><p>Problem: function words(<em>the, he, has</em>) are too frequent -&gt; syntax has too much impact</p>
+<p>Solution</p>
+<ul>
+<li>min(X,t) t~= 100, Ignore them all</li>
+<li>Use Pearson correlations instead of counts, then set negative values to 0</li>
+</ul>
+<h2 id="The-GloVe-model-of-word-vectors"><a href="#The-GloVe-model-of-word-vectors" class="headerlink" title="The GloVe model of word vectors"></a>The GloVe model of word vectors</h2><h3 id="Crucial-insight"><a href="#Crucial-insight" class="headerlink" title="Crucial insight"></a>Crucial insight</h3><p>Ratios of co-occurrence probabilities can encode meaning components</p>
+<script type="math/tex; mode=display">
+w_{i} \cdot w_{j}=\log P(i | j)\\
+J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\tilde{b}_{j}-\log X_{i j}\right)^{2}</script><p><strong>Merits</strong></p>
+<ul>
+<li>Fast training</li>
+<li>Scalable to hug corpora</li>
+<li>Good performance even with small corpus and small vectors</li>
+</ul>
+<h2 id="Evaluating-word-vectors"><a href="#Evaluating-word-vectors" class="headerlink" title="Evaluating word vectors"></a>Evaluating word vectors</h2><h3 id="Intrinsic"><a href="#Intrinsic" class="headerlink" title="Intrinsic"></a>Intrinsic</h3><ul>
+<li>Evaluation on a specific/intermediate subtask</li>
+<li>Fast to compute</li>
+<li>Helps to understand that system</li>
+<li>Not clear if helpful</li>
+</ul>
+<p>Methods: </p>
+<ol>
+<li>Cosine distance of word vectors</li>
+<li>Word vector distances and their correlation with human judgments</li>
+</ol>
+<h3 id="Extrinsic"><a href="#Extrinsic" class="headerlink" title="Extrinsic"></a>Extrinsic</h3><ul>
+<li>Evaluation on a real task</li>
+<li>Can take a long time to compute accuracy</li>
+<li>Unclear if subsystem is the problem or its interaction</li>
+<li>If replacing exactly one subsystem with another improves accuracy</li>
+</ul>
+<p>Example: NER</p>
+<h2 id="Word-senses"><a href="#Word-senses" class="headerlink" title="Word senses"></a>Word senses</h2><h4 id="Word-senses-and-word-sense-ambiguity"><a href="#Word-senses-and-word-sense-ambiguity" class="headerlink" title="Word senses and word sense ambiguity"></a>Word senses and word sense ambiguity</h4><p>Most words have lots of meanings, especially common words. </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/01/31/CS224n%20Classnotes%20Course1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1919,7 +2417,7 @@ shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1930,7 +2428,7 @@ shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
