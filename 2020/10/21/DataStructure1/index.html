@@ -86,20 +86,17 @@
 
 
 
-<meta name="description" content="Course 6 - Language Models and RNNsLanguage Modelingis the task of predicting what word comes next.   P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)also, ass">
+<meta name="description" content="Algorithm AnalysisThe RAM model of computationMachine-independent algorithm design depends upon a hypothetical computer called the Random Access Machine or RAM. Under this model of computation, we are">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Stanford CS224n Natural Language Processing Course6">
-<meta property="og:url" content="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/index.html">
+<meta property="og:title" content="Data Structure">
+<meta property="og:url" content="http://nobugs.dev/2020/10/21/DataStructure1/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
-<meta property="og:description" content="Course 6 - Language Models and RNNsLanguage Modelingis the task of predicting what word comes next.   P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)also, ass">
+<meta property="og:description" content="Algorithm AnalysisThe RAM model of computationMachine-independent algorithm design depends upon a hypothetical computer called the Random Access Machine or RAM. Under this model of computation, we are">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2020/03/04/VGcU3SeqL7JhZoM.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/04/2vle5KkWsRcUJ8F.png">
-<meta property="article:published_time" content="2020-02-11T07:57:23.000Z">
-<meta property="article:modified_time" content="2020-07-29T10:49:38.135Z">
+<meta property="article:published_time" content="2020-10-22T01:37:23.000Z">
+<meta property="article:modified_time" content="2020-10-21T14:53:01.479Z">
 <meta property="article:author" content="Xinyi Hu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/03/04/VGcU3SeqL7JhZoM.png">
 
 
 
@@ -129,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://nobugs.dev/2020/02/10/CS224n Classnotes Course6/"/>
+  <link rel="canonical" href="http://nobugs.dev/2020/10/21/DataStructure1/"/>
 
 
 
 
 
-  <title>Stanford CS224n Natural Language Processing Course6 | Xinyi's gadget</title>
+  <title>Data Structure | Xinyi's gadget</title>
   
 
 
@@ -290,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/10/21/DataStructure1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi Hu">
@@ -307,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Stanford CS224n Natural Language Processing Course6</h1>
+          <h1 class="post-title" itemprop="name headline">Data Structure</h1>
         
 
         <div class="post-meta">
@@ -319,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T23:57:23-08:00">
-                2020-02-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-21T18:37:23-07:00">
+                2020-10-21
               </time>
             
 
@@ -342,8 +339,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
+                  <a href="/categories/DataStructure/" itemprop="url" rel="index">
+                    <span itemprop="name">DataStructure</span>
                   </a>
                 </span>
 
@@ -359,7 +356,7 @@
 
           
           
-             <span id="/2020/02/10/CS224n%20Classnotes%20Course6/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course6">
+             <span id="/2020/10/21/DataStructure1/" class="leancloud_visitors" data-flag-title="Data Structure">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -384,7 +381,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  554
+                  1.7k
                 </span>
               
 
@@ -400,7 +397,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  10
                 </span>
               
             </div>
@@ -421,57 +418,168 @@
       
 
       
-        <h1 id="Course-6-Language-Models-and-RNNs"><a href="#Course-6-Language-Models-and-RNNs" class="headerlink" title="Course 6 - Language Models and RNNs"></a>Course 6 - Language Models and RNNs</h1><h2 id="Language-Modeling"><a href="#Language-Modeling" class="headerlink" title="Language Modeling"></a>Language Modeling</h2><p>is the task of predicting what word comes next. </p>
-<script type="math/tex; mode=display">
-P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)</script><p>also, <strong>assigns probability to a piece of text</strong></p>
-<script type="math/tex; mode=display">
-\begin{aligned} P\left(\boldsymbol{x}^{(1)}, \ldots, \boldsymbol{x}^{(T)}\right) &=P\left(\boldsymbol{x}^{(1)}\right) \times P\left(\boldsymbol{x}^{(2)} | \boldsymbol{x}^{(1)}\right) \times \cdots \times P\left(\boldsymbol{x}^{(T)} | \boldsymbol{x}^{(T-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \\ &=\prod_{t=1}^{T} P\left(\boldsymbol{x}^{(t)} | \boldsymbol{x}^{(t-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \end{aligned}</script><h3 id="n-gram-Language-Models"><a href="#n-gram-Language-Models" class="headerlink" title="n-gram Language Models"></a>n-gram Language Models</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>A <strong>n-gram</strong> is a chunk of n consecutive words</p>
-<h4 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h4><p>Collect statistics about how frequent different n-grams are, and use these to predict next word.</p>
-<h4 id="Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><a href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data" class="headerlink" title="Sparity Problem 1: what if “students opened their w“ never occurred in data"></a>Sparity Problem 1: what if “students opened their <em>w</em>“ never occurred in data</h4><p>Solution-Smoothing: Add small delta to the count for every <em>w</em> </p>
-<h4 id="Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><a href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data" class="headerlink" title="Sparity Problem2: what if “students opened their” never occurred in data?"></a>Sparity Problem2: what if “students opened their” never occurred in data?</h4><p>Solution-backoff: Just condition on “opened their” instead</p>
-<h2 id="How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks"><a href="#How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks" class="headerlink" title="How to build a neural Language Model - Recurrent Neural Networks"></a>How to build a <em>neural</em> Language Model - Recurrent Neural Networks</h2><h3 id="A-fixed-window-neural-Language-Model"><a href="#A-fixed-window-neural-Language-Model" class="headerlink" title="A fixed-window neural Language Model"></a>A fixed-window neural Language Model</h3><h3 id="Recurrent-Neural-Networks-RNN"><a href="#Recurrent-Neural-Networks-RNN" class="headerlink" title="Recurrent Neural Networks(RNN)"></a>Recurrent Neural Networks(RNN)</h3><p><img src="https://i.loli.net/2020/03/04/VGcU3SeqL7JhZoM.png" alt="image-20200210211740128.png"></p>
-<p><strong>Core idea</strong>: Apply the same weight W repeatedly. </p>
-<p><img src="https://i.loli.net/2020/03/04/2vle5KkWsRcUJ8F.png" alt="image-20200210220449695.png"></p>
-<p><strong>Advantages</strong></p>
+        <h1 id="Algorithm-Analysis"><a href="#Algorithm-Analysis" class="headerlink" title="Algorithm Analysis"></a>Algorithm Analysis</h1><h2 id="The-RAM-model-of-computation"><a href="#The-RAM-model-of-computation" class="headerlink" title="The RAM model of computation"></a>The RAM model of computation</h2><p>Machine-independent algorithm design depends upon a hypothetical computer called the Random Access Machine or RAM. Under this model of computation, we are confronted with a computer where:</p>
 <ul>
-<li>Can process any length input</li>
-<li>use information from many steps back in theory</li>
-<li>Model size doesn’t increase for longer input</li>
-<li>Same weights applied on every steps. </li>
+<li>Each simple operation (+, *, –, =, if, call) takes exactly one time step. </li>
+<li>Loops and subroutines are not considered simple operations.</li>
 </ul>
-<p><strong>Disadvantages</strong></p>
+<h2 id="The-Big-Oh-Notation"><a href="#The-Big-Oh-Notation" class="headerlink" title="The Big Oh Notation"></a>The Big Oh Notation</h2><ul>
+<li>$f(n)=O(g(n))$ means $c \cdot g(n)$ is an <em>upper bound</em> on f(n). Thus there exists some constant $c$ such that $f(n)$ is always $\leq c \cdot g(n)$, for large enough $n$ (i.e. , $n \geq n_0$ for some constant $n_0$).</li>
+<li>$f(n)=\Omega(g(n))$ means $c \cdot g(n)$ is an <em>lower bound</em> on f(n). Thus there exists some constant $c$ such that $f(n)$ is always $\geq c \cdot g(n)$, for all $n\geq n_0$.</li>
+<li>$f(n)=\Theta(g(n))$ means $c_1 \cdot g(n)$ is an <em>upper bound</em> on f(n),  $c_2 \cdot g(n)$ is an <em>lower bound</em> on f(n).  Thus there exist constants $c_1$ and $c_2$ such that $f(n) \leq c_1 ·g(n)$ and $f(n) \geq c_2 ·g(n)$. This means that $g(n)$ provides a nice, tight bound on $f(n)$.</li>
+</ul>
+<p>Note: The Big Oh notation and worst-case analysis are tools that greatly simplify our ability to compare the efficiency of algorithms.</p>
+<h2 id="Dominance-Relations"><a href="#Dominance-Relations" class="headerlink" title="Dominance Relations"></a>Dominance Relations</h2><p>$n! &gt; 2^n &gt; n^3 &gt; n\log n &gt; n &gt; \log n &gt; 1$</p>
+<h2 id="Working-with-the-Big-Oh"><a href="#Working-with-the-Big-Oh" class="headerlink" title="Working with the Big Oh"></a>Working with the Big Oh</h2><h3 id="Adding-functions"><a href="#Adding-functions" class="headerlink" title="Adding functions"></a>Adding functions</h3><ul>
+<li>$O(f(n)) + O(g(n)) \rightarrow O(max(f(n),g(n)))$</li>
+<li>$\Omega(f(n)) + \Omega(g(n)) \rightarrow \Omega(max(f(n),g(n)))$</li>
+<li>$\Theta(f(n)) + \Theta(g(n)) \rightarrow \Theta(max(f(n),g(n)))$</li>
+</ul>
+<h3 id="Multiplying-functions"><a href="#Multiplying-functions" class="headerlink" title="Multiplying functions"></a>Multiplying functions</h3><ul>
+<li>$O(c · f(n)) \rightarrow O(f(n))$</li>
+<li>$\Omega(c · f(n)) \rightarrow \Omega(f(n))$</li>
+<li>$\Theta(c · f(n)) \rightarrow \Theta(f(n))$</li>
+<li>$O(f(n)) ∗ O(g(n)) \rightarrow O(f(n) ∗ g(n))$</li>
+<li>$\Omega(f(n)) ∗ \Omega(g(n)) \rightarrow \Omega(f(n) ∗ g(n))$</li>
+<li>$\Theta(f(n)) ∗ \Theta(g(n)) \rightarrow \Theta(f(n) ∗ g(n))$</li>
+</ul>
+<h2 id="Limits-and-Dominance-Relations"><a href="#Limits-and-Dominance-Relations" class="headerlink" title="Limits and Dominance Relations"></a>Limits and Dominance Relations</h2><p>We say that $f(n)$ dominates $g(n)$ if $limn_{→\infty} g(n)/f(n) = 0.$</p>
+<h1 id="Data-Structures"><a href="#Data-Structures" class="headerlink" title="Data Structures"></a>Data Structures</h1><h2 id="Contiguous-vs-Linked-Data-Structures"><a href="#Contiguous-vs-Linked-Data-Structures" class="headerlink" title="Contiguous vs. Linked Data Structures"></a>Contiguous vs. Linked Data Structures</h2><p>Data structures can be neatly classified as either contiguous or linked, depending upon whether they are based on arrays or pointers:</p>
 <ul>
-<li>slow computation</li>
-<li>difficult to access information from many steps back practically </li>
+<li><em>Contiguously-allocated structures</em> are composed of single slabs of memory, and include arrays, matrices, heaps, and hash tables. </li>
+<li><em>Linked data structures</em> are composed of distinct chunks of memory bound together by pointers, and include lists, trees, and graph adjacency lists.</li>
 </ul>
-<h4 id="Training-a-RNN-Language-Model"><a href="#Training-a-RNN-Language-Model" class="headerlink" title="Training a RNN Language Model"></a>Training a RNN Language Model</h4><ul>
-<li><p>Get a <strong>big corpus of text</strong> which is a sequence of word $x^{1}, \cdots, x^{T}$</p>
-</li>
-<li><p>Feed into RNN-LM</p>
-</li>
-<li><p>Loss function on step t is <strong>cross-entropy</strong></p>
-<script type="math/tex; mode=display">
-J^{(t)}(\theta)=C E\left(\boldsymbol{y}^{(t)}, \hat{\boldsymbol{y}}^{(t)}\right)=-\sum_{w \in V} \boldsymbol{y}_{w}^{(t)} \log \hat{\boldsymbol{y}}_{w}^{(t)}=-\log \hat{\boldsymbol{y}}_{\boldsymbol{x}_{t+1}}^{(t)}</script></li>
-<li><p>Average this to get <strong>overall loss </strong>for entire training set</p>
-<script type="math/tex; mode=display">
-J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-\log \hat{y}_{x_{t+1}}^{(t)}</script></li>
-<li><p>However, computing loss and gradients across <strong>entire corpus</strong> is too expensive. In practice, consider $x^{1}, \cdots, x^{T}$ as a <strong>sentence</strong> (or a <strong>document</strong>)</p>
-</li>
-<li>Instead, using <strong>SGD</strong> to compute loss $J(\theta)$ for a sentence, compute gradients and update weights. Repeat.</li>
+<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><p>The <em>array</em> is the fundamental contiguously-allocated data structure. Arrays are structures of fixed-size data records such that each element can be efficiently located by its <em>index</em> or (equivalently) address.</p>
+<h4 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h4><ul>
+<li><em>Constant-time access given the index</em> – Because the index of each element maps directly to a particular memory address, we can access arbitrary data items instantly provided we know the index. </li>
+<li><em>Space efficiency</em> – Arrays consist purely of data, so no space is wasted with links or other formatting information. Further, end-of-record information is not needed because arrays are built from fixed-size records. </li>
+<li><em>Memory locality</em> – A common programming idiom involves iterating through all the elements of a data structure. Arrays are good for this because they exhibit excellent memory locality. Physical continuity between successive data accesses helps exploit the high-speed cache memory on modern computer architectures.</li>
 </ul>
-<h4 id="Backpropagation-for-RNNs"><a href="#Backpropagation-for-RNNs" class="headerlink" title="Backpropagation for RNNs"></a>Backpropagation for RNNs</h4><p>Questions: derivative of $J^{(t)}(\theta)$ w.r.t the <strong>repeated</strong> weight matrix </p>
-<p>Answer:</p>
+<h4 id="Disadvantages"><a href="#Disadvantages" class="headerlink" title="Disadvantages"></a>Disadvantages</h4><p>We cannot adjust their size in the middle of a program’s execution.</p>
+<h3 id="Pointers-and-Linked-Structures"><a href="#Pointers-and-Linked-Structures" class="headerlink" title="Pointers and Linked Structures"></a>Pointers and Linked Structures</h3><p><em>Pointers</em> are the connections that hold the pieces of linked structures together. Pointers represent the address of a location in memory.</p>
+<p>Pointer syntax and power differ significantly across programming languages.</p>
+<h4 id="Advantages-1"><a href="#Advantages-1" class="headerlink" title="Advantages"></a>Advantages</h4><ul>
+<li>Overflow on linked structures can never occur unless the memory is actually full.</li>
+<li>Insertions and deletions are simpler than for contiguous (array) lists. </li>
+<li>With large records, moving pointers is easier and faster than moving the items themselves.</li>
+</ul>
+<h4 id="Disadvantages-1"><a href="#Disadvantages-1" class="headerlink" title="Disadvantages"></a>Disadvantages</h4><ul>
+<li>Linked structures require extra space for storing pointer fields. </li>
+<li>Linked lists do not allow efficient random access to items.</li>
+<li>Arrays allow better memory locality and cache performance than random pointer jumping.</li>
+</ul>
+<p>Note: Dynamic memory allocation provides us with flexibility on how and where we use our limited storage resources.</p>
+<p>One final thought about these fundamental structures is that they can be thought of as recursive objects: </p>
+<ul>
+<li>Lists – Chopping the first element off a linked list leaves a smaller linked list. This same argument works for strings, since removing characters from string leaves a string. Lists are recursive objects. </li>
+<li>Arrays – Splitting the first k elements off of an n element array gives two smaller arrays, of size k and n − k, respectively. Arrays are recursive objects.</li>
+</ul>
+<h2 id="Stacks-and-Queues"><a href="#Stacks-and-Queues" class="headerlink" title="Stacks and Queues"></a>Stacks and Queues</h2><ul>
+<li>Stacks – Support retrieval by last-in, first-out (LIFO) order. Stacks are simple to implement and very efficient. <ul>
+<li><code>Push(x,s)</code>: Insert item x at the top of stack s.</li>
+<li><code>Pop(s)</code>: Return (and remove) the top item of stack s</li>
+</ul>
+</li>
+<li>Queues – Support retrieval in first in, first out (FIFO) order. This is surely the fairest way to control waiting times for services. You want the container holding jobs to be processed in FIFO order to minimize the maximum time spent waiting. Note that the average waiting time will be the same regardless of whether FIFO or LIFO is used. <ul>
+<li><code>Enqueue(x,q)</code>: Insert item x at the back of queue q. </li>
+<li><code>Dequeue(q)</code>: Return (and remove) the front item from queue q.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Dictionaries"><a href="#Dictionaries" class="headerlink" title="Dictionaries"></a>Dictionaries</h2><p>The dictionary data type permits access to data items by content. You stick an item into a dictionary so you can find it when you need it. The primary operations of dictionary support are: </p>
+<ul>
+<li><code>Search(D,k)</code> – Given a search key k, return a pointer to the element in dictionary D whose key value is k, if one exists.</li>
+<li><code>Insert(D,x)</code> – Given a data item x, add it to the set in the dictionary D. </li>
+<li><code>Delete(D,x)</code> – Given a pointer to a given data item x in the dictionary D, remove it from D.</li>
+</ul>
+<h2 id="Binary-Search-Trees"><a href="#Binary-Search-Trees" class="headerlink" title="Binary Search Trees"></a>Binary Search Trees</h2><p>A binary search tree labels each node in a binary tree with a single key such that for any node labeled $x$, all nodes in the left subtree of x have keys &lt; $x$ while all nodes in the right subtree of x have keys &gt; $x$.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Best Case</th>
+<th>Average Case</th>
+<th>Worst Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insert</td>
+<td>$O(1)$</td>
+<td>$O(\log h)$</td>
+<td>$O(h)$</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>$O(1)$</td>
+<td>$O(\log h)$</td>
+<td>$O(h)$</td>
+</tr>
+<tr>
+<td>Search</td>
+<td>$O(1)$</td>
+<td>$O(\log h)$</td>
+<td>$O(h)$</td>
+</tr>
+<tr>
+<td>Traversal</td>
+<td>$O(1)$</td>
+<td>$O(\log h)$</td>
+<td>$O(h)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Balanced-Search-Trees"><a href="#Balanced-Search-Trees" class="headerlink" title="Balanced Search Trees"></a>Balanced Search Trees</h3><p>balanced binary search tree data structures have been developed that guarantee the height of the tree always to be O(log n). Therefore, all dictionary operations (insert, delete, query) take O(log n) time each.</p>
+<h2 id="Priority-Queues"><a href="#Priority-Queues" class="headerlink" title="Priority Queues"></a>Priority Queues</h2><p>Priority queues are data structures that provide more flexibility than simple sorting, because they allow new elements to enter a system at arbitrary intervals. It is much more cost-effective to insert a new job into a priority queue than to re-sort everything on each such arrival. The basic priority queue supports three primary operations: </p>
+<ul>
+<li>Insert(Q,x)– Given an item x with key k, insert it into the priority queue Q. </li>
+<li>Find-Minimum(Q) or Find-Maximum(Q)– Return a pointer to the item whose key value is smaller (larger) than any other key in the priority queue Q. </li>
+<li>Delete-Minimum(Q) or Delete-Maximum(Q)– Remove the item from the priority queue Q whose key is minimum (maximum).</li>
+</ul>
+<h2 id="Hashing-and-Strings"><a href="#Hashing-and-Strings" class="headerlink" title="Hashing and Strings"></a>Hashing and Strings</h2><p>Hash tables are a very practical way to maintain a dictionary. They exploit the fact that looking an item up in an array takes constant time once you have its index. A hash function is a mathematical function that maps keys to integers. We will use the value of our hash function as an index into an array, and store our item at that position.</p>
+<p>The first step of the hash function is usually to map each key to a big integer. Let α be the size of the alphabet on which a given string S is written. Let char(c) be a function that maps each symbol of the alphabet to a unique integer from 0 to α − 1. The function</p>
 <script type="math/tex; mode=display">
-\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script><h4 id="Generating-text-with-a-RNN-Language-Model"><a href="#Generating-text-with-a-RNN-Language-Model" class="headerlink" title="Generating text with a RNN Language Model."></a>Generating text with a RNN Language Model.</h4><p>repeated sampling </p>
-<h4 id="Evaluating-Language-Models-Perplexity"><a href="#Evaluating-Language-Models-Perplexity" class="headerlink" title="Evaluating Language Models: Perplexity"></a>Evaluating Language Models: Perplexity</h4><script type="math/tex; mode=display">
-perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)}\right)^{1 / T} = \exp(J(\theta))</script><p>lower perplexity is better!</p>
-<h4 id="Why-should-we-care-about-Language-Modeling"><a href="#Why-should-we-care-about-Language-Modeling" class="headerlink" title="Why should we care about Language Modeling?"></a>Why should we care about Language Modeling?</h4><p>Language Modeling is a <strong>benchmark task</strong> that helps us <strong>measure our progress</strong> on understanding language.</p>
-<p><strong>subcomponent</strong> of many NLP tasks.</p>
-<p>RNNs can be used for tagging, NER, part-of-speech tagging.</p>
-<p>RNNs can be used for sentence classification, sentiment classification.</p>
-<p>RNNs can be used as an encoder module, question answering, machine translation.</p>
-<p>RNN described is called <strong>vanilla RNN</strong></p>
-<p>GRU, LSTM(chocolate), multi-layer RNNs</p>
+H(s) = \sum_{i=0}^{|S|-1} \alpha^{|S|-(i+1)}\times char(s_i)</script><p>maps each string to a unique (but large) integer by treating the characters of the string as “digits” in a base-α number system. The result is unique identifier numbers, but they are so large they will quickly exceed the number of slots in our hash table (denoted by m). We must reduce this number to an integer between 0 and m−1, by taking the remainder of $H(S) \mod m$.</p>
+<h3 id="Collision-Resolution"><a href="#Collision-Resolution" class="headerlink" title="Collision Resolution"></a>Collision Resolution</h3><p>No matter how good our hash function is, we had better be prepared for collisions, because two distinct keys will occasionally hash to the same value.</p>
+<ul>
+<li><em>Chaining</em> is the easiest approach to collision resolution. The i-th list will contain all the items that hash to the value of i. Thus search, insertion, and deletion reduce to the corresponding problem in linked lists. If the n keys are distributed uniformly in a table, each list will contain roughly n/m elements, making them a constant size when m ≈ n.</li>
+<li><em>Open addressing</em>. On an insertion, we check to see if the desired position is empty. If so, we insert it. If not, we must find some other place to insert it instead. The simplest possibility (called <em>sequential probing</em>) inserts the item in the next open spot in the table. If the table is not too full, the contiguous runs of items should be fairly small, hence this location should be only a few slots from its intended position.</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Hash Table (expected)</th>
+<th>Hash Table (worst case)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search</td>
+<td>$O(n/m)$</td>
+<td>$O(n)$</td>
+</tr>
+<tr>
+<td>Insert</td>
+<td>$O(1)$</td>
+<td>$O(1)$</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>$O(1)$</td>
+<td>$O(1)$</td>
+</tr>
+<tr>
+<td>Maximum/Minimum</td>
+<td>$O(n + m)$</td>
+<td>$O(n + m)$</td>
+</tr>
+</tbody>
+</table>
+</div>
 
       
     </div>
@@ -496,8 +604,8 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/10/weibo%20hottopics%20crawler/" rel="next" title="Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China">
-                <i class="fa fa-chevron-left"></i> Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China
+              <a href="/2020/07/29/Hulu%20AI%20Class%202/" rel="next" title="Hulu AI Class - Feature Engineering">
+                <i class="fa fa-chevron-left"></i> Hulu AI Class - Feature Engineering
               </a>
             
           </div>
@@ -505,10 +613,6 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/11/weibo_delete_all/" rel="prev" title="Weibo - Delete all your followings and posts">
-                Weibo - Delete all your followings and posts <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -666,7 +770,7 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-6-Language-Models-and-RNNs"><span class="nav-number">1.</span> <span class="nav-text">Course 6 - Language Models and RNNs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Modeling"><span class="nav-number">1.1.</span> <span class="nav-text">Language Modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#n-gram-Language-Models"><span class="nav-number">1.1.1.</span> <span class="nav-text">n-gram Language Models</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">Sparity Problem 1: what if “students opened their w“ never occurred in data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">Sparity Problem2: what if “students opened their” never occurred in data?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks"><span class="nav-number">1.2.</span> <span class="nav-text">How to build a neural Language Model - Recurrent Neural Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-fixed-window-neural-Language-Model"><span class="nav-number">1.2.1.</span> <span class="nav-text">A fixed-window neural Language Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recurrent-Neural-Networks-RNN"><span class="nav-number">1.2.2.</span> <span class="nav-text">Recurrent Neural Networks(RNN)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Training-a-RNN-Language-Model"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Training a RNN Language Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Backpropagation-for-RNNs"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Backpropagation for RNNs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generating-text-with-a-RNN-Language-Model"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">Generating text with a RNN Language Model.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating-Language-Models-Perplexity"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">Evaluating Language Models: Perplexity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Why-should-we-care-about-Language-Modeling"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">Why should we care about Language Modeling?</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Algorithm-Analysis"><span class="nav-number">1.</span> <span class="nav-text">Algorithm Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-RAM-model-of-computation"><span class="nav-number">1.1.</span> <span class="nav-text">The RAM model of computation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Big-Oh-Notation"><span class="nav-number">1.2.</span> <span class="nav-text">The Big Oh Notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dominance-Relations"><span class="nav-number">1.3.</span> <span class="nav-text">Dominance Relations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Working-with-the-Big-Oh"><span class="nav-number">1.4.</span> <span class="nav-text">Working with the Big Oh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adding-functions"><span class="nav-number">1.4.1.</span> <span class="nav-text">Adding functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiplying-functions"><span class="nav-number">1.4.2.</span> <span class="nav-text">Multiplying functions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Limits-and-Dominance-Relations"><span class="nav-number">1.5.</span> <span class="nav-text">Limits and Dominance Relations</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Structures"><span class="nav-number">2.</span> <span class="nav-text">Data Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Contiguous-vs-Linked-Data-Structures"><span class="nav-number">2.1.</span> <span class="nav-text">Contiguous vs. Linked Data Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array"><span class="nav-number">2.1.1.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Advantages"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Advantages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Disadvantages"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Disadvantages</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointers-and-Linked-Structures"><span class="nav-number">2.1.2.</span> <span class="nav-text">Pointers and Linked Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Advantages-1"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Advantages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Disadvantages-1"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">Disadvantages</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stacks-and-Queues"><span class="nav-number">2.2.</span> <span class="nav-text">Stacks and Queues</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dictionaries"><span class="nav-number">2.3.</span> <span class="nav-text">Dictionaries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Search-Trees"><span class="nav-number">2.4.</span> <span class="nav-text">Binary Search Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Balanced-Search-Trees"><span class="nav-number">2.4.1.</span> <span class="nav-text">Balanced Search Trees</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Priority-Queues"><span class="nav-number">2.5.</span> <span class="nav-text">Priority Queues</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hashing-and-Strings"><span class="nav-number">2.6.</span> <span class="nav-text">Hashing and Strings</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collision-Resolution"><span class="nav-number">2.6.1.</span> <span class="nav-text">Collision Resolution</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -284,6 +284,228 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/30/CS224n%20Classnotes%20Course9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/30/CS224n%20Classnotes%20Course9/" itemprop="url">Stanford CS224n Natural Language Processing Course10</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-30T20:25:23-07:00">
+                2020-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/03/30/CS224n%20Classnotes%20Course9/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course10">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  215
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-10-Question-Answering"><a href="#Course-10-Question-Answering" class="headerlink" title="Course 10 - Question Answering"></a>Course 10 - Question Answering</h1><h2 id="Motivation-History"><a href="#Motivation-History" class="headerlink" title="Motivation/History"></a>Motivation/History</h2><p>With massive collections of full-text documents, return relevant documents.</p>
+<p>2 parts</p>
+<ol>
+<li>find documents that might contain an answer</li>
+<li>find an answer in a paragraph or a document</li>
+</ol>
+<p>MCTest Reading Comprehension: Passage+Question=Answer</p>
+<p><img src="https://i.loli.net/2020/04/04/xpvqj1TbEcJkyOL.png" alt="image-20200330135135377.png"></p>
+<h2 id="The-SQuAD-dataset"><a href="#The-SQuAD-dataset" class="headerlink" title="The SQuAD dataset"></a>The SQuAD dataset</h2><p>Evalution </p>
+<ul>
+<li><p>Systems are scored on two metrics</p>
+<ul>
+<li>exact match</li>
+<li>f1:  Precision = tp/(tp+fp), Recall = tp/(tp+tn), F1=2PR/(P+R) - taken as primary</li>
+</ul>
+<p>Both metrics ignore punctuation and articles (a, an, the only)</p>
+</li>
+</ul>
+<p>Limiations</p>
+<ul>
+<li>Only span-based answers</li>
+<li>Questions were constructed looking at passages</li>
+<li>Barely any multi-facts/sentence inference beyonce coreference</li>
+</ul>
+<p>But still, well-targeted, well-structured, clean dataset</p>
+<h2 id="The-Stanford-Attentive-Reader-model"><a href="#The-Stanford-Attentive-Reader-model" class="headerlink" title="The Stanford Attentive Reader model"></a>The Stanford Attentive Reader model</h2><h2 id="BiDAF"><a href="#BiDAF" class="headerlink" title="BiDAF"></a>BiDAF</h2><p><img src="https://i.loli.net/2020/04/04/wpZ5DlvJ7AK4xVY.png" alt="image-20200331105339872.png"></p>
+<p>central idea: the Attention Flow layer</p>
+<p>Idea: attention should flow both ways - from the context to the question and from the question to the context</p>
+<p>Make the similarity matrix:</p>
+<script type="math/tex; mode=display">
+S_{ij} = w_{sim}^{T}[c_i;q_j;c_i \cdot q_j]</script><p>Context-to-Question attention:</p>
+<script type="math/tex; mode=display">
+\alpha^{i} = softmax(S_i,:) \in \mathbb{R}^M\\
+\alpha_i=\sum_{j=1}^M \alpha_j^i q_j \in \mathbb{R}^{2h}</script><p>Attention Flow Idea: attention should flow both ways</p>
+<p>Question-to-Context attention:</p>
+<script type="math/tex; mode=display">
+m_i=max_j S_{ij} \in \mathbb{R}\\
+\beta = softmax(m) \in \mathbb{R}^N\\
+c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-advanced-architectures"><a href="#Recent-more-advanced-architectures" class="headerlink" title="Recent, more advanced architectures"></a>Recent, more advanced architectures</h2><p>FusionNet</p>
+<h2 id="ELMo-and-BERT-preview"><a href="#ELMo-and-BERT-preview" class="headerlink" title="ELMo and BERT preview"></a>ELMo and BERT preview</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -315,7 +537,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23-07:00">
                 2020-03-16
               </time>
             
@@ -529,6 +751,276 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/16/CS224n%20Classnotes%20Course8/" itemprop="url">Stanford CS224n Natural Language Processing Course8</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23-07:00">
+                2020-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/03/16/CS224n%20Classnotes%20Course8/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course8">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  553
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-8-Translation-Seq2Seq-Attention"><a href="#Course-8-Translation-Seq2Seq-Attention" class="headerlink" title="Course 8 - Translation, Seq2Seq, Attention"></a>Course 8 - Translation, Seq2Seq, Attention</h1><h2 id="Machine-Translation"><a href="#Machine-Translation" class="headerlink" title="Machine Translation"></a>Machine Translation</h2><p>from the source language to the target language</p>
+<h3 id="Statistical-Machine-Translation"><a href="#Statistical-Machine-Translation" class="headerlink" title="Statistical Machine Translation"></a>Statistical Machine Translation</h3><p>Core idea: learn a probabilistic model from data.</p>
+<p>best  English sentence $y$, given French sentence $x$</p>
+<script type="math/tex; mode=display">
+argmax_y P(y|x)\\
+=argmax_y P(x|y) P(y)</script><p>Translation model($P(x|y)$) - Models how words and phrases should be translated. Learnt from <strong>parallel data</strong></p>
+<p>note: parallel data - pairs of human-translated french/english sentences.</p>
+<p>Language model($P(y)$) - Models how to write good English. Learnt from monolingual data.</p>
+<h4 id="Learning-alignment-for-SMT"><a href="#Learning-alignment-for-SMT" class="headerlink" title="Learning alignment for SMT"></a>Learning alignment for SMT</h4><p>alignment is the <em>correspondence between particular words</em> in the translated sentence pair.</p>
+<p>Alignment can be <strong>many-to-one</strong> &amp; <strong>one-to-many</strong> &amp; <strong>many-to-many</strong></p>
+<p>We learn $P(x, a|y)$ as a combination of many factors.</p>
+<h4 id="Decoding-for-SMT"><a href="#Decoding-for-SMT" class="headerlink" title="Decoding for SMT"></a>Decoding for SMT</h4><p>Use a <strong>heuristic search algorithm</strong> to search for the best translation, discarding hypotheses that are too low-probability. This process is called <em>decoding</em></p>
+<h3 id="Neural-Machine-Translation"><a href="#Neural-Machine-Translation" class="headerlink" title="Neural Machine Translation"></a>Neural Machine Translation</h3><p><strong>sequence-to-sequence(Seq2seq)</strong> involves 2 RNNs. a <strong>conditional language model</strong></p>
+<ul>
+<li>conditional - its predictions are conditioned on the source sentence $x$</li>
+</ul>
+<p><img src="https://i.loli.net/2020/04/04/gixM6LmGa5Ce7Js.png" alt="image-20200328233749255.png"></p>
+<p>Other tasks </p>
+<ul>
+<li>summarization</li>
+<li>dialogue</li>
+<li>parsing</li>
+<li>code generation (natural language -&gt; Python code)</li>
+</ul>
+<p>NMT directly calculates $P(y|x)$</p>
+<script type="math/tex; mode=display">
+P(y | x)=P\left(y_{1} | x\right) P\left(y_{2} | y_{1}, x\right) P\left(y_{3} | y_{1}, y_{2}, x\right) \ldots P\left(y_{T} | y_{1}, \ldots, y_{T-1}, x\right)</script><p>Question: How to train?</p>
+<p>Answer: Get a big parallel corpus…</p>
+<p>Greedy decoding has many problems, it’s an <strong>exhaustive search decoding</strong>, instead we use <strong>beam search decoding</strong></p>
+<p>Core idea: On each step of decoder, keep track of the <em>k most probable</em> partial translations (<em>hypotheses</em>)</p>
+<ul>
+<li><em>k</em> is the <strong>beam size</strong></li>
+</ul>
+<script type="math/tex; mode=display">
+score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1,\cdots,y_{i-1}, x)</script><ul>
+<li>Scores are all negative, and higher score is betterr</li>
+<li>We search for high-scoring hypotheses, tracking top <em>k</em> on each step</li>
+</ul>
+<p>Beam search is <em>not guaranteed</em> to find optimal solution, but efficient.</p>
+<p>In greedy decoding, usually we decode until the model produces a <END> token. For example, <START> he hit me with a pie <END></END></START></END></p>
+<p>Problem：How to select top one with highest score? longer hypotheses have lower scores</p>
+<p>Fix: Normalize by length. </p>
+<script type="math/tex; mode=display">
+\frac{1}{t}\sum_{i=1}^t logP_{LM}(y_i|y_1,\cdots,y_{i-1}, x)</script><h4 id="Advantages-of-NMT"><a href="#Advantages-of-NMT" class="headerlink" title="Advantages of NMT"></a>Advantages of NMT</h4><ul>
+<li>better performance.<ul>
+<li>more fluent</li>
+<li>better use of context</li>
+<li>better use of phrase similarities</li>
+</ul>
+</li>
+<li>A single neural network to be optimized end-to-end<ul>
+<li>No subcomponents to be individually optimized</li>
+</ul>
+</li>
+<li>Requires much less human engineering effort<ul>
+<li>No feature engineering</li>
+</ul>
+</li>
+</ul>
+<h4 id="Disadvantages-of-NMT"><a href="#Disadvantages-of-NMT" class="headerlink" title="Disadvantages of NMT"></a>Disadvantages of NMT</h4><p>Compared to SMT:</p>
+<ul>
+<li>NMT is less interpretable<ul>
+<li>Hard to debug</li>
+</ul>
+</li>
+<li>NMT is difficult to control</li>
+</ul>
+<h4 id="How-to-evaluate"><a href="#How-to-evaluate" class="headerlink" title="How to evaluate?"></a>How to evaluate?</h4><p>BLEU(Bilingual Evaluation Understudy)</p>
+<p>BLEU compares the machine-written translation to one or several human-written translations, and computes similarity-score based on:</p>
+<ul>
+<li>n-gram precision</li>
+<li>Plus a penalty for too-short system tranlations</li>
+</ul>
+<h4 id="Difficulties-remain"><a href="#Difficulties-remain" class="headerlink" title="Difficulties remain"></a>Difficulties remain</h4><p>Out-of-vocabulary words</p>
+<p>Domain mismatch between train and test data</p>
+<p>Maintaining context over longer text</p>
+<p>Low-resource language pairs</p>
+<p>NMT picks up <strong>biases</strong> in training data</p>
+<p>Uninterpretable system do strange things.</p>
+<h4 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h4><p>Bottleneck problem.</p>
+<p>definition - Given a set of vector <em>values</em>, and a vector <em>query</em>, <strong>attention</strong> is a technique to compute a weighted sum of the values, dependent on the query. </p>
+<p>variants</p>
+<ul>
+<li>Basic dot-product attention</li>
+<li>Multiplicative attention</li>
+<li>Additive attention</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/10/How_powerful_is_gnn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -560,7 +1052,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-10T12:56:21+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-10T12:56:21-07:00">
                 2020-03-10
               </time>
             
@@ -783,7 +1275,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-02T12:56:21+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-02T12:56:21-08:00">
                 2020-03-02
               </time>
             
@@ -953,7 +1445,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-29T22:48:34+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-29T22:48:34-08:00">
                 2020-02-29
               </time>
             
@@ -1191,7 +1683,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-11T15:30:40+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-11T15:30:40-08:00">
                 2020-02-11
               </time>
             
@@ -1382,7 +1874,7 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T23:57:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T23:57:23-08:00">
                 2020-02-10
               </time>
             
@@ -1616,7 +2108,7 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T15:30:40+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T15:30:40-08:00">
                 2020-02-10
               </time>
             
@@ -1804,7 +2296,7 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T15:07:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T15:07:23-08:00">
                 2020-02-10
               </time>
             
@@ -1948,457 +2440,6 @@ B_r(x) = \{y:d(x,y)<r\}</script>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/04/CS224n%20Classnotes%20Course5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/04/CS224n%20Classnotes%20Course5/" itemprop="url">Stanford CS224n Natural Language Processing Course5</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-04T21:57:23+08:00">
-                2020-02-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/02/04/CS224n%20Classnotes%20Course5/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course5">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  307
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Course-5-Dependency-Parsing"><a href="#Course-5-Dependency-Parsing" class="headerlink" title="Course 5 - Dependency Parsing"></a>Course 5 - Dependency Parsing</h1><h2 id="Syntactic-Structure-Consistency-and-Dependency"><a href="#Syntactic-Structure-Consistency-and-Dependency" class="headerlink" title="Syntactic Structure: Consistency and Dependency"></a>Syntactic Structure: Consistency and Dependency</h2><h3 id="1-Two-views-of-linguistic-structure-Constituency-phrase-stucture-grammar-context-free-grammars-CFGs"><a href="#1-Two-views-of-linguistic-structure-Constituency-phrase-stucture-grammar-context-free-grammars-CFGs" class="headerlink" title="1. Two views of linguistic structure: Constituency  = phrase stucture grammar = context-free grammars (CFGs)"></a>1. Two views of linguistic structure: Constituency  = phrase stucture grammar = context-free grammars (CFGs)</h3><p><strong>Phrase structure</strong> organizes words into nested constituents</p>
-<h2 id="Dependency-Grammar-and-Treebanks"><a href="#Dependency-Grammar-and-Treebanks" class="headerlink" title="Dependency Grammar and Treebanks"></a>Dependency Grammar and Treebanks</h2><p>Dependency structure shows which words depend on which other words.</p>
-<p>Dependency syntax postulates that syntactic structure consists of relations between lexical items, normally binary asymmetric relations(“arrows”) called <strong>dependencies</strong></p>
-<p>The arrows are commonly <strong>typed</strong> with the name of grammatical relations(subject, prepositional object, apposition, etc.)</p>
-<p>Usually, dependencies form a tree(connected, acyclic, single-head)</p>
-<h2 id="Transition-based-dependency-parsing"><a href="#Transition-based-dependency-parsing" class="headerlink" title="Transition-based dependency parsing"></a>Transition-based dependency parsing</h2><p>A simple form of greedy discriminative dependency parser.</p>
-<script type="math/tex; mode=display">
-Start: \sigma=[\mathrm{ROOT}], \beta=w_{1}, \ldots, w_{n}, A=\emptyset\\
-1. Shift\qquad \sigma, w_{i}|\beta, A \rightarrow \sigma| w_{i}, \beta, A\\
-2. Left-Arc_r\qquad \sigma\left|w_{i}\right| w_{j}, \beta, A \rightarrow
-\sigma | w_{j}, \beta, \operatorname{A}\mathop{\cup} \left\{r\left(w_{j}, w_{i}\right)\right\}
-\\
-3. Right-Arc_r \qquad \sigma\left[w_{i} | w_{j}, \beta, A \rightarrow\right.
-
-\sigma | w_{i}, \beta, \operatorname{A}\mathop{\cup}\left\{r\left(w_{i}, w_{j}\right)\right\}
-\\
-Finish: \beta=\varnothing</script><h3 id="2005-MaltParser-Nivre-and-Hall-2005"><a href="#2005-MaltParser-Nivre-and-Hall-2005" class="headerlink" title="2005 MaltParser, Nivre and Hall 2005"></a>2005 MaltParser, Nivre and Hall 2005</h3><p>Each action is predicted by a discriminative classifier over each legal move(like softmax classifier)</p>
-<ul>
-<li>Max of 3 untyped choices, max of |R| * 2 + 1 when typed</li>
-<li>Features: top of stack word, POS; first in the buffer word, POS</li>
-</ul>
-<p>It provides very <strong>fast linear time parsing</strong> with fractionally lower accuracy</p>
-<h3 id="Evaluation-of-Dependency-Parsing-labeled-dependency-accuracy"><a href="#Evaluation-of-Dependency-Parsing-labeled-dependency-accuracy" class="headerlink" title="Evaluation of Dependency Parsing: (labeled) dependency accuracy"></a>Evaluation of Dependency Parsing: (labeled) dependency accuracy</h3><p><img src="https://i.loli.net/2020/04/04/DRoBKOlQ2tEhA9W.png" alt="image-20200205111717409.png"></p>
-<h2 id="Neural-dependency-parsing"><a href="#Neural-dependency-parsing" class="headerlink" title="Neural dependency parsing"></a>Neural dependency parsing</h2><h3 id="Why-train-a-neural-dependency-parsing"><a href="#Why-train-a-neural-dependency-parsing" class="headerlink" title="Why train a neural dependency parsing?"></a>Why train a neural dependency parsing?</h3><p>Problem #1: sparse</p>
-<p>Problem #2: incomplete</p>
-<p>Problem #3: expensive computation(95%+ of parsing time is consumed by feature computation)</p>
-<h3 id="2014-chen-and-manning"><a href="#2014-chen-and-manning" class="headerlink" title="2014, chen and manning"></a>2014, chen and manning</h3><p>English parsing to Stanford Dependencies:</p>
-<ul>
-<li>Unlabeled attachment score = head</li>
-<li>Labeled attachment score = head and label</li>
-</ul>
-<h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>bigger, deeper networks + beam search + CRF-style inference</p>
-<h3 id="Graph-based-neural-dependency-parsing"><a href="#Graph-based-neural-dependency-parsing" class="headerlink" title="Graph-based neural dependency parsing"></a>Graph-based neural dependency parsing</h3><p>over 95%</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/03/CS224n%20Classnotes%20Course4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/03/CS224n%20Classnotes%20Course4/" itemprop="url">Stanford CS224n Natural Language Processing Course4</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-03T21:57:23+08:00">
-                2020-02-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/02/03/CS224n%20Classnotes%20Course4/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course4">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  270
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Course-4-Backpropagation-and-computation-graphs"><a href="#Course-4-Backpropagation-and-computation-graphs" class="headerlink" title="Course 4 - Backpropagation and computation graphs"></a>Course 4 - Backpropagation and computation graphs</h1><h2 id="Matrix-gradients-for-our-simple-neural-net-and-some-tips"><a href="#Matrix-gradients-for-our-simple-neural-net-and-some-tips" class="headerlink" title="Matrix gradients for our simple neural net and some tips"></a>Matrix gradients for our simple neural net and some tips</h2><p>Chain rule:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\boldsymbol{s}=&\boldsymbol{u}^{T} \boldsymbol{h} \\
-\boldsymbol{h}=& f(\boldsymbol{z}) \\ \boldsymbol{z}=& W \boldsymbol{x}+\boldsymbol{b} \end{aligned}</script><script type="math/tex; mode=display">
-\begin{aligned} 
-\frac{\partial s}{\partial \boldsymbol{W}}=&\frac{\partial s}{\partial \boldsymbol{h}} \frac{\partial \boldsymbol{h}}{\partial \boldsymbol{z}} \frac{\partial \boldsymbol{z}}{\partial \boldsymbol{W}} \\
-=& \delta\frac{\partial z}{\partial W}\\
-=& \delta \frac{\partial}{\partial W} Wx + b \\
-=& \delta^{T}x+b
-\end{aligned}</script><p><strong>Question</strong> Should I use available “pre-trained” word vectors?</p>
-<p><strong>Answer</strong> almost always</p>
-<p><strong>Question</strong> Should I update(“fine tune”) my own word vectors?</p>
-<p><strong>Answer</strong> </p>
-<ul>
-<li>If you only have a <strong>small</strong> training data set, <strong>don’t</strong> train the word vectors</li>
-<li>If you have a <strong>large</strong> dataset, it probably will work better to <strong>train = update = fine-tune</strong> word vectors to the task</li>
-</ul>
-<h2 id="Computation-graphs-and-backpropagation"><a href="#Computation-graphs-and-backpropagation" class="headerlink" title="Computation graphs and backpropagation"></a>Computation graphs and backpropagation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiplyGate</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(x,y)</span>:</span></span><br><span class="line">        z = x*y</span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">        <span class="keyword">return</span> z</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(dz)</span>:</span></span><br><span class="line">        dx = self.y * dz</span><br><span class="line">        dy = self.x * dz</span><br><span class="line">        <span class="keyword">return</span> [dx,dy]</span><br></pre></td></tr></table></figure>
-<h2 id="Stuff-you-should-know"><a href="#Stuff-you-should-know" class="headerlink" title="Stuff you should know"></a>Stuff you should know</h2><h3 id="Regularization-to-prevent-overfitting"><a href="#Regularization-to-prevent-overfitting" class="headerlink" title="Regularization to prevent overfitting"></a>Regularization to prevent overfitting</h3><script type="math/tex; mode=display">
-J(\theta)=\frac{1}{N} \sum_{i=1}^{N}-\log \left(\frac{e^{f_{y_{i}}}}{\sum_{c=1}^{C} e^{f_{c}}}\right)\left[+\lambda \sum_{k} \theta_{k}^{2}\right]</script><p>Prevents <strong>overfitting</strong> when we have a lot of features</p>
-<h3 id="Vectorization"><a href="#Vectorization" class="headerlink" title="Vectorization"></a>Vectorization</h3><h3 id="Nonlinearities"><a href="#Nonlinearities" class="headerlink" title="Nonlinearities"></a>Nonlinearities</h3><p>logistic(“sigmoid”)</p>
-<script type="math/tex; mode=display">
-f(z)=\frac{1}{1+\exp (-z)}</script><p>tanh</p>
-<script type="math/tex; mode=display">
-f(z)=\tanh (z)=\frac{e^{z}-e^{-z}}{e^{z}+e^{-z}} \\
-\tanh (z) = 2\operatorname{logistic}(2z) - 1</script><p>hard tanh</p>
-<script type="math/tex; mode=display">
-\operatorname{HardTanh} (x)=\left\{\begin{array}{cl}{-1} & {\text { if } x<-1} \\ {x} & {\text { if }-1<=x<=1} \\ {1} & {\text { if } x>1}\end{array}\right.</script><p>ReLU: </p>
-<script type="math/tex; mode=display">
-rect(z) = \max(z,0)</script><p>Leaky ReLU/Parametric ReLU</p>
-<h3 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h3><p>Xavier initialzation has variance inversely proportional to fan-in n_in and fan-out n_out:</p>
-<script type="math/tex; mode=display">
-\operatorname{Var}\left(W_{i}\right)=\frac{2}{n_{\mathrm{in}}+n_{\mathrm{out}}}</script><h3 id="Optimizers"><a href="#Optimizers" class="headerlink" title="Optimizers"></a>Optimizers</h3><p>SGD/Adagrad/RMSprop/Adak/SparseAdam</p>
-<h3 id="Learning-rates"><a href="#Learning-rates" class="headerlink" title="Learning rates"></a>Learning rates</h3><ul>
-<li><p>You can just use a constant learning rate</p>
-</li>
-<li><p>Better results can generally be obtained by allowing learning rates to decrease as you train</p>
-<ul>
-<li><p>by hand: halve the learning rate every k epochs</p>
-</li>
-<li><p>By a formula, for epoch t</p>
-</li>
-<li><script type="math/tex; mode=display">
-lr = lr_0 e^{-kt}</script></li>
-<li><p>Fancier method like cyclic learning rates(q.v.)</p>
-</li>
-</ul>
-</li>
-<li><p>Fancier optimizers still use a learning rate but it may be an initial rate that the optimizer shrinks - so may be able to start high</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2451,7 +2492,7 @@ lr = lr_0 e^{-kt}</script></li>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2462,7 +2503,7 @@ lr = lr_0 e^{-kt}</script></li>
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>

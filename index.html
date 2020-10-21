@@ -284,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/20/OS162_Lecture2/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/10/21/DataStructure1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi Hu">
@@ -303,7 +303,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/07/20/OS162_Lecture2/" itemprop="url">UC Berkeley CS162 Operating Systems Lecture 2 - Introduction to Processes</a></h1>
+                <a class="post-title-link" href="/2020/10/21/DataStructure1/" itemprop="url">Data Structure</a></h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,586 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-20T19:45:23+08:00">
-                2020-07-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-21T18:37:23-07:00">
+                2020-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DataStructure/" itemprop="url" rel="index">
+                    <span itemprop="name">DataStructure</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/10/21/DataStructure1/" class="leancloud_visitors" data-flag-title="Data Structure">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Algorithm-Analysis"><a href="#Algorithm-Analysis" class="headerlink" title="Algorithm Analysis"></a>Algorithm Analysis</h1><h2 id="The-RAM-model-of-computation"><a href="#The-RAM-model-of-computation" class="headerlink" title="The RAM model of computation"></a>The RAM model of computation</h2><p>Machine-independent algorithm design depends upon a hypothetical computer called the Random Access Machine or RAM. Under this model of computation, we are confronted with a computer where:</p>
+<ul>
+<li>Each simple operation (+, *, –, =, if, call) takes exactly one time step. </li>
+<li>Loops and subroutines are not considered simple operations.</li>
+</ul>
+<h2 id="The-Big-Oh-Notation"><a href="#The-Big-Oh-Notation" class="headerlink" title="The Big Oh Notation"></a>The Big Oh Notation</h2><ul>
+<li>$f(n)=O(g(n))$ means $c \cdot g(n)$ is an <em>upper bound</em> on f(n). Thus there exists some constant $c$ such that $f(n)$ is always $\leq c \cdot g(n)$, for large enough $n$ (i.e. , $n \geq n_0$ for some constant $n_0$).</li>
+<li>$f(n)=\Omega(g(n))$ means $c \cdot g(n)$ is an <em>lower bound</em> on f(n). Thus there exists some constant $c$ such that $f(n)$ is always $\geq c \cdot g(n)$, for all $n\geq n_0$.</li>
+<li>$f(n)=\Theta(g(n))$ means $c_1 \cdot g(n)$ is an <em>upper bound</em> on f(n),  $c_2 \cdot g(n)$ is an <em>lower bound</em> on f(n).  Thus there exist constants $c_1$ and $c_2$ such that $f(n) \leq c_1 ·g(n)$ and $f(n) \geq c_2 ·g(n)$. This means that $g(n)$ provides a nice, tight bound on $f(n)$.</li>
+</ul>
+<p>Note: The Big Oh notation and worst-case analysis are tools that greatly simplify our ability to compare the efficiency of algorithms.</p>
+<h2 id="Dominance-Relations"><a href="#Dominance-Relations" class="headerlink" title="Dominance Relations"></a>Dominance Relations</h2><p>$n! &gt; 2^n &gt; n^3 &gt; n\log n &gt; n &gt; \log n &gt; 1$</p>
+<h2 id="Working-with-the-Big-Oh"><a href="#Working-with-the-Big-Oh" class="headerlink" title="Working with the Big Oh"></a>Working with the Big Oh</h2><h3 id="Adding-functions"><a href="#Adding-functions" class="headerlink" title="Adding functions"></a>Adding functions</h3><ul>
+<li>$O(f(n)) + O(g(n)) \rightarrow O(max(f(n),g(n)))$</li>
+<li>$\Omega(f(n)) + \Omega(g(n)) \rightarrow \Omega(max(f(n),g(n)))$</li>
+<li>$\Theta(f(n)) + \Theta(g(n)) \rightarrow \Theta(max(f(n),g(n)))$</li>
+</ul>
+<h3 id="Multiplying-functions"><a href="#Multiplying-functions" class="headerlink" title="Multiplying functions"></a>Multiplying functions</h3><ul>
+<li>$O(c · f(n)) \rightarrow O(f(n))$</li>
+<li>$\Omega(c · f(n)) \rightarrow \Omega(f(n))$</li>
+<li>$\Theta(c · f(n)) \rightarrow \Theta(f(n))$</li>
+<li>$O(f(n)) ∗ O(g(n)) \rightarrow O(f(n) ∗ g(n))$</li>
+<li>$\Omega(f(n)) ∗ \Omega(g(n)) \rightarrow \Omega(f(n) ∗ g(n))$</li>
+<li>$\Theta(f(n)) ∗ \Theta(g(n)) \rightarrow \Theta(f(n) ∗ g(n))$</li>
+</ul>
+<h2 id="Limits-and-Dominance-Relations"><a href="#Limits-and-Dominance-Relations" class="headerlink" title="Limits and Dominance Relations"></a>Limits and Dominance Relations</h2><p>We say that $f(n)$ dominates $g(n)$ if $limn_{→\infty} g(n)/f(n) = 0.$</p>
+<h1 id="Data-Structures"><a href="#Data-Structures" class="headerlink" title="Data Structures"></a>Data Structures</h1><h2 id="Contiguous-vs-Linked-Data-Structures"><a href="#Contiguous-vs-Linked-Data-Structures" class="headerlink" title="Contiguous vs. Linked Data Structures"></a>Contiguous vs. Linked Data Structures</h2><p>Data structures can be neatly classified as either contiguous or linked, depending upon whether they are based on arrays or pointers:</p>
+<ul>
+<li><em>Contiguously-allocated structures</em> are composed of single slabs of memory, and include arrays, matrices, heaps, and hash tables. </li>
+<li><em>Linked data structures</em> are composed of distinct chunks of memory bound together by pointers, and include lists, trees, and graph adjacency lists.</li>
+</ul>
+<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><p>The <em>array</em> is the fundamental contiguously-allocated data structure. Arrays are structures of fixed-size data records such that each element can be efficiently located by its <em>index</em> or (equivalently) address.</p>
+<h4 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h4><ul>
+<li><em>Constant-time access given the index</em> – Because the index of each element maps directly to a particular memory address, we can access arbitrary data items instantly provided we know the index. </li>
+<li><em>Space efficiency</em> – Arrays consist purely of data, so no space is wasted with links or other formatting information. Further, end-of-record information is not needed because arrays are built from fixed-size records. </li>
+<li><em>Memory locality</em> – A common programming idiom involves iterating through all the elements of a data structure. Arrays are good for this because they exhibit excellent memory locality. Physical continuity between successive data accesses helps exploit the high-speed cache memory on modern computer architectures.</li>
+</ul>
+<h4 id="Disadvantages"><a href="#Disadvantages" class="headerlink" title="Disadvantages"></a>Disadvantages</h4><p>We cannot adjust their size in the middle of a program’s execution.</p>
+<h3 id="Pointers-and-Linked-Structures"><a href="#Pointers-and-Linked-Structures" class="headerlink" title="Pointers and Linked Structures"></a>Pointers and Linked Structures</h3><p><em>Pointers</em> are the connections that hold the pieces of linked structures together. Pointers represent the address of a location in memory.</p>
+<p>Pointer syntax and power differ significantly across programming languages.</p>
+<h4 id="Advantages-1"><a href="#Advantages-1" class="headerlink" title="Advantages"></a>Advantages</h4><ul>
+<li>Overflow on linked structures can never occur unless the memory is actually full.</li>
+<li>Insertions and deletions are simpler than for contiguous (array) lists. </li>
+<li>With large records, moving pointers is easier and faster than moving the items themselves.</li>
+</ul>
+<h4 id="Disadvantages-1"><a href="#Disadvantages-1" class="headerlink" title="Disadvantages"></a>Disadvantages</h4><ul>
+<li>Linked structures require extra space for storing pointer fields. </li>
+<li>Linked lists do not allow efficient random access to items.</li>
+<li>Arrays allow better memory locality and cache performance than random pointer jumping.</li>
+</ul>
+<p>Note: Dynamic memory allocation provides us with flexibility on how and where we use our limited storage resources.</p>
+<p>One final thought about these fundamental structures is that they can be thought of as recursive objects: </p>
+<ul>
+<li>Lists – Chopping the first element off a linked list leaves a smaller linked list. This same argument works for strings, since removing characters from string leaves a string. Lists are recursive objects. </li>
+<li>Arrays – Splitting the first k elements off of an n element array gives two smaller arrays, of size k and n − k, respectively. Arrays are recursive objects.</li>
+</ul>
+<h2 id="Stacks-and-Queues"><a href="#Stacks-and-Queues" class="headerlink" title="Stacks and Queues"></a>Stacks and Queues</h2><ul>
+<li>Stacks – Support retrieval by last-in, first-out (LIFO) order. Stacks are simple to implement and very efficient. <ul>
+<li><code>Push(x,s)</code>: Insert item x at the top of stack s.</li>
+<li><code>Pop(s)</code>: Return (and remove) the top item of stack s</li>
+</ul>
+</li>
+<li>Queues – Support retrieval in first in, first out (FIFO) order. This is surely the fairest way to control waiting times for services. You want the container holding jobs to be processed in FIFO order to minimize the maximum time spent waiting. Note that the average waiting time will be the same regardless of whether FIFO or LIFO is used. <ul>
+<li><code>Enqueue(x,q)</code>: Insert item x at the back of queue q. </li>
+<li><code>Dequeue(q)</code>: Return (and remove) the front item from queue q.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Dictionaries"><a href="#Dictionaries" class="headerlink" title="Dictionaries"></a>Dictionaries</h2><p>The dictionary data type permits access to data items by content. You stick an item into a dictionary so you can find it when you need it. The primary operations of dictionary support are: </p>
+<ul>
+<li><code>Search(D,k)</code> – Given a search key k, return a pointer to the element in dictionary D whose key value is k, if one exists.</li>
+<li><code>Insert(D,x)</code> – Given a data item x, add it to the set in the dictionary D. </li>
+<li><code>Delete(D,x)</code> – Given a pointer to a given data item x in the dictionary D, remove it from D.</li>
+</ul>
+<h2 id="Binary-Search-Trees"><a href="#Binary-Search-Trees" class="headerlink" title="Binary Search Trees"></a>Binary Search Trees</h2><p>A binary search tree labels each node in a binary tree with a single key such that for any node labeled $x$, all nodes in the left subtree of x have keys &lt; $x$ while all nodes in the right subtree of x have keys &gt; $x$.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Best Case</th>
+<th>Average Case</th>
+<th>Worst Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insert</td>
+<td>$O(1)$</td>
+<td>$O(\log h)$</td>
+<td>$O(h)$</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>$O(1)$</td>
+<td>$O(\log h)$</td>
+<td>$O(h)$</td>
+</tr>
+<tr>
+<td>Search</td>
+<td>$O(1)$</td>
+<td>$O(\log h)$</td>
+<td>$O(h)$</td>
+</tr>
+<tr>
+<td>Traversal</td>
+<td>$O(1)$</td>
+<td>$O(\log h)$</td>
+<td>$O(h)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Balanced-Search-Trees"><a href="#Balanced-Search-Trees" class="headerlink" title="Balanced Search Trees"></a>Balanced Search Trees</h3><p>balanced binary search tree data structures have been developed that guarantee the height of the tree always to be O(log n). Therefore, all dictionary operations (insert, delete, query) take O(log n) time each.</p>
+<h2 id="Priority-Queues"><a href="#Priority-Queues" class="headerlink" title="Priority Queues"></a>Priority Queues</h2><p>Priority queues are data structures that provide more flexibility than simple sorting, because they allow new elements to enter a system at arbitrary intervals. It is much more cost-effective to insert a new job into a priority queue than to re-sort everything on each such arrival. The basic priority queue supports three primary operations: </p>
+<ul>
+<li>Insert(Q,x)– Given an item x with key k, insert it into the priority queue Q. </li>
+<li>Find-Minimum(Q) or Find-Maximum(Q)– Return a pointer to the item whose key value is smaller (larger) than any other key in the priority queue Q. </li>
+<li>Delete-Minimum(Q) or Delete-Maximum(Q)– Remove the item from the priority queue Q whose key is minimum (maximum).</li>
+</ul>
+<h2 id="Hashing-and-Strings"><a href="#Hashing-and-Strings" class="headerlink" title="Hashing and Strings"></a>Hashing and Strings</h2><p>Hash tables are a very practical way to maintain a dictionary. They exploit the fact that looking an item up in an array takes constant time once you have its index. A hash function is a mathematical function that maps keys to integers. We will use the value of our hash function as an index into an array, and store our item at that position.</p>
+<p>The first step of the hash function is usually to map each key to a big integer. Let α be the size of the alphabet on which a given string S is written. Let char(c) be a function that maps each symbol of the alphabet to a unique integer from 0 to α − 1. The function</p>
+<script type="math/tex; mode=display">
+H(s) = \sum_{i=0}^{|S|-1} \alpha^{|S|-(i+1)}\times char(s_i)</script><p>maps each string to a unique (but large) integer by treating the characters of the string as “digits” in a base-α number system. The result is unique identifier numbers, but they are so large they will quickly exceed the number of slots in our hash table (denoted by m). We must reduce this number to an integer between 0 and m−1, by taking the remainder of $H(S) \mod m$.</p>
+<h3 id="Collision-Resolution"><a href="#Collision-Resolution" class="headerlink" title="Collision Resolution"></a>Collision Resolution</h3><p>No matter how good our hash function is, we had better be prepared for collisions, because two distinct keys will occasionally hash to the same value.</p>
+<ul>
+<li><em>Chaining</em> is the easiest approach to collision resolution. The i-th list will contain all the items that hash to the value of i. Thus search, insertion, and deletion reduce to the corresponding problem in linked lists. If the n keys are distributed uniformly in a table, each list will contain roughly n/m elements, making them a constant size when m ≈ n.</li>
+<li><em>Open addressing</em>. On an insertion, we check to see if the desired position is empty. If so, we insert it. If not, we must find some other place to insert it instead. The simplest possibility (called <em>sequential probing</em>) inserts the item in the next open spot in the table. If the table is not too full, the contiguous runs of items should be fairly small, hence this location should be only a few slots from its intended position.</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Hash Table (expected)</th>
+<th>Hash Table (worst case)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search</td>
+<td>$O(n/m)$</td>
+<td>$O(n)$</td>
+</tr>
+<tr>
+<td>Insert</td>
+<td>$O(1)$</td>
+<td>$O(1)$</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>$O(1)$</td>
+<td>$O(1)$</td>
+</tr>
+<tr>
+<td>Maximum/Minimum</td>
+<td>$O(n + m)$</td>
+<td>$O(n + m)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/29/Hulu%20AI%20Class%202/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/29/Hulu%20AI%20Class%202/" itemprop="url">Hulu AI Class - Feature Engineering</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-29T12:56:21-07:00">
+                2020-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RecommenderSystems/" itemprop="url" rel="index">
+                    <span itemprop="name">RecommenderSystems</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/07/29/Hulu%20AI%20Class%202/" class="leancloud_visitors" data-flag-title="Hulu AI Class - Feature Engineering">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  55
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id=""><a href="#" class="headerlink" title=""></a><img src="https://i.loli.net/2020/07/29/nfbzsIS6Awe2kLZ.png" alt="image.png"></h1><h1 id="Feature-Engineering"><a href="#Feature-Engineering" class="headerlink" title="Feature Engineering"></a>Feature Engineering</h1><h2 id="Feature-Design"><a href="#Feature-Design" class="headerlink" title="Feature Design"></a>Feature Design</h2><ul>
+<li>Brainstorming</li>
+<li>Ask Business Experts</li>
+<li>Ask Senior RSDE</li>
+</ul>
+<h3 id="Data-Cleaning"><a href="#Data-Cleaning" class="headerlink" title="Data Cleaning"></a>Data Cleaning</h3><p>Raw Data has</p>
+<ul>
+<li>Null value<ul>
+<li>Fill(low missing rate)<ul>
+<li>Mean Value</li>
+<li>Medium Number</li>
+<li>RandomForestRegressor</li>
+</ul>
+</li>
+<li>Drop column</li>
+</ul>
+</li>
+<li>Outlier<ul>
+<li>Fill<ul>
+<li>Mean value</li>
+<li>Medium number</li>
+</ul>
+</li>
+<li>Drop row</li>
+</ul>
+</li>
+</ul>
+<h2 id="Feature-Transform"><a href="#Feature-Transform" class="headerlink" title="Feature Transform"></a>Feature Transform</h2><ul>
+<li>Category<ul>
+<li>one-hot</li>
+<li>multi-hot</li>
+</ul>
+</li>
+<li>Numeric<ul>
+<li>Normalization</li>
+<li>Standardization</li>
+<li>Discretization</li>
+</ul>
+</li>
+<li>Time</li>
+<li>Text</li>
+<li>Statistical</li>
+<li>Combined</li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/29/LN61GwPOAgzMlsn.png" alt="image.png"></p>
+<h2 id="Feature-Selection"><a href="#Feature-Selection" class="headerlink" title="Feature Selection"></a>Feature Selection</h2><ul>
+<li>Filter</li>
+<li>Wrapper</li>
+<li>Embedded</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/21/OS162_Lecture2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/21/OS162_Lecture2/" itemprop="url">UC Berkeley CS162 Operating Systems Lecture 2 - Introduction to Processes</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-21T19:45:23-07:00">
+                2020-07-21
               </time>
             
 
@@ -355,7 +933,7 @@
 
           
           
-             <span id="/2020/07/20/OS162_Lecture2/" class="leancloud_visitors" data-flag-title="UC Berkeley CS162 Operating Systems Lecture 2 - Introduction to Processes">
+             <span id="/2020/07/21/OS162_Lecture2/" class="leancloud_visitors" data-flag-title="UC Berkeley CS162 Operating Systems Lecture 2 - Introduction to Processes">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -751,7 +1329,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-20T18:27:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-20T18:27:23-07:00">
                 2020-07-20
               </time>
             
@@ -1007,7 +1585,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-19T14:44:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-19T14:44:23-07:00">
                 2020-07-19
               </time>
             
@@ -1281,7 +1859,7 @@ f(x)=\frac{1}{\pi}\arctan (x) + \frac12</script><h2 id="Continuum-Hypothesis"><a
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-19T12:56:21+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-19T12:56:21-07:00">
                 2020-07-19
               </time>
             
@@ -1717,7 +2295,7 @@ O b j^{(t)}=\sum_{i=1}^{m} L\left(y_{i}, \hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\ri
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T19:37:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T19:37:23-07:00">
                 2020-07-18
               </time>
             
@@ -1952,7 +2530,7 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T18:37:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T18:37:23-07:00">
                 2020-07-18
               </time>
             
@@ -2145,7 +2723,7 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-16T21:39:02+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-16T21:39:02-07:00">
                 2020-06-16
               </time>
             
@@ -2366,7 +2944,7 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-12T21:39:02+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-12T21:39:02-07:00">
                 2020-06-12
               </time>
             
@@ -2555,498 +3133,6 @@ J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/30/CS224n%20Classnotes%20Course9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/30/CS224n%20Classnotes%20Course9/" itemprop="url">Stanford CS224n Natural Language Processing Course10</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-30T20:25:23+08:00">
-                2020-03-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/03/30/CS224n%20Classnotes%20Course9/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course10">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  215
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Course-10-Question-Answering"><a href="#Course-10-Question-Answering" class="headerlink" title="Course 10 - Question Answering"></a>Course 10 - Question Answering</h1><h2 id="Motivation-History"><a href="#Motivation-History" class="headerlink" title="Motivation/History"></a>Motivation/History</h2><p>With massive collections of full-text documents, return relevant documents.</p>
-<p>2 parts</p>
-<ol>
-<li>find documents that might contain an answer</li>
-<li>find an answer in a paragraph or a document</li>
-</ol>
-<p>MCTest Reading Comprehension: Passage+Question=Answer</p>
-<p><img src="https://i.loli.net/2020/04/04/xpvqj1TbEcJkyOL.png" alt="image-20200330135135377.png"></p>
-<h2 id="The-SQuAD-dataset"><a href="#The-SQuAD-dataset" class="headerlink" title="The SQuAD dataset"></a>The SQuAD dataset</h2><p>Evalution </p>
-<ul>
-<li><p>Systems are scored on two metrics</p>
-<ul>
-<li>exact match</li>
-<li>f1:  Precision = tp/(tp+fp), Recall = tp/(tp+tn), F1=2PR/(P+R) - taken as primary</li>
-</ul>
-<p>Both metrics ignore punctuation and articles (a, an, the only)</p>
-</li>
-</ul>
-<p>Limiations</p>
-<ul>
-<li>Only span-based answers</li>
-<li>Questions were constructed looking at passages</li>
-<li>Barely any multi-facts/sentence inference beyonce coreference</li>
-</ul>
-<p>But still, well-targeted, well-structured, clean dataset</p>
-<h2 id="The-Stanford-Attentive-Reader-model"><a href="#The-Stanford-Attentive-Reader-model" class="headerlink" title="The Stanford Attentive Reader model"></a>The Stanford Attentive Reader model</h2><h2 id="BiDAF"><a href="#BiDAF" class="headerlink" title="BiDAF"></a>BiDAF</h2><p><img src="https://i.loli.net/2020/04/04/wpZ5DlvJ7AK4xVY.png" alt="image-20200331105339872.png"></p>
-<p>central idea: the Attention Flow layer</p>
-<p>Idea: attention should flow both ways - from the context to the question and from the question to the context</p>
-<p>Make the similarity matrix:</p>
-<script type="math/tex; mode=display">
-S_{ij} = w_{sim}^{T}[c_i;q_j;c_i \cdot q_j]</script><p>Context-to-Question attention:</p>
-<script type="math/tex; mode=display">
-\alpha^{i} = softmax(S_i,:) \in \mathbb{R}^M\\
-\alpha_i=\sum_{j=1}^M \alpha_j^i q_j \in \mathbb{R}^{2h}</script><p>Attention Flow Idea: attention should flow both ways</p>
-<p>Question-to-Context attention:</p>
-<script type="math/tex; mode=display">
-m_i=max_j S_{ij} \in \mathbb{R}\\
-\beta = softmax(m) \in \mathbb{R}^N\\
-c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-advanced-architectures"><a href="#Recent-more-advanced-architectures" class="headerlink" title="Recent, more advanced architectures"></a>Recent, more advanced architectures</h2><p>FusionNet</p>
-<h2 id="ELMo-and-BERT-preview"><a href="#ELMo-and-BERT-preview" class="headerlink" title="ELMo and BERT preview"></a>ELMo and BERT preview</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/16/CS224n%20Classnotes%20Course8/" itemprop="url">Stanford CS224n Natural Language Processing Course8</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23+08:00">
-                2020-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/03/16/CS224n%20Classnotes%20Course8/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course8">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  553
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Course-8-Translation-Seq2Seq-Attention"><a href="#Course-8-Translation-Seq2Seq-Attention" class="headerlink" title="Course 8 - Translation, Seq2Seq, Attention"></a>Course 8 - Translation, Seq2Seq, Attention</h1><h2 id="Machine-Translation"><a href="#Machine-Translation" class="headerlink" title="Machine Translation"></a>Machine Translation</h2><p>from the source language to the target language</p>
-<h3 id="Statistical-Machine-Translation"><a href="#Statistical-Machine-Translation" class="headerlink" title="Statistical Machine Translation"></a>Statistical Machine Translation</h3><p>Core idea: learn a probabilistic model from data.</p>
-<p>best  English sentence $y$, given French sentence $x$</p>
-<script type="math/tex; mode=display">
-argmax_y P(y|x)\\
-=argmax_y P(x|y) P(y)</script><p>Translation model($P(x|y)$) - Models how words and phrases should be translated. Learnt from <strong>parallel data</strong></p>
-<p>note: parallel data - pairs of human-translated french/english sentences.</p>
-<p>Language model($P(y)$) - Models how to write good English. Learnt from monolingual data.</p>
-<h4 id="Learning-alignment-for-SMT"><a href="#Learning-alignment-for-SMT" class="headerlink" title="Learning alignment for SMT"></a>Learning alignment for SMT</h4><p>alignment is the <em>correspondence between particular words</em> in the translated sentence pair.</p>
-<p>Alignment can be <strong>many-to-one</strong> &amp; <strong>one-to-many</strong> &amp; <strong>many-to-many</strong></p>
-<p>We learn $P(x, a|y)$ as a combination of many factors.</p>
-<h4 id="Decoding-for-SMT"><a href="#Decoding-for-SMT" class="headerlink" title="Decoding for SMT"></a>Decoding for SMT</h4><p>Use a <strong>heuristic search algorithm</strong> to search for the best translation, discarding hypotheses that are too low-probability. This process is called <em>decoding</em></p>
-<h3 id="Neural-Machine-Translation"><a href="#Neural-Machine-Translation" class="headerlink" title="Neural Machine Translation"></a>Neural Machine Translation</h3><p><strong>sequence-to-sequence(Seq2seq)</strong> involves 2 RNNs. a <strong>conditional language model</strong></p>
-<ul>
-<li>conditional - its predictions are conditioned on the source sentence $x$</li>
-</ul>
-<p><img src="https://i.loli.net/2020/04/04/gixM6LmGa5Ce7Js.png" alt="image-20200328233749255.png"></p>
-<p>Other tasks </p>
-<ul>
-<li>summarization</li>
-<li>dialogue</li>
-<li>parsing</li>
-<li>code generation (natural language -&gt; Python code)</li>
-</ul>
-<p>NMT directly calculates $P(y|x)$</p>
-<script type="math/tex; mode=display">
-P(y | x)=P\left(y_{1} | x\right) P\left(y_{2} | y_{1}, x\right) P\left(y_{3} | y_{1}, y_{2}, x\right) \ldots P\left(y_{T} | y_{1}, \ldots, y_{T-1}, x\right)</script><p>Question: How to train?</p>
-<p>Answer: Get a big parallel corpus…</p>
-<p>Greedy decoding has many problems, it’s an <strong>exhaustive search decoding</strong>, instead we use <strong>beam search decoding</strong></p>
-<p>Core idea: On each step of decoder, keep track of the <em>k most probable</em> partial translations (<em>hypotheses</em>)</p>
-<ul>
-<li><em>k</em> is the <strong>beam size</strong></li>
-</ul>
-<script type="math/tex; mode=display">
-score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1,\cdots,y_{i-1}, x)</script><ul>
-<li>Scores are all negative, and higher score is betterr</li>
-<li>We search for high-scoring hypotheses, tracking top <em>k</em> on each step</li>
-</ul>
-<p>Beam search is <em>not guaranteed</em> to find optimal solution, but efficient.</p>
-<p>In greedy decoding, usually we decode until the model produces a <END> token. For example, <START> he hit me with a pie <END></END></START></END></p>
-<p>Problem：How to select top one with highest score? longer hypotheses have lower scores</p>
-<p>Fix: Normalize by length. </p>
-<script type="math/tex; mode=display">
-\frac{1}{t}\sum_{i=1}^t logP_{LM}(y_i|y_1,\cdots,y_{i-1}, x)</script><h4 id="Advantages-of-NMT"><a href="#Advantages-of-NMT" class="headerlink" title="Advantages of NMT"></a>Advantages of NMT</h4><ul>
-<li>better performance.<ul>
-<li>more fluent</li>
-<li>better use of context</li>
-<li>better use of phrase similarities</li>
-</ul>
-</li>
-<li>A single neural network to be optimized end-to-end<ul>
-<li>No subcomponents to be individually optimized</li>
-</ul>
-</li>
-<li>Requires much less human engineering effort<ul>
-<li>No feature engineering</li>
-</ul>
-</li>
-</ul>
-<h4 id="Disadvantages-of-NMT"><a href="#Disadvantages-of-NMT" class="headerlink" title="Disadvantages of NMT"></a>Disadvantages of NMT</h4><p>Compared to SMT:</p>
-<ul>
-<li>NMT is less interpretable<ul>
-<li>Hard to debug</li>
-</ul>
-</li>
-<li>NMT is difficult to control</li>
-</ul>
-<h4 id="How-to-evaluate"><a href="#How-to-evaluate" class="headerlink" title="How to evaluate?"></a>How to evaluate?</h4><p>BLEU(Bilingual Evaluation Understudy)</p>
-<p>BLEU compares the machine-written translation to one or several human-written translations, and computes similarity-score based on:</p>
-<ul>
-<li>n-gram precision</li>
-<li>Plus a penalty for too-short system tranlations</li>
-</ul>
-<h4 id="Difficulties-remain"><a href="#Difficulties-remain" class="headerlink" title="Difficulties remain"></a>Difficulties remain</h4><p>Out-of-vocabulary words</p>
-<p>Domain mismatch between train and test data</p>
-<p>Maintaining context over longer text</p>
-<p>Low-resource language pairs</p>
-<p>NMT picks up <strong>biases</strong> in training data</p>
-<p>Uninterpretable system do strange things.</p>
-<h4 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h4><p>Bottleneck problem.</p>
-<p>definition - Given a set of vector <em>values</em>, and a vector <em>query</em>, <strong>attention</strong> is a technique to compute a weighted sum of the values, dependent on the query. </p>
-<p>variants</p>
-<ul>
-<li>Basic dot-product attention</li>
-<li>Multiplicative attention</li>
-<li>Additive attention</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3099,7 +3185,7 @@ score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -3110,7 +3196,7 @@ score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
