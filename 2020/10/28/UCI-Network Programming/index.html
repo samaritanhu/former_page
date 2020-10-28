@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="NLP," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -86,18 +86,22 @@
 
 
 
-<meta name="description" content="Background and DefinitionsBackgroundEarly studies fall into the category of recurrent graph neural networks(RecGNNs). With the success of CNNs,  new approach developed. (ConvGNNs)  ConvGNNs are divide">
+<meta name="description" content="Basic Network ConceptsConceptual knowledge The layers of a network Differences between IP, TCP, and UDP layers Basic understanding of IP addresses and ports Basic understanding of network routing mech">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GNN survey">
-<meta property="og:url" content="http://nobugs.dev/2020/03/02/GNN-survey/index.html">
+<meta property="og:title" content="Network Programming">
+<meta property="og:url" content="http://nobugs.dev/2020/10/28/UCI-Network%20Programming/index.html">
 <meta property="og:site_name" content="Xinyi&#39;s gadget">
-<meta property="og:description" content="Background and DefinitionsBackgroundEarly studies fall into the category of recurrent graph neural networks(RecGNNs). With the success of CNNs,  new approach developed. (ConvGNNs)  ConvGNNs are divide">
+<meta property="og:description" content="Basic Network ConceptsConceptual knowledge The layers of a network Differences between IP, TCP, and UDP layers Basic understanding of IP addresses and ports Basic understanding of network routing mech">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-02T20:56:21.000Z">
-<meta property="article:modified_time" content="2020-07-20T06:31:08.620Z">
+<meta property="og:image" content="https://i.loli.net/2020/10/28/xfVgSC9y6HsO2jq.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/28/27ThaYzfCyXnlqJ.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/28/ASdsnWaYxKGrPVc.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/28/xrTfznm5ky3WJGP.png">
+<meta property="article:published_time" content="2020-10-29T01:37:23.000Z">
+<meta property="article:modified_time" content="2020-10-28T13:11:54.864Z">
 <meta property="article:author" content="Xinyi Hu">
-<meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/10/28/xfVgSC9y6HsO2jq.png">
 
 
 
@@ -127,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://nobugs.dev/2020/03/02/GNN-survey/"/>
+  <link rel="canonical" href="http://nobugs.dev/2020/10/28/UCI-Network Programming/"/>
 
 
 
 
 
-  <title>GNN survey | Xinyi's gadget</title>
+  <title>Network Programming | Xinyi's gadget</title>
   
 
 
@@ -288,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/02/GNN-survey/">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/10/28/UCI-Network%20Programming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyi Hu">
@@ -305,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GNN survey</h1>
+          <h1 class="post-title" itemprop="name headline">Network Programming</h1>
         
 
         <div class="post-meta">
@@ -317,8 +321,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-02T12:56:21-08:00">
-                2020-03-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-28T18:37:23-07:00">
+                2020-10-28
               </time>
             
 
@@ -328,6 +332,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NetworkProgramming/" itemprop="url" rel="index">
+                    <span itemprop="name">NetworkProgramming</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -335,7 +361,7 @@
 
           
           
-             <span id="/2020/03/02/GNN-survey/" class="leancloud_visitors" data-flag-title="GNN survey">
+             <span id="/2020/10/28/UCI-Network%20Programming/" class="leancloud_visitors" data-flag-title="Network Programming">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -360,7 +386,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  429
+                  2.3k
                 </span>
               
 
@@ -376,7 +402,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  2
+                  14
                 </span>
               
             </div>
@@ -397,15 +423,133 @@
       
 
       
-        <h1 id="Background-and-Definitions"><a href="#Background-and-Definitions" class="headerlink" title="Background and Definitions"></a>Background and Definitions</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Early studies fall into the category of recurrent graph neural networks(<strong>RecGNNs</strong>). With the success of CNNs,  new approach developed. (<strong>ConvGNNs</strong>)  ConvGNNs are divided into two main streams, the <strong>spectral-based</strong> approaches and the <strong>spatial-based</strong> approaches. </p>
-<p>Network embedding aims at representing network nodes as low-dimensional vector representations, preserving both network topology structure and node content information.</p>
-<p>Graph kernel methods employ a kernel function to measure the similarity between pairs of graphs.  Graph kernels can embed graphs or nodes into vector spaces by a mapping function. The difference between GNN and graph kernels is that this mapping function is deterministic rather than learnable.</p>
-<h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><p><strong>Deﬁnition 1 (Graph):</strong> A graph is represented as $G = (V,E)$ where $V$ is the set of vertices or nodes, and $E$ is the set of edges. Let $v_i \in V$ to denote a node and $e_{ij} = (v_i,v_j) \in E$ to denote an edge pointing from $v_j$ to $v_i$. The neighborhood of a node $v$ is deﬁned as $N(v) = {u \in V|(v,u) \in E}$. The adjacency matrix $A$ is a $n \times n$ matrix with $A_{ij} = 1$ if $e_{ij} \in E$ and $A_{ij} = 0$ if $e_{ij} \notin E$. A graph may have node attributes $ x_{v}$ , where $X \in R^{n×d}$ is a node feature matrix with $x_{v} \in R^d$  representing the feature vector of a node $v$. Meanwhile, a graph may have edge attributes $X^e$, where $X^e \in R^{m×c}$ is an edge feature matrix with $x^{e}_{v,u} \in R^c$ representing the feature vector of an edge $(v,u)$.</p>
-<p><strong>Deﬁnition 2 (Directed Graph):</strong> A directed graph is a graph with all edges directed from one node to another. An undirected graph is considered as a special case of directed graphs where there is a pair of edges with inverse directions if two nodes are connected. A graph is undirected if and only if the adjacency matrix is symmetric. </p>
-<p><strong>Deﬁnition 3 (Spatial-Temporal Graph)</strong>: A spatial-temporal graph is an attributed graph where the node attributes change dynamically over time. The spatial-temporal graph is deﬁned as $G^{(t)} = (V,E,X^{(t)})$ with $X^{(t)} \in R^{n×d}$. </p>
-<h1 id="Categorization-and-Frameworks"><a href="#Categorization-and-Frameworks" class="headerlink" title="Categorization and Frameworks"></a>Categorization and Frameworks</h1><p>Recurrent Neural Network - aim to learn node representations with recurrent neural architectures.</p>
-<p>Convolutional graph neural networks - generate a node $v$’s representation by aggregating its own features $x_v$ and neighbors’ features $x_u$, where $u \in N(v)$ </p>
-<p>Graph autoencoders(GAE)  learn network embeddings and graph generative distributions</p>
+        <h1 id="Basic-Network-Concepts"><a href="#Basic-Network-Concepts" class="headerlink" title="Basic Network Concepts"></a>Basic Network Concepts</h1><p><strong>Conceptual knowledge</strong></p>
+<p>The layers of a network</p>
+<p>Differences between IP, TCP, and UDP layers</p>
+<p>Basic understanding of IP addresses and ports</p>
+<p>Basic understanding of network routing mechanisms</p>
+<h2 id="Networks"><a href="#Networks" class="headerlink" title="Networks"></a>Networks</h2><p>A <em>network</em> is a collection of computers and other devices that can send data to and receive data from each other, more or less in real time. A network is often connected by wires, and the bits of data are turned into electromagnetic waves that move through the wires. </p>
+<p>Each machine on a network is called a <em>node</em>. Most nodes are computers, but printers, routers, bridges, gateways, dumb terminals, and Coca-Cola™ machines can also be nodes. Nodes that are fully functional computers are also called <em>hosts</em>. We will use the word node to refer to any device on the network, and the word host to refer to a node that is a general-purpose computer.</p>
+<h2 id="The-Layers-of-a-Network"><a href="#The-Layers-of-a-Network" class="headerlink" title="The Layers of a Network"></a>The Layers of a Network</h2><p><img src="https://i.loli.net/2020/10/28/xfVgSC9y6HsO2jq.png" alt="image.png"></p>
+<h3 id="The-Host-to-Network-Layer"><a href="#The-Host-to-Network-Layer" class="headerlink" title="The Host-to-Network Layer"></a>The Host-to-Network Layer</h3><p>In the standard reference model for IP-based Internets (the only kind of network Java really understands), the hidden parts of the network belong to the host-to-network layer (also known as the link layer, data link layer, or network interface layer). </p>
+<p>The most common data link layer is Ethernet. Other popular data link layers include TokenRing, PPP, and Wireless Ethernet (802.11).</p>
+<h3 id="The-Internet-Layer"><a href="#The-Internet-Layer" class="headerlink" title="The Internet Layer"></a>The Internet Layer</h3><p>A network layer protocol defines how bits and bytes of data are organized into the larger groups called packets, and the addressing scheme by which different machines find each other. The Internet Protocol (IP) is the most widely used network layer protocol in the world and the only network layer protocol Java understands.</p>
+<p>Data is sent across the internet layer in packets called datagrams.</p>
+<p><img src="https://i.loli.net/2020/10/28/27ThaYzfCyXnlqJ.png" alt="image.png"></p>
+<h3 id="The-Transport-Layer"><a href="#The-Transport-Layer" class="headerlink" title="The Transport Layer"></a>The Transport Layer</h3><p>The transport layer is responsible for ensuring that packets are received in the order they were sent and making sure that no data is lost or corrupted. If a packet is lost, the transport layer can ask the sender to retransmit the packet.</p>
+<p>There are two primary protocols at this level. The first, the Transmission Control Protocol (TCP), is a high-overhead protocol that allows for retransmission of lost or corrupted data and delivery of bytes in the order they were sent. The second protocol, the User Datagram Protocol (UDP), allows the receiver to detect corrupted packets but does not guarantee that packets are delivered in the correct order (or at all). However, UDP is often much faster than TCP. </p>
+<p>TCP is called a reliable protocol; UDP is an unreliable protocol.</p>
+<h3 id="The-Application-Layer"><a href="#The-Application-Layer" class="headerlink" title="The Application Layer"></a>The Application Layer</h3><p>The layer that delivers data to the user is called the application layer. The three lower layers all work together to define how data is transferred from one computer to another.</p>
+<p>The application layer is where most of the network parts of your programs spend their time.</p>
+<p>HTTP for the Web, there are SMTP, POP, and IMAP for email; FTP, FSP, and TFTP for file transfer; NFS for file access; NNTP for news transfer; Gnutella, FastTrack, and Freenet for file sharing;</p>
+<h2 id="IP-TCP-and-UDP"><a href="#IP-TCP-and-UDP" class="headerlink" title="IP, TCP, and UDP"></a>IP, TCP, and UDP</h2><p>IP, the Internet protocol, was designed to allow multiple routes between any two points and to route packets of data around damaged routers.</p>
+<p>IP had to be open and platform-independent</p>
+<p>To improve on the basicscheme, TCP was layered on top of IP to give each end of a connection the ability to acknowledge receipt of IP packets and request retransmission of lost or corrupted packets. Furthermore, TCP allows the packets to be put back together on the receiving end in the same order they were sent.</p>
+<p>UDP is an unreliable protocol that does not guarantee that packets will arrive at their destination or that they will arrive in the same order they were sent.</p>
+<p>A number of other protocols can run on top of IP. The most commonly requested is ICMP, the Internet Control Message Protocol, which uses raw IP datagrams to relay error messages between hosts. The best-known use of this protocol is in the ping program</p>
+<p> IP Addresses and Domain Names</p>
+<p>Every computer attached to an IPv4 network has a unique four-byte address. When data is transmitted across the network, the packet’s header includes the address of the machine for which the packet is intended (the destination address) and the address of the machine that sent the packet (the source address). Routers along the way choose the best route to send the packet along by inspecting the destination address. The source address is included so the recipient will know who to reply to. </p>
+<p>A slow transition is under way to IPv6, which will use 16-byte addresses. IPv6 addresses are customarily written in eight blocks of four hexadecimal digits separated by colons, such as FEDC:BA98:7654:3210:FEDC:BA98:7654:3210.</p>
+<p>Although computers are very comfortable with numbers, human beings aren’t very good at remembering them. Therefore the Domain Name System (DNS) was developed to translate hostnames that humans can remember (like <a href="http://www.oreilly.com" target="_blank" rel="noopener">www.oreilly.com</a>) into numericInternet addresses (like 208.201.239.37).</p>
+<p>Some computers, especially servers, have fixed addresses</p>
+<h3 id="Ports"><a href="#Ports" class="headerlink" title="Ports"></a>Ports</h3><p>modern computers do many different things at once. Email needs to be separated from FTP requests, which need to be separated from web traffic. This is accomplished through <em>ports</em>. Each port is identified by a number between 1 and 65,535. Each port can be allocated to a particular service.</p>
+<p>Port numbers between 1 and 1,023 are reserved for well-known services like finger, FTP, HTTP, and IMAP.</p>
+<h2 id="The-Internet"><a href="#The-Internet" class="headerlink" title="The Internet"></a>The Internet</h2><p>The Internet is the world’s largest IP-based network. </p>
+<h3 id="Internet-Address-Classes"><a href="#Internet-Address-Classes" class="headerlink" title="Internet Address Classes"></a>Internet Address Classes</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th><strong>Leading bits</strong></th>
+<th><strong>Start</strong> address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class A</td>
+<td>0</td>
+<td>0.0.0.0</td>
+</tr>
+<tr>
+<td>Class B</td>
+<td>10</td>
+<td>128.0.0.0</td>
+</tr>
+<tr>
+<td>Class C</td>
+<td>110</td>
+<td>192.0.0.0</td>
+</tr>
+<tr>
+<td>Class D (multicast)</td>
+<td>1110</td>
+<td>224.0.0.0</td>
+</tr>
+<tr>
+<td>Class E</td>
+<td>11110</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To more efficiently allocate the limited address space, Classless Inter-Domain Routing (CIDR) was invented. CIDR mostly (though not completely) replaces the whole A, B, C, D, E addressing scheme with one based on a specified numbers of prefix bits. These prefixes are generally written as /nn, where nn is a two-digit number specifying the number of bits in the network portion of the address.</p>
+<p>begin with 10., 172.16. through 172.31., and 192.168. These non-routable addresses are useful for building private networks that can’t be seen from the rest of the Internet or for building a large network when you’ve only been assigned a class C address block. </p>
+<p>IPv4 addresses beginning with 127 (most commonly 127.0.0.1) always mean the <em>local loopback address</em>.</p>
+<p>The hostname for this address is generally <em>localhost</em>. In IPv6 0:0:0:0:0:0:0:1 (a.k.a. ::1) is the loopback address. </p>
+<h3 id="Network-Address-Translation"><a href="#Network-Address-Translation" class="headerlink" title="Network Address Translation"></a>Network Address Translation</h3><p>Rather than allotting even a /28, my ISP gives me a single address</p>
+<p>The router watches my outgoing and incoming connections and adjusts the addresses in the IP packets.</p>
+<p>You just need to remember that the external and internal addresses may not be the same. </p>
+<h3 id="Firewalls"><a href="#Firewalls" class="headerlink" title="Firewalls"></a>Firewalls</h3><p>The hardware and software that sit between the Internet and the local network, checking all the data that comes in or out to make sure it’s kosher, is called a <em>firewall</em>.</p>
+<h3 id="Proxy-Servers"><a href="#Proxy-Servers" class="headerlink" title="Proxy Servers"></a>Proxy Servers</h3><p><em>Proxy servers</em> are related to firewalls. If a firewall prevents hosts on a network from making direct connections to the outside world, a proxy server can act as a go between.</p>
+<p>Thus, a machine that is prevented from connecting to the external network by a firewall would make a request for a web page from the local proxy server instead of requesting the web page directly from the remote web server.</p>
+<p>While firewalls generally operate at the level of the transport or internet layer, proxy servers normally operate at the application layer.</p>
+<p>Proxy servers can also be used to implement local caching. </p>
+<p>The biggest problem with proxy servers is their inability to cope with all but a few protocols. </p>
+<h3 id="The-Client-Server-Model"><a href="#The-Client-Server-Model" class="headerlink" title="The Client/Server Model"></a>The Client/Server Model</h3><p>Most modern network programming is based on a client/server model. A client/ server application typically stores large quantities of data on an expensive, high-powered server while most of the program logic and the user-interface is handled by client software running on relatively cheap personal computers. </p>
+<p><img src="https://i.loli.net/2020/10/28/ASdsnWaYxKGrPVc.png" alt="image.png"></p>
+<h1 id="Basic-Web-Concepts"><a href="#Basic-Web-Concepts" class="headerlink" title="Basic Web Concepts"></a>Basic Web Concepts</h1><h2 id="URNs"><a href="#URNs" class="headerlink" title="URNs"></a>URNs</h2><p>The Hypertext Transfer Protocol (HTTP) is a standard that defines how a web client talks to a server and how data is transferred from the server back to the client. The architecture and design of the HTTP protocol is Representational State Transfer (REST). </p>
+<p>Filenames on many platforms often contain characters that need to be encoded, including @, $, +, =, and many more.</p>
+<h2 id="URIs"><a href="#URIs" class="headerlink" title="URIs"></a>URIs</h2><p>There are two types of URIs: Uniform Resource Locators (URLs) and Uniform Resource Names (URNs). A URL is a pointer to a particular resource on the Internet at a particular location. For example, <a href="http://www.oreilly.com/catalog/javanp3/" target="_blank" rel="noopener">http://www.oreilly.com/catalog/javanp3/</a> is one of several URLs for the book Java Network Programming. </p>
+<p>A URN is a name for a particular resource but without reference to a particular location. For instance, urn:isbn: 1565928709 is a URN referring to the same book.</p>
+<p>A URN has the general form: </p>
+<p>urn:namespace:resource_name</p>
+<h2 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h2><p>A URL identifies the location of a resource on the Internet. It specifies the protocol used to access a server (e.g., FTP, HTTP), the name of the server, and the location of a file on that server. </p>
+<p>The syntax of a URL is: protocol://username@hostname:port/path/filename?query#fragment</p>
+<p>The <em>hostname</em> part of a URL is the name of the server that provides the resource you want, such as <a href="http://www.oreilly.com" target="_blank" rel="noopener">www.oreilly.com</a> or utopia.poly.edu. It can also be the server’s IP address, such as 204.148.40.9 or 128.238.3.21. The <em>username</em> is an optional username for the server. The port number is also optional. It’s not necessary if the service is running on its default port (port 80 for HTTP servers).</p>
+<p>The <em>path</em> points to a particular directory on the specified server. </p>
+<p>The <em>query</em> string provides additional arguments for the server.</p>
+<p>Finally, the <em>fragment</em> references a particular part of the remote resource. </p>
+<h2 id="Relative-URLs"><a href="#Relative-URLs" class="headerlink" title="Relative URLs"></a>Relative URLs</h2><p>A URL may inherit the protocol, hostname, and path of its parent document. URLs that aren’t complete but inherit pieces from their parent are called <em>relative</em> URLs.</p>
+<p>In contrast, a completely specified URL is called an <em>absolute</em> URL. </p>
+<p>Relative URLs have a number of advantages. First—and least important—they save a little typing. More importantly, relative URLs allow a single document tree to be served by multiple protocols</p>
+<p> HTML, SGML, and XML</p>
+<p>HTML is the primary format used for Web documents. HTML is a simple standard for describing the semantic content of textual data.</p>
+<p>The entire text from the beginning of the start-tag to the end of the end-tag is called an element. Thus, <strong>this text is strong</strong> is a STRONG element.</p>
+<p>SGML and, by inheritance, HTML are based on the notion of design by meaning rather than design by appearance.</p>
+<p>new development will focus on XML, a semantic language that allows page authors to create the elements they need rather than relying on a few fixed elements such as P and LI.</p>
+<p>XML tightens all this up. It lays out very strict requirements for the syntax of a wellformed XML document, and it requires that browsers reject all malformed documents.</p>
+<h1 id="Streams"><a href="#Streams" class="headerlink" title="Streams"></a>Streams</h1><p><strong>Conceptual knowledge</strong></p>
+<p>Understanding of the input/output streams </p>
+<p>Understanding of the use of threading model in the construction of input/output streams</p>
+<p><strong>Practical knowledge in Java</strong></p>
+<p>How to instantiate different types of input/output streams in Java</p>
+<p>How to use input/output streams in Java to read/write to a file</p>
+<p>How to use the concurrency mechanisms in the construction of reader and writer functionality</p>
+<p>I/O in Java is built on streams. Input streams read data; output streams write data.</p>
+<h2 id="Output-Streams"><a href="#Output-Streams" class="headerlink" title="Output Streams"></a>Output Streams</h2><p> Java’s basic output class is java.io.OutputStream: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract class OutputStream</span><br></pre></td></tr></table></figure>
+<p>This class provides the fundamental methods needed to write data. These are: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public abstract void write(int b) throws IOException </span><br><span class="line">public void write(byte[] data) throws IOException </span><br><span class="line">public void write(byte[] data, int offset, int length) throws IOException</span><br><span class="line">public void flush( ) throws IOException </span><br><span class="line">public void close( ) throws IOException</span><br></pre></td></tr></table></figure>
+<h2 id="Input-Streams"><a href="#Input-Streams" class="headerlink" title="Input Streams"></a>Input Streams</h2><p>Java’s basic input class is java.io.InputStream: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract class InputStream</span><br></pre></td></tr></table></figure>
+<p>This class provides the fundamental methods needed to read data as raw bytes. These are: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public abstract int read( ) throws IOException </span><br><span class="line">public int read(byte[] input) throws IOException </span><br><span class="line">public int read(byte[] input, int offset, int length) throws IOException </span><br><span class="line">public long skip(long n) throws IOException </span><br><span class="line">public int available( ) throws IOException </span><br><span class="line">public void close( ) throws IOException</span><br></pre></td></tr></table></figure>
+<h2 id="Filter-Streams"><a href="#Filter-Streams" class="headerlink" title="Filter Streams"></a>Filter Streams</h2><p>The filters come in two versions: the filter streams and the readers and writers.<br>The readers and writers handle the special case of text in a variety of encodings such as UTF-8 and ISO 8859-1.<br>A BufferedInputStream buffers the data to speed up the entire process.<br>Every filter output stream has the same write( ), close( ), and flush( ) methods as java.io.OutputStream. Every filter input stream has the same read( ), close( ), and available( ) methods as java.io.InputStream.</p>
+<p><img src="https://i.loli.net/2020/10/28/xrTfznm5ky3WJGP.png" alt="image.png"></p>
+<h3 id="Readers-and-Writers"><a href="#Readers-and-Writers" class="headerlink" title="Readers and Writers"></a>Readers and Writers</h3><p>In this mirror image hierarchy, two abstract superclasses define the basic API for reading and writing characters. The java.io.Reader class specifies the API by which characters are read. The java.io.Writer class specifies the API by which characters are written. </p>
+<p>The most important concrete subclasses of Reader and Writer are the InputStreamReader and the OutputStreamWriter classes.</p>
+<p>In addition to these two classes, the java.io package provides several raw reader and writer classes that read characters without directly requiring an underlying input stream, including:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FileReader </span><br><span class="line">FileWriter </span><br><span class="line">StringReader </span><br><span class="line">StringWriter </span><br><span class="line">CharArrayReader </span><br><span class="line">CharArrayWriter</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -421,12 +565,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
-        </div>
-      
 
       
       
@@ -436,8 +574,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/" rel="next" title="ubuntu18.04+nvidia driver+cuda+cudnn install">
-                <i class="fa fa-chevron-left"></i> ubuntu18.04+nvidia driver+cuda+cudnn install
+              <a href="/2020/10/21/UCI-DataStructure1/" rel="next" title="Data Structure">
+                <i class="fa fa-chevron-left"></i> Data Structure
               </a>
             
           </div>
@@ -445,10 +583,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/03/10/How_powerful_is_gnn/" rel="prev" title="How powerful is Graph Neural Networks?">
-                How powerful is Graph Neural Networks? <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -606,7 +740,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background-and-Definitions"><span class="nav-number">1.</span> <span class="nav-text">Background and Definitions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Definitions"><span class="nav-number">1.2.</span> <span class="nav-text">Definitions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Categorization-and-Frameworks"><span class="nav-number">2.</span> <span class="nav-text">Categorization and Frameworks</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Network-Concepts"><span class="nav-number">1.</span> <span class="nav-text">Basic Network Concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Networks"><span class="nav-number">1.1.</span> <span class="nav-text">Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Layers-of-a-Network"><span class="nav-number">1.2.</span> <span class="nav-text">The Layers of a Network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Host-to-Network-Layer"><span class="nav-number">1.2.1.</span> <span class="nav-text">The Host-to-Network Layer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Internet-Layer"><span class="nav-number">1.2.2.</span> <span class="nav-text">The Internet Layer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Transport-Layer"><span class="nav-number">1.2.3.</span> <span class="nav-text">The Transport Layer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Application-Layer"><span class="nav-number">1.2.4.</span> <span class="nav-text">The Application Layer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP-TCP-and-UDP"><span class="nav-number">1.3.</span> <span class="nav-text">IP, TCP, and UDP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ports"><span class="nav-number">1.3.1.</span> <span class="nav-text">Ports</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Internet"><span class="nav-number">1.4.</span> <span class="nav-text">The Internet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Internet-Address-Classes"><span class="nav-number">1.4.1.</span> <span class="nav-text">Internet Address Classes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Network-Address-Translation"><span class="nav-number">1.4.2.</span> <span class="nav-text">Network Address Translation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Firewalls"><span class="nav-number">1.4.3.</span> <span class="nav-text">Firewalls</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxy-Servers"><span class="nav-number">1.4.4.</span> <span class="nav-text">Proxy Servers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Client-Server-Model"><span class="nav-number">1.4.5.</span> <span class="nav-text">The Client&#x2F;Server Model</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Web-Concepts"><span class="nav-number">2.</span> <span class="nav-text">Basic Web Concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URNs"><span class="nav-number">2.1.</span> <span class="nav-text">URNs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URIs"><span class="nav-number">2.2.</span> <span class="nav-text">URIs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URLs"><span class="nav-number">2.3.</span> <span class="nav-text">URLs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relative-URLs"><span class="nav-number">2.4.</span> <span class="nav-text">Relative URLs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Streams"><span class="nav-number">3.</span> <span class="nav-text">Streams</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Output-Streams"><span class="nav-number">3.1.</span> <span class="nav-text">Output Streams</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input-Streams"><span class="nav-number">3.2.</span> <span class="nav-text">Input Streams</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Filter-Streams"><span class="nav-number">3.3.</span> <span class="nav-text">Filter Streams</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Readers-and-Writers"><span class="nav-number">3.3.1.</span> <span class="nav-text">Readers and Writers</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
