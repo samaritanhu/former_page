@@ -284,6 +284,1365 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/19/Computation%20Theory1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/19/Computation%20Theory1/" itemprop="url">Elements of the Theory of Computation - Chapter 1 Sets, Relations, and Languages</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-19T14:44:23-07:00">
+                2020-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ComputationTheory/" itemprop="url" rel="index">
+                    <span itemprop="name">ComputationTheory</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/07/19/Computation%20Theory1/" class="leancloud_visitors" data-flag-title="Elements of the Theory of Computation - Chapter 1 Sets, Relations, and Languages">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  480
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h1><h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><ul>
+<li>an unordered collection of elements</li>
+</ul>
+<h2 id="subsets-and-proper-subsets"><a href="#subsets-and-proper-subsets" class="headerlink" title="subsets and proper subsets"></a>subsets and proper subsets</h2><ul>
+<li><p>Subset notation: $\subseteq$ </p>
+<script type="math/tex; mode=display">
+S \subseteq T \Leftrightarrow (\forall x \in S \Rightarrow x\in T)</script></li>
+<li><p>Proper subset $\subset $ </p>
+</li>
+</ul>
+<h2 id="Set-Operations-and-Its-Identities"><a href="#Set-Operations-and-Its-Identities" class="headerlink" title="Set Operations and Its Identities"></a>Set Operations and Its Identities</h2><ul>
+<li>Union, Intersection, Difference, Symmetric difference, complement</li>
+<li>Commutative Law, Associative Law, Distributive law, Absorption, DeMorgan’s Law, Idempotent law</li>
+</ul>
+<h2 id="Power-Set"><a href="#Power-Set" class="headerlink" title="Power Set"></a>Power Set</h2><ul>
+<li>$2^S$ = set of all subset of $S$<script type="math/tex; mode=display">
+2^S = \{T|T\subseteq S\}</script></li>
+</ul>
+<h2 id="Partition"><a href="#Partition" class="headerlink" title="Partition"></a>Partition</h2><p>A <strong>partition</strong> of nonempty set $A$ is a subset $\sqcap$ of $2^A$ such that</p>
+<ol>
+<li>$\phi\notin \sqcap $</li>
+<li>$\forall S,T \in \sqcap.$ and $S\neq T, S \cap T = \phi$</li>
+<li>$\cup \sqcap = A$</li>
+</ol>
+<h1 id="Relations-and-Functions"><a href="#Relations-and-Functions" class="headerlink" title="Relations and Functions"></a>Relations and Functions</h1><h2 id="Ordered-Pair-and-Binary-Relation"><a href="#Ordered-Pair-and-Binary-Relation" class="headerlink" title="Ordered Pair and Binary Relation"></a>Ordered Pair and Binary Relation</h2><ul>
+<li><p>Ordered Pair: $(a,b)$</p>
+<script type="math/tex; mode=display">
+(a,b)=(c,d) \Leftrightarrow (a=c) \land (b=d)</script></li>
+<li><p>Cartesian Product: $A \times B$</p>
+<script type="math/tex; mode=display">
+A \times B = \{ (a,b)|a\in A \land b\in B\}</script></li>
+<li><p>Binary Relation $A$ and $B$</p>
+<script type="math/tex; mode=display">
+R \subseteq A\times B</script></li>
+</ul>
+<h2 id="Ordered-Tuple-and-n-ary-Relation"><a href="#Ordered-Tuple-and-n-ary-Relation" class="headerlink" title="Ordered Tuple and n-ary Relation"></a>Ordered Tuple and n-ary Relation</h2><h2 id="Operations-of-Relations"><a href="#Operations-of-Relations" class="headerlink" title="Operations of Relations"></a>Operations of Relations</h2><ul>
+<li><p>Inverse</p>
+<script type="math/tex; mode=display">
+R \subseteq A\times B \Rightarrow R^{-1}\subseteq B\times A</script></li>
+<li><p>Composition</p>
+</li>
+</ul>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p>Definition: A function $f: A\rightarrow B$ must satisfy:</p>
+<ul>
+<li>$f \subseteq A \times B$</li>
+<li>$\forall a \in A, \exists$ exactly one $b \in B$ with $(a,b) \in f$</li>
+</ul>
+<p>Note: We write $(a,b)\in f$ as $f(a) = b$</p>
+<ul>
+<li>one-to-one function: $\forall a,b \in A \land a \neq b \Rightarrow f(a) \neq f(b)$</li>
+<li>onto function: $\forall b \in B, \exists a\in A$ such that $f(a)=b$</li>
+<li>bijection function: one-to-one + onto </li>
+</ul>
+<h1 id="Special-Types-of-Binary-Relations"><a href="#Special-Types-of-Binary-Relations" class="headerlink" title="Special Types of Binary Relations"></a>Special Types of Binary Relations</h1><h2 id="Representation-of-Relations"><a href="#Representation-of-Relations" class="headerlink" title="Representation of Relations"></a>Representation of Relations</h2><ul>
+<li>Directed graph: node, edge, path</li>
+<li>Matrix: Adjacency matrix</li>
+</ul>
+<h2 id="Properties-of-Relations-R-subseteq-A-times-A"><a href="#Properties-of-Relations-R-subseteq-A-times-A" class="headerlink" title="Properties of Relations ($R \subseteq A\times A$)"></a>Properties of Relations ($R \subseteq A\times A$)</h2><ul>
+<li>reflexive: $\forall a\in A \Rightarrow (a,a) \in R$</li>
+<li>symmetric: $(a,b) \in R \land a \neq b \Rightarrow (b,a)\in R$, antisymmetric: $(a,b) \in R \Rightarrow (b,a) \notin R$</li>
+<li>transitive: $(a.b)\in R, (b,c)\in R \Rightarrow (a,c)\in R$</li>
+</ul>
+<h2 id="Equivalence-Relation"><a href="#Equivalence-Relation" class="headerlink" title="Equivalence Relation"></a>Equivalence Relation</h2><ul>
+<li><p>reflexive, symmetric, transitive</p>
+</li>
+<li><p>equivalence classes</p>
+<script type="math/tex; mode=display">
+[a]=\{ b|(a,b)\in R\}</script></li>
+</ul>
+<p><strong>Theorem</strong> Let $R$ be an equivalence relation on a nonempty set $A$. Then the equivalence classes of $R$ constitute a partition of $A$.</p>
+<h2 id="Partial-Order"><a href="#Partial-Order" class="headerlink" title="Partial Order"></a>Partial Order</h2><ul>
+<li>reflexive, symmetric, transitive</li>
+<li>total order</li>
+<li>minimal element and maximal element</li>
+</ul>
+<h1 id="Finite-and-Infinite-sets"><a href="#Finite-and-Infinite-sets" class="headerlink" title="Finite and Infinite sets"></a>Finite and Infinite sets</h1><h2 id="Equinumerous"><a href="#Equinumerous" class="headerlink" title="Equinumerous"></a>Equinumerous</h2><ul>
+<li>Sets $A$ and $B$ equinumerous $\Leftrightarrow \exists$ bijection $f:A\rightarrow B$ </li>
+<li>Cardinality and generalized Cardinality</li>
+<li>Finite and Infinite sets</li>
+</ul>
+<h2 id="Countable-and-Uncountable-Infinite"><a href="#Countable-and-Uncountable-Infinite" class="headerlink" title="Countable and Uncountable Infinite"></a>Countable and Uncountable Infinite</h2><ul>
+<li>A set is said to be <strong>countably infinite</strong> $\Leftrightarrow$ it is equinumerous with $\mathbb{N}$</li>
+<li>S is an uncountable set $\Leftrightarrow |S|&gt;|\mathbb{N}|$</li>
+<li>The union of a countably infinite collection of countably infinite sets is countably infinite. </li>
+</ul>
+<p>Example: Show that $\mathbb{N} \times \mathbb{N}$ is countably infinite.</p>
+<p>Theorem: $|\mathbb{R}|&gt;|\mathbb{N}|$ (diagonalization)</p>
+<p>Question: Is $|\mathbb{R}| &gt; |(0,1)|$? </p>
+<script type="math/tex; mode=display">
+f(x)=\frac{1}{\pi}\arctan (x) + \frac12</script><h2 id="Continuum-Hypothesis"><a href="#Continuum-Hypothesis" class="headerlink" title="Continuum Hypothesis"></a>Continuum Hypothesis</h2><p>$|\mathbb{N}|=\aleph_0, |\mathbb{R}|=\aleph_1$</p>
+<p>$\aleph_0&lt;\aleph_1$</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/19/Hulu%20AI%20class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/19/Hulu%20AI%20class/" itemprop="url">Hulu AI Class - Recommender Systems 1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-19T12:56:21-07:00">
+                2020-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RecommenderSystems/" itemprop="url" rel="index">
+                    <span itemprop="name">RecommenderSystems</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/07/19/Hulu%20AI%20class/" class="leancloud_visitors" data-flag-title="Hulu AI Class - Recommender Systems 1">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  881
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="The-aim-of-this-class"><a href="#The-aim-of-this-class" class="headerlink" title="The aim of this class"></a>The aim of this class</h1><ul>
+<li>Basic concept of recommender systems</li>
+<li>Simple formula and theory</li>
+<li>Underlying intuition of each recommendation model</li>
+<li>Pros and cons</li>
+</ul>
+<h1 id="What-is-recommender-system"><a href="#What-is-recommender-system" class="headerlink" title="What is recommender system?"></a>What is recommender system?</h1><p>Basic assumption of recommender systems</p>
+<ul>
+<li>Information overload</li>
+<li>Users are unsure about what they are looking for(different from information retrieval)</li>
+</ul>
+<p>Target of (traditional) recommender systems</p>
+<ul>
+<li>Develop a <strong>mathematical model</strong> of an <strong>objective function</strong>($\mathcal{F}$) to predict how much a <strong>user</strong> will like an <strong>item</strong> in a given <strong>context</strong>.</li>
+</ul>
+<script type="math/tex; mode=display">
+R=\mathcal{F}(u, i ; c)</script><p><img src="https://i.loli.net/2020/07/19/cRID18HTiMgsLCn.png" alt="rs1.png"></p>
+<h1 id="Basic-Concept"><a href="#Basic-Concept" class="headerlink" title="Basic Concept"></a>Basic Concept</h1><ul>
+<li><p>Ratings</p>
+</li>
+<li><ul>
+<li>Explicit ratings: 5 star, like/dislike<em>(additional effort from users)</em></li>
+<li>Implicit ratings: page views, click, effective playback, purchase records, whether or not listen to a music track<em>(easier to collect, less precise)</em></li>
+</ul>
+</li>
+<li><p>Interaction matrix</p>
+</li>
+<li><ul>
+<li>Matrix modelling user’s rating on item</li>
+<li>User $u$’s rating towards item $i$ as $r_{u,i}$</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/19/zPJmU6hX3jLNYBK.png" alt="rs1.2.png"></p>
+<h1 id="Collaborative-Filtering-“物以类聚，人以群分”"><a href="#Collaborative-Filtering-“物以类聚，人以群分”" class="headerlink" title="Collaborative Filtering “物以类聚，人以群分”"></a>Collaborative Filtering “物以类聚，人以群分”</h1><ul>
+<li><p><strong>Context-free</strong> recommender system</p>
+</li>
+<li><p>Intuition: <strong>the users who have agreed in the past tend to also agree in the future</strong></p>
+</li>
+<li><p>F: aggregate from nearest neighbor</p>
+<script type="math/tex; mode=display">
+r_{u, i}=\frac{\sum_{v} w_{u v} \cdot r_{v, i}}{\# \text { of neighbors }}</script></li>
+<li><p>User-based CF: user neighbors (green block)</p>
+</li>
+<li><p>Item-based CF: item neighbors (blue block)</p>
+</li>
+<li><p>Hybrid: use both</p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/19/i4CtNJbxlD39rLM.png" alt="image-20200719113651705.png"></p>
+<p><img src="https://i.loli.net/2020/07/19/o7qUYWhifSOZcXy.png" alt="image-20200719113855912.png"></p>
+<h2 id="Similarity-Calculation"><a href="#Similarity-Calculation" class="headerlink" title="Similarity Calculation"></a>Similarity Calculation</h2><ul>
+<li>Cosine similarity</li>
+<li>Pearson correlation</li>
+<li>SimRank</li>
+</ul>
+<h2 id="Improvement-of-Similarity-Calculation"><a href="#Improvement-of-Similarity-Calculation" class="headerlink" title="Improvement of Similarity Calculation"></a>Improvement of Similarity Calculation</h2><ul>
+<li>Not all neighbors are equally “valuable” i.e. agreement on commonly liked items not so informative as agreement on controversial items<ul>
+<li>Give more weight to items that have a higher variance</li>
+</ul>
+</li>
+<li>Low number of co-rated items may introduce bias<ul>
+<li>Reduce “confidence” when the number of co-rated items is low</li>
+</ul>
+</li>
+<li>All neighbors are not very “similar”<ul>
+<li>Set similarity threshold</li>
+<li>Set maximum number of neighbors</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pros-and-Cons"><a href="#Pros-and-Cons" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li><p>Pros </p>
+<ul>
+<li>Easy to implement </li>
+<li>Good explanation </li>
+</ul>
+</li>
+<li><p>Cons</p>
+<ul>
+<li>Large Memory needed </li>
+<li>Sparsity issue</li>
+</ul>
+</li>
+</ul>
+<h1 id="Matrix-Factorization"><a href="#Matrix-Factorization" class="headerlink" title="Matrix Factorization"></a>Matrix Factorization</h1><ul>
+<li><strong>Context-free</strong> recommender system</li>
+<li>Intuition: express <strong>higher-level attributes</strong></li>
+<li><p>Generate user and item <strong>embeddings</strong> </p>
+<ul>
+<li>Latent vectors</li>
+<li><p>(A group of) similar users/items have similar embeddings</p>
+<p>$\mathcal{F}$  : dot product of embeddings $r_{u,i}=p_u^T q_i$</p>
+<script type="math/tex; mode=display">
+\min_{p,q} \sum_{(u,i)\in K} (r_{u,i}-p_u^T q_i)^2~+\lambda(||p||+||q||)^2</script></li>
+</ul>
+</li>
+</ul>
+<h2 id="Improvement-of-Matrix-Factorization"><a href="#Improvement-of-Matrix-Factorization" class="headerlink" title="Improvement of Matrix Factorization"></a>Improvement of Matrix Factorization</h2><ul>
+<li><p>$\mathcal{F}$  could be more complicated</p>
+<script type="math/tex; mode=display">
+r_{u, i}={\mu}+b_{i}+{b_{u}}+p_{u}^{T} q_{i}</script></li>
+<li><p>Global bias </p>
+<ul>
+<li>Average ratings in the whole catalog </li>
+</ul>
+</li>
+<li><p>Item bias </p>
+<ul>
+<li>Users rate diﬀerent categories in diﬀerent ways </li>
+</ul>
+</li>
+<li><p>User bias</p>
+<ul>
+<li>Some users tend to give high ratings while others are not</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pros-and-Cons-1"><a href="#Pros-and-Cons-1" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros: <ul>
+<li>Better generalization capability: even though two users haven’t rated any same movies, it’s still possible to ﬁnd the similarity between them through embeddings </li>
+<li>Low memory: only need to store low-dimensional latent vectors, no need to store large user behaviors </li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Hard to explain </li>
+<li>Sparsity</li>
+</ul>
+</li>
+</ul>
+<h1 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h1><ul>
+<li><p>Intuition: add <strong>context</strong> information to our model </p>
+</li>
+<li><p>Recommendation as <strong>classiﬁcation</strong>: </p>
+</li>
+<li><p>$\mathcal{F}$ </p>
+<script type="math/tex; mode=display">
+r_{u, i}=\frac{1}{1+e^{-(W x+b)}}</script></li>
+<li><p>User, item, context =&gt; <strong>categorical</strong> feature vector</p>
+<ul>
+<li>Example: gender, time diﬀerence within the day, show genre as feature </li>
+<li>$[0, 1, 0, 0, 0, 1, 0]$ =&gt; female, view on morning, target show is <em>Horror Movie</em> </li>
+</ul>
+</li>
+<li><p>Diﬀerent weight of features, <strong>learned by gradient descent</strong> </p>
+</li>
+<li><p>Sigmoid projection</p>
+</li>
+</ul>
+<h2 id="Logistic-Regression-——-why"><a href="#Logistic-Regression-——-why" class="headerlink" title="Logistic Regression —— why?"></a>Logistic Regression —— why?</h2><ul>
+<li><p>Why categorical feature vector? </p>
+<ul>
+<li>Some non-numerical features, e.g. device: “roku”, “web”, “android”…</li>
+<li>Absolute value of feature does not make sense </li>
+<li>Feature crossing </li>
+<li>Fast computation of sparse vector</li>
+</ul>
+</li>
+<li><p>Why sigmoid projection?</p>
+<ul>
+<li>Output between 0 and 1 </li>
+<li>Good mathematical form </li>
+<li>Maximum entropy model</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pros-and-Cons-2"><a href="#Pros-and-Cons-2" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros<ul>
+<li>Good explanation (feature importance) </li>
+<li>Good parallelism, fast model training </li>
+<li>Low training cost </li>
+<li>Online training </li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Manually craft features</li>
+<li>Limited model expressiveness (linear model)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Problems-of-Logistic-Regression"><a href="#Problems-of-Logistic-Regression" class="headerlink" title="Problems of Logistic Regression"></a>Problems of Logistic Regression</h2><p>Simpson’s Paradox</p>
+<h1 id="Factorization-Machine-FM"><a href="#Factorization-Machine-FM" class="headerlink" title="Factorization Machine (FM)"></a>Factorization Machine (FM)</h1><ul>
+<li><p>Intuition: <strong>feature crossing</strong></p>
+</li>
+<li><p>$\mathcal{F}$</p>
+<script type="math/tex; mode=display">
+y(x)=\operatorname{sigmoid}\left(w_{0}+\sum_{i=1}^{n} w_{i} x_{i}+\sum_{i=1}^{n-1} \sum_{j=i+1}^{n} w_{i j} x_{i} x_{j}\right)</script></li>
+<li><p>Let $w_{ij}=<v_i, v_j="">$ </v_i,></p>
+<script type="math/tex; mode=display">
+y(x)=sigmoid(w_0 + \sum_{i=1}^n w_ix_i + \sum_{i=1}^{n-1}\sum_{j=i+1}^{n} <v_i,v_j> x_ix_j)</script></li>
+<li><p>Deal with parameter explosion ($n^2 \geq nk$)</p>
+</li>
+<li>Equivalent to low rank parameter matrix factorization $W=VV^T$</li>
+</ul>
+<h2 id="Pros-and-Cons-3"><a href="#Pros-and-Cons-3" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros<ul>
+<li>Good expressiveness </li>
+<li>Good generalization </li>
+<li>Relatively low training cost</li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Hard to make higher level feature crossing</li>
+</ul>
+</li>
+</ul>
+<h1 id="Gradient-Boosting-Decision-Tree-GBDT"><a href="#Gradient-Boosting-Decision-Tree-GBDT" class="headerlink" title="Gradient Boosting Decision Tree (GBDT)"></a>Gradient Boosting Decision Tree (GBDT)</h1><ul>
+<li><p>$\mathcal{F}$</p>
+<script type="math/tex; mode=display">
+F_m(x)=\sum_{m=1}^M T(x;\theta_m)</script></li>
+<li><p>Training samples $(x_1, y_1), (x_2, y_2), … , (x_n,y_n)$</p>
+</li>
+<li><p>Boosting:</p>
+</li>
+<li><p>$f$ : Regression tre -&gt; Boosting Regression(Decision) Tree</p>
+</li>
+<li><p>Loss function -&gt; Gradient Boosting Decision Tree, GBDT</p>
+<script type="math/tex; mode=display">
+L=\sum_i (f(x_i)-y_i)^2 \\
+T(x_i;\theta_m) \approx -[\frac{\partial L(y_i, f(x_i))}{\partial f(x_i)}]_{f(x)=F_{m-1}(x)}</script></li>
+</ul>
+<h2 id="XGBoost-amp-LightGBM"><a href="#XGBoost-amp-LightGBM" class="headerlink" title="XGBoost &amp; LightGBM"></a>XGBoost &amp; LightGBM</h2><ul>
+<li><p>$\mathcal{F}$</p>
+<script type="math/tex; mode=display">
+\hat{y}=\sum_{k=1}^K f_k(x)</script></li>
+<li><p>Change optimization goal</p>
+<script type="math/tex; mode=display">
+O b j^{(t)}=\sum_{i=1}^{m} L\left(y_{i}, \hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\right)\right)+\sqrt{\gamma T}+\sqrt{\frac{\lambda}{2} \sum_{j=1}^{T} w_{j}^{2}}</script></li>
+<li><p>Loss function: Taylor expansion, keep second order terms </p>
+</li>
+<li>Regularization<ul>
+<li>Prevent too complicated trees </li>
+<li>Prevent extreme parameters </li>
+</ul>
+</li>
+<li>LightGBM (engineering optimization)</li>
+</ul>
+<h2 id="Pros-and-Cons-4"><a href="#Pros-and-Cons-4" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><ul>
+<li>Pros<ul>
+<li>Good expressiveness </li>
+<li>Low eﬀort of feature engineering </li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Hard parallelism</li>
+<li>Unable to do incremental training</li>
+</ul>
+</li>
+</ul>
+<h1 id="GBDT-LR"><a href="#GBDT-LR" class="headerlink" title="GBDT + LR"></a>GBDT + LR</h1><ul>
+<li>Intuition: <strong>model-based feature engineering</strong></li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/19/bCaOt84o3Aji2pW.png" alt="image.png"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/18/ESL%20Chapter%2016/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/18/ESL%20Chapter%2016/" itemprop="url">The Element of Statistical Learning Chapter 16</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T19:37:23-07:00">
+                2020-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ML-Concepts/" itemprop="url" rel="index">
+                    <span itemprop="name">ML Concepts</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/07/18/ESL%20Chapter%2016/" class="leancloud_visitors" data-flag-title="The Element of Statistical Learning Chapter 16">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  474
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Chapter-16-Ensemble-Learning"><a href="#Chapter-16-Ensemble-Learning" class="headerlink" title="Chapter 16. Ensemble Learning"></a>Chapter 16. Ensemble Learning</h1><h2 id="What-is-the-idea-of-Ensemble-Learning"><a href="#What-is-the-idea-of-Ensemble-Learning" class="headerlink" title="What is the idea of Ensemble Learning?"></a>What is the idea of Ensemble Learning?</h2><p>The <strong>idea</strong> of ensemble learning is <strong>to build a prediction model by combining the strengths of a collection of simpler base models</strong>.</p>
+<p><a href="https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/springerEBR09.pdf" target="_blank" rel="noopener">Zhou Zhihua</a> Ensemble Learning: <strong>to boost</strong> <strong>weak learner</strong>s which are slightly better than random guess to <strong>strong learners</strong> which can make very accurate predictions.</p>
+<p>Ensemble learning can be broken down into <strong>two</strong> tasks:</p>
+<p><strong>First</strong>, developing a population of base learners from the training data,</p>
+<p><strong>then</strong> combining them to form the composite predictor. </p>
+<p>Zhou Zhihua:</p>
+<p><strong>First</strong>, a number of base learners are produced, which can be generated in a <em>parallel</em> style or in a <em>sequential</em> style where the generation of a base learner has influence on the generation of subsequent learners. </p>
+<p><strong>Then</strong>, the base learners are combined to use, where among the most popular combination schemes are <em>majority votin</em>g for classification and <em>weighted averagin</em>g for regression.</p>
+<h2 id="List-some-methods-of-Ensemble-Learning"><a href="#List-some-methods-of-Ensemble-Learning" class="headerlink" title="List some methods of Ensemble Learning."></a>List some <strong>methods</strong> of Ensemble Learning.</h2><ul>
+<li><p><strong>Bagging</strong>     </p>
+</li>
+<li><ul>
+<li>trains a number of base learners each from a different <em>bootstrap</em> sample by calling a base      learning algorithm.</li>
+<li>After obtaining the base learners, Bagging combines them by majority voting and the most-voted      class is predicted.</li>
+<li>Sample: Random Forest</li>
+<li>Reduce <strong>variance</strong></li>
+</ul>
+</li>
+<li><p><strong>Boosting</strong>     </p>
+</li>
+<li><ul>
+<li>Is a family of algorithms since there are many variants.</li>
+<li>Sample: Adaboost</li>
+<li>Reduce <strong>bias</strong></li>
+</ul>
+</li>
+<li><p><strong>Stacking</strong>     </p>
+</li>
+<li><ul>
+<li>A number of first-level individual learners are generated from the training data set      by employing different learning algorithms. </li>
+<li>Those individual learners are then combined by a second-level learner which is      called as <em>meta-learner</em>. </li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><em>Bayesian methods for nonparametric regression can also be viewed as ensemble methods</em> </p>
+</blockquote>
+<p>Generally speaking, there is no ensemble method which outperforms other ensemble methods consistently.</p>
+<h2 id="List-some-Penalized-Regression-and-how-they-works"><a href="#List-some-Penalized-Regression-and-how-they-works" class="headerlink" title="List some Penalized  Regression and how they works"></a>List some <strong>Penalized  Regression</strong> and how they works</h2><p><strong>Lasso regression</strong> and <strong>ridge regression</strong>.</p>
+<p>Consider the dictionary of all possible J-terminal node regression trees $T=\{T_k\}$ that could be realized on the training data as basis functions in  $R^p$. The linear model is</p>
+<script type="math/tex; mode=display">
+f(x)=\sum_{k=1}^K \alpha_k T_k(x)</script><p>Suppose the coefficients are to be estimated by <strong>least squares</strong>. Since the number of such trees is likely to be much larger than even the largest training data sets, some form of regularization is required. Let $\hat{\alpha}(\lambda)$ solve</p>
+<script type="math/tex; mode=display">
+\min_{\alpha}\{\sum_{i=1}^{N}(y_i-\sum_{k=1}^K\alpha_kT_k(x_i))^2+\lambda\cdot J(\alpha)\}</script><p>$J(\alpha)$ is a function of the coefficients that generally penalizes larger values. </p>
+<script type="math/tex; mode=display">
+J(\alpha)=\sum_{k=1}^K |\alpha_k|^2 - ridge  \\
+J(\alpha)=\sum_{k=1}^K |\alpha_k| - lasso</script><h2 id="Why-ensemble-superior-to-Singles-generalization"><a href="#Why-ensemble-superior-to-Singles-generalization" class="headerlink" title="Why ensemble superior to Singles - generalization"></a>Why ensemble superior to Singles - <strong>generalization</strong></h2><ul>
+<li>the training data might not provide sufficient information for choosing a single best learner</li>
+<li>the search processes of the learning algorithms might be imperfect</li>
+<li>the hypothesis space being searched might not contain the true target function, while ensembles can give some good approximation. </li>
+</ul>
+<p><strong>The bias-variance decomposition</strong> is often used in studying the performance of ensemble methods.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/07/18/ESL%20Chapter%202/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/18/ESL%20Chapter%202/" itemprop="url">The Element of Statistical Learning Chapter 2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T18:37:23-07:00">
+                2020-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ML-Concepts/" itemprop="url" rel="index">
+                    <span itemprop="name">ML Concepts</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/07/18/ESL%20Chapter%202/" class="leancloud_visitors" data-flag-title="The Element of Statistical Learning Chapter 2">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  182
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Chapter-2-Overview-of-Supervised-Learning"><a href="#Chapter-2-Overview-of-Supervised-Learning" class="headerlink" title="Chapter 2. Overview of Supervised Learning"></a>Chapter 2. Overview of Supervised Learning</h1><p>In stats, <strong>predictors/independent variables</strong> = <strong>input</strong>, <strong>responses/dependent variables</strong> = <strong>output</strong>.</p>
+<h2 id="Difference-between-regression-and-classification"><a href="#Difference-between-regression-and-classification" class="headerlink" title="Difference between regression and classification"></a>Difference between <strong>regression</strong> and <strong>classification</strong></h2><p>Regression when we predict quantitative outputs, and classification when we predict qualitative outputs. </p>
+<h2 id="Some-notations-on-dataset"><a href="#Some-notations-on-dataset" class="headerlink" title="Some notations on dataset"></a>Some <strong>notations</strong> on dataset</h2><p>We will typically denote an <strong>input</strong> variable by the symbol <strong>X</strong>. <strong>Quantitative outputs</strong> will be denoted by <strong>Y</strong> , and <strong>qualitative outputs</strong> by <strong>G</strong> (for group). </p>
+<p><strong>Observed values</strong> are written in lowercase; hence the i-th observed value of <strong>X</strong> is written as .</p>
+<p><strong>Matrices</strong> are represented by bold uppercase letters; for example, a set of N input p-vectors , i = 1,…,N would be represented by the N×p matrix <strong>X</strong>. </p>
+<p>In general, vectors will not be bold, except when they have N components.</p>
+<h2 id="What-is-Nearest-Neighbors"><a href="#What-is-Nearest-Neighbors" class="headerlink" title="What is Nearest Neighbors?"></a>What is <strong>Nearest Neighbors</strong>?</h2><p>Nearest-neighbor methods use those observations in the training set  closest in input space to  to form  . Specifically, the k-nearest neighbor fit for  is defined as follows:</p>
+<script type="math/tex; mode=display">
+\hat{Y}(x)=\frac{1}{k}\sum_{x_i\in N_k(x)}y_i</script><p>where  is the neighborhood of  defined by the  closest points  in the training sample. </p>
+<p>It has <strong>high variance and low bias</strong>.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/06/16/Intermediate%20R/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/16/Intermediate%20R/" itemprop="url">Intermediate R</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-16T21:39:02-07:00">
+                2020-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/06/16/Intermediate%20R/" class="leancloud_visitors" data-flag-title="Intermediate R">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  885
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Equality"><a href="#Equality" class="headerlink" title="Equality"></a>Equality</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">== / identical()</span><br><span class="line">!=</span><br><span class="line">&lt; and &gt; <span class="comment"># greater and less than</span></span><br><span class="line">&amp; <span class="comment"># and</span></span><br><span class="line">| <span class="comment"># or</span></span><br><span class="line">! <span class="comment"># reverse the result</span></span><br></pre></td></tr></table></figure>
+<h1 id="Compare"><a href="#Compare" class="headerlink" title="Compare"></a>Compare</h1><h2 id="Compare-vectors"><a href="#Compare-vectors" class="headerlink" title="Compare vectors"></a>Compare vectors</h2><p>linkedin &gt; facebook</p>
+<h2 id="Compare-matrices"><a href="#Compare-matrices" class="headerlink" title="Compare matrices"></a>Compare matrices</h2><p>views &lt;= 14</p>
+<h1 id="The-if-statement"><a href="#The-if-statement" class="headerlink" title="The if statement"></a>The if statement</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition) &#123;</span><br><span class="line">  expr</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (condition2) &#123;</span><br><span class="line">  expr2</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (condition3) &#123;</span><br><span class="line">  expr3</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  expr4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Write-a-while-loop"><a href="#Write-a-while-loop" class="headerlink" title="Write a while loop"></a>Write a while loop</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (condition) &#123;</span><br><span class="line">  expr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Stop-the-while-loop"><a href="#Stop-the-while-loop" class="headerlink" title="Stop the while loop:"></a>Stop the while loop:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">break</span><br></pre></td></tr></table></figure>
+<h2 id="Loop-over-a-vector"><a href="#Loop-over-a-vector" class="headerlink" title="Loop over a vector"></a>Loop over a vector</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">primes &lt;- c(<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="loop-version-1"><a href="#loop-version-1" class="headerlink" title="loop version 1"></a>loop version 1</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (p <span class="keyword">in</span> primes) &#123;</span><br><span class="line">  print(p)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="loop-version-2"><a href="#loop-version-2" class="headerlink" title="loop version 2"></a>loop version 2</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:length(primes)) &#123;</span><br><span class="line">  print(primes[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Loop-over-a-list"><a href="#Loop-over-a-list" class="headerlink" title="Loop over a list"></a>Loop over a list</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">primes_list &lt;- list(<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="loop-version-1-1"><a href="#loop-version-1-1" class="headerlink" title="loop version 1"></a>loop version 1</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (p <span class="keyword">in</span> primes_list) &#123;</span><br><span class="line">  print(p)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="loop-version-2-1"><a href="#loop-version-2-1" class="headerlink" title="loop version 2"></a>loop version 2</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:length(primes_list)) &#123;</span><br><span class="line">  print(primes_list[[i]])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Loop-over-a-matrix"><a href="#Loop-over-a-matrix" class="headerlink" title="Loop over a matrix"></a>Loop over a matrix</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (var1 <span class="keyword">in</span> seq1) &#123;</span><br><span class="line">  <span class="keyword">for</span> (var2 <span class="keyword">in</span> seq2) &#123;</span><br><span class="line">    expr</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strsplit()</span><br></pre></td></tr></table></figure>
+<h1 id="Function-documentation"><a href="#Function-documentation" class="headerlink" title="Function documentation"></a>Function documentation</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">help(sample)</span><br><span class="line">?sample</span><br><span class="line">args(sample)</span><br></pre></td></tr></table></figure>
+<h2 id="Write-your-own-function"><a href="#Write-your-own-function" class="headerlink" title="Write your own function"></a>Write your own function</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_fun &lt;- function(arg1, arg2&#x3D;TRUE) &#123;</span><br><span class="line">  body</span><br><span class="line">  return(result)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Load-an-R-Package"><a href="#Load-an-R-Package" class="headerlink" title="Load an R Package"></a>Load an R Package</h2><p>• install.packages(), which as you can expect, installs a given package.<br>• library() which loads packages, i.e. attaches them to the search list on your R workspace. /  require()<br>• search(), to look at the currently attached packages and<br>• qplot(mtcars$wt, mtcars$hp), to build a plot of two variables of the mtcars data frame.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library(ggplot2)</span><br></pre></td></tr></table></figure>
+<h1 id="a-powerful-package-for-data-visualization"><a href="#a-powerful-package-for-data-visualization" class="headerlink" title="a powerful package for data visualization"></a>a powerful package for data visualization</h1><p>Use lapply with a built-in R function</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lapply(X, FUN, ...)</span><br></pre></td></tr></table></figure>
+<p>To put it generally, lapply takes a vector or list X, and applies the function FUN to each of its members. </p>
+<p>To put it generally, lapply takes a vector or list X, and applies the function FUN to each of its members. </p>
+<p>lapply and anonymous functions</p>
+<h1 id="Named-function"><a href="#Named-function" class="headerlink" title="Named function"></a>Named function</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">triple &lt;- function(x) &#123; 3 * x &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Anonymous-function-with-same-implementation"><a href="#Anonymous-function-with-same-implementation" class="headerlink" title="Anonymous function with same implementation"></a>Anonymous function with same implementation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function(x) &#123; 3 * x &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Use-anonymous-function-inside-lapply"><a href="#Use-anonymous-function-inside-lapply" class="headerlink" title="Use anonymous function inside lapply()"></a>Use anonymous function inside lapply()</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lapply(list(1,2,3), function(x) &#123; 3 * x &#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Use-lapply-with-additional-arguments"><a href="#Use-lapply-with-additional-arguments" class="headerlink" title="Use lapply with additional arguments"></a>Use lapply with additional arguments</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">multiply &lt;- function(x, factor) &#123;</span><br><span class="line">  x * factor</span><br><span class="line">&#125;</span><br><span class="line">lapply(list(1,2,3), multiply, factor &#x3D; 3)</span><br></pre></td></tr></table></figure>
+<h2 id="How-to-use-sapply"><a href="#How-to-use-sapply" class="headerlink" title="How to use sapply"></a>How to use sapply</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sapply(X, FUN, ...)</span><br></pre></td></tr></table></figure>
+<p>sapply() simplifies the list that lapply() would return by turning it into a vector. </p>
+<p>sapply() simplifies the list that lapply() would return by turning it into a vector. </p>
+<h2 id="Use-vapply"><a href="#Use-vapply" class="headerlink" title="Use vapply"></a>Use vapply</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vapply(X, FUN, FUN.VALUE, ..., USE.NAMES &#x3D; TRUE)</span><br></pre></td></tr></table></figure>
+<p>Over the elements inside X, the function FUN is applied. The FUN.VALUE argument expects a template for the return argument of this function FUN. USE.NAMES is TRUE by default; in this case vapply() tries to generate a named array, if possible.</p>
+<h1 id="Data-Utilities"><a href="#Data-Utilities" class="headerlink" title="Data Utilities"></a>Data Utilities</h1><p>R features a bunch of functions to juggle around with data structures::<br>    • seq(): Generate sequences, by specifying the from, to, and by arguments.<br>    • rep(): Replicate elements of vectors and lists.<br>    • sort(): Sort a vector in ascending order. Works on numerics, but also on character strings and logicals.<br>    • rev(): Reverse the elements in a data structures for which reversal is defined.<br>    • str(): Display the structure of any R object.<br>    • append(): Merge vectors or lists.<br>    • is.<em>(): Check for the class of an R object.<br>    • as.</em>(): Convert an R object from one class to another.<br>    • unlist(): Flatten (possibly embedded) lists to produce a vector.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grepl &amp; grep</span><br></pre></td></tr></table></figure>
+<p>In their most basic form, regular expressions can be used to see whether a pattern exists inside a character string or a vector of character strings. For this purpose, you can use:<br>    • grepl(), which returns TRUE when a pattern is found in the corresponding character string.<br>    • grep(), which returns a vector of indices of the character strings that contains the pattern.</p>
+<p>You can use the caret, ^, and the dollar sign, $ to match the content located in the start and end of a string, respectively. This could take us one step closer to a correct pattern for matching only the “.edu” email addresses from our list of emails. But there’s more that can be added to make the pattern more robust:<br>    • @, because a valid email must contain an at-sign.<br>    • .<em>, which matches any character (.) zero or more times (</em>). Both the dot and the asterisk are metacharacters. You can use them to match any character between the at-sign and the “.edu” portion of an email address.<br>    • \.edu​$, to match the “.edu” part of the email at the end of the string. The \\ part escapes the dot: it tells R that you want to use the . as an actual character.</p>
+<p>While grep() and grepl() were used to simply check whether a regular expression could be matched with a character vector, sub() and gsub() take it one step further: you can specify a replacement argument. If inside the character vector x, the regular expression pattern is found, the matching element(s) will be replaced with replacement.sub() only replaces the first match, whereas gsub() replaces all matches.</p>
+<p>Create and format dates<br>To create a Date object from a simple character string in R, you can use the as.Date() function. The character string has to obey a format that can be defined using a set of symbols (the examples correspond to 13 January, 1982):<br>    • %Y: 4-digit year (1982)<br>    • %y: 2-digit year (82)<br>    • %m: 2-digit month (01)<br>    • %d: 2-digit day of the month (13)<br>    • %A: weekday (Wednesday)<br>    • %a: abbreviated weekday (Wed)<br>    • %B: month (January)<br>    • %b: abbreviated month (Jan)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/06/12/Introduction%20to%20R/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -739,251 +2098,6 @@ c' = \sum_{i=1}^{N} \beta_i c_i \in \mathbb{R}^{2h}</script><h2 id="Recent-more-
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/16/CS224n%20Classnotes%20Course7/" itemprop="url">Stanford CS224n Natural Language Processing Course7</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23-07:00">
-                2020-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/03/16/CS224n%20Classnotes%20Course7/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course7">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  757
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Course-7-Vanishing-Gradients-Fancy-RNN"><a href="#Course-7-Vanishing-Gradients-Fancy-RNN" class="headerlink" title="Course 7 - Vanishing Gradients, Fancy RNN"></a>Course 7 - Vanishing Gradients, Fancy RNN</h1><h2 id="Vanishing-Gradients"><a href="#Vanishing-Gradients" class="headerlink" title="Vanishing Gradients"></a>Vanishing Gradients</h2><p>Gradient can be viewed as a measure of <em>the effect of the past on the future</em></p>
-<ul>
-<li>There is no dependency between step $t$ and $t+n$ in the data</li>
-<li>We have wrong parameters to capture the true dependency between  $t$ and $t+n$ </li>
-</ul>
-<h2 id="Effect-of-vanishing-gradient-on-RNN-LM"><a href="#Effect-of-vanishing-gradient-on-RNN-LM" class="headerlink" title="Effect of vanishing gradient on RNN-LM"></a>Effect of vanishing gradient on RNN-LM</h2><p>LM task - unable to predict similar long-distance dependencies</p>
-<p>Syntactic recency: The <em>writer</em> of the books <strong>is</strong></p>
-<p>Sequential recency: The writer of <em>books</em> <strong>are</strong></p>
-<p>Due to vanishing gradient, RNN-LMs are better at learning from sequential recency than syntactic </p>
-<h2 id="Why-is-exploding-gradient-a-problem"><a href="#Why-is-exploding-gradient-a-problem" class="headerlink" title="Why is exploding gradient a problem?"></a>Why is exploding gradient a problem?</h2><script type="math/tex; mode=display">
-\theta^{new} = \theta^{old}-\alpha \nabla_{\theta} J(\theta)</script><h3 id="Solution-gradient-clipping"><a href="#Solution-gradient-clipping" class="headerlink" title="Solution: gradient clipping"></a>Solution: gradient clipping</h3><p>Algorithm 1: Pseudo-code for norm clipping</p>
-<p>$\hat{g} \leftarrow \frac{\partial \epsilon}{\partial \theta}$</p>
-<p>if $||\hat{g}|| \geq threshold $ then</p>
-<p>​    $\hat{g} \leftarrow \frac{threshold}{||\hat{g}||} \hat{g}$</p>
-<p>end if </p>
-<h2 id="Long-Short-Term-Memory-LSTM"><a href="#Long-Short-Term-Memory-LSTM" class="headerlink" title="Long Short-Term Memory(LSTM)"></a>Long Short-Term Memory(LSTM)</h2><p>On step $t$, there is a hidden state $h^{(t)}$ and a cell state $c^{(t)}$</p>
-<ul>
-<li>Both are vectors length $n$</li>
-<li>The cell stores long-term information</li>
-<li>The LSTM can erase, write and read information from the cell</li>
-</ul>
-<p>The selection is controlled by 3 corresponding <strong>gates</strong></p>
-<ul>
-<li>vector length $n$</li>
-<li>each element of the gates can be open(1), closed(0), or in between</li>
-<li>dynamic: their value is computed based on the current context</li>
-</ul>
-<p>We have a sequence of input $x^{(t)}$, and we will compute a sequence of hidden states $h^{(t)}$ and cell states $c^{(t)}$. On timestep $t$:</p>
-<p>Forget gate - controls what is kept vs forgotten, from previous cell state</p>
-<script type="math/tex; mode=display">
-\boldsymbol{f}^{(t)}={\sigma}\left(\boldsymbol{W}_{f} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{f} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{f}\right)</script><p>Input gate - controls what parts of the new cell content are written to cell</p>
-<script type="math/tex; mode=display">
-\boldsymbol{i}^{(t)}=\sigma\left(\boldsymbol{W}_{i} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{i} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{i}\right)</script><p>Output gate - controls what parts of cell are output to hidden state</p>
-<script type="math/tex; mode=display">
-\boldsymbol{o}^{(t)}={\sigma}\left(\boldsymbol{W}_{o} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{o} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{o}\right)</script><p>New cell content - this is the new content to be written to the cell</p>
-<script type="math/tex; mode=display">
-\tilde{\boldsymbol{c}}^{(t)}=\tanh \left(\boldsymbol{W}_{c} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{c} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{c}\right)</script><p>Cell state - erase(“forget”) some content from last cell state, and write(“input”) some new cell content</p>
-<script type="math/tex; mode=display">
-\boldsymbol{c}^{(t)}=\boldsymbol{f}^{(t)} \circ \boldsymbol{c}^{(t-1)}+\boldsymbol{i}^{(t)} \circ \tilde{\boldsymbol{c}}^{(t)}</script><p>Hidden state: read(“output”) some content from the cell</p>
-<script type="math/tex; mode=display">
-\boldsymbol{h}^{(t)}=\boldsymbol{o}^{(t)} \circ \tanh \boldsymbol{c}^{(t)}</script><p><img src="https://i.loli.net/2020/04/04/pW7mMj9aDN53h8C.png" alt="image-20200316220913640.png"></p>
-<h2 id="Gated-Recurrent-Units-GRU"><a href="#Gated-Recurrent-Units-GRU" class="headerlink" title="Gated Recurrent Units(GRU)"></a>Gated Recurrent Units(GRU)</h2><p>a simpler alternative to the LSTM</p>
-<p>On each timestep $t$ we have input $x^{(t)}$ and hidden state $h^{(t)}$ (no cell state)</p>
-<p>Update gate - controls what parts of hidden state are updated vs preserved</p>
-<script type="math/tex; mode=display">
-\boldsymbol{u}^{(t)}=\sigma\left(\boldsymbol{W}_{u} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{u} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{u}\right)</script><p>Reset gate - controls what parts of previous hidden state are used to compute new content</p>
-<script type="math/tex; mode=display">
-\boldsymbol{r}^{(t)}=\sigma\left(\boldsymbol{W}_{r} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{r} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{r}\right)</script><p>New hidden state content - reset gate selects useful parts of prev hidden state. Use this and current input to compute new hidden content.</p>
-<script type="math/tex; mode=display">
-\tilde{\boldsymbol{h}}^{(t)}=\tanh \left(\boldsymbol{W}_{h}\left(\boldsymbol{r}^{(t)} \circ \boldsymbol{h}^{(t-1)}\right)+\boldsymbol{U}_{h} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{h}\right)</script><p>Hidden state - update gate simultaneously controls what is kept from previous hidden state, and what is updated to new hidden state content</p>
-<script type="math/tex; mode=display">
-\boldsymbol{h}^{(t)}=\left(1-\boldsymbol{u}^{(t)}\right) \circ \boldsymbol{h}^{(t-1)}+\boldsymbol{u}^{(t)} \circ \tilde{\boldsymbol{h}}^{(t)}</script><h2 id="LSTM-vs-GRU"><a href="#LSTM-vs-GRU" class="headerlink" title="LSTM vs GRU"></a>LSTM vs GRU</h2><p>LSTM is a good default choice.</p>
-<p>Rule of thumb: start with LSTM, but switch to GRU if you want something more efficient</p>
-<h2 id="Vanishing-exploding-gradient"><a href="#Vanishing-exploding-gradient" class="headerlink" title="Vanishing/exploding gradient"></a>Vanishing/exploding gradient</h2><p>add more direct connections.</p>
-<p>e.g.: Residual connections, “ResNet”. Skip-connections. The identity connection preserves information by default.</p>
-<p>e.g.: Dense connections, “DenseNet”. </p>
-<p>e.g.:Highway connections, “HighwayNet”.</p>
-<h2 id="Bidirectional-RNNs"><a href="#Bidirectional-RNNs" class="headerlink" title="Bidirectional RNNs"></a>Bidirectional RNNs</h2><p>motivation - task: Sentiment Classification</p>
-<p><img src="https://i.loli.net/2020/04/04/on9a2s1Y5jJiADb.png" alt="image-20200317001951410.png"></p>
-<p>Note: bidirection RNNs are only applicable if you have access to the entire input sentence. </p>
-<p>BERT is built on bidirectionality.</p>
-<h2 id="Multi-layer-RNNs-stacked-RNNs"><a href="#Multi-layer-RNNs-stacked-RNNs" class="headerlink" title="Multi-layer RNNs = stacked RNNs"></a>Multi-layer RNNs = stacked RNNs</h2><p>High-performing RNNs are often multi-layer(but aren’t as deep as cn)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1254,6 +2368,251 @@ score(y_1,\cdots,y_t)=logP_{LM}(y_1,\cdots,y_t|x)=\sum_{i=1}^t logP_{LM}(y_i|y_1
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/16/CS224n%20Classnotes%20Course7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/16/CS224n%20Classnotes%20Course7/" itemprop="url">Stanford CS224n Natural Language Processing Course7</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T20:25:23-07:00">
+                2020-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/03/16/CS224n%20Classnotes%20Course7/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course7">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  757
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Course-7-Vanishing-Gradients-Fancy-RNN"><a href="#Course-7-Vanishing-Gradients-Fancy-RNN" class="headerlink" title="Course 7 - Vanishing Gradients, Fancy RNN"></a>Course 7 - Vanishing Gradients, Fancy RNN</h1><h2 id="Vanishing-Gradients"><a href="#Vanishing-Gradients" class="headerlink" title="Vanishing Gradients"></a>Vanishing Gradients</h2><p>Gradient can be viewed as a measure of <em>the effect of the past on the future</em></p>
+<ul>
+<li>There is no dependency between step $t$ and $t+n$ in the data</li>
+<li>We have wrong parameters to capture the true dependency between  $t$ and $t+n$ </li>
+</ul>
+<h2 id="Effect-of-vanishing-gradient-on-RNN-LM"><a href="#Effect-of-vanishing-gradient-on-RNN-LM" class="headerlink" title="Effect of vanishing gradient on RNN-LM"></a>Effect of vanishing gradient on RNN-LM</h2><p>LM task - unable to predict similar long-distance dependencies</p>
+<p>Syntactic recency: The <em>writer</em> of the books <strong>is</strong></p>
+<p>Sequential recency: The writer of <em>books</em> <strong>are</strong></p>
+<p>Due to vanishing gradient, RNN-LMs are better at learning from sequential recency than syntactic </p>
+<h2 id="Why-is-exploding-gradient-a-problem"><a href="#Why-is-exploding-gradient-a-problem" class="headerlink" title="Why is exploding gradient a problem?"></a>Why is exploding gradient a problem?</h2><script type="math/tex; mode=display">
+\theta^{new} = \theta^{old}-\alpha \nabla_{\theta} J(\theta)</script><h3 id="Solution-gradient-clipping"><a href="#Solution-gradient-clipping" class="headerlink" title="Solution: gradient clipping"></a>Solution: gradient clipping</h3><p>Algorithm 1: Pseudo-code for norm clipping</p>
+<p>$\hat{g} \leftarrow \frac{\partial \epsilon}{\partial \theta}$</p>
+<p>if $||\hat{g}|| \geq threshold $ then</p>
+<p>​    $\hat{g} \leftarrow \frac{threshold}{||\hat{g}||} \hat{g}$</p>
+<p>end if </p>
+<h2 id="Long-Short-Term-Memory-LSTM"><a href="#Long-Short-Term-Memory-LSTM" class="headerlink" title="Long Short-Term Memory(LSTM)"></a>Long Short-Term Memory(LSTM)</h2><p>On step $t$, there is a hidden state $h^{(t)}$ and a cell state $c^{(t)}$</p>
+<ul>
+<li>Both are vectors length $n$</li>
+<li>The cell stores long-term information</li>
+<li>The LSTM can erase, write and read information from the cell</li>
+</ul>
+<p>The selection is controlled by 3 corresponding <strong>gates</strong></p>
+<ul>
+<li>vector length $n$</li>
+<li>each element of the gates can be open(1), closed(0), or in between</li>
+<li>dynamic: their value is computed based on the current context</li>
+</ul>
+<p>We have a sequence of input $x^{(t)}$, and we will compute a sequence of hidden states $h^{(t)}$ and cell states $c^{(t)}$. On timestep $t$:</p>
+<p>Forget gate - controls what is kept vs forgotten, from previous cell state</p>
+<script type="math/tex; mode=display">
+\boldsymbol{f}^{(t)}={\sigma}\left(\boldsymbol{W}_{f} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{f} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{f}\right)</script><p>Input gate - controls what parts of the new cell content are written to cell</p>
+<script type="math/tex; mode=display">
+\boldsymbol{i}^{(t)}=\sigma\left(\boldsymbol{W}_{i} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{i} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{i}\right)</script><p>Output gate - controls what parts of cell are output to hidden state</p>
+<script type="math/tex; mode=display">
+\boldsymbol{o}^{(t)}={\sigma}\left(\boldsymbol{W}_{o} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{o} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{o}\right)</script><p>New cell content - this is the new content to be written to the cell</p>
+<script type="math/tex; mode=display">
+\tilde{\boldsymbol{c}}^{(t)}=\tanh \left(\boldsymbol{W}_{c} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{c} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{c}\right)</script><p>Cell state - erase(“forget”) some content from last cell state, and write(“input”) some new cell content</p>
+<script type="math/tex; mode=display">
+\boldsymbol{c}^{(t)}=\boldsymbol{f}^{(t)} \circ \boldsymbol{c}^{(t-1)}+\boldsymbol{i}^{(t)} \circ \tilde{\boldsymbol{c}}^{(t)}</script><p>Hidden state: read(“output”) some content from the cell</p>
+<script type="math/tex; mode=display">
+\boldsymbol{h}^{(t)}=\boldsymbol{o}^{(t)} \circ \tanh \boldsymbol{c}^{(t)}</script><p><img src="https://i.loli.net/2020/04/04/pW7mMj9aDN53h8C.png" alt="image-20200316220913640.png"></p>
+<h2 id="Gated-Recurrent-Units-GRU"><a href="#Gated-Recurrent-Units-GRU" class="headerlink" title="Gated Recurrent Units(GRU)"></a>Gated Recurrent Units(GRU)</h2><p>a simpler alternative to the LSTM</p>
+<p>On each timestep $t$ we have input $x^{(t)}$ and hidden state $h^{(t)}$ (no cell state)</p>
+<p>Update gate - controls what parts of hidden state are updated vs preserved</p>
+<script type="math/tex; mode=display">
+\boldsymbol{u}^{(t)}=\sigma\left(\boldsymbol{W}_{u} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{u} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{u}\right)</script><p>Reset gate - controls what parts of previous hidden state are used to compute new content</p>
+<script type="math/tex; mode=display">
+\boldsymbol{r}^{(t)}=\sigma\left(\boldsymbol{W}_{r} \boldsymbol{h}^{(t-1)}+\boldsymbol{U}_{r} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{r}\right)</script><p>New hidden state content - reset gate selects useful parts of prev hidden state. Use this and current input to compute new hidden content.</p>
+<script type="math/tex; mode=display">
+\tilde{\boldsymbol{h}}^{(t)}=\tanh \left(\boldsymbol{W}_{h}\left(\boldsymbol{r}^{(t)} \circ \boldsymbol{h}^{(t-1)}\right)+\boldsymbol{U}_{h} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{h}\right)</script><p>Hidden state - update gate simultaneously controls what is kept from previous hidden state, and what is updated to new hidden state content</p>
+<script type="math/tex; mode=display">
+\boldsymbol{h}^{(t)}=\left(1-\boldsymbol{u}^{(t)}\right) \circ \boldsymbol{h}^{(t-1)}+\boldsymbol{u}^{(t)} \circ \tilde{\boldsymbol{h}}^{(t)}</script><h2 id="LSTM-vs-GRU"><a href="#LSTM-vs-GRU" class="headerlink" title="LSTM vs GRU"></a>LSTM vs GRU</h2><p>LSTM is a good default choice.</p>
+<p>Rule of thumb: start with LSTM, but switch to GRU if you want something more efficient</p>
+<h2 id="Vanishing-exploding-gradient"><a href="#Vanishing-exploding-gradient" class="headerlink" title="Vanishing/exploding gradient"></a>Vanishing/exploding gradient</h2><p>add more direct connections.</p>
+<p>e.g.: Residual connections, “ResNet”. Skip-connections. The identity connection preserves information by default.</p>
+<p>e.g.: Dense connections, “DenseNet”. </p>
+<p>e.g.:Highway connections, “HighwayNet”.</p>
+<h2 id="Bidirectional-RNNs"><a href="#Bidirectional-RNNs" class="headerlink" title="Bidirectional RNNs"></a>Bidirectional RNNs</h2><p>motivation - task: Sentiment Classification</p>
+<p><img src="https://i.loli.net/2020/04/04/on9a2s1Y5jJiADb.png" alt="image-20200317001951410.png"></p>
+<p>Note: bidirection RNNs are only applicable if you have access to the entire input sentence. </p>
+<p>BERT is built on bidirectionality.</p>
+<h2 id="Multi-layer-RNNs-stacked-RNNs"><a href="#Multi-layer-RNNs-stacked-RNNs" class="headerlink" title="Multi-layer RNNs = stacked RNNs"></a>Multi-layer RNNs = stacked RNNs</h2><p>High-performing RNNs are often multi-layer(but aren’t as deep as cn)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/10/How_powerful_is_gnn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1464,1027 +2823,6 @@ h_{G}=\operatorname{CONCAT}\left(\operatorname{READOUT}\left(\left\{h_{v}^{(k)} 
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/03/02/GNN-survey/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/02/GNN-survey/" itemprop="url">GNN survey</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-02T12:56:21-08:00">
-                2020-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/03/02/GNN-survey/" class="leancloud_visitors" data-flag-title="GNN survey">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  429
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Background-and-Definitions"><a href="#Background-and-Definitions" class="headerlink" title="Background and Definitions"></a>Background and Definitions</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Early studies fall into the category of recurrent graph neural networks(<strong>RecGNNs</strong>). With the success of CNNs,  new approach developed. (<strong>ConvGNNs</strong>)  ConvGNNs are divided into two main streams, the <strong>spectral-based</strong> approaches and the <strong>spatial-based</strong> approaches. </p>
-<p>Network embedding aims at representing network nodes as low-dimensional vector representations, preserving both network topology structure and node content information.</p>
-<p>Graph kernel methods employ a kernel function to measure the similarity between pairs of graphs.  Graph kernels can embed graphs or nodes into vector spaces by a mapping function. The difference between GNN and graph kernels is that this mapping function is deterministic rather than learnable.</p>
-<h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><p><strong>Deﬁnition 1 (Graph):</strong> A graph is represented as $G = (V,E)$ where $V$ is the set of vertices or nodes, and $E$ is the set of edges. Let $v_i \in V$ to denote a node and $e_{ij} = (v_i,v_j) \in E$ to denote an edge pointing from $v_j$ to $v_i$. The neighborhood of a node $v$ is deﬁned as $N(v) = {u \in V|(v,u) \in E}$. The adjacency matrix $A$ is a $n \times n$ matrix with $A_{ij} = 1$ if $e_{ij} \in E$ and $A_{ij} = 0$ if $e_{ij} \notin E$. A graph may have node attributes $ x_{v}$ , where $X \in R^{n×d}$ is a node feature matrix with $x_{v} \in R^d$  representing the feature vector of a node $v$. Meanwhile, a graph may have edge attributes $X^e$, where $X^e \in R^{m×c}$ is an edge feature matrix with $x^{e}_{v,u} \in R^c$ representing the feature vector of an edge $(v,u)$.</p>
-<p><strong>Deﬁnition 2 (Directed Graph):</strong> A directed graph is a graph with all edges directed from one node to another. An undirected graph is considered as a special case of directed graphs where there is a pair of edges with inverse directions if two nodes are connected. A graph is undirected if and only if the adjacency matrix is symmetric. </p>
-<p><strong>Deﬁnition 3 (Spatial-Temporal Graph)</strong>: A spatial-temporal graph is an attributed graph where the node attributes change dynamically over time. The spatial-temporal graph is deﬁned as $G^{(t)} = (V,E,X^{(t)})$ with $X^{(t)} \in R^{n×d}$. </p>
-<h1 id="Categorization-and-Frameworks"><a href="#Categorization-and-Frameworks" class="headerlink" title="Categorization and Frameworks"></a>Categorization and Frameworks</h1><p>Recurrent Neural Network - aim to learn node representations with recurrent neural architectures.</p>
-<p>Convolutional graph neural networks - generate a node $v$’s representation by aggregating its own features $x_v$ and neighbors’ features $x_u$, where $u \in N(v)$ </p>
-<p>Graph autoencoders(GAE)  learn network embeddings and graph generative distributions</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/" itemprop="url">ubuntu18.04+nvidia driver+cuda+cudnn install</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-29T22:48:34-08:00">
-                2020-02-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ubuntu18-04/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu18.04</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/02/29/ubuntu18-04-nvidia-driver-cuda-cudnn%E7%88%AC%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/" class="leancloud_visitors" data-flag-title="ubuntu18.04+nvidia driver+cuda+cudnn install">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  390
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Install-Ubuntu18-04"><a href="#Install-Ubuntu18-04" class="headerlink" title="Install Ubuntu18.04"></a>Install Ubuntu18.04</h1><p>according to this blog: <a href="https://blog.csdn.net/silver1225/article/details/100393719" target="_blank" rel="noopener">https://blog.csdn.net/silver1225/article/details/100393719</a></p>
-<h1 id="install-nvidia-driver"><a href="#install-nvidia-driver" class="headerlink" title="install nvidia driver"></a>install nvidia driver</h1><h2 id="First-disable-original-nvidia-driver-nouveau"><a href="#First-disable-original-nvidia-driver-nouveau" class="headerlink" title="First, disable original nvidia driver, nouveau"></a>First, disable original nvidia driver, nouveau</h2><ol>
-<li>delete the original nvidia driver</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove nvidia-*</span><br></pre></td></tr></table></figure>
-<ol>
-<li>forbid nouveau</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;modprobe.d&#x2F;blacklist.conf</span><br></pre></td></tr></table></figure>
-<p>and add this in the bottom</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau</span><br><span class="line">options nouveau modeset&#x3D;0</span><br></pre></td></tr></table></figure>
-<ol>
-<li>execute</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-initramfs -u</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<ol>
-<li>see the version of nouveau, if nothing returns, you succeed.</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep nouveau</span><br></pre></td></tr></table></figure>
-<h2 id="Second-install-your-nvidia-driver"><a href="#Second-install-your-nvidia-driver" class="headerlink" title="Second, install your nvidia driver."></a>Second, install your nvidia driver.</h2><ol>
-<li><p>search your nvidia driver according to your version at <a href="https://www.nvidia.cn/Download/index.aspx?lang=cn" target="_blank" rel="noopener">https://www.nvidia.cn/Download/index.aspx?lang=cn</a></p>
-</li>
-<li><p>update all</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-<ol>
-<li>install gcc</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential</span><br></pre></td></tr></table></figure>
-<ol>
-<li>show the version of your nvidia</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lshw -numeric -C display</span><br></pre></td></tr></table></figure>
-<ol>
-<li>install</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x NVIDIA-Linux-x86_64-418.43.run</span><br><span class="line">sudo .&#x2F;NVIDIA-Linux-x86_64-418.43.run --no-opengl-files --no-x-check --no-nouveau-check</span><br></pre></td></tr></table></figure>
-<ol>
-<li>check whether you succeed or not</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
-<h2 id="Third-download-cuda"><a href="#Third-download-cuda" class="headerlink" title="Third, download cuda"></a>Third, download cuda</h2><p>download cuda at <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh cuda_10.0.130_410.48_linux.run</span><br></pre></td></tr></table></figure>
-<p>and select </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 accept #同意安装</span><br><span class="line">2 n #不安装Driver，因为已安装最新驱动</span><br><span class="line">3 y #安装CUDA Toolkit</span><br><span class="line">4 &lt;Enter&gt; #安装到默认目录</span><br><span class="line">5 y #创建安装目录的软链接</span><br><span class="line">6 y #复制Samples一份到家目录</span><br></pre></td></tr></table></figure>
-<p>Then</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~&#x2F;.bashrc</span><br></pre></td></tr></table></figure>
-<p>Add this to the file</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;bin$&#123;PATH:+:$PATH&#125;&#125; </span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-10.1&#x2F;lib64$&#123;LD_LIBRARY_PATH:+:$&#123;LD_LIBRARY_PATH&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>Go back to command line</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bashrc</span><br><span class="line">sudo vim &#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;bin:$PATH</span><br><span class="line">sudo vim &#x2F;etc&#x2F;ld.so.conf.d&#x2F;cuda.conf</span><br></pre></td></tr></table></figure>
-<p>Add this to the file.</p>
-<h1 id="Last"><a href="#Last" class="headerlink" title="Last"></a>Last</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">from torch.autograd import Variable, grad</span><br><span class="line"></span><br><span class="line">SIZE&#x3D;[1, 1, 171*21, 171*21]</span><br><span class="line">input &#x3D; Variable(torch.cuda.FloatTensor(*SIZE).uniform_(), requires_grad&#x3D;True)</span><br><span class="line">conv1 &#x3D; nn.Conv2d(1, 1, kernel_size&#x3D;3, stride&#x3D;1, dilation&#x3D;1, padding&#x3D;1,bias&#x3D;False).cuda()</span><br><span class="line">output &#x3D; conv1(input)</span><br><span class="line">loss &#x3D; output.sum()</span><br><span class="line">loss.backward()</span><br></pre></td></tr></table></figure>
-<p>run this, if no error, you SUCCEED!</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/11/weibo_delete_all/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/11/weibo_delete_all/" itemprop="url">Weibo - Delete all your followings and posts</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-11T15:30:40-08:00">
-                2020-02-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Others/" itemprop="url" rel="index">
-                    <span itemprop="name">Others</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/02/11/weibo_delete_all/" class="leancloud_visitors" data-flag-title="Weibo - Delete all your followings and posts">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  263
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Delete-all-your-followings"><a href="#Delete-all-your-followings" class="headerlink" title="Delete all your followings"></a>Delete all your followings</h2><ol>
-<li>open Google Chrome</li>
-<li>Press F12</li>
-<li>click <code>console</code></li>
-<li>paste the codes</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* 点击批量管理 *&#x2F;</span><br><span class="line">$(&quot;.btn_link.S_txt1&quot;).click();</span><br><span class="line">&#x2F;* 勾选全部 *&#x2F;</span><br><span class="line">$$(&#39;.member_li&#39;).forEach(l &#x3D;&gt; l.click());</span><br><span class="line">&#x2F;* 点击取消关注 *&#x2F;</span><br><span class="line">$(&#39;.W_btn_a[node-type&#x3D;&quot;cancelFollowBtn&quot;]&#39;).click();</span><br><span class="line">&#x2F;* 点击确认按钮 *&#x2F;</span><br><span class="line">$(&#39;[node-type&#x3D;&quot;ok&quot;]&#39;).click();</span><br></pre></td></tr></table></figure>
-<h2 id="Delete-all-your-posts"><a href="#Delete-all-your-posts" class="headerlink" title="Delete all your posts"></a>Delete all your posts</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; &#x3D;&#x3D;UserScript&#x3D;&#x3D;</span><br><span class="line">&#x2F;&#x2F; @name         Weibored.js</span><br><span class="line">&#x2F;&#x2F; @namespace    https:&#x2F;&#x2F;vito.sdf.org</span><br><span class="line">&#x2F;&#x2F; @version      0.2.0</span><br><span class="line">&#x2F;&#x2F; @description  删除所有微博</span><br><span class="line">&#x2F;&#x2F; @author       Vito Van</span><br><span class="line">&#x2F;&#x2F; @match        https:&#x2F;&#x2F;weibo.com&#x2F;p&#x2F;*</span><br><span class="line">&#x2F;&#x2F; @grant        none</span><br><span class="line">&#x2F;&#x2F; &#x3D;&#x3D;&#x2F;UserScript&#x3D;&#x3D;</span><br><span class="line">&#39;use strict&#39;;</span><br><span class="line">var s &#x3D; document.createElement(&#39;script&#39;);</span><br><span class="line">s.setAttribute(</span><br><span class="line">&#39;src&#39;,</span><br><span class="line">&#39;https:&#x2F;&#x2F;lib.sinaapp.com&#x2F;js&#x2F;jquery&#x2F;2.0.3&#x2F;jquery-2.0.3.min.js&#39;</span><br><span class="line">);</span><br><span class="line">s.onload &#x3D; function() &#123;</span><br><span class="line">setInterval(function() &#123;</span><br><span class="line">if (!$(&#39;a[action-type&#x3D;&quot;feed_list_delete&quot;]&#39;)) &#123;</span><br><span class="line">$(&#39;a.next&#39;).click();</span><br><span class="line">&#125; else &#123;</span><br><span class="line">$(&#39;a[action-type&#x3D;&quot;feed_list_delete&quot;]&#39;)[0].click();</span><br><span class="line">$(&#39;a[action-type&#x3D;&quot;ok&quot;]&#39;)[0].click();</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; scroll bottom let auto load</span><br><span class="line">$(&#39;html, body&#39;).animate(&#123; scrollTop: $(document).height() &#125;, &#39;slow&#39;);</span><br><span class="line">&#125;, 800);</span><br><span class="line">&#125;;</span><br><span class="line">document.head.appendChild(s);</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/CS224n%20Classnotes%20Course6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/10/CS224n%20Classnotes%20Course6/" itemprop="url">Stanford CS224n Natural Language Processing Course6</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T23:57:23-08:00">
-                2020-02-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/02/10/CS224n%20Classnotes%20Course6/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course6">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  554
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Course-6-Language-Models-and-RNNs"><a href="#Course-6-Language-Models-and-RNNs" class="headerlink" title="Course 6 - Language Models and RNNs"></a>Course 6 - Language Models and RNNs</h1><h2 id="Language-Modeling"><a href="#Language-Modeling" class="headerlink" title="Language Modeling"></a>Language Modeling</h2><p>is the task of predicting what word comes next. </p>
-<script type="math/tex; mode=display">
-P\left(\boldsymbol{x}^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)</script><p>also, <strong>assigns probability to a piece of text</strong></p>
-<script type="math/tex; mode=display">
-\begin{aligned} P\left(\boldsymbol{x}^{(1)}, \ldots, \boldsymbol{x}^{(T)}\right) &=P\left(\boldsymbol{x}^{(1)}\right) \times P\left(\boldsymbol{x}^{(2)} | \boldsymbol{x}^{(1)}\right) \times \cdots \times P\left(\boldsymbol{x}^{(T)} | \boldsymbol{x}^{(T-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \\ &=\prod_{t=1}^{T} P\left(\boldsymbol{x}^{(t)} | \boldsymbol{x}^{(t-1)}, \ldots, \boldsymbol{x}^{(1)}\right) \end{aligned}</script><h3 id="n-gram-Language-Models"><a href="#n-gram-Language-Models" class="headerlink" title="n-gram Language Models"></a>n-gram Language Models</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>A <strong>n-gram</strong> is a chunk of n consecutive words</p>
-<h4 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h4><p>Collect statistics about how frequent different n-grams are, and use these to predict next word.</p>
-<h4 id="Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data"><a href="#Sparity-Problem-1-what-if-“students-opened-their-w“-never-occurred-in-data" class="headerlink" title="Sparity Problem 1: what if “students opened their w“ never occurred in data"></a>Sparity Problem 1: what if “students opened their <em>w</em>“ never occurred in data</h4><p>Solution-Smoothing: Add small delta to the count for every <em>w</em> </p>
-<h4 id="Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data"><a href="#Sparity-Problem2-what-if-“students-opened-their”-never-occurred-in-data" class="headerlink" title="Sparity Problem2: what if “students opened their” never occurred in data?"></a>Sparity Problem2: what if “students opened their” never occurred in data?</h4><p>Solution-backoff: Just condition on “opened their” instead</p>
-<h2 id="How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks"><a href="#How-to-build-a-neural-Language-Model-Recurrent-Neural-Networks" class="headerlink" title="How to build a neural Language Model - Recurrent Neural Networks"></a>How to build a <em>neural</em> Language Model - Recurrent Neural Networks</h2><h3 id="A-fixed-window-neural-Language-Model"><a href="#A-fixed-window-neural-Language-Model" class="headerlink" title="A fixed-window neural Language Model"></a>A fixed-window neural Language Model</h3><h3 id="Recurrent-Neural-Networks-RNN"><a href="#Recurrent-Neural-Networks-RNN" class="headerlink" title="Recurrent Neural Networks(RNN)"></a>Recurrent Neural Networks(RNN)</h3><p><img src="https://i.loli.net/2020/03/04/VGcU3SeqL7JhZoM.png" alt="image-20200210211740128.png"></p>
-<p><strong>Core idea</strong>: Apply the same weight W repeatedly. </p>
-<p><img src="https://i.loli.net/2020/03/04/2vle5KkWsRcUJ8F.png" alt="image-20200210220449695.png"></p>
-<p><strong>Advantages</strong></p>
-<ul>
-<li>Can process any length input</li>
-<li>use information from many steps back in theory</li>
-<li>Model size doesn’t increase for longer input</li>
-<li>Same weights applied on every steps. </li>
-</ul>
-<p><strong>Disadvantages</strong></p>
-<ul>
-<li>slow computation</li>
-<li>difficult to access information from many steps back practically </li>
-</ul>
-<h4 id="Training-a-RNN-Language-Model"><a href="#Training-a-RNN-Language-Model" class="headerlink" title="Training a RNN Language Model"></a>Training a RNN Language Model</h4><ul>
-<li><p>Get a <strong>big corpus of text</strong> which is a sequence of word $x^{1}, \cdots, x^{T}$</p>
-</li>
-<li><p>Feed into RNN-LM</p>
-</li>
-<li><p>Loss function on step t is <strong>cross-entropy</strong></p>
-<script type="math/tex; mode=display">
-J^{(t)}(\theta)=C E\left(\boldsymbol{y}^{(t)}, \hat{\boldsymbol{y}}^{(t)}\right)=-\sum_{w \in V} \boldsymbol{y}_{w}^{(t)} \log \hat{\boldsymbol{y}}_{w}^{(t)}=-\log \hat{\boldsymbol{y}}_{\boldsymbol{x}_{t+1}}^{(t)}</script></li>
-<li><p>Average this to get <strong>overall loss </strong>for entire training set</p>
-<script type="math/tex; mode=display">
-J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-\log \hat{y}_{x_{t+1}}^{(t)}</script></li>
-<li><p>However, computing loss and gradients across <strong>entire corpus</strong> is too expensive. In practice, consider $x^{1}, \cdots, x^{T}$ as a <strong>sentence</strong> (or a <strong>document</strong>)</p>
-</li>
-<li>Instead, using <strong>SGD</strong> to compute loss $J(\theta)$ for a sentence, compute gradients and update weights. Repeat.</li>
-</ul>
-<h4 id="Backpropagation-for-RNNs"><a href="#Backpropagation-for-RNNs" class="headerlink" title="Backpropagation for RNNs"></a>Backpropagation for RNNs</h4><p>Questions: derivative of $J^{(t)}(\theta)$ w.r.t the <strong>repeated</strong> weight matrix </p>
-<p>Answer:</p>
-<script type="math/tex; mode=display">
-\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script><h4 id="Generating-text-with-a-RNN-Language-Model"><a href="#Generating-text-with-a-RNN-Language-Model" class="headerlink" title="Generating text with a RNN Language Model."></a>Generating text with a RNN Language Model.</h4><p>repeated sampling </p>
-<h4 id="Evaluating-Language-Models-Perplexity"><a href="#Evaluating-Language-Models-Perplexity" class="headerlink" title="Evaluating Language Models: Perplexity"></a>Evaluating Language Models: Perplexity</h4><script type="math/tex; mode=display">
-perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \boldsymbol{x}^{(t)}, \ldots, \boldsymbol{x}^{(1)}\right)}\right)^{1 / T} = \exp(J(\theta))</script><p>lower perplexity is better!</p>
-<h4 id="Why-should-we-care-about-Language-Modeling"><a href="#Why-should-we-care-about-Language-Modeling" class="headerlink" title="Why should we care about Language Modeling?"></a>Why should we care about Language Modeling?</h4><p>Language Modeling is a <strong>benchmark task</strong> that helps us <strong>measure our progress</strong> on understanding language.</p>
-<p><strong>subcomponent</strong> of many NLP tasks.</p>
-<p>RNNs can be used for tagging, NER, part-of-speech tagging.</p>
-<p>RNNs can be used for sentence classification, sentiment classification.</p>
-<p>RNNs can be used as an encoder module, question answering, machine translation.</p>
-<p>RNN described is called <strong>vanilla RNN</strong></p>
-<p>GRU, LSTM(chocolate), multi-layer RNNs</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/02/10/weibo%20hottopics%20crawler/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyi Hu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xinyi's gadget">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/10/weibo%20hottopics%20crawler/" itemprop="url">Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-10T15:30:40-08:00">
-                2020-02-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web-Crawler/" itemprop="url" rel="index">
-                    <span itemprop="name">Web Crawler</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/02/10/weibo%20hottopics%20crawler/" class="leancloud_visitors" data-flag-title="Weibo Hot Topic Web Scrawler - to monitor the public sentiment in China">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  369
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Web-Scrawler-is-dangerous"><a href="#Web-Scrawler-is-dangerous" class="headerlink" title="Web Scrawler is dangerous"></a>Web Scrawler is dangerous</h3><p>First and foremost, do not touch web scrawler if you are 100% sure that you wanna do this.</p>
-<h3 id="Similar-topic"><a href="#Similar-topic" class="headerlink" title="Similar topic:"></a>Similar topic:</h3><p><a href="https://nobugs.dev/2019/07/14/webscrawler/">https://nobugs.dev/2019/07/14/webscrawler/</a></p>
-<p>website: enlightent</p>
-<h3 id="This-time"><a href="#This-time" class="headerlink" title="This time"></a>This time</h3><p>We choose to use the package of <code>requests</code> and package <code>json</code> to get the result of hot topics  in weibo, similar website to twitter which has real-time hot topics, a great way to monitor the public sentiment in China.</p>
-<h3 id="Code-Implementation"><a href="#Code-Implementation" class="headerlink" title="Code Implementation"></a>Code Implementation</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'charset'</span>: <span class="string">"utf-8"</span>,</span><br><span class="line">    <span class="string">'Accept-Encoding'</span>: <span class="string">"gzip"</span>,</span><br><span class="line">    <span class="string">'referer'</span>: <span class="string">"https://servicewechat.com/wx90ae92bbd13ec629/11/page-frame.html"</span>,</span><br><span class="line">    <span class="string">'content-type'</span>: <span class="string">"application/x-www-form-urlencoded"</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">"Mozilla/5.0 (Linux; Android 9; Redmi Note 7 Build/PKQ1.180904.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.91 Mobile Safari/537.36 MicroMessenger/7.0.3.1400(0x2700033B) Process/appbrand0 NetType/WIFI Language/zh_CN"</span>,</span><br><span class="line">    <span class="string">'Host'</span>: <span class="string">"www.eecso.com"</span>,</span><br><span class="line">    <span class="string">'Connection'</span>: <span class="string">"keep-alive"</span>,</span><br><span class="line">    <span class="string">'cache-control'</span>: <span class="string">"no-cache"</span>,</span><br><span class="line">    <span class="string">'Origin'</span>: <span class="string">'https://www.weibotop.cn'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'微博热搜.csv'</span>, <span class="string">'w'</span>, encoding=<span class="string">'gbk'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">'时间,排名,热搜内容,上榜时间,最后时间\n'</span>)</span><br><span class="line"></span><br><span class="line">timeid = <span class="number">77594</span></span><br><span class="line">dateUrl = <span class="string">"https://www.eecso.com/test/weibo/apis/getlatest.php?timeid=&#123;&#125;"</span></span><br><span class="line">contentUrl = <span class="string">"https://www.eecso.com/test/weibo/apis/currentitems.php?timeid=&#123;&#125;"</span></span><br><span class="line">n = <span class="number">1</span></span><br><span class="line">days = <span class="number">42</span> <span class="comment">#需获取2.10往前多少天的数据</span></span><br><span class="line">interval = <span class="number">720</span> <span class="comment">#改为1则是爬所有数据（该网站2分钟记录一次） 24*30 = 720</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    dateResponse = requests.request(<span class="string">"GET"</span>, dateUrl.format(timeid), headers=headers,verify=<span class="keyword">False</span>)</span><br><span class="line">    contentResponse = requests.request(<span class="string">"GET"</span>, contentUrl.format(timeid), headers=headers,verify=<span class="keyword">False</span>)</span><br><span class="line">    timeid = <span class="number">77594</span>-interval*n <span class="comment">#77594为2020/2/10 12:00的timeid，720为一天timeid的间隔</span></span><br><span class="line">    print(timeid)</span><br><span class="line">    n += <span class="number">1</span></span><br><span class="line">    dateJson = json.loads(dateResponse.text)</span><br><span class="line">    json_obj = json.loads(contentResponse.text)</span><br><span class="line">    <span class="comment">#print(dateJson)</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> index,item <span class="keyword">in</span> enumerate(json_obj):</span><br><span class="line">        date = dateJson[<span class="number">1</span>]</span><br><span class="line">        rank = str(index+<span class="number">1</span>)</span><br><span class="line">        hotTopic = item[<span class="number">0</span>]</span><br><span class="line">        onTime = item[<span class="number">1</span>]</span><br><span class="line">        lastTime = item[<span class="number">2</span>]</span><br><span class="line">        save_res = date+<span class="string">","</span>+rank+<span class="string">","</span>+hotTopic+<span class="string">','</span>+onTime+<span class="string">','</span>+lastTime+<span class="string">'\n'</span></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'微博热搜.csv'</span>,<span class="string">'a'</span>,encoding=<span class="string">'gbk'</span>,errors=<span class="string">'ignore'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(save_res)</span><br><span class="line">    <span class="keyword">if</span> n &gt; days:</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2537,7 +2875,7 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2548,7 +2886,7 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -2618,7 +2956,7 @@ perplexity =\prod_{t=1}^{T}\left(\frac{1}{P_{\mathrm{LM}}\left(x^{(t+1)} | \bold
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-snowflake-o"></i>
   </span>

@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Search and Information RetrievalInformation Retrieval“Information retrieval is a field concerned with the structure, analysis, organization, storage, searching, and retrieval of information.” (Salton,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Information Retrieval">
+<meta property="og:url" content="http://nobugs.dev/2020/11/08/InformationRetrieval/index.html">
+<meta property="og:site_name" content="Xinyi&#39;s gadget">
+<meta property="og:description" content="Search and Information RetrievalInformation Retrieval“Information retrieval is a field concerned with the structure, analysis, organization, storage, searching, and retrieval of information.” (Salton,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/11/09/loka5fACBIXDj1L.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/09/XJ7rGvgw32zSQLm.png">
+<meta property="article:published_time" content="2020-11-08T22:44:23.000Z">
+<meta property="article:modified_time" content="2020-11-09T09:28:28.331Z">
+<meta property="article:author" content="Xinyi Hu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/11/09/loka5fACBIXDj1L.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nobugs.dev/2020/11/08/InformationRetrieval/"/>
+
+
+
+
+
+  <title>Information Retrieval | Xinyi's gadget</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xinyi's gadget</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-knowme">
+          <a href="/KnowMe" rel="section">
+            
+            KnowMe
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-blogs">
+          <a href="/archives" rel="section">
+            
+            Blogs
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friends">
+          <a href="/group" rel="section">
+            
+            Friends
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/11/08/InformationRetrieval/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Information Retrieval</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-08T14:44:23-08:00">
+                2020-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ComputerScience/" itemprop="url" rel="index">
+                    <span itemprop="name">ComputerScience</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/11/08/InformationRetrieval/" class="leancloud_visitors" data-flag-title="Information Retrieval">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Search-and-Information-Retrieval"><a href="#Search-and-Information-Retrieval" class="headerlink" title="Search and Information Retrieval"></a>Search and Information Retrieval</h1><h2 id="Information-Retrieval"><a href="#Information-Retrieval" class="headerlink" title="Information Retrieval"></a>Information Retrieval</h2><p><em>“Information</em> <em>retrieval is a</em> <em>field</em> <em>concerned with the structure, analysis,</em> <em>organization, storage<strong>, searching, and retrieval of information</strong>.”</em> (Salton, 1968)</p>
+<h2 id="What-is-a-Document"><a href="#What-is-a-Document" class="headerlink" title="What is a Document?"></a>What is a Document?</h2><h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h3><ul>
+<li>web pages, email, books, news stories, scholarly papers, text messages, Word™, Powerpoint™, PDF, forum postings, patents, IM sessions, etc.</li>
+</ul>
+<h3 id="Common-properties"><a href="#Common-properties" class="headerlink" title="Common properties"></a>Common properties</h3><ul>
+<li><p>Significant text content</p>
+</li>
+<li><p>Some structure (e.g., title, author, date for papers; subject, sender, destination for email)</p>
+</li>
+</ul>
+<h2 id="Documents-vs-Database-Records"><a href="#Documents-vs-Database-Records" class="headerlink" title="Documents vs. Database Records"></a>Documents vs. Database Records</h2><p>Database records (or <em>tuples</em> in relational databases) are typically made up of well-defined fields (or <em>attributes</em>)</p>
+<ul>
+<li>e.g., bank records with account numbers, balances, names, addresses, social security numbers, dates of birth, etc. </li>
+</ul>
+<p>Easy to compare fields with well-defined semantics to queries in order to find matches</p>
+<p>Text is more difficult</p>
+<p>Example bank database query</p>
+<ul>
+<li><p><em>Find records with balance &gt; $50,000 in branches located in Amherst, MA.</em></p>
+</li>
+<li><p>Matches easily found by comparison with field values of records</p>
+</li>
+</ul>
+<p>Example search engine query</p>
+<ul>
+<li><p><em>bank scandals in western mass</em></p>
+</li>
+<li><p>This text must be compared to the text of entire news stories</p>
+</li>
+</ul>
+<h2 id="Comparing-Text"><a href="#Comparing-Text" class="headerlink" title="Comparing Text"></a>Comparing Text</h2><p>Comparing the query text to the document text and determining what is a good match is the <strong>core issue</strong> of information retrieval.</p>
+<p>Exact matching of words is not enough</p>
+<ul>
+<li><p>Many different ways to write the same thing in a “natural language” like English</p>
+</li>
+<li><p>e.g., does a news story containing the text <em>“bank director in Amherst steals funds”</em> match the query?</p>
+</li>
+<li><p>Some stories will be better matches than others</p>
+</li>
+</ul>
+<h2 id="Dimensions-of-IR"><a href="#Dimensions-of-IR" class="headerlink" title="Dimensions of IR"></a>Dimensions of IR</h2><p>IR is more than just text, and more than just web search</p>
+<ul>
+<li>although these are central</li>
+</ul>
+<p>People doing IR work with different media, different types of search applications, and different tasks</p>
+<p>New applications increasingly involve new media</p>
+<ul>
+<li><p>e.g., video, photos, music, speech</p>
+</li>
+<li><p>Like text, content is difficult to describe and compare</p>
+<ul>
+<li>text may be used to represent them (e.g. tags)</li>
+</ul>
+</li>
+</ul>
+<p>IR approaches to search and evaluation are appropriate</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>Content</strong></th>
+<th><strong>Applications</strong></th>
+<th><strong>Tasks</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Text</td>
+<td>Web search</td>
+<td>Ad hoc search</td>
+</tr>
+<tr>
+<td>Images</td>
+<td>Vertical search</td>
+<td>Filtering</td>
+</tr>
+<tr>
+<td>Video</td>
+<td>Enterprise search</td>
+<td>Classification</td>
+</tr>
+<tr>
+<td>Scanned docs</td>
+<td>Desktop search</td>
+<td>Question answering</td>
+</tr>
+<tr>
+<td>Audio</td>
+<td>Forum search</td>
+<td></td>
+</tr>
+<tr>
+<td>Music</td>
+<td>P2P search</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Literature search</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ad-hoc search</p>
+<ul>
+<li>Find relevant documents for an arbitrary text query</li>
+</ul>
+<p>Filtering</p>
+<ul>
+<li>Identify relevant user profiles for a new document</li>
+</ul>
+<p>Classification</p>
+<ul>
+<li>Identify relevant labels for documents</li>
+</ul>
+<p>Question answering</p>
+<ul>
+<li>Give a specific answer to a question</li>
+</ul>
+<h2 id="Big-Issues-in-IR"><a href="#Big-Issues-in-IR" class="headerlink" title="Big Issues in IR"></a>Big Issues in IR</h2><h3 id="Relevance"><a href="#Relevance" class="headerlink" title="Relevance"></a>Relevance</h3><p>Simple (and simplistic) definition: A relevant document contains the information that a person was looking for when they submitted a query to the search engine.</p>
+<p>Many factors influence a person’s decision about what is relevant: e.g., task, context, novelty, style</p>
+<p><em>Topical relevance</em> (same topic) vs. <em>user relevance</em> (everything else)</p>
+<p><em>Retrieval models</em> define a view of relevance</p>
+<p><em>Ranking algorithms</em> used in search engines are based on retrieval models</p>
+<p>Most models describe statistical properties of text rather than linguistic</p>
+<ul>
+<li><p>i.e. counting simple text features such as words instead of parsing and analyzing the sentences</p>
+</li>
+<li><p>Statistical approach to text processing started with Luhn in the 50s</p>
+</li>
+<li><p>Linguistic features can be part of a statistical model</p>
+</li>
+</ul>
+<h3 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h3><p>Experimental procedures and measures for comparing system output with user expectations</p>
+<ul>
+<li>Originated in Cranfield experiments in the 60s</li>
+</ul>
+<p>IR evaluation methods now used in many fields</p>
+<p>Typically use <em>test collection</em> of documents, queries, and relevance judgments</p>
+<ul>
+<li>Most commonly used are TREC collections</li>
+</ul>
+<p><em>Recall</em> and <em>precision</em> are two examples of effectiveness measures</p>
+<p>Users and Information Needs</p>
+<ul>
+<li>Search evaluation is user-centered</li>
+<li>Keyword queries are often poor descriptions of actual information needs</li>
+<li>Interaction and context are important for understanding user intent</li>
+<li>Query refinement techniques such as <em>query expansion</em>, <em>query suggestion</em>, <em>relevance feedback</em> improve ranking</li>
+</ul>
+<h2 id="IR-and-Search-Engines"><a href="#IR-and-Search-Engines" class="headerlink" title="IR and Search Engines"></a>IR and Search Engines</h2><p>A search engine is the practical application of information retrieval techniques to large scale text collections</p>
+<p>Web search engines are best-known examples, but many others</p>
+<ul>
+<li><em>Open source</em> search engines are important for research and development<ul>
+<li>e.g., Lucene, Lemur/Indri, <em>Galago</em></li>
+</ul>
+</li>
+</ul>
+<p>Big issues include main IR issues but also some others</p>
+<h2 id="Search-Engine-Issues"><a href="#Search-Engine-Issues" class="headerlink" title="Search Engine Issues"></a>Search Engine Issues</h2><h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p>Measuring and improving the efficiency of search </p>
+<ul>
+<li>e.g., reducing <em>response time</em>, increasing <em>query throughput</em>, increasing <em>indexing speed</em></li>
+</ul>
+<p><em>Indexes</em> are data structures designed to improve search efficiency</p>
+<ul>
+<li>designing and implementing them are major issues for search engines</li>
+</ul>
+<h3 id="Dynamic-data"><a href="#Dynamic-data" class="headerlink" title="Dynamic data"></a>Dynamic data</h3><p>The “collection” for most real applications is constantly changing in terms of updates, additions, deletions</p>
+<ul>
+<li>e.g., web pages</li>
+</ul>
+<p>Acquiring or “crawling” the documents is a major task</p>
+<ul>
+<li>Typical measures are <em>coverage</em> (how much has been indexed) and <em>freshness</em> (how recently was it indexed)</li>
+</ul>
+<p>Updating the indexes while processing queries is also a design issue</p>
+<h3 id="Scalability"><a href="#Scalability" class="headerlink" title="Scalability"></a>Scalability</h3><p>Making everything work with millions of users every day, and many terabytes of documents</p>
+<p>Distributed processing is essential</p>
+<h3 id="Adaptability"><a href="#Adaptability" class="headerlink" title="Adaptability"></a>Adaptability</h3><p>Changing and tuning search engine components such as ranking algorithm, indexing strategy, interface for different applications</p>
+<h3 id="Spam"><a href="#Spam" class="headerlink" title="Spam"></a>Spam</h3><p>For Web search, spam in all its forms is one of <strong>the</strong> major issues</p>
+<p>Affects the efficiency of search engines and, more seriously, the <strong>effectiveness</strong> of the results</p>
+<p>Many types of spam</p>
+<ul>
+<li>e.g. spamdexing or term spam, link spam, “optimization”</li>
+</ul>
+<p>New subfield called <em>adversarial IR</em>, since spammers are “adversaries” with different goals</p>
+<h1 id="Architecture-of-a-search-engine"><a href="#Architecture-of-a-search-engine" class="headerlink" title="Architecture of a search engine"></a>Architecture of a search engine</h1><p>A software architecture consists of software components, the interfaces provided by those components, and the relationships between them</p>
+<ul>
+<li>describes a system at a particular level of abstraction</li>
+</ul>
+<p>Architecture of a search engine determined by 2 requirements</p>
+<ul>
+<li>effectiveness (quality of results) and </li>
+<li>efficiency (response time and throughput)</li>
+</ul>
+<h2 id="Indexing-Process"><a href="#Indexing-Process" class="headerlink" title="Indexing Process"></a>Indexing Process</h2><p>Text acquisition</p>
+<p>–identifies and stores documents for indexing</p>
+<p>Text transformation</p>
+<p>–transforms documents into <em>index terms</em> or <em>features</em></p>
+<p>Index creation</p>
+<p>–takes index terms and creates data structures (<em>indexes</em>) to support fast searching</p>
+<p><img src="https://i.loli.net/2020/11/09/loka5fACBIXDj1L.png" alt="image.png"></p>
+<h2 id="Query-Process"><a href="#Query-Process" class="headerlink" title="Query Process"></a>Query Process</h2><p>User interaction</p>
+<p>–supports creation and refinement of query, display of results</p>
+<p>Ranking</p>
+<p>–uses query and indexes to generate ranked list of documents</p>
+<p>Evaluation</p>
+<p>–monitors and measures effectiveness and efficiency (primarily offline)</p>
+<p><img src="https://i.loli.net/2020/11/09/XJ7rGvgw32zSQLm.png" alt="image.png"></p>
+<h3 id="Details-Text-Acquisition"><a href="#Details-Text-Acquisition" class="headerlink" title="Details: Text Acquisition"></a>Details: Text Acquisition</h3><h4 id="Crawler"><a href="#Crawler" class="headerlink" title="Crawler"></a>Crawler</h4><p>Identifies and acquires documents for search engine</p>
+<p>Many types – web, enterprise, desktop</p>
+<p>Web crawlers follow <em>links</em> to find documents</p>
+<ul>
+<li><p>Must efficiently find huge numbers of web pages (<em>coverage</em>) and keep them up-to-date (<em>freshness</em>)</p>
+</li>
+<li><p>Single site crawlers for <em>site search</em></p>
+</li>
+<li><p><em>Topical</em> or <em>focused</em> crawlers for vertical search</p>
+</li>
+</ul>
+<p><em>Document</em> crawlers for enterprise and desktop search</p>
+<ul>
+<li>Follow links and scan directories</li>
+</ul>
+<h4 id="Feeds"><a href="#Feeds" class="headerlink" title="Feeds"></a>Feeds</h4><p>Real-time streams of documents</p>
+<ul>
+<li>e.g., web feeds for news, blogs, video, radio, tv</li>
+</ul>
+<p>RSS is common standard</p>
+<ul>
+<li>RSS “reader” can provide new XML documents to search engine</li>
+</ul>
+<h4 id="Conversion"><a href="#Conversion" class="headerlink" title="Conversion"></a>Conversion</h4><p>Convert variety of documents into a consistent text plus metadata format</p>
+<ul>
+<li>e.g. HTML, XML, Word, PDF, etc. → XML</li>
+</ul>
+<p>Convert text encoding for different languages</p>
+<ul>
+<li>Using a Unicode standard like UTF-8</li>
+</ul>
+<h4 id="Document-data-store"><a href="#Document-data-store" class="headerlink" title="Document data store"></a>Document data store</h4><p>Stores text, metadata, and other related content for documents </p>
+<ul>
+<li><p>Metadata is information about document such as type and creation date</p>
+</li>
+<li><p>Other content includes links, anchor text</p>
+</li>
+</ul>
+<p>Provides fast access to document contents for search engine components</p>
+<ul>
+<li>e.g. result list generation</li>
+</ul>
+<p>Could use relational database system </p>
+<ul>
+<li>More typically, a simpler, more efficient storage system is used due to huge numbers of documents</li>
+</ul>
+<h3 id="Text-Transformation"><a href="#Text-Transformation" class="headerlink" title="Text Transformation"></a>Text Transformation</h3><h4 id="Parser"><a href="#Parser" class="headerlink" title="Parser"></a>Parser</h4><p>Processing the sequence of text <em>tokens</em> in the document to recognize structural elements</p>
+<ul>
+<li>e.g., titles, links, headings, etc.</li>
+</ul>
+<p><em>Tokenizer</em> recognizes “words” in the text</p>
+<ul>
+<li>must consider issues like capitalization, hyphens, apostrophes, non-alpha characters, separators</li>
+</ul>
+<p><em>Markup languages</em> such as HTML, XML often used to specify structure</p>
+<ul>
+<li><em>Tags</em> used to specify document <em>elements</em></li>
+</ul>
+<p>E.g., </p><h2> Overview </h2><p></p>
+<ul>
+<li>Document parser uses <em>syntax</em> of markup language (or other formatting) to identify structure</li>
+</ul>
+<h4 id="Stopping"><a href="#Stopping" class="headerlink" title="Stopping"></a>Stopping</h4><p>Remove common words</p>
+<ul>
+<li>e.g., “and”, “or”, “the”, “in”</li>
+</ul>
+<p>Some impact on efficiency and effectiveness</p>
+<p>Can be a problem for some queries</p>
+<h4 id="Stemming"><a href="#Stemming" class="headerlink" title="Stemming"></a>Stemming</h4><p>Group words derived from a common <em>stem</em></p>
+<ul>
+<li>e.g., “computer”, “computers”, “computing”, “compute”</li>
+</ul>
+<p>Usually effective, but not for all queries</p>
+<p>Benefits vary for different languages</p>
+<h4 id="Link-Analysis"><a href="#Link-Analysis" class="headerlink" title="Link Analysis"></a>Link Analysis</h4><p>Makes use of <em>links</em> and <em>anchor text</em> in web pages</p>
+<p>Link analysis identifies <em>popularity</em> and <em>community</em> information</p>
+<ul>
+<li>e.g., PageRank</li>
+</ul>
+<p>Anchor text can significantly enhance the representation of pages pointed to by links</p>
+<p>Significant impact on web search</p>
+<ul>
+<li>Less importance in other applications</li>
+</ul>
+<h4 id="Information-Extraction"><a href="#Information-Extraction" class="headerlink" title="Information Extraction"></a>Information Extraction</h4><p>Identify classes of index terms that are important for some applications</p>
+<p>e.g., <em>named entity recognizers</em> identify classes such as <em>people</em>, <em>locations</em>, <em>companies</em>, <em>dates,</em> etc.</p>
+<h4 id="Classifier"><a href="#Classifier" class="headerlink" title="Classifier"></a>Classifier</h4><p>Identifies class-related metadata for documents</p>
+<ul>
+<li><p>i.e., assigns labels to documents</p>
+</li>
+<li><p>e.g., topics, reading levels, sentiment, genre</p>
+</li>
+</ul>
+<p>Use depends on application</p>
+<h3 id="Index-Creation"><a href="#Index-Creation" class="headerlink" title="Index Creation"></a>Index Creation</h3><h4 id="Document-Statistics"><a href="#Document-Statistics" class="headerlink" title="Document Statistics"></a>Document Statistics</h4><ul>
+<li><p>Gathers counts and positions of words and other features</p>
+</li>
+<li><p>Used in ranking algorithm</p>
+</li>
+</ul>
+<h4 id="Weighting"><a href="#Weighting" class="headerlink" title="Weighting"></a>Weighting</h4><ul>
+<li><p>Computes weights for index terms</p>
+</li>
+<li><p>Used in ranking algorithm</p>
+</li>
+</ul>
+<p>e.g., <em>tf.idf</em> weight</p>
+<ul>
+<li>Combination of <em>term frequency</em> in document and <em>inverse document frequency</em> in the collection</li>
+</ul>
+<h4 id="Inversion"><a href="#Inversion" class="headerlink" title="Inversion"></a>Inversion</h4><p>–Core of indexing process</p>
+<p>–Converts document-term information to term-document for indexing</p>
+<p>•Difficult for very large numbers of documents</p>
+<p>–Format of inverted file is designed for fast query processing</p>
+<p>•Must also handle updates</p>
+<p>•Compression used for efficiency</p>
+<h4 id="Index-Distribution"><a href="#Index-Distribution" class="headerlink" title="Index Distribution"></a>Index Distribution</h4><p>–Distributes indexes across multiple computers and/or multiple sites</p>
+<p>–Essential for fast query processing with large numbers of documents</p>
+<p>–Many variations</p>
+<p>•Document distribution, term distribution, replication</p>
+<p>–<em>P2P</em> and <em>distributed IR</em> involve search across multiple sites</p>
+<h3 id="User-Interaction"><a href="#User-Interaction" class="headerlink" title="User Interaction"></a>User Interaction</h3><h4 id="Query-input"><a href="#Query-input" class="headerlink" title="Query input"></a>Query input</h4><p>–Provides interface and parser for <em>query language</em></p>
+<p>–Most web queries are very simple, other applications may use forms</p>
+<p>–Query language used to describe more complex queries and results of query transformation</p>
+<p>•e.g., Boolean queries, Indri and Galago query languages</p>
+<p>• similar to SQL language used in database applications</p>
+<p>•IR query languages also allow content and structure specifications, but focus on content</p>
+<h4 id="Query-transformation"><a href="#Query-transformation" class="headerlink" title="Query transformation"></a>Query transformation</h4><p>–Improves initial query, both before and after initial search</p>
+<p>–Includes text transformation techniques used for documents</p>
+<p>–<em>Spell checking</em> and <em>query suggestion</em> provide alternatives to original query</p>
+<p>–<em>Query expansion</em> and <em>relevance feedback</em> modify the original query with additional terms</p>
+<h4 id="Results-output"><a href="#Results-output" class="headerlink" title="Results output"></a>Results output</h4><p>–Constructs the display of ranked documents for a query</p>
+<p>–Generates <em>snippets</em> to show how queries match documents</p>
+<p>–<em>Highlights</em> important words and passages</p>
+<p>–Retrieves appropriate <em>advertising</em> in many applications</p>
+<p>–May provide <em>clustering</em> and other visualization tools</p>
+<h3 id="Ranking"><a href="#Ranking" class="headerlink" title="Ranking"></a>Ranking</h3><h4 id="Scoring"><a href="#Scoring" class="headerlink" title="Scoring"></a>Scoring</h4><p>–Calculates scores for documents using a ranking algorithm</p>
+<p>–Core component of search engine</p>
+<p>–Basic form of score is $\sum q_i d_i$</p>
+<ul>
+<li>$q_i, d_i$ are query and document term weights for term i</li>
+</ul>
+<p>–Many variations of ranking algorithms and retrieval models</p>
+<h4 id="Performance-optimization"><a href="#Performance-optimization" class="headerlink" title="Performance optimization"></a>Performance optimization</h4><p>–Designing ranking algorithms for efficient processing</p>
+<p>•<em>Term-at-a time</em> vs. <em>document-at-a-time</em> processing</p>
+<p>•<em>Safe</em> vs. <em>unsafe</em> optimizations</p>
+<h4 id="Distribution"><a href="#Distribution" class="headerlink" title="Distribution"></a>Distribution</h4><p>–Processing queries in a distributed environment</p>
+<p>–<em>Query broker</em> distributes queries and assembles results</p>
+<p>–<em>Caching</em> is a form of distributed searching</p>
+<h3 id="Evaluation-1"><a href="#Evaluation-1" class="headerlink" title="Evaluation"></a>Evaluation</h3><h4 id="Logging"><a href="#Logging" class="headerlink" title="Logging"></a>Logging</h4><p>–Logging user queries and interaction is crucial for improving search effectiveness and efficiency</p>
+<p>–<em>Query logs</em> and <em>clickthrough</em> <em>data</em> used for query suggestion, spell checking, query caching, ranking, advertising search, and other components</p>
+<h4 id="Ranking-analysis"><a href="#Ranking-analysis" class="headerlink" title="Ranking analysis"></a>Ranking analysis</h4><p>–Measuring and tuning ranking effectiveness</p>
+<h4 id="Performance-analysis"><a href="#Performance-analysis" class="headerlink" title="Performance analysis"></a>Performance analysis</h4><p>–Measuring and tuning system efficiency</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/28/UCI-Network%20Programming/" rel="next" title="Network Programming">
+                <i class="fa fa-chevron-left"></i> Network Programming
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/11/28/InformationRetrival2/" rel="prev" title="Information Retrieval">
+                Information Retrieval <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Xinyi Hu" />
+            
+              <p class="site-author-name" itemprop="name">Xinyi Hu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/samaritanhu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:samaritanhu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/in/cindy-hu-b98b1a163/" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Linkedin</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Search-and-Information-Retrieval"><span class="nav-number">1.</span> <span class="nav-text">Search and Information Retrieval</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Information-Retrieval"><span class="nav-number">1.1.</span> <span class="nav-text">Information Retrieval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-Document"><span class="nav-number">1.2.</span> <span class="nav-text">What is a Document?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-number">1.2.1.</span> <span class="nav-text">Examples:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-properties"><span class="nav-number">1.2.2.</span> <span class="nav-text">Common properties</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Documents-vs-Database-Records"><span class="nav-number">1.3.</span> <span class="nav-text">Documents vs. Database Records</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparing-Text"><span class="nav-number">1.4.</span> <span class="nav-text">Comparing Text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dimensions-of-IR"><span class="nav-number">1.5.</span> <span class="nav-text">Dimensions of IR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Big-Issues-in-IR"><span class="nav-number">1.6.</span> <span class="nav-text">Big Issues in IR</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Relevance"><span class="nav-number">1.6.1.</span> <span class="nav-text">Relevance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Evaluation"><span class="nav-number">1.6.2.</span> <span class="nav-text">Evaluation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IR-and-Search-Engines"><span class="nav-number">1.7.</span> <span class="nav-text">IR and Search Engines</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-Engine-Issues"><span class="nav-number">1.8.</span> <span class="nav-text">Search Engine Issues</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Performance"><span class="nav-number">1.8.1.</span> <span class="nav-text">Performance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-data"><span class="nav-number">1.8.2.</span> <span class="nav-text">Dynamic data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scalability"><span class="nav-number">1.8.3.</span> <span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaptability"><span class="nav-number">1.8.4.</span> <span class="nav-text">Adaptability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spam"><span class="nav-number">1.8.5.</span> <span class="nav-text">Spam</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Architecture-of-a-search-engine"><span class="nav-number">2.</span> <span class="nav-text">Architecture of a search engine</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Indexing-Process"><span class="nav-number">2.1.</span> <span class="nav-text">Indexing Process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Query-Process"><span class="nav-number">2.2.</span> <span class="nav-text">Query Process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Details-Text-Acquisition"><span class="nav-number">2.2.1.</span> <span class="nav-text">Details: Text Acquisition</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Crawler"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">Crawler</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Feeds"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">Feeds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conversion"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">Conversion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Document-data-store"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">Document data store</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Text-Transformation"><span class="nav-number">2.2.2.</span> <span class="nav-text">Text Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Parser"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">Parser</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.3.</span> <span class="nav-text"> Overview </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stopping"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">Stopping</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stemming"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">Stemming</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Link-Analysis"><span class="nav-number">2.3.0.3.</span> <span class="nav-text">Link Analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Information-Extraction"><span class="nav-number">2.3.0.4.</span> <span class="nav-text">Information Extraction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Classifier"><span class="nav-number">2.3.0.5.</span> <span class="nav-text">Classifier</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Index-Creation"><span class="nav-number">2.3.1.</span> <span class="nav-text">Index Creation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Document-Statistics"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">Document Statistics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Weighting"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">Weighting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inversion"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">Inversion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Index-Distribution"><span class="nav-number">2.3.1.4.</span> <span class="nav-text">Index Distribution</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#User-Interaction"><span class="nav-number">2.3.2.</span> <span class="nav-text">User Interaction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Query-input"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">Query input</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Query-transformation"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">Query transformation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Results-output"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">Results output</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ranking"><span class="nav-number">2.3.3.</span> <span class="nav-text">Ranking</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scoring"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">Scoring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Performance-optimization"><span class="nav-number">2.3.3.2.</span> <span class="nav-text">Performance optimization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Distribution"><span class="nav-number">2.3.3.3.</span> <span class="nav-text">Distribution</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Evaluation-1"><span class="nav-number">2.3.4.</span> <span class="nav-text">Evaluation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Logging"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">Logging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ranking-analysis"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">Ranking analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Performance-analysis"><span class="nav-number">2.3.4.3.</span> <span class="nav-text">Performance analysis</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinyi Hu</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+-->
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+ 
+
+
+
+<!--
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+
+</body>
+</html>

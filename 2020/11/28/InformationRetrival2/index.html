@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Module2:Read: Chapter 4 to 4.5(excluding) By the end of this module you should be able to:  Tokenize text files, and understand the multiple subtleties of tokenization Describe what stop words are Des">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Information Retrieval">
+<meta property="og:url" content="http://nobugs.dev/2020/11/28/InformationRetrival2/index.html">
+<meta property="og:site_name" content="Xinyi&#39;s gadget">
+<meta property="og:description" content="Module2:Read: Chapter 4 to 4.5(excluding) By the end of this module you should be able to:  Tokenize text files, and understand the multiple subtleties of tokenization Describe what stop words are Des">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://nobugs.dev/2020/11/28/InformationRetrival2/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20201130193829055.png">
+<meta property="og:image" content="http://nobugs.dev/2020/11/28/InformationRetrival2/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20201130193905191.png">
+<meta property="og:image" content="http://nobugs.dev/2020/11/28/InformationRetrival2/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20201130193924709.png">
+<meta property="og:image" content="http://nobugs.dev/2020/11/28/InformationRetrival2/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20201129105002784.png">
+<meta property="og:image" content="http://nobugs.dev/2020/11/28/InformationRetrival2/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20201129105030050.png">
+<meta property="article:published_time" content="2020-11-28T22:44:23.000Z">
+<meta property="article:modified_time" content="2020-11-30T14:53:01.648Z">
+<meta property="article:author" content="Xinyi Hu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://nobugs.dev/2020/11/28/InformationRetrival2/Users/surface/AppData/Roaming/Typora/typora-user-images/image-20201130193829055.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nobugs.dev/2020/11/28/InformationRetrival2/"/>
+
+
+
+
+
+  <title>Information Retrieval | Xinyi's gadget</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xinyi's gadget</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-knowme">
+          <a href="/KnowMe" rel="section">
+            
+            KnowMe
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-blogs">
+          <a href="/archives" rel="section">
+            
+            Blogs
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friends">
+          <a href="/group" rel="section">
+            
+            Friends
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/11/28/InformationRetrival2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Information Retrieval</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-28T14:44:23-08:00">
+                2020-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ComputerScience/" itemprop="url" rel="index">
+                    <span itemprop="name">ComputerScience</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/11/28/InformationRetrival2/" class="leancloud_visitors" data-flag-title="Information Retrieval">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Module2"><a href="#Module2" class="headerlink" title="Module2:"></a>Module2:</h1><p>Read: Chapter 4 to 4.5(excluding)</p>
+<p>By the end of this module you should be able to:</p>
+<ul>
+<li>Tokenize text files, and understand the multiple subtleties of tokenization</li>
+<li>Describe what stop words are</li>
+<li>Describe what stemming is, in general, and Porter stemming in particular (no need to know all the rules!)</li>
+<li>Have an idea of what n-grams are, even though they aren’t exercised in the project</li>
+</ul>
+<p>Additionally, you will gain practical knowledge of:</p>
+<ul>
+<li>How to navigate through a directory tree in search of specific types of files</li>
+<li>How to read, and maybe write, zip files</li>
+</ul>
+<p>There are a few words that have very high frequencies and many words that have low frequencies. </p>
+<p>Zipf ’s law states that the frequency of the rth most common word is inversely proportional to r or, alternatively, the rank of a word times its frequency (f) is approximately a constant (k): r · f = k</p>
+<h2 id="Tokenize"><a href="#Tokenize" class="headerlink" title="Tokenize"></a>Tokenize</h2><p><strong>Tokenizing</strong> is the process of forming words from the sequence of characters in a document. All uppercase letters were also converted to lowercase.</p>
+<h3 id="Tokenizing-Process"><a href="#Tokenizing-Process" class="headerlink" title="Tokenizing Process"></a>Tokenizing Process</h3><p>•First step is to use parser to identify appropriate parts of document to tokenize</p>
+<p>•Defer complex decisions to other components</p>
+<h2 id="Stopping"><a href="#Stopping" class="headerlink" title="Stopping"></a>Stopping</h2><p>•Function words (determiners, prepositions) have little meaning on their own</p>
+<p>•High occurrence frequencies</p>
+<p>•Treated as <em>stopwords</em> (i.e. removed) </p>
+<p>–reduce index space, improve response time, improve effectiveness</p>
+<p>•Can be important in combinations</p>
+<p>–e.g., “to be or not to be”</p>
+<p>•Stopword list can be created from high-frequency words or based on a standard list</p>
+<p>•Lists are customized for applications, domains, and even parts of documents</p>
+<p>–e.g., “click” is a good stopword for anchor text</p>
+<p>•Best policy is to index all words in documents, make decisions about which words to use at query time</p>
+<h2 id="Stemming"><a href="#Stemming" class="headerlink" title="Stemming"></a>Stemming</h2><p>•Many morphological variations of words</p>
+<p>–<em>inflectional</em> (plurals, tenses)</p>
+<p>–<em>derivational</em> (making verbs nouns etc.)</p>
+<p>•In most cases, these have the same or very similar meanings</p>
+<p>•Stemmers attempt to reduce morphological variations of words to a common stem</p>
+<p>–usually involves removing suffixes</p>
+<p>•Can be done at indexing time or as part of query processing (like stopwords)</p>
+<p>•Generally a small but significant effectiveness improvement</p>
+<p>–can be crucial for some languages</p>
+<p>–e.g., 5-10% improvement for English, up to 50% in Arabic</p>
+<p><img src="/2020/11/28/InformationRetrival2/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20201130193829055.png" alt="image-20201130193829055"></p>
+<p>•Two basic types</p>
+<p>–Dictionary-based: uses lists of related words</p>
+<p>–Algorithmic: uses program to determine related words</p>
+<p>•Algorithmic stemmers</p>
+<p>–<em>suffix-s:</em> remove ‘s’ endings assuming plural</p>
+<p>•e.g., cats → cat, lakes → lake, wiis → wii</p>
+<p>•Many <em>false negatives</em>: supplies → supplie</p>
+<p>Some <em>false positives</em>: ups → up</p>
+<h3 id="Porter-Stemmer"><a href="#Porter-Stemmer" class="headerlink" title="Porter Stemmer"></a>Porter Stemmer</h3><p>•Consists of a series of rules designed to the longest possible suffix at each step</p>
+<p>•Makes a number of errors and difficult to modify</p>
+<p><img src="/2020/11/28/InformationRetrival2/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20201130193905191.png" alt="image-20201130193905191" style="zoom:50%;"></p>
+<h6 id="Issues"><a href="#Issues" class="headerlink" title="Issues: "></a>Issues: <img src="/2020/11/28/InformationRetrival2/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20201130193924709.png" alt="image-20201130193924709" style="zoom:50%;"></h6><h2 id="N-gram"><a href="#N-gram" class="headerlink" title="N-gram"></a>N-gram</h2><p>•Simpler definition – phrase is any sequence of <em>n</em> words – known as <em>n-grams</em></p>
+<p>–<em>bigram</em>: 2 word sequence, <em>trigram</em>: 3 word sequence, <em>unigram</em>: single words</p>
+<p>–N-grams also used at character level for applications such as OCR</p>
+<p>•N-grams typically formed from <em>overlapping</em> sequences of words</p>
+<p>–i.e. move n-word “window” one word at a time in document</p>
+<p>•Frequent n-grams are more likely to be meaningful phrases</p>
+<p>•N-grams form a Zipf distribution</p>
+<p>–Better fit than words alone</p>
+<p>•Could index all n-grams up to specified length</p>
+<p>–Much faster than POS tagging</p>
+<p>–Uses a lot of storage</p>
+<p>•e.g., document containing 1,000 words would contain 3,990 instances of word n-grams of length 2 <em>≤ n ≤ 5</em></p>
+<h1 id="Module3"><a href="#Module3" class="headerlink" title="Module3:"></a>Module3:</h1><p>Read: Chapter 5 of the textbook, up until (and including) 5.6.2</p>
+<ul>
+<li>Have an in-depth understanding of what inverted indexes are, and the challenges associated with their construction when the corpus is very large</li>
+<li>Change or add information to the payload in the postings</li>
+<li>Construct partial indexes and merge them at the end</li>
+<li>Shard an index</li>
+</ul>
+<h2 id="Indexes"><a href="#Indexes" class="headerlink" title="Indexes"></a>Indexes</h2><p>•<em>Indexes</em> are data structures designed to make search faster</p>
+<p>•Text search has unique requirements, which leads to unique data structures</p>
+<p>•Most common data structure is <em>inverted index</em></p>
+<p>–general name for a class of structures</p>
+<p>–“inverted” because documents are associated with words, rather than words with documents</p>
+<p>•similar to a <em>concordance</em></p>
+<h2 id="Indexes-and-Ranking"><a href="#Indexes-and-Ranking" class="headerlink" title="Indexes and Ranking"></a>Indexes and Ranking</h2><p>•Indexes are designed to support <em>search</em></p>
+<p>–faster response time, supports updates</p>
+<p>•Text search engines use a particular form of search: <em>ranking</em></p>
+<p>–documents are retrieved in sorted order according to a score computing using the document representation, the query, and a <em>ranking algorithm</em></p>
+<p>•What is a reasonable abstract model for ranking?</p>
+<p>–enables discussion of indexes without details of retrieval model</p>
+<h2 id="Inverted-Index"><a href="#Inverted-Index" class="headerlink" title="Inverted Index"></a>Inverted Index</h2><p>•Each index term is associated with an <em>inverted list</em></p>
+<p>–Contains lists of documents, or lists of word occurrences in documents, and other information</p>
+<p>–Each entry is called a <em>posting</em></p>
+<p>–The part of the posting that refers to a specific document or location is called a <em>pointer</em></p>
+<p>–Each document in the collection is given a unique number</p>
+<p>–Lists are usually <em>document-ordered</em> (sorted by document number)</p>
+<h2 id="Compression"><a href="#Compression" class="headerlink" title="Compression"></a>Compression</h2><p>•<em>Basic idea</em>: Common data elements use short codes while uncommon data elements use longer codes</p>
+<p>•Inverted lists are very large</p>
+<p>–e.g., 25-50% of collection for TREC collections using Indri search engine</p>
+<p>–Much higher if n-grams are indexed</p>
+<p>•Compression of indexes saves disk and/or memory space</p>
+<p>–Typically have to decompress lists to use them</p>
+<p>–Best compression techniques have good <em>compression ratios</em> and are easy to decompress</p>
+<p>•<em>Lossless</em> compression – no information lost</p>
+<h2 id="Distributed-Indexing"><a href="#Distributed-Indexing" class="headerlink" title="Distributed Indexing"></a>Distributed Indexing</h2><p>•Distributed processing driven by need to index and analyze huge amounts of data (i.e., the Web)</p>
+<p>•Large numbers of inexpensive servers used rather than larger, more expensive machines</p>
+<p>•<em>MapReduce</em> is a distributed programming tool designed for indexing and analysis tasks</p>
+<h2 id="Skipping"><a href="#Skipping" class="headerlink" title="Skipping"></a>Skipping</h2><p>•Search involves comparison of inverted lists of different lengths</p>
+<p>–Can be very inefficient</p>
+<p>–“Skipping” ahead to check document numbers is much better</p>
+<p>–Compression makes this difficult</p>
+<p>•Variable size, only d-gaps stored</p>
+<p>•Skip pointers are additional data structure to support skipping</p>
+<h2 id="Merging"><a href="#Merging" class="headerlink" title="Merging"></a>Merging</h2><p>•Merging addresses limited memory problem</p>
+<p>–Build the inverted list structure until memory runs out</p>
+<p>–Then write the partial index to disk, start making a new one</p>
+<p>–At the end of this process, the disk is filled with many partial indexes, which are merged</p>
+<p>•Partial lists must be designed so they can be merged in small pieces</p>
+<p>–e.g., storing in alphabetical order</p>
+<h3 id="Result-Merging"><a href="#Result-Merging" class="headerlink" title="Result Merging"></a>Result Merging</h3><p>•Index merging is a good strategy for handling updates when they come in large batches</p>
+<p>•For small updates this is very inefficient</p>
+<p>–instead, create separate index for new documents, merge <em>results</em> from both searches</p>
+<p>–could be in-memory, fast to update and search</p>
+<p>•Deletions handled using <em>delete list</em></p>
+<p>–Modifications done by putting old version on delete list, adding new version to new documents index</p>
+<h1 id="Module4-Search-and-Scoring"><a href="#Module4-Search-and-Scoring" class="headerlink" title="Module4: Search and Scoring"></a>Module4: Search and Scoring</h1><p>Read:</p>
+<ul>
+<li>Chapter 5 of the textbook, from 5.7 onward</li>
+<li>Chapter 6, up until (but excluding) 6.3.2</li>
+</ul>
+<p>By the end of this module you should be able to:</p>
+<ul>
+<li>Normalize queries to the indexed terms</li>
+<li>Have an good understanding of how to quantify the concept of <em>relevance</em> of a document to a query</li>
+<li>Obtain a sorted list of results for a given query, by applying a scoring formula</li>
+<li>Implement simple scoring formulas</li>
+<li>Discuss tradeoffs of <em>document-at-a-time</em> vs. <em>term-at-a-time</em> query processing</li>
+<li>Discuss common optimizations, such as conjunction</li>
+</ul>
+<h2 id="Query-Processing"><a href="#Query-Processing" class="headerlink" title="Query Processing"></a>Query Processing</h2><h3 id="Document-at-a-time-Evaluation"><a href="#Document-at-a-time-Evaluation" class="headerlink" title="Document-at-a-time Evaluation"></a>Document-at-a-time Evaluation</h3><p><img src="/2020/11/28/InformationRetrival2/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20201129105002784.png" alt="image-20201129105002784" style="zoom:50%;"></p>
+<h3 id="Term-at-a-time-Evaluation"><a href="#Term-at-a-time-Evaluation" class="headerlink" title="Term-at-a-time Evaluation"></a>Term-at-a-time Evaluation</h3><p><img src="/2020/11/28/InformationRetrival2/Users\surface\AppData\Roaming\Typora\typora-user-images\image-20201129105030050.png" alt="image-20201129105030050" style="zoom:50%;"></p>
+<p>•Term-at-a-time uses more memory for accumulators, but accesses disk more efficiently</p>
+<h2 id="Optimization-Methods"><a href="#Optimization-Methods" class="headerlink" title="Optimization Methods"></a>Optimization Methods</h2><p>There are two main classes of optimizations for query processing. The first is to read less data from the index, and the second is to process fewer documents. </p>
+<h2 id="Threshold-Methods"><a href="#Threshold-Methods" class="headerlink" title="Threshold Methods"></a>Threshold Methods</h2><p>•Threshold methods use number of top-ranked documents needed (<em>k</em>) to optimize query processing</p>
+<p>–for most applications, <em>k</em> is small</p>
+<p>•For any query, there is a <em>minimum score</em> that each document needs to reach before it can be shown to the user</p>
+<p>–score of the <em>k</em>th-highest scoring document</p>
+<p>–gives <em>threshold</em> <em>τ</em></p>
+<p>–optimization methods estimate <em>τ′</em> to ignore documents</p>
+<p>•For document-at-a-time processing, use score of lowest-ranked document so far for <em>τ′</em></p>
+<p>–for term-at-a-time, have to use <em>kth</em>-largest score in the accumulator table</p>
+<p>•<em>MaxScore</em> method compares the maximum score that remaining documents could have to <em>τ′</em></p>
+<p>–<em>safe</em> optimization in that ranking will be the same without optimization</p>
+<h1 id="Module5"><a href="#Module5" class="headerlink" title="Module5"></a>Module5</h1><p>Read: Chapter7.1</p>
+<p>By the end of this module you should be able to:</p>
+<ul>
+<li>Explain and implement tf-idf, the intuitions behind it, and the general shape of the formula</li>
+<li>Explain and implement cosine similarity of two vectors</li>
+<li>Have a more in-depth understanding of the various options to score and rank documents for queries</li>
+</ul>
+<h2 id="Relevance"><a href="#Relevance" class="headerlink" title="Relevance"></a>Relevance</h2><p>•Retrieval models make various assumptions about relevance to simplify problem</p>
+<p>–e.g., <em>topical</em> vs. <em>user</em> relevance</p>
+<p>–e.g., <em>binary</em> vs. <em>multi-valued</em> relevance</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/11/08/InformationRetrieval/" rel="next" title="Information Retrieval">
+                <i class="fa fa-chevron-left"></i> Information Retrieval
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/12/02/Concurrent_programming/" rel="prev" title="Concurrent Programming">
+                Concurrent Programming <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Xinyi Hu" />
+            
+              <p class="site-author-name" itemprop="name">Xinyi Hu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/samaritanhu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:samaritanhu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/in/cindy-hu-b98b1a163/" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Linkedin</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Module2"><span class="nav-number">1.</span> <span class="nav-text">Module2:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tokenize"><span class="nav-number">1.1.</span> <span class="nav-text">Tokenize</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tokenizing-Process"><span class="nav-number">1.1.1.</span> <span class="nav-text">Tokenizing Process</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stopping"><span class="nav-number">1.2.</span> <span class="nav-text">Stopping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stemming"><span class="nav-number">1.3.</span> <span class="nav-text">Stemming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Porter-Stemmer"><span class="nav-number">1.3.1.</span> <span class="nav-text">Porter Stemmer</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Issues"><span class="nav-number">1.3.1.0.0.1.</span> <span class="nav-text">Issues: </span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#N-gram"><span class="nav-number">1.4.</span> <span class="nav-text">N-gram</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Module3"><span class="nav-number">2.</span> <span class="nav-text">Module3:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Indexes"><span class="nav-number">2.1.</span> <span class="nav-text">Indexes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Indexes-and-Ranking"><span class="nav-number">2.2.</span> <span class="nav-text">Indexes and Ranking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inverted-Index"><span class="nav-number">2.3.</span> <span class="nav-text">Inverted Index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compression"><span class="nav-number">2.4.</span> <span class="nav-text">Compression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Distributed-Indexing"><span class="nav-number">2.5.</span> <span class="nav-text">Distributed Indexing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Skipping"><span class="nav-number">2.6.</span> <span class="nav-text">Skipping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Merging"><span class="nav-number">2.7.</span> <span class="nav-text">Merging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Result-Merging"><span class="nav-number">2.7.1.</span> <span class="nav-text">Result Merging</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Module4-Search-and-Scoring"><span class="nav-number">3.</span> <span class="nav-text">Module4: Search and Scoring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Query-Processing"><span class="nav-number">3.1.</span> <span class="nav-text">Query Processing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Document-at-a-time-Evaluation"><span class="nav-number">3.1.1.</span> <span class="nav-text">Document-at-a-time Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Term-at-a-time-Evaluation"><span class="nav-number">3.1.2.</span> <span class="nav-text">Term-at-a-time Evaluation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimization-Methods"><span class="nav-number">3.2.</span> <span class="nav-text">Optimization Methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Threshold-Methods"><span class="nav-number">3.3.</span> <span class="nav-text">Threshold Methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Module5"><span class="nav-number">4.</span> <span class="nav-text">Module5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Relevance"><span class="nav-number">4.1.</span> <span class="nav-text">Relevance</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinyi Hu</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+-->
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+ 
+
+
+
+<!--
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+
+</body>
+</html>

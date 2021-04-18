@@ -284,6 +284,1282 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/01/31/CS224n%20Classnotes%20Course1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/31/CS224n%20Classnotes%20Course1/" itemprop="url">Stanford CS224n Natural Language Processing Course1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-31T21:57:23-08:00">
+                2020-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/01/31/CS224n%20Classnotes%20Course1/" class="leancloud_visitors" data-flag-title="Stanford CS224n Natural Language Processing Course1">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  498
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://web.stanford.edu/class/cs224n/index.html#schedule" target="_blank" rel="noopener"><strong>Course Link(including Slides and Materials)</strong></a></p>
+<p><a href="http://onlinehub.stanford.edu/cs224" target="_blank" rel="noopener"><strong>Online Video Link</strong></a></p>
+<p><a href="https://www.bilibili.com/video/av46216519" target="_blank" rel="noopener"><strong>Online Video Link in Chinese</strong></a></p>
+<h1 id="Course-1-Introduction-and-Word-Vectors"><a href="#Course-1-Introduction-and-Word-Vectors" class="headerlink" title="Course 1 - Introduction and Word Vectors"></a>Course 1 - Introduction and Word Vectors</h1><p>Language isn’t a formal system. Language is glorious chaos. <em>by Chris Manning</em></p>
+<p><strong>Target</strong></p>
+<ul>
+<li>Modern methods: Recurrent networks, attentions</li>
+<li>Big Picture</li>
+<li>Build system in PyTorch: Word meaning, dependency parsing, machine translation, question answering.</li>
+</ul>
+<h2 id="1-how-do-we-represent-the-meaning-of-a-word"><a href="#1-how-do-we-represent-the-meaning-of-a-word" class="headerlink" title="1. how do we represent the meaning of a word?"></a>1. how do we represent the meaning of a word?</h2><p>signifier(symbol) &lt;=&gt; signified(idea or thing) = denotational semantics</p>
+<h2 id="2-how-do-we-have-usable-meaning-in-a-computer"><a href="#2-how-do-we-have-usable-meaning-in-a-computer" class="headerlink" title="2. how do we have usable meaning in a computer?"></a>2. how do we have usable meaning in a computer?</h2><p><strong>Common Solution</strong> Use e.g. WordNet containing lists of <strong>synonym sets</strong> and <strong>hypernyms</strong></p>
+<p><strong>Problems</strong> </p>
+<ul>
+<li>missing nuance: proficient = good in some contexts</li>
+<li>new meanings of words: wicked, badass, ninja</li>
+<li>Subjective</li>
+<li>Requires human labor to create and adapt</li>
+<li>Can’t compute accurate and word similarity</li>
+</ul>
+<h3 id="Representing-words-as-discrete-symbols"><a href="#Representing-words-as-discrete-symbols" class="headerlink" title="Representing words as discrete symbols"></a>Representing words as discrete symbols</h3><p><strong>one-hot vectors</strong> =&gt; <strong>encode similarity in the vector themselves</strong></p>
+<p><strong>Distributional semantics</strong>: A word’s meaning is given by the words that frequently appear close-by.</p>
+<p><strong>Word Vectors</strong>: a dense vector for each word, chosen so that it is similar to vectors of words that appear in similar contexts.</p>
+<p>Note: Word Vectors = Word Embeddings = Word Representations. All distributed representation</p>
+<script type="math/tex; mode=display">
+banking = \left[
+ \begin{matrix}
+   0.286 \\
+   0.792  \\
+   -0.177 \\
+   -0.107 \\
+   0.109 \\
+   -0.542\\
+   0.349\\
+   0.271\\
+   0.487
+  \end{matrix}
+  \right] \tag{1}</script><h2 id="3-Word2Vec-Overview"><a href="#3-Word2Vec-Overview" class="headerlink" title="3. Word2Vec: Overview"></a>3. Word2Vec: Overview</h2><p>Idea:</p>
+<ul>
+<li>a large corpus of text</li>
+<li>every word in a fixed vocabulary is represented by a <strong>vector</strong></li>
+<li>go through each position <em>t</em> in the text, which has a center word <em>c</em> and context words <em>o</em></li>
+<li>Use the <strong>similarity of the word vectors</strong> for <em>c</em> and <em>o</em> to <strong>calculate the probability</strong> of <em>o</em> given <em>c</em></li>
+<li><strong>Keep Adjusting the word vectors</strong> to maximize this probability</li>
+</ul>
+<script type="math/tex; mode=display">
+likelihood = L(\theta) = \prod_{t=1}^{T} \prod_{-m \leq j \leq m \atop j \neq 0} P\left(w_{t+j} | w_{t} ; \theta\right)</script><p>Note: theta is all variables to be optimized</p>
+<h3 id="Objective-function-J"><a href="#Objective-function-J" class="headerlink" title="Objective function J"></a>Objective function J</h3><p>sometimes called <strong>cost / loss function</strong></p>
+<script type="math/tex; mode=display">
+J(\theta)=-\frac{1}{T} \log L(\theta)=-\frac{1}{T} \sum_{t=1}^{T} \sum_{-m \leq j \leq m} \log P\left(w_{t+j} | w_{t} ; \theta\right)</script><p><strong>Minimizing objective function &lt;=&gt; Maximizing predictive accuracy</strong></p>
+<p><em>Question: How to calculate P?</em></p>
+<p><em>Answer: We use two vectors per word w</em></p>
+<ul>
+<li><code>v_w</code> when <em>w</em> is a center word</li>
+<li><code>u_w</code> when <em>w</em> is a context word</li>
+</ul>
+<p>Then for a center word <em>c</em> and a context word <em>o</em>:</p>
+<h3 id="Prediction-function"><a href="#Prediction-function" class="headerlink" title="Prediction function"></a>Prediction function</h3><script type="math/tex; mode=display">
+P(o | c)=\frac{\exp \left(u_{o}^{T} v_{c}\right)}{\sum_{w \in V} \exp \left(u_{w}^{T} v_{c}\right)}</script><h3 id="To-train-the-model-Compute-all-vector-gradients"><a href="#To-train-the-model-Compute-all-vector-gradients" class="headerlink" title="To train the model: Compute all vector gradients"></a>To train the model: Compute all vector gradients</h3><ul>
+<li><p>Recall: theta represents <strong>all</strong> model parameters, in one long vector</p>
+</li>
+<li><p>In our cases</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\theta=\left[\begin{array}{l}{v_{\text {aardvark}}} \\ {v_{a}} \\ {\vdots} \\ {v_{z e b r a}} \\ {u_{\text {aardvark}}} \\ {u_{a}} \\ {\vdots} \\ {u_{z e b r a}}\end{array}\right] \in \mathbb{R}^{2 d V}</script><ul>
+<li><p>Remember: every word has two vectors</p>
+</li>
+<li><p>We optimize these parameters by walking down the gradient</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2020/01/30/MYSQL_Leetcode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/30/MYSQL_Leetcode/" itemprop="url">Leetcode MySQL cases</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-30T17:03:23-08:00">
+                2020-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/01/30/MYSQL_Leetcode/" class="leancloud_visitors" data-flag-title="Leetcode MySQL cases">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  677
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-175-Combine-Two-Tables"><a href="#Problem-175-Combine-Two-Tables" class="headerlink" title="Problem 175 - Combine Two Tables"></a>Problem 175 - Combine Two Tables</h2><h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>Table: <code>Person</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+-------------+---------+</span><br><span class="line">| Column Name | Type    |</span><br><span class="line">+-------------+---------+</span><br><span class="line">| PersonId    | int     |</span><br><span class="line">| FirstName   | varchar |</span><br><span class="line">| LastName    | varchar |</span><br><span class="line">+-------------+---------+</span><br><span class="line">PersonId is the primary key column for this table.</span><br></pre></td></tr></table></figure>
+<p>Table: <code>Address</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+-------------+---------+</span><br><span class="line">| Column Name | Type    |</span><br><span class="line">+-------------+---------+</span><br><span class="line">| AddressId   | int     |</span><br><span class="line">| PersonId    | int     |</span><br><span class="line">| City        | varchar |</span><br><span class="line">| State       | varchar |</span><br><span class="line">+-------------+---------+</span><br><span class="line">AddressId is the primary key column for this table.</span><br></pre></td></tr></table></figure>
+<p>Write a SQL query for a report that provides the following information for each person in the Person table, regardless if there is an address for each of those people:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FirstName, LastName, City, State</span><br></pre></td></tr></table></figure>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>This is a easy question that interferes with <strong>LEFT JOIN</strong> technique, FYI, please notice the word <strong>ON</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT FirstName, LastName, City, State</span><br><span class="line">FROM </span><br><span class="line">Person a</span><br><span class="line">LEFT JOIN</span><br><span class="line">Address b</span><br><span class="line">ON a.PersonId &#x3D; b.PersonId;</span><br></pre></td></tr></table></figure>
+<h2 id="Problem-176-Second-Highest-Salary"><a href="#Problem-176-Second-Highest-Salary" class="headerlink" title="Problem 176 - Second Highest Salary"></a>Problem 176 - Second Highest Salary</h2><h3 id="Question-1"><a href="#Question-1" class="headerlink" title="Question:"></a>Question:</h3><p>Write a SQL query to get the second highest salary from the <code>Employee</code> table.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+----+--------+</span><br><span class="line">| Id | Salary |</span><br><span class="line">+----+--------+</span><br><span class="line">| 1  | 100    |</span><br><span class="line">| 2  | 200    |</span><br><span class="line">| 3  | 300    |</span><br><span class="line">+----+--------+</span><br></pre></td></tr></table></figure>
+<p>For example, given the above Employee table, the query should return <code>200</code> as the second highest salary. If there is no second highest salary, then the query should return <code>null</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+---------------------+</span><br><span class="line">| SecondHighestSalary |</span><br><span class="line">+---------------------+</span><br><span class="line">| 200                 |</span><br><span class="line">+---------------------+</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution:"></a>Solution:</h3><p>recommended way.</p>
+<p>Runtime: faster than 92%</p>
+<p>Memory: Less than 100%</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT MAX(salary) AS SecondHighestSalary</span><br><span class="line">FROM Employee</span><br><span class="line">WHERE salary &lt; (SELECT MAX(salary) FROM Employee);</span><br></pre></td></tr></table></figure>
+<p>other solution which might be slower for using the <strong>DISTINCT</strong> </p>
+<p>Runtime: faster than 39%</p>
+<p>Memory: Less than 100%</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">CASE WHEN COUNT(a.SecondHighestSalary) &gt; 0 THEN a.SecondHighestSalary ELSE null END AS SecondHighestSalary</span><br><span class="line">FROM</span><br><span class="line">(SELECT </span><br><span class="line">DISTINCT Salary AS SecondHighestSalary </span><br><span class="line">FROM</span><br><span class="line">Employee ORDER BY Salary DESC LIMIT 1,1) a;</span><br></pre></td></tr></table></figure>
+<h2 id="Problem-178-Rank-Scores"><a href="#Problem-178-Rank-Scores" class="headerlink" title="Problem 178 - Rank Scores"></a>Problem 178 - Rank Scores</h2><h3 id="Question-2"><a href="#Question-2" class="headerlink" title="Question:"></a>Question:</h3><p>Write a SQL query to rank scores. If there is a tie between two scores, both should have the same ranking. Note that after a tie, the next ranking number should be the next consecutive integer value. In other words, there should be no “holes” between ranks.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+----+-------+</span><br><span class="line">| Id | Score |</span><br><span class="line">+----+-------+</span><br><span class="line">| 1  | 3.50  |</span><br><span class="line">| 2  | 3.65  |</span><br><span class="line">| 3  | 4.00  |</span><br><span class="line">| 4  | 3.85  |</span><br><span class="line">| 5  | 4.00  |</span><br><span class="line">| 6  | 3.65  |</span><br><span class="line">+----+-------+</span><br></pre></td></tr></table></figure>
+<p>For example, given the above <code>Scores</code> table, your query should generate the following report (order by highest score):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+-------+------+</span><br><span class="line">| Score | Rank |</span><br><span class="line">+-------+------+</span><br><span class="line">| 4.00  | 1    |</span><br><span class="line">| 4.00  | 1    |</span><br><span class="line">| 3.85  | 2    |</span><br><span class="line">| 3.65  | 3    |</span><br><span class="line">| 3.65  | 3    |</span><br><span class="line">| 3.50  | 4    |</span><br><span class="line">+-------+------+</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-1-With-Variables"><a href="#Solution-1-With-Variables" class="headerlink" title="Solution 1: With Variables"></a>Solution 1: With Variables</h3><p>With variables: one for the current rank and one for the previous score.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT  Score,  @rank :&#x3D; @rank + (@prev &lt;&gt; (@prev :&#x3D; Score)) as &#39;Rank&#39; FROM  Scores,  (SELECT @rank :&#x3D; 0, @prev :&#x3D; -1) init ORDER BY Score desc</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-2-Always-Count"><a href="#Solution-2-Always-Count" class="headerlink" title="Solution 2: Always Count"></a>Solution 2: Always Count</h3><p>This one counts, for each score, the number of distinct greater or equal scores.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT  Score,  (SELECT count(distinct Score) FROM Scores WHERE Score &gt;&#x3D; s.Score) as &#39;Rank&#39; FROM Scores s ORDER BY Score desc</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-3-Always-Count-pre-uniqued"><a href="#Solution-3-Always-Count-pre-uniqued" class="headerlink" title="Solution 3: Always Count, pre-uniqued"></a>Solution 3: Always Count, pre-uniqued</h3><p>Same as the previous one, but faster because I have a subquery that “uniquifies” the scores first. Not entirely sure <em>why</em> it’s faster, I’m guessing MySQL makes tmp a temporary table and uses it for every outer Score.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT  Score,  (SELECT count(*) FROM (SELECT distinct Score s FROM Scores) tmp WHERE s &gt;&#x3D; Score) as &#39;Rank&#39; FROM Scores ORDER BY Score desc</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-4-Filter-Count-Scores-2"><a href="#Solution-4-Filter-Count-Scores-2" class="headerlink" title="Solution 4: Filter/Count Scores^2"></a>Solution 4: Filter/Count Scores^2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT s.Score, count(distinct t.score) Rank FROM Scores s JOIN Scores t ON s.Score &lt;&#x3D; t.score GROUP BY s.Id ORDER BY s.Score desc</span><br></pre></td></tr></table></figure>
+<h2 id="Problem-181-Employees-Earning-More-Than-Their-Managers"><a href="#Problem-181-Employees-Earning-More-Than-Their-Managers" class="headerlink" title="Problem 181 - Employees Earning More Than Their Managers"></a>Problem 181 - Employees Earning More Than Their Managers</h2><h3 id="Question-3"><a href="#Question-3" class="headerlink" title="Question:"></a>Question:</h3><p>The <code>Employee</code> table holds all employees including their managers. Every employee has an Id, and there is also a column for the manager Id.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+----+-------+--------+-----------+</span><br><span class="line">| Id | Name  | Salary | ManagerId |</span><br><span class="line">+----+-------+--------+-----------+</span><br><span class="line">| 1  | Joe   | 70000  | 3         |</span><br><span class="line">| 2  | Henry | 80000  | 4         |</span><br><span class="line">| 3  | Sam   | 60000  | NULL      |</span><br><span class="line">| 4  | Max   | 90000  | NULL      |</span><br><span class="line">+----+-------+--------+-----------+</span><br></pre></td></tr></table></figure>
+<p>Given the <code>Employee</code> table, write a SQL query that finds out employees who earn more than their managers. For the above table, Joe is the only employee who earns more than his manager.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+----------+</span><br><span class="line">| Employee |</span><br><span class="line">+----------+</span><br><span class="line">| Joe      |</span><br><span class="line">+----------+</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution:"></a>Solution:</h3><p>Runtime: faster than 93.96%</p>
+<p>Memory: Less than 100%</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.Name AS Employee</span><br><span class="line">FROM</span><br><span class="line">(SELECT * FROM Employee WHERE ManagerId IS NOT NULL) a</span><br><span class="line">LEFT JOIN</span><br><span class="line">Employee b</span><br><span class="line">ON a.ManagerId &#x3D; b.Id</span><br><span class="line">WHERE a.Salary &gt; b.Salary;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/08/29/SQL-cheetsheet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/29/SQL-cheetsheet/" itemprop="url">SQL cheetsheet</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T20:56:01-07:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/29/SQL-cheetsheet/" class="leancloud_visitors" data-flag-title="SQL cheetsheet">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  171
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="SQL-Cheetsheet"><a href="#SQL-Cheetsheet" class="headerlink" title="SQL Cheetsheet"></a>SQL Cheetsheet</h2><p>It’s more convenient to store the data in your MySQL instead of Hive to improve the efficiency and facilitate retrieval of the data if the amount of data is not that large. Here are some tips about SQL, according to <a href="https://www.coursera.org/learn/sql-data-science/" target="_blank" rel="noopener">IBM Databases and SQL for Data Science</a></p>
+<hr>
+<h3 id="String-Patterns-Ranges-Sorting-and-Grouping"><a href="#String-Patterns-Ranges-Sorting-and-Grouping" class="headerlink" title="String Patterns, Ranges, Sorting and Grouping"></a>String Patterns, Ranges, Sorting and Grouping</h3><p><strong>using string pattern</strong>: like ‘%%’</p>
+<p><strong>using a range</strong>: between … and …</p>
+<p><strong>using a set of values</strong>: in (‘’, ‘’)</p>
+<p><strong>Sorting</strong>: order by … / order by … desc / order by 2(column number)</p>
+<p><strong>Eliminating Duplicates</strong>: distinct </p>
+<p>It seems like you don’t need to write distinct(), distinct also works.</p>
+<p><strong>Group by clause</strong></p>
+<p><strong>Restricting the result set - Having clause</strong>: Having </p>
+<p>works only with the GROUP BY clause.</p>
+<hr>
+<h3 id="Functions-Sub-Queries-Multiple-Tables"><a href="#Functions-Sub-Queries-Multiple-Tables" class="headerlink" title="Functions, Sub-Queries, Multiple Tables"></a>Functions, Sub-Queries, Multiple Tables</h3><p><strong>Aggregate Functions</strong>: sum(), min(), max(), avg()</p>
+<p><strong>Scaler and String functions</strong>: round(), length(), ucase, lcase</p>
+<p><strong>Date and Time functions</strong>: year(), month(), day(), dayofmonth(), dayofweek(), dayofyear(), week(), hour(), minute(), second()</p>
+<p><strong>Date or time arithmetic</strong>: + 1 Days, CURRENT_DATE, CURRENT_TIME</p>
+<p><strong>Accessing multiple tables with with Implicit join</strong>: </p>
+<p>select * from employees E, departments D where E.DEP_ID = D.DEPT_ID_DEP;</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/07/14/webscrawler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/14/webscrawler/" itemprop="url">Discovery towards Web Scrawler</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-14T09:33:40-07:00">
+                2019-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web-Crawler/" itemprop="url" rel="index">
+                    <span itemprop="name">Web Crawler</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/14/webscrawler/" class="leancloud_visitors" data-flag-title="Discovery towards Web Scrawler">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  544
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Web-Scrawler-is-dangerous"><a href="#Web-Scrawler-is-dangerous" class="headerlink" title="Web Scrawler is dangerous"></a>Web Scrawler is dangerous</h3><p>First and foremost, do not touch web scrawler if you are 100% sure that you wanna do this.</p>
+<h3 id="Beginning"><a href="#Beginning" class="headerlink" title="Beginning"></a>Beginning</h3><p>The target website is enlightent, a third-party data website which have data of my company and component. </p>
+<p>We need to do some background research first. The problems I encountered are listed:</p>
+<ul>
+<li>Need to log in with WeChat account by QR code</li>
+<li>Simulate click (by package selenium)</li>
+<li>It’s a dynamic website, you need to wait for its information loaded (by package time)</li>
+<li>Write into MySQL (by package Pymysql)</li>
+</ul>
+<h3 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h3><h5 id="First-problem-cannot-be-solve-due-to-the-security-of-WeChat"><a href="#First-problem-cannot-be-solve-due-to-the-security-of-WeChat" class="headerlink" title="First problem cannot be solve due to the security of WeChat."></a>First problem cannot be solve due to the security of WeChat.</h5><h5 id="Second-problem"><a href="#Second-problem" class="headerlink" title="Second problem"></a>Second problem</h5><p>Step 1: Find the pattern in html. Using chrome, just ctrl+u or ctrl+shift+i. It needs your patience to find the thing you want. If you mistaken the pattern, you cannot get the information you want</p>
+<p>Step 2: Choose the function: by_path or by_class. The tricky point is that if there is only one class, it’s okay to use by_class, if there are more than two classes, selenium would choose the first class as your output. As a result, I choose by_path</p>
+<p>Step 3: Install chrome driver according to your chrome version. Be sure to download into /anaconda3/lib/site-packages.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Choose daily</span></span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">driver.find_elements_by_id(<span class="string">"rank-date-btn"</span>)[<span class="number">0</span>].click()</span><br><span class="line"><span class="comment"># Choose year</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_class_name(<span class="string">"datepicker-switch"</span>).click()</span><br><span class="line"><span class="comment"># Choose target month</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># driver.find_element_by_class_name("month").click()</span></span><br><span class="line">month_url = <span class="string">"/html/body/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div/div/div[2]/table/tbody/tr/td/span[%s]"</span> % (l+<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_xpath(month_url).click()</span><br><span class="line"><span class="comment"># Choose target Date</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># day = driver.find_element_by_class_name("day").click()</span></span><br><span class="line">xpath = <span class="string">"/html/body/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div/div/div/table/tbody/tr[%d]/td[%d]"</span> % ((start_date) // <span class="number">7</span> + <span class="number">1</span>, (start_date) % <span class="number">7</span> + <span class="number">1</span>)</span><br><span class="line">driver.find_element_by_xpath(xpath).click()</span><br><span class="line"><span class="comment"># Press enter</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_id(<span class="string">"choose-rank"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="Third-Problem-Data-Processing"><a href="#Third-Problem-Data-Processing" class="headerlink" title="Third Problem: Data Processing"></a>Third Problem: Data Processing</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">album_separately = string_list[j][string_list[j].find(<span class="string">'data-name='</span>):string_list[j].find(<span class="string">'data-channeltype="tv"'</span>)]</span><br><span class="line"><span class="keyword">if</span> j != <span class="number">0</span>: </span><br><span class="line">    album.append(album_separately.replace(<span class="string">'data-name='</span>,<span class="string">''</span>).replace(<span class="string">'"'</span>,<span class="string">''</span>))</span><br><span class="line">percentage_separately = string_list[j][string_list[j].find(<span class="string">'&lt;td class="sort rank-playTimesPredicted active" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;'</span>)]</span><br><span class="line">percentage.append(percentage_separately.replace(<span class="string">'&lt;td class="sort rank-playTimesPredicted active" style=""&gt;&lt;span&gt;'</span>,<span class="string">''</span>))</span><br><span class="line">click_separately = string_list[j][string_list[j].find(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;span class="star-playtimes"&gt;'</span>)]</span><br><span class="line"><span class="keyword">if</span> len(click_separately) &gt;= <span class="number">10</span>:</span><br><span class="line">    click_separately = string_list[j][string_list[j].find(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>):string_list[j].find(<span class="string">'&lt;/span&gt;&lt;/td&gt;&lt;td class="rank-average m-change" style=""&gt;'</span>)]</span><br><span class="line">click.append(click_separately.replace(<span class="string">'&lt;/td&gt;&lt;td class="rank-playTimes" style=""&gt;&lt;span&gt;'</span>,<span class="string">''</span>).replace(<span class="string">'&lt;/span&gt;&lt;span class="star-playtimes"&gt;'</span>,<span class="string">''</span>))</span><br></pre></td></tr></table></figure>
+<h5 id="Fourth-problem-Log-into-your-MySQL-and-use-python-like-MySQL"><a href="#Fourth-problem-Log-into-your-MySQL-and-use-python-like-MySQL" class="headerlink" title="Fourth problem: Log into your MySQL and use python like MySQL!"></a>Fourth problem: Log into your MySQL and use python like MySQL!</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db = DB(<span class="string">'your database'</span>)</span><br><span class="line">db.insert(dataset)</span><br></pre></td></tr></table></figure>
+<h3 id="Take-Care-Be-sure-to-add-time-sleep-when-you-do-it"><a href="#Take-Care-Be-sure-to-add-time-sleep-when-you-do-it" class="headerlink" title="Take Care! Be sure to add time.sleep() when you do it!"></a>Take Care! Be sure to add time.sleep() when you do it!</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/05/05/RandomForest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyi Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyi's gadget">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/05/RandomForest/" itemprop="url">Random Forest Classification from the bottom layer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-05T21:36:03-07:00">
+                2019-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ML-Concepts/" itemprop="url" rel="index">
+                    <span itemprop="name">ML Concepts</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/05/RandomForest/" class="leancloud_visitors" data-flag-title="Random Forest Classification from the bottom layer">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  918
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>import packages we need</p>
+<pre><code>import random
+import numpy as np
+import sys
+</code></pre><p>The feature list is an array of the possible feature indicies to use. This prevents splitting on the same feature multiple times and runs a rough C45 algorithm.</p>
+<p>In pseudocode, the general algorithm for building decision trees is:</p>
+<p>1.Check for base cases<br>2.For each attribute a<br>3.Find the normalized information gain ratio from splitting on a<br>4.Let a_best be the attribute with the highest normalized information gain<br>5.Create a decision node that splits on a_best<br>6.Recur on the sublists obtained by splitting on a_best, and add those nodes as children of node</p>
+<pre><code>class TreeNode:
+    def __init__(self, dataSet, featureList, parent=None):
+        self.featureNumber = None  #This is the trained index of the feature to split on
+        self.featureList = featureList 
+        self.threshold = None     #This is the trained threshold of the feature to split on
+        self.leftChild = None
+        self.rightChild = None
+        self.dataSet = dataSet
+        self.parent = parent
+
+    def c45Train(self):
+        if(self.dataSet.isPure()):
+            #gets the label of the first data instance and makes a leaf node
+            #classifying it. 
+            label = self.dataSet.getData()[0].getLabel()
+            leaf = LeafNode(label)
+            return leaf
+        #If there are no more features in the feature list
+        if len(self.featureList) == 0:
+            labels = self.dataSet.getLabelStatistics()
+            bestLabel = None
+            mostTimes = 0
+
+            for key in labels:
+                if labels[key] &gt; mostTimes:
+                    bestLabel = key
+                    mostTimes = labels[key]
+            #Make the leaf node with the best label
+            leaf = LeafNode(bestLabel)
+            return leaf
+
+        #Check all of the features for the split with the most 
+        #information gain. Use that split.
+        currentEntropy = self.dataSet.getEntropy()
+        currentLength = self.dataSet.getLength()
+        infoGain = -1 * sys.maxsize
+        bestFeature = 0
+        bestLeft = None
+        bestRight = None
+        bestThreshold = 0
+
+        #Feature Bagging, Random subspace
+        num = int(np.ceil(np.sqrt(len(self.featureList))))
+        featureSubset = random.sample(self.featureList, num)
+
+        for featureIndex in featureSubset:
+            #Calculate the threshold to use for that feature
+            threshold = self.dataSet.betterThreshold(featureIndex)
+
+            (leftSet, rightSet) = self.dataSet.splitOn(featureIndex, threshold)
+
+            leftEntropy = leftSet.getEntropy()
+            rightEntropy = rightSet.getEntropy()
+            #Weighted entropy for this split
+            newEntropy = (leftSet.getLength() / currentLength) * leftEntropy + (rightSet.getLength() / currentLength) * rightEntropy
+            #Calculate the gain for this test
+            newIG = currentEntropy - newEntropy
+
+            if(newIG &gt; infoGain):
+                #Update the best stuff
+                infoGain = newIG
+                bestLeft = leftSet
+                bestRight = rightSet
+                bestFeature = featureIndex
+                bestThreshold = threshold
+
+        newFeatureList = list(self.featureList)
+        newFeatureList.remove(bestFeature)
+
+        #Another base case, if there are no good features to split on
+        if bestLeft.getLength() == 0 or bestRight.getLength() == 0:
+            labels = self.dataSet.getLabelStatistics()
+            bestLabel = None
+            mostTimes = 0
+
+            for key in labels:
+                if labels[key] &gt; mostTimes:
+                    bestLabel = key
+                    mostTimes = labels[key]
+            #Make the leaf node with the best label
+            leaf = LeafNode(bestLabel)
+            return leaf
+
+        self.threshold = bestThreshold
+        self.featureNumber = bestFeature
+
+        leftChild = TreeNode(bestLeft, newFeatureList, self)
+        rightChild = TreeNode(bestRight, newFeatureList, self)
+
+        self.leftChild = leftChild.c45Train()
+        self.rightChild = rightChild.c45Train()
+
+        return self
+
+    def __str__(self):
+        return str(self.featureList)
+
+    def __repr__(self):
+        return self.__str__()
+
+    def classify(self, sample):
+        &#39;&#39;&#39;
+        Recursivly traverse the tree to classify the sample that is passed in. 
+        &#39;&#39;&#39;
+
+        value = sample.getFeatures()[self.featureNumber]
+
+        if(value &lt; self.threshold):
+            #Continue down the left child    
+            return self.leftChild.classify(sample)
+
+        else:
+            #continue down the right child
+            return self.rightChild.classify(sample)
+
+
+class LeafNode:
+    &#39;&#39;&#39;
+    A leaf node is a node that just has a classification 
+    and is used to cap off a tree.
+    &#39;&#39;&#39;
+
+    def __init__(self, classification):
+        self.classification = classification
+
+    def classify(self, sample):
+        #A leaf node simply is a classification, return that
+        #This is the base case of the classify recursive function for TreeNodes
+        return self.classification
+
+
+class C45Tree:
+    &#39;&#39;&#39;
+    A tree contains a root node and from here
+    does the training and classification. Tree objects also
+    are responsible for having the data that they use to train.
+    &#39;&#39;&#39;
+
+    def __init__(self, data):
+        self.rootNode = None
+        self.data = data
+
+    def train(self):
+        &#39;&#39;&#39;
+        Trains a decision tree classifier on data set passed in. 
+        The data set should contain a good mix of each class to be
+        classified.
+        &#39;&#39;&#39;
+        length = self.data.getFeatureLength()
+        featureIndices = range(length)
+        self.rootNode = TreeNode(self.data, featureIndices)
+        self.rootNode.c45Train()
+
+    def classify(self, sample):
+        &#39;&#39;&#39;
+        Classify a sample based off of this trained tree.
+        &#39;&#39;&#39;
+
+        return self.rootNode.classify(sample)
+</code></pre><p>Then we introduce the RandomForest algorithm</p>
+<pre><code>from C45Tree import C45Tree
+
+
+class RandomForest(object):
+    &quot;&quot;&quot;A random forest object with the default of using a C45Tree 
+    for each of the trees in the random forest. To train the forest
+    create an instance of it then call train on a TraingData object&quot;&quot;&quot;
+    def __init__(self, data, numberOfTrees=100):
+        &#39;&#39;&#39;
+        Initialize the random forest. 
+        Each tree has a bag of the data associated with it.
+        &#39;&#39;&#39;
+        self.data = data    #The data that the trees will be trained on
+        self.numberOfTrees = numberOfTrees
+        self.forest = []
+
+        for i in range(numberOfTrees):
+            bag = data.getBag()
+            self.forest.append(C45Tree(bag))
+
+    def train(self):
+        &#39;&#39;&#39;
+        Train the random forest trees.
+        &#39;&#39;&#39;
+        for tree in self.forest:
+            tree.train()
+
+    def classify(self, sample):
+        &#39;&#39;&#39;
+        Classify a data sample by polling the trees.
+        &#39;&#39;&#39;
+
+        #Create an empty dictionary
+        votes = {}
+        #Tally the votes, for each tree classify the sample
+        for tree in self.forest:
+            label = tree.classify(sample)
+            if label in votes:
+                votes[label] += 1
+            else:
+                votes[label] = 1
+
+        bestLabel = None
+        mostTimes = 0
+        #Find the label with the most votes
+        for key in votes:
+            if votes[key] &gt; mostTimes:
+                bestLabel = key
+                mostTimes = votes[key]
+
+        #Return the most popular label
+        return bestLabel      
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://nobugs.dev/2019/04/16/kaggle_1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -643,7 +1919,7 @@ shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -654,7 +1930,7 @@ shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -724,7 +2000,7 @@ shap.summary_plot(shap_values[1], X_test, plot_type=&quot;bar&quot;)
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-snowflake-o"></i>
   </span>
